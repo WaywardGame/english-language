@@ -796,7 +796,7 @@ english.item(ItemType.GoldCoins, "gold coins", "Shiny, golden coins, from a lost
 english.item(ItemType.GoldenChalice, "golden chalice", "A large, ornate, and resplendent chalice.", "a ");
 english.item(ItemType.GoldenKey, "golden key", "A large and decorative key forged from gold.", "a ");
 english.item(ItemType.GoldenRing, "golden ring", "A golden ring, most likely used as a sign of wealth and power.", "a ");
-english.item(ItemType.GoldenSword, "golden wword", "An ornate, but soft sword, forged from solid gold. Not suitable for combat due to its softness.", "a ");
+english.item(ItemType.GoldenSword, "golden sword", "An ornate, but soft sword, forged from solid gold. Not suitable for combat due to its softness.", "a ");
 english.item(ItemType.GrassBlades, "grass blades", "Long and almost sharp to the touch. These semi-dried grass blades are perfect for cordage and string making.");
 english.item(ItemType.GrassSeeds, "grass seeds", "Small dried grass seeds. Can be planted to grow grass.");
 english.item(ItemType.GreenSand, "green sand", "A form of malleable sand made with clay, used to make molds for metal casting.");
@@ -1149,7 +1149,7 @@ english.use(ActionType.Reinforce, "Reinforce", "Consumed on use. Use while facin
 english.use(ActionType.Repair, "Repair", "Use while facing a damaged item to attempt to repair it. Success based on skill used to make the item.");
 english.use(ActionType.Rest, "Rest", "Used to rest for a period of time to regain health and stamina. You will stop resting when reaching full stamina.");
 english.use(ActionType.SailToCivilization, "Sail To Civilization", "After collecting all the pieces of treasure, you can return to civilization and bask in the glory of your riches and fame. You can always return back to these lands afterwards.");
-english.use(ActionType.SetDown, "Set Down", "Using this item will place it over top of whatever tile is present in your facing direction. This is different than just dropping the item. It can also be used to extinguish fires.");
+english.use(ActionType.SetDown, "Set Down", "Using this item will place it on top of whatever tile is present in your facing direction. This is different than just dropping the item. It can also be used to extinguish fires.");
 english.use(ActionType.Shoot, "Shoot", "You can shoot arrows with this item.");
 english.use(ActionType.Sleep, "Sleep", "Used to sleep for a period of time to regain health and stamina. Duration is based on Camping skill and time of day. A bonus to all effects (including length) will be granted if facing a fire or lit object. Hunger and dehydration increases slower while sleeping.");
 english.use(ActionType.Sling, "Sling", "You can sling bullets with this item.");
