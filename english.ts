@@ -206,6 +206,7 @@ english.message(Message.BySteppingOnA, "by stepping on a ");
 english.message(Message.BySteppingOnTrap, "by stepping on a trap");
 english.message(Message.ByWorkingYourselfIntoExhaustion, "by working yourself into exhaustion");
 english.message(Message.Cancel, "Cancel");
+english.message(Message.CannotAddAnyMoreFuel, "You cannot add any more fuel to _0_.");
 english.message(Message.CannotBePerformedOverWater, "This action cannot be performed over water.");
 english.message(Message.CannotBePreserved, "This item cannot be preserved.");
 english.message(Message.CannotBeReinforced, "_0_ cannot be reinforced.");
@@ -668,7 +669,7 @@ english.message(Message.WaterPutOutFire, "The water has put out the fire.");
 english.message(Message.WaterWouldHaveNoEffect, "The water would have no effect on this plant.");
 english.message(Message.Weight, "Weight");
 english.message(Message.WeightCapacity, "Weight Capacity: _0_ / _1_");
-english.message(Message.WelcomeToWayward21, `Welcome to Wayward beta 2.1!<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`);
+english.message(Message.WelcomeToWayward21, `Welcome to Wayward beta 2.1.2!<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`);
 english.message(Message.WinFindWayBackToCivilization, "You find your way back to civilization and end your journey.");
 english.message(Message.WinSailBackWithRiches, "You sail back and enjoyed a good life with your riches.");
 english.message(Message.WinTravelledBackToCivilization, "You travelled back to civilization, but is this the end?");
@@ -699,7 +700,6 @@ english.message(Message.YouSee, "You see _0_.");
 english.message(Message.YouSeparate, "You separate _0_.");
 english.message(Message.YouThrew, "You threw _0_!");
 english.message(Message.YouUnequip, "You un-equip _0_.");
-english.message(Message.YouUsed, "You have used _0_!");
 english.message(Message.YouUsed, "You have used _0_!");
 
 // Items
