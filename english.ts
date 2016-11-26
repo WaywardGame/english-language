@@ -718,7 +718,7 @@ english.message(Message.WaterPutOutFire, "The water has put out the fire.");
 english.message(Message.WaterWouldHaveNoEffect, "The water would have no effect on this plant.");
 english.message(Message.Weight, "Weight");
 english.message(Message.WeightCapacity, "Weight Capacity: _0_ / _1_");
-english.message(Message.WelcomeToWayward22, `Welcome to Wayward beta 2.2!<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`);
+english.message(Message.WelcomeToWayward22, `Welcome to Wayward beta 2.2.2<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`);
 english.message(Message.WhatWouldYouLikeToNameItem, "What would you like to name this item?");
 english.message(Message.WinFindWayBackToCivilization, "You find your way back to civilization and end your journey.");
 english.message(Message.WinSailBackWithRiches, "You sail back and enjoyed a good life with your riches.");
