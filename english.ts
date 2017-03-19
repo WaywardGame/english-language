@@ -1,1471 +1,1646 @@
-﻿/// <reference path="languages.ts" />
-/// <reference path="messages.ts" />
-/// <reference path="tileevents.ts" />
-/// <reference path="milestones.ts" />
+import {
+	ActionType as Action, CreatureType as Creature,
+	DoodadType as Doodad, DoodadTypeGroup as DoodadGroup,
+	ItemType as Item, ItemTypeGroup as ItemGroup,
+	OnEquipType as OnEquip, SkillType as Skill, TerrainType as Terrain
+} from "Enums";
+import { Dictionary, UiMessage as Ui, UiMessageStatic as UiStatic } from "language/ILanguage";
+import Language from "language/Language";
+// import * as LanguageSerializer from "language/LanguageSerializer";
+import { Message } from "language/Messages";
+import { MilestoneType as Milestone } from "player/IMilestone";
+import { TileEventType as TileEvent } from "tile/ITileEvent";
+import { HintType as Hint } from "ui/IHint";
 
-const english = new Languages.Language("English", false, true);
+export let english = new Language("English", false, true);
+export default english;
 
-// UI
-english.ui(Languages.UiTranslation.Bleeding, "Bleeding");
-english.ui(Languages.UiTranslation.Burned, "Burned");
-english.ui(Languages.UiTranslation.DisableHints, "Disable Hints");
-english.ui(Languages.UiTranslation.EnableHints, "Enable Hints");
-english.ui(Languages.UiTranslation.EquipmentBack, "Back");
-english.ui(Languages.UiTranslation.EquipmentBelt, "Belt");
-english.ui(Languages.UiTranslation.EquipmentChest, "Chest");
-english.ui(Languages.UiTranslation.EquipmentFeet, "Feet");
-english.ui(Languages.UiTranslation.EquipmentHands, "Hands");
-english.ui(Languages.UiTranslation.EquipmentHead, "Head");
-english.ui(Languages.UiTranslation.EquipmentLeftHand, "Left Hand (Held)");
-english.ui(Languages.UiTranslation.EquipmentLegs, "Legs");
-english.ui(Languages.UiTranslation.EquipmentNeck, "Neck");
-english.ui(Languages.UiTranslation.EquipmentRightHand, "Right Hand (Held)");
-english.ui(Languages.UiTranslation.Health, "Health (Strength)");
-english.ui(Languages.UiTranslation.HudActions, "Actions");
-english.ui(Languages.UiTranslation.HudCrafting, "Crafting");
-english.ui(Languages.UiTranslation.HudEquipment, "Equipment");
-english.ui(Languages.UiTranslation.HudFilter, "Filter");
-english.ui(Languages.UiTranslation.HudHelp, "Help");
-english.ui(Languages.UiTranslation.HudInventory, "Inventory");
-english.ui(Languages.UiTranslation.HudMessages, "Messages");
-english.ui(Languages.UiTranslation.HudMilestones, "Milestones");
-english.ui(Languages.UiTranslation.HudOptions, "Options");
-english.ui(Languages.UiTranslation.HudSave, "Save");
-english.ui(Languages.UiTranslation.HudSkills, "Skills");
-english.ui(Languages.UiTranslation.HudTitleScreen, "Title Screen");
-english.ui(Languages.UiTranslation.Hunger, "Hunger (Metabolism/Starvation)");
-english.ui(Languages.UiTranslation.Malignity, "Malignity");
-english.ui(Languages.UiTranslation.MenuAbout, "About");
-english.ui(Languages.UiTranslation.MenuAboutCredits, "Vaughn 'Drathy' Royko (Programming/Web/PR/Design),Gary 'Spacetech' Wilber (Programming),Frank 'Sassafrass' Sasto (Programming),Dusty 'Goaticide' Melling (Art/Design),Austin Dhillon (Music)");
-english.ui(Languages.UiTranslation.MenuAboutDonators, "An extra special thank you to all the early testers, donators, and other supporters.");
-english.ui(Languages.UiTranslation.MenuAboutIntro, "Wayward is a turn-based, top-down, wilderness survival roguelike currently in beta. It's brought to you by these fine folk:");
-english.ui(Languages.UiTranslation.MenuAboutLibraries, "Greenworks, Electron, TypeScript, Node.js, jQuery, jQueryUI, TSM, lz-string, jQuery contextMenu, jQuery UI Touch Punch, Pluralize, Fixedsys Excelsior");
-english.ui(Languages.UiTranslation.MenuAboutLibrariesIntro, "Wayward is made possible with the following projects:");
-english.ui(Languages.UiTranslation.MenuAboutMessage, "Learn More About Wayward");
-english.ui(Languages.UiTranslation.MenuAboutThanks, "Richard 'Orillian' Hobson,Vlad 'vlsd' Seghete,Unstoppable Carl Olsen,Justin 'boxofrox' Charette,Frank Orechio,Drachlen,Joshua 'jday' Day,Oddmund 'oddmunds' Strømme");
-english.ui(Languages.UiTranslation.MenuAboutThanksIntro, "With special thanks to:");
-english.ui(Languages.UiTranslation.MenuAboutUnlok, `Wayward Beta ${gameVersion} © Unlok, 2011-2016`);
-english.ui(Languages.UiTranslation.MenuDailyChallenge, "Daily Challenge");
-english.ui(Languages.UiTranslation.MenuDeleteAllGameData, "Delete All Game Data");
-english.ui(Languages.UiTranslation.MenuDeleteGame, "Delete Game");
-english.ui(Languages.UiTranslation.MenuEditGame, "Edit Name");
-english.ui(Languages.UiTranslation.MenuEndGameDead, "You Died");
-english.ui(Languages.UiTranslation.MenuEndGameWon, "You Won");
-english.ui(Languages.UiTranslation.MenuExportGame, "Export Game");
-english.ui(Languages.UiTranslation.MenuExportSave, "Export Save");
-english.ui(Languages.UiTranslation.MenuImportGame, "Import Game");
-english.ui(Languages.UiTranslation.MenuImportSave, "Import Save");
-english.ui(Languages.UiTranslation.MenuManageMods, "Manage Mods");
-english.ui(Languages.UiTranslation.MenuManageModsDisableAll, "Disable All");
-english.ui(Languages.UiTranslation.MenuManageModsEnableAll, "Enable All");
-english.ui(Languages.UiTranslation.MenuManageModsInternal, "Internal Mods");
-english.ui(Languages.UiTranslation.MenuManageModsLocal, "Local Mods");
-english.ui(Languages.UiTranslation.MenuManageModsMessage, "Open Steam Workshop to Install Mods");
-english.ui(Languages.UiTranslation.MenuManageModsPublishMod, "Publish Mod");
-english.ui(Languages.UiTranslation.MenuManageModsUninstallMod, "Uninstall Mod");
-english.ui(Languages.UiTranslation.MenuManageModsViewInSteamWorkshop, "View Steam Workshop Page");
-english.ui(Languages.UiTranslation.MenuManageModsWorkshop, "Workshop Mods");
-english.ui(Languages.UiTranslation.MenuModdingGuide, "Modding Guide");
-english.ui(Languages.UiTranslation.MenuNews, "News");
-english.ui(Languages.UiTranslation.MenuNoHighscores, "No Highscores Available");
-english.ui(Languages.UiTranslation.MenuNoMods, "You have no mods installed");
-english.ui(Languages.UiTranslation.MenuOpenLogsFolder, "Open Logs Folder");
-english.ui(Languages.UiTranslation.MenuOpenModsFolder, "Open Mods Folder");
-english.ui(Languages.UiTranslation.MenuOptions, "Options");
-english.ui(Languages.UiTranslation.MenuOptionsMessage, "Change Your Game Settings");
-english.ui(Languages.UiTranslation.MenuPlayGame, "Play Game");
-english.ui(Languages.UiTranslation.MenuPlayGameMessage, "Continue or Create New");
-english.ui(Languages.UiTranslation.MenuPlayGameNewGame, "New Game");
-english.ui(Languages.UiTranslation.MenuPostATweet, "Share on Twitter");
-english.ui(Languages.UiTranslation.MenuQuitGame, "Quit Game");
-english.ui(Languages.UiTranslation.MenuReloadGame, "Reload Game");
-english.ui(Languages.UiTranslation.MenuShareOnFacebook, "Share on Facebook");
-english.ui(Languages.UiTranslation.MenuToggleDeveloperTools, "Toggle Developer Tools");
-english.ui(Languages.UiTranslation.MenuViewHighscores, "View Highscores");
-english.ui(Languages.UiTranslation.MenuViewHighscoresMessage, "Previous Deaths in Game");
-english.ui(Languages.UiTranslation.MenuVisitSteamWorkshop, "Visit Steam Workshop");
-english.ui(Languages.UiTranslation.NextHint, "Next Hint");
-english.ui(Languages.UiTranslation.OptionsAlternateContextMenu, "Alternate Context Menu");
-english.ui(Languages.UiTranslation.OptionsAlternateContextMenuTooltip, "If checked, right clicking items will display the item's menu instead of left click.");
-english.ui(Languages.UiTranslation.OptionsAlternateFont, "Alternate Font");
-english.ui(Languages.UiTranslation.OptionsAudio, "Audio");
-english.ui(Languages.UiTranslation.OptionsAudio, "Audio");
-english.ui(Languages.UiTranslation.OptionsAutoGather, "Auto Gather");
-english.ui(Languages.UiTranslation.OptionsAutoGatherTooltip, "If checked, you will automatically gather when moving into resource tiles.");
-english.ui(Languages.UiTranslation.OptionsAutoPickup, "Auto Pick-up");
-english.ui(Languages.UiTranslation.OptionsAutoPickupTooltip, "If checked, you will automatically pick-up items as you move on top of them.");
-english.ui(Languages.UiTranslation.OptionsBindDefault, "Default");
-english.ui(Languages.UiTranslation.OptionsBinds, "Binds");
-english.ui(Languages.UiTranslation.OptionsDeveloper, "Developer");
-english.ui(Languages.UiTranslation.OptionsDialogOpacity, "Dialog Opacity");
-english.ui(Languages.UiTranslation.OptionsDropOnGather, "Drop on Gather");
-english.ui(Languages.UiTranslation.OptionsDropOnGatherTooltip, "If checked, you will automatically drop items under your character as you gather them.");
-english.ui(Languages.UiTranslation.OptionsDropUnderYourself, "Drop Under Yourself");
-english.ui(Languages.UiTranslation.OptionsDropUnderYourselfTooltip, "If checked, dropping items will place them at your feet instead of to the adjacent facing tile.");
-english.ui(Languages.UiTranslation.OptionsEffects, "Effects");
-english.ui(Languages.UiTranslation.OptionsEnableHints, "Enable Hints");
-english.ui(Languages.UiTranslation.OptionsEnableHintsTooltip, "If checked, the game will display unseen hints when triggered.");
-english.ui(Languages.UiTranslation.OptionsFullscreenMode, "Fullscreen Mode");
-english.ui(Languages.UiTranslation.OptionsGame, "Game");
-english.ui(Languages.UiTranslation.OptionsGraphics, "Graphics");
-english.ui(Languages.UiTranslation.OptionsKeepSortActive, "Keep Sort Active");
-english.ui(Languages.UiTranslation.OptionsKeepSortActiveTooltip, "If checked, your inventory will keep sorting automatically as you get items.");
-english.ui(Languages.UiTranslation.OptionsKeyBindRebinding, "Press any key...");
-english.ui(Languages.UiTranslation.OptionsLanguage, "Language");
-english.ui(Languages.UiTranslation.OptionsMouseClickMovement, "Mouse Click Movement");
-english.ui(Languages.UiTranslation.OptionsMouseClickMovementTooltip, "If checked, you will be able to tap or use your mouse to move on screen.");
-english.ui(Languages.UiTranslation.OptionsMusic, "Music");
-english.ui(Languages.UiTranslation.OptionsMute, "Mute");
-english.ui(Languages.UiTranslation.OptionsNextSong, "Next");
-english.ui(Languages.UiTranslation.OptionsPixelFont, "Pixel Font");
-english.ui(Languages.UiTranslation.OptionsProtectedCraftingItems, "Protected Crafting Items");
-english.ui(Languages.UiTranslation.OptionsProtectedCraftingItemsTooltip, "If checked, equipped and quickslotted items won't be used in crafting.");
-english.ui(Languages.UiTranslation.OptionsSaveData, "Save Data");
-english.ui(Languages.UiTranslation.OptionsScaleDefault, "Default");
-english.ui(Languages.UiTranslation.OptionsScaleIn, "Scale In +");
-english.ui(Languages.UiTranslation.OptionsScaleOut, "Scale Out -");
-english.ui(Languages.UiTranslation.OptionsSkipIntro, "Skip Intro");
-english.ui(Languages.UiTranslation.OptionsSkipIntroTooltip, "If checked, the game will skip the Unlok logo screen.");
-english.ui(Languages.UiTranslation.OptionsVisionDither, "Dither Vision");
-english.ui(Languages.UiTranslation.OptionsVisionFade, "Fade Vision");
-english.ui(Languages.UiTranslation.OptionsWarnOnDangerousActions, "Warn On Dangerous Actions");
-english.ui(Languages.UiTranslation.OptionsWarnOnDangerousActionsTooltip, "If checked, a confirmation screen will display when stepping over doodads or objects that could injure you.");
-english.ui(Languages.UiTranslation.OptionsWarnWhenBreakingItems, "Warn When Breaking Items");
-english.ui(Languages.UiTranslation.OptionsWarnWhenBreakingItemsTooltip, "If checked, a confirmation screen will display when trying to craft using items that will break on failure.");
-english.ui(Languages.UiTranslation.OptionsWindowedMode, "Windowed Mode");
-english.ui(Languages.UiTranslation.OptionsWorldTooltips, "World Tooltips");
-english.ui(Languages.UiTranslation.OptionsWorldTooltipsTooltip, "If checked, hovering over non-empty tiles will reveal information in a tooltip so you don't have to inspect.");
-english.ui(Languages.UiTranslation.OptionsZoomIn, "Zoom In +");
-english.ui(Languages.UiTranslation.OptionsZoomOnScroll, "Zoom on Scroll");
-english.ui(Languages.UiTranslation.OptionsZoomOnScrollTooltip, "If checked, you will be able to zoom in and out in game using your mouse wheel/zoom gesture.");
-english.ui(Languages.UiTranslation.OptionsZoomOut, "Zoom Out -");
-english.ui(Languages.UiTranslation.Poisoned, "Poisoned");
-english.ui(Languages.UiTranslation.PreviousHint, "Previous Hint");
-english.ui(Languages.UiTranslation.QuickSlot1, "1");
-english.ui(Languages.UiTranslation.QuickSlot2, "2");
-english.ui(Languages.UiTranslation.QuickSlot3, "3");
-english.ui(Languages.UiTranslation.QuickSlot4, "4");
-english.ui(Languages.UiTranslation.QuickSlot5, "5");
-english.ui(Languages.UiTranslation.QuickSlot6, "6");
-english.ui(Languages.UiTranslation.QuickSlot7, "7");
-english.ui(Languages.UiTranslation.QuickSlot8, "8");
-english.ui(Languages.UiTranslation.QuickSlot9, "9");
-english.ui(Languages.UiTranslation.ReturnToTitleScreen, "Return to Title Screen");
-english.ui(Languages.UiTranslation.Stamina, "Stamina (Dexterity)");
-english.ui(Languages.UiTranslation.TabCrafting, "Crafting");
-english.ui(Languages.UiTranslation.TabDismantle, "Dismantle");
-english.ui(Languages.UiTranslation.Thirst, "Thirst (Metabolism/Dehydration)");
-english.ui(Languages.UiTranslation.Version, `Wayward Beta ${gameVersion}`);
-english.ui(Languages.UiTranslation.Weight, "Weight (Strength)");
-english.ui(Languages.UiTranslation.WindowTitleContainer, "Container");
-english.ui(Languages.UiTranslation.WindowTitleCrafting, "Crafting");
-english.ui(Languages.UiTranslation.WindowTitleEquipment, "Equipment");
-english.ui(Languages.UiTranslation.WindowTitleHighscores, "Highscores");
-english.ui(Languages.UiTranslation.WindowTitleInventory, "Inventory");
-english.ui(Languages.UiTranslation.WindowTitleMap, "Map");
-english.ui(Languages.UiTranslation.WindowTitleMessages, "Messages");
-english.ui(Languages.UiTranslation.WindowTitleMilestones, "Milestones");
-english.ui(Languages.UiTranslation.WindowTitleOptions, "Options");
-english.ui(Languages.UiTranslation.WindowTitleSkills, "Skills");
+english.onPrefix = (prefix: string) => prefix.length > 0 ? prefix + " " : "";
 
-// Messages
-// NOTE: Style guide
-// No contractions for in-game messages (other UI/dialogs can use them)
-// Past tense for all messages that appear when/during taking a turn
-// Present tense for all messages that appear when no turn is passed
-// For the style guide of the enum names, check enums.ts
-english.message(Message.AberrantCreatureDroppedItem, "Mysteriously, the aberrant creature dropped _0_.");
-english.message(Message.AboutHours, "It appeared you have _0_ for about _1_ _2_.");
-english.message(Message.AddedFuelToFire, "You added the fuel to the fire! The fire grows stronger.");
-english.message(Message.AddedFuelToTorch, "You added the fuel to the torch.");
-english.message(Message.AddFuel, "Add Fuel");
-english.message(Message.AddToQuickslot, "Add to Quickslot");
-english.message(Message.Advanced, "Advanced");
-english.message(Message.AlreadyFullyRepaired, "_0_ is already fully repaired.");
-english.message(Message.AlreadyWaterInStill, "There is already water in this still!");
-english.message(Message.AppearsToBeAberrant, "It appears to be aberrant and abnormally strong.");
-english.message(Message.AppearsToBeDawn, "It appears to be dawn.");
-english.message(Message.AppearsToBeDusk, "It appears to be dusk.");
-english.message(Message.AppearsToBeMidDay, "It appears to be mid day.");
-english.message(Message.AppearsToBeNight, "It appears to be night.");
-english.message(Message.AreYouSureYouWantToSail, "Are you sure you want to sail to civilization? Your journey will be over, but you can always return back to these lands.");
-english.message(Message.AreYouSureYouWantToStepOn, "Are you sure you want to step on to _0_?");
-english.message(Message.ArmorAppearedResistant, "Your armor appeared to be resistant to the attack.");
-english.message(Message.ArmorAppearedVulnerable, "Your armor appeared to be vulnerable to the attack.");
-english.message(Message.ArmorProtectedFromInjuryAgainst, "Your armor protected you from injury against the _0_.");
-english.message(Message.Attack, "Attack");
-english.message(Message.AttemptedToDropAllIntoFire, "You attempted to drop all of _0_ into the fire.");
-english.message(Message.AttemptToPlaceAllOnGround, "You attempted to place all of _0_ on the ground.");
-english.message(Message.AutomaticallySavingGame, "Automatically saving your game...");
-english.message(Message.AwakeToFindYourself, "You awake to find yourself no longer in the company of good men or a fine seafaring vessel. Instead you discover yourself in tattered clothing, with a pocket full of shoddy items. Treasure... you remember something about treasure.");
-english.message(Message.Back, "Back");
-english.message(Message.BadlyBurnedLostHealth, "You have been badly burned! You have lost _0_ health!");
-english.message(Message.BeenPoisoned, "You have been poisoned!");
-english.message(Message.BeginSleeping, "You begin sleeping...");
-english.message(Message.BeginUsingRaft, "You begin using a raft.");
-english.message(Message.Belt, "Belt");
-english.message(Message.BleedingHasStopped, "The bleeding has stopped!");
-english.message(Message.BleedingProfusely, "You start bleeding profusely!");
-english.message(Message.BleedingToDeathLostHealth, "You are bleeding to death! You have lost _0_ health!");
-english.message(Message.Blunt, "Blunt");
-english.message(Message.BrokeIntoPieces, "_0_ could no longer be repaired and broke into pieces.");
-english.message(Message.BrokenOnImpact, "_0_ has broken on impact!");
-english.message(Message.BrokenWhileFiring, "_0_ has broken while firing!");
-english.message(Message.Build, "build");
-english.message(Message.Burned, "burned");
-english.message(Message.By, "by ");
-english.message(Message.ByBleedingOut, "by bleeding out");
-english.message(Message.ByBurnInjuries, "by your burn injuries");
-english.message(Message.ByEatingSomethingBad, "by eating something bad for you");
-english.message(Message.ByPoisoning, "by poisoning");
-english.message(Message.BySteppingOnA, "by stepping on a ");
-english.message(Message.BySteppingOnTrap, "by stepping on a trap");
-english.message(Message.ByWorkingYourselfIntoExhaustion, "by working yourself into exhaustion");
-english.message(Message.Cancel, "Cancel");
-english.message(Message.CannotAddAnyMoreFuel, "You cannot add any more fuel to _0_.");
-english.message(Message.CannotBePerformedOverWater, "This action cannot be performed over water.");
-english.message(Message.CannotBePreserved, "This item cannot be preserved.");
-english.message(Message.CannotBeReinforced, "_0_ cannot be reinforced.");
-english.message(Message.CannotBeRepaired, "_0_ cannot be repaired.");
-english.message(Message.CannotBeTamed, "_0_ cannot be tamed.");
-english.message(Message.CannotBeTransmogrified, "_0_ cannot be transmogrified.");
-english.message(Message.CannotBuildHere, "You cannot build _0_ here!");
-english.message(Message.CannotDigHere, "You cannot dig here!");
-english.message(Message.CannotDropHere, "You cannot drop _0_ here!");
-english.message(Message.CannotEquipThatThere, "You cannot equip that there!");
-english.message(Message.CannotFishFor, "You cannot fish for _0_.");
-english.message(Message.CannotGatherFromWhileOnFire, "You cannot gather from that while it is on fire!");
-english.message(Message.CannotGatherHere, "You cannot gather anything here.");
-english.message(Message.CannotImproveGrowingSpeed, "You cannot improve the growing speed of this plant any further.");
-english.message(Message.CannotInWater, "You cannot _0_ items in water.");
-english.message(Message.CannotPickupWhenFull, "You cannot pick this up while it is full of water.");
-english.message(Message.CannotPickUpWhileLit, "You cannot pick this up while it is lit.");
-english.message(Message.CannotPickUpWithItemsInside, "You cannot pick this up with items inside!");
-english.message(Message.CannotPlaceContainerInItself, "You cannot place a container inside itself.");
-english.message(Message.CannotPlaceHere, "You cannot place _0_ here!");
-english.message(Message.CannotPlaceThatFromHere, "You cannot place that from here.");
-english.message(Message.CannotPlaceThatHere, "You cannot place that here.");
-english.message(Message.CannotPlantHere, "You cannot plant _0_ here!");
-english.message(Message.CannotRepairWhileLit, "You cannot repair this while it is lit!");
-english.message(Message.CannotRestHere, "You cannot rest here.");
-english.message(Message.CannotSeeHere, "You cannot see anything here.");
-english.message(Message.CannotSleepHere, "You cannot sleep here.");
-english.message(Message.CannotStartFireHere, "You cannot start a fire here!");
-english.message(Message.CannotToTellTime, "You cannot tell time from here!");
-english.message(Message.CarryingTooMuchWeight, "You are carrying too much weight!");
-english.message(Message.CarvedUpCorpse, "You carved and hacked up the corpse.");
-english.message(Message.CarveWithTool, "Carve With Tool");
-english.message(Message.CastYourLine, "You cast your line out _0_ spaces.");
-english.message(Message.Category, "Category");
-english.message(Message.CaughtFish, "You caught _0_!");
-english.message(Message.Chest, "Chest");
-english.message(Message.ClearMessages, "Clear Messages");
-english.message(Message.Clockwise, "clockwise");
-english.message(Message.CloseDoor, "Close Door");
-english.message(Message.CollectObjectWithHands, "Collect Object With Hands");
-english.message(Message.Consumed, "Consumed");
-english.message(Message.Container, "Container");
-english.message(Message.Cook, "cook");
-english.message(Message.Cooked, "cooked");
-english.message(Message.Corpse, "corpse");
-english.message(Message.CorruptSaveDetected, "Corrupt save detected. This save may not load properly.");
-english.message(Message.CouldNotDecipher, "You could not decipher the map.");
-english.message(Message.Counterclockwise, "counterclockwise");
-english.message(Message.Craft, "craft");
-english.message(Message.Crafted, "crafted");
-english.message(Message.Crafts, "Crafts");
-english.message(Message.CreatureAlreadyFullHealth, "_0_ is already at full health!");
-english.message(Message.CreatureAngered, "angered");
-english.message(Message.CreatureAppears, "_0_ appears!");
-english.message(Message.CreatureAppearsHealthy, "The creature appears to be healthy.");
-english.message(Message.CreatureAppearsUnhealthy, "The creature appears to be unhealthy.");
-english.message(Message.CreatureAppeased, "appeased");
-english.message(Message.CreatureIdolAttractedCreature, "The creature idol attracted another creature.");
-english.message(Message.CreatureIsAtPercentHealth, "The creature is at _0_% health.");
-english.message(Message.CreatureLooksBarelyHurt, "The creature looks barely hurt.");
-english.message(Message.CreatureLooksHealthyAndUndamaged, "The creature looks healthy and fairly undamaged.");
-english.message(Message.CreatureLooksInjured, "The creature looks injured.");
-english.message(Message.CreatureLooksSeverelyDamaged, "The creature looks severely damaged.");
-english.message(Message.CreatureSeemsHurt, "The creature seems hurt.");
-english.message(Message.CreatureSeemsInjured, "The creature seems very injured.");
-english.message(Message.CreatureSeemsUnimpaired, "The creature seems unimpaired.");
-english.message(Message.CreatureUntamed, "_0_ has become untamed.");
-english.message(Message.CuredYourPoison, "You have cured your poison!");
-english.message(Message.Cut, "cut");
-english.message(Message.DailyChallengeMode, "Daily Challenge Mode");
-english.message(Message.DamageAppearedEffective, "_0_ damage appeared to be effective.");
-english.message(Message.DamageAppearedIneffective, "_0_ damage appeared to be ineffective.");
-english.message(Message.DamagedByPouringWater, "You damaged _0_ by pouring out the water.");
-english.message(Message.DealtNoDamageToYou, "_0_ has dealt no damage to you.");
-english.message(Message.Decay, "Decay");
-english.message(Message.DefaultGameName, "Untitled Save _0_");
-english.message(Message.DependencyIssue, "Dependency issue.");
-english.message(Message.DestroyedFromUse, "_0_ has been destroyed from use.");
-english.message(Message.DestroyedGrowingByPickingItUp, "You destroyed _0_growing _1_ by trying to pick it up!");
-english.message(Message.DexterityIncreasing, "You felt your dexterity increasing!");
-english.message(Message.DidNotSeemToBeHurting, "_0_ did not seem to be hurting _1_.");
-english.message(Message.Dig, "dig");
-english.message(Message.Digging, "digging");
-english.message(Message.DigWithHands, "Dig With Hands");
-english.message(Message.Disassemble, "disassemble");
-english.message(Message.DisassembleAction, "Disassemble");
-english.message(Message.DiscoveredCaveEntrance, "You have discovered a cave entrance!");
-english.message(Message.DiscoveredInTheBottle, "You have discovered _0_ in the bottle!");
-english.message(Message.Dismantle, "dismantle");
-english.message(Message.DismantleAction, "Dismantle");
-english.message(Message.DismantleLabel, "Dismantle: ");
-english.message(Message.DismantlingRequires, "Dismantling this requires _0_.");
-english.message(Message.DoNotForgetToAddRequiredModsOnWorkshop, "Don't forget to add the required mods on the Steam Workshop page!");
-english.message(Message.DoNotHaveTreasureMaps, "You do not have any treasure maps!");
-english.message(Message.DoodadAppearsDamaged, "The _0_ appears have to have suffered a great deal of damage.");
-english.message(Message.DoodadAppearsOnVergeOfBreaking, "The _0_ is on the verge of breaking.");
-english.message(Message.DoodadAppearsUnscathed, "The _0_ appears to be unscathed.");
-english.message(Message.DoodadCauseStatus, "The _0_ has _1_ you. You have lost _2_ health!");
-english.message(Message.DoodadShowsSignsOfWear, "The _0_ shows signs of wear.");
-english.message(Message.DrewSurroundings, "You drew your surroundings.");
-english.message(Message.Drink, "Drink");
-english.message(Message.Drop, "Drop");
-english.message(Message.DropAll, "Drop All");
-english.message(Message.DropAllOfSameQuality, "Drop All of the Same Quality");
-english.message(Message.DroppedAllIntoDepths, "You dropped all of _0_ into the depths below.");
-english.message(Message.DroppedIntoDepths, "You dropped _0_ into the depths below.");
-english.message(Message.DroppedIntoFire, "You dropped _0_ into the fire.");
-english.message(Message.DueToDehydration, "due to dehydration");
-english.message(Message.DueToStarvation, "due to starvation");
-english.message(Message.DugTreasureOut, "You dug the treasure out.");
-english.message(Message.DumpContentsOfContainerInInventory, "You dump the contents of the container into your inventory!");
-english.message(Message.Durability, "Durability");
-english.message(Message.DyingOfDehydration, "You are dying of dehydration!");
-english.message(Message.EarnedMilestone, "You have earned the milestone, _0_! _1_");
-english.message(Message.EquipTo, "Equip to ");
-english.message(Message.ErrorHasOccured, "An error has occurred!");
-english.message(Message.Expert, "Expert");
-english.message(Message.ExtinguishedFire, "You extinguished the fire.");
-english.message(Message.ExtinguishedTorch, "You extinguished the torch.");
-english.message(Message.FailedToAddFuelToTorch, "You failed to add the fuel to the torch properly.");
-english.message(Message.FailedToCatchFish, "You failed to catch the fish!");
-english.message(Message.FailedToCauseDamage, "You failed to cause any damage to _0_ with _1_! _2_");
-english.message(Message.FailedToDrawMap, "You failed to draw the map.");
-english.message(Message.FailedToPickLock, "You failed to pick the lock.");
-english.message(Message.FailedToPlant, "You failed to plant _0_ in the ground.");
-english.message(Message.FailedToPreserve, "You failed to preserve the food.");
-english.message(Message.FailedToReinforce, "You failed to reinforce _0_.");
-english.message(Message.FailedToRepair, "You failed to repair _0_.");
-english.message(Message.FailedToStartFire, "You failed to start a fire!");
-english.message(Message.FailedToTame, "You have failed to tame _0_.");
-english.message(Message.FailedToTransmogrify, "You failed to transmogrify _0_.");
-english.message(Message.FarAwayFromTreasure, "You are far away from the treasure.");
-english.message(Message.Feet, "Feet");
-english.message(Message.FeltBurningPainLostHealth, "You felt burning pain! You have lost _0_ health!");
-english.message(Message.FewMinutes, "It appeared you _0_ for a few minutes.");
-english.message(Message.Filled, "You filled _0_.");
-english.message(Message.FilledFrom, "You filled _0_ from _1_.");
-english.message(Message.FinalizingWorld, "Finalizing World");
-english.message(Message.Fire, "Fire");
-english.message(Message.FireAlmostExtinguished, "The fire is almost extinguished.");
-english.message(Message.FiredIntoObstacle, "You fired _0_ into an obstacle.");
-english.message(Message.FireFacingYouIsWarm, "The fire facing you is warm and comforting.");
-english.message(Message.FireIsHealthy, "The fire is very healthy.");
-english.message(Message.FireIsRaging, "The fire is raging!");
-english.message(Message.FireIsStruggling, "The fire is struggling.");
-english.message(Message.FireSource, "A Fire Source");
-english.message(Message.FirstQuarterOfDay, "It is currently in the first quarter of the day.");
-english.message(Message.FirstQuarterOfNight, "It is currently in the first quarter of the night.");
-english.message(Message.Food, "food");
-english.message(Message.FoodAlreadyPreserved, "This food is already well preserved.");
-english.message(Message.FourthQuarterOfDay, "It is currently in the fourth quarter of the day.");
-english.message(Message.FourthQuarterOfNight, "It is currently in the fourth quarter of the night.");
-english.message(Message.FullyDecodedMap, "You fully decoded the map!");
-english.message(Message.GainedHealth, "You have gained _0_ health.");
-english.message(Message.GainedHunger, "You have gained _0_ hunger.");
-english.message(Message.GainedStamina, "You have gained _0_ stamina.");
-english.message(Message.GainedThirst, "You have gained _0_ thirst.");
-english.message(Message.GameHasBeenSavedIsTakingUpMB, "Your game has been saved! Your game save is taking up _0_MB.");
-english.message(Message.Gather, "gather");
-english.message(Message.Gathering, "gathering");
-english.message(Message.GatherWithHands, "Gather With Hands");
-english.message(Message.GeneratingWorld, "Generating World");
-english.message(Message.GrabAll, "Grab All");
-english.message(Message.Group, "Group");
-english.message(Message.Hands, "Hands");
-english.message(Message.HasBeenHurtByATrap, "_0_ has been hurt by a trap!");
-english.message(Message.HasBeenHurtByYourTrap, "_0_ has been hurt by your trap!");
-english.message(Message.HasDecayed, "Your _0_ has decayed.");
-english.message(Message.HasHitYouForDamage, "_0_ has hit you for _1_ damage! _2_");
-english.message(Message.HasSplit, "_0_ has split.");
-english.message(Message.Head, "Head");
-english.message(Message.Held, "Held");
-english.message(Message.Help, "Help");
-english.message(Message.Hints, "Hints");
-english.message(Message.HintsDisabled, "Hints disabled.");
-english.message(Message.HintsEnabled, "Hints enabled.");
-english.message(Message.HitForDamage, "You hit _0_ for _1_ damage with _2_! _3_");
-english.message(Message.Hour, "hour");
-english.message(Message.Hours, "hours");
-english.message(Message.HowDoYouWantToExportSave, "How do you want to export this save?");
-english.message(Message.HurtHandsHittingWithoutWeapons, "You hurt your hands hitting _0_ without any weapons!");
-english.message(Message.HurtHandsWithNoTool, "You hurt your hands by _0_ with no tool.");
-english.message(Message.IncompatibleVersion, "This mod is not compatible with this version of Wayward.");
-english.message(Message.InExactLocationOfTreasure, "You are in the exact location of where the treasure is buried.");
-english.message(Message.InjuredFromTrap, "You have been injured from a trap!");
-english.message(Message.InNeedOfRepair, "_0_ is in need of repair.");
-english.message(Message.Inspect, "Inspect");
-english.message(Message.Intermediate, "Intermediate");
-english.message(Message.Inventory, "Inventory");
-english.message(Message.ItContains, "It contains _0_.");
-english.message(Message.ItemInCraftWillBeDestroyed, "Item(s) in the craft will be destroyed on success or failure. Do you wish to continue?");
-english.message(Message.ItsWeightCapacity, "Its weight capacity is _0_ / _1_.");
-english.message(Message.Jump, "Jump");
-english.message(Message.Killed, "Killed _0_!");
-english.message(Message.LabelAttackFromTactics, "Attack From Tactics:");
-english.message(Message.LabelAuthor, "Author: ");
-english.message(Message.LabelBase, "Base: ");
-english.message(Message.LabelBaseAttack, "Base Attack:");
-english.message(Message.LabelBaseDefense, "Base Defense:");
-english.message(Message.LabelBluntResist, "Blunt Resist:");
-english.message(Message.LabelDecay, "Decay: ");
-english.message(Message.LabelDefense, "Defense:");
-english.message(Message.LabelDefenseFromParrying, "Defense From Parrying:");
-english.message(Message.LabelDoodadRequired, "Doodad Required: ");
-english.message(Message.LabelDurability, "Durability: ");
-english.message(Message.LabelEquip, "Equip:");
-english.message(Message.LabelFireResist, "Fire Resist:");
-english.message(Message.LabelGrouping, "Grouping: ");
-english.message(Message.LabelHave, "Have: ");
-english.message(Message.LabelHp, "HP: ");
-english.message(Message.LabelLastUpdated, "Last Updated: ");
-english.message(Message.LabelLeftHandAttack, "Left Hand Attack:");
-english.message(Message.LabelLevel, "Level: ");
-english.message(Message.LabelLightSourceWhenLit, "Light Source When Lit: ");
-english.message(Message.LabelMalignityNegative, "- Malignity: ");
-english.message(Message.LabelMalignityPlus, "+ Malignity: ");
-english.message(Message.LabelOnEquip, "On Equip: ");
-english.message(Message.LabelPiercingResist, "Piercing Resist:");
-english.message(Message.LabelRange, "Range: ");
-english.message(Message.LabelRanged, "Ranged: ");
-english.message(Message.LabelRangedAttack, "Ranged Attack: ");
-english.message(Message.LabelRangedDamage, "Ranged Damage:");
-english.message(Message.LabelRequiredMods, "Required Mods: ");
-english.message(Message.LabelRequires, "Requires: ");
-english.message(Message.LabelResists, "Resists: ");
-english.message(Message.LabelRightHandAttack, "Right Hand Attack:");
-english.message(Message.LabelScore, "Score: ");
-english.message(Message.LabelSkill, "Skill: ");
-english.message(Message.LabelSlashingResist, "Slashing Resist:");
-english.message(Message.LabelStokeFireStrength, "Stoke Fire Strength: ");
-english.message(Message.LabelUse, "Use:");
-english.message(Message.LabelUses, "Uses:");
-english.message(Message.LabelVersion, "Version: ");
-english.message(Message.LabelVulnerabilities, "Vulnerabilities: ");
-english.message(Message.LabelWeight, "Weight: ");
-english.message(Message.LabelWeightCapacity, "Weight Capacity: ");
-english.message(Message.LabelWeightReduction, "Weight Reduction: ");
-english.message(Message.LastPlaceYouLeftOff, "You awake to discover yourself in the last place you left off...");
-english.message(Message.LearnedHowToCreate, "You have learned how to create _0_!");
-english.message(Message.LeftHand, "Left Hand (Held)");
-english.message(Message.Legs, "Legs");
-english.message(Message.LikelyFailures, " It is likely you will not be able to craft this without many failures.");
-english.message(Message.LoadingMods, "Loading Mods");
-english.message(Message.LoadingSprites, "Loading Sprites");
-english.message(Message.LoadingWorld, "Loading World");
-english.message(Message.LocalFile, "Local File");
-english.message(Message.LocalVersionOfModDetected, "A local version of this mod has been detected. The Workshop version will not load.");
-english.message(Message.LoseBonesLayBleaching, "Your bones lay bleaching, lost to time.");
-english.message(Message.LoseEndIsBeginning, "The end is just the beginning.");
-english.message(Message.LoseSadlyNoTrace, "Sadly, no trace of you was ever found.");
-english.message(Message.LostHealth, "You have lost _0_ health.");
-english.message(Message.LostHunger, "You have lost _0_ hunger.");
-english.message(Message.LostStamina, "You have lost _0_ stamina.");
-english.message(Message.LostThirst, "You have lost _0_ thirst.");
-english.message(Message.MapNotOfThisArea, "This map is not of this area.");
-english.message(Message.MaterialsDestroyedDisassembly, "Some materials have been destroyed on disassembly.");
-english.message(Message.MaterialsDestroyedDismantle, "Some materials have been destroyed from dismantling.");
-english.message(Message.MetabolismSlowed, "Your metabolism has slowed. You will require less food and water.");
-english.message(Message.MilestoneIsHidden, "This milestone is hidden.");
-english.message(Message.MilestoneIsInvisible, "This milestone is invisible.");
-english.message(Message.MissedWith, "You missed _0_ with _1_!");
-english.message(Message.MissingRequiredMods, "You are missing one or more required mods.");
-english.message(Message.ModImportedSaveGame, "A mod has imported a saved game.");
-english.message(Message.ModLoadError, "Error loading mod. One or more files may be corrupt.");
-english.message(Message.ModRequiresItself, "This mod requires itself.");
-english.message(Message.ModWithNameAlreadyExists, "A mod with that name already exists. Try changing the name of the slot.");
-english.message(Message.MouseButton, "M_0_");
-english.message(Message.MoveAllOfSameQualityToInventory, "Move All of Same Quality to Inventory");
-english.message(Message.MoveAllOfSameQualityToLastOpenedContainer, "Move All of Same Quality to Last Opened Container");
-english.message(Message.MoveAllOfSameQualityToOpenedContainer, "Move All of Same Quality to Opened Container");
-english.message(Message.MoveAllToInventory, "Move All to Inventory");
-english.message(Message.MoveAllToLastOpenedContainer, "Move All to Last Opened Container");
-english.message(Message.MoveAllToOpenedContainer, "Move All to Opened Container");
-english.message(Message.MoveOverTrapButDoNotSetOff, "You move over the trap, but do not set it off.");
-english.message(Message.MoveToInventory, "Move to Inventory");
-english.message(Message.MoveToLastOpenedContainer, "Move to Last Opened Container");
-english.message(Message.MoveToOpenedContainer, "Move to Opened Container");
-english.message(Message.MustBeEquippedToIgnite, "_0_ must be equipped to ignite it.");
-english.message(Message.MustCastIntoWater, "You must cast this into water to catch anything.");
-english.message(Message.Mysteriously, "mysteriously");
-english.message(Message.Name, "Name");
-english.message(Message.NearlyBurnedEquipmentProtectedYou, "You were nearly burned, but your equipment protected you.");
-english.message(Message.Neck, "Neck");
-english.message(Message.NeedAShovelToDigTreasure, "You need a shovel to be able to dig up this treasure.");
-english.message(Message.NeedFishingNetForTreasure, "You need a fishing net to be able to get this treasure.");
-english.message(Message.NeedToEquipToShoot, "You need to equip this to shoot from it!");
-english.message(Message.NeedToStartTravelsOutside, "You need to start your travels outside.");
-english.message(Message.NeedWaterForRaft, "You need to be in water to use a raft.");
-english.message(Message.No, "No");
-english.message(Message.NoAmmunitionForThatWeapon, "You do not have any ammunition for that weapon in your inventory!");
-english.message(Message.NoBlackPowderToFireWeapon, "You do not have any black powder to fire this weapon.");
-english.message(Message.NoFireToStokeWith, "There is no fire to stoke with _0_ here!");
-english.message(Message.NoFishAtLocation, "There is no fish at this location!");
-english.message(Message.NoFuelItemsToStartFire, "You do not have any fuel to start the fire.");
-english.message(Message.NoInkToDrawMap, "You do not have any ink to draw a map with!");
-english.message(Message.NoKindlingToStartFire, "You do not have any kindling to start the fire.");
-english.message(Message.NoLongerFeelPainOBeingfBurned, "You no longer feel the pain of being burned!");
-english.message(Message.NoMoreRoomInContainer, "There is no more room in this container for that item.");
-english.message(Message.NoNeedToStokeFire, "There is no need to stoke this fire.");
-english.message(Message.NoRoomForImprovement, "_0_ has no room for improvement!");
-english.message(Message.NoRoomToDrop, "There is no room to drop that here!");
-english.message(Message.NotAvailable, "N/A");
-english.message(Message.NotEnoughFoodToTravel, "You do not have enough _0_ to attempt a long travel!");
-english.message(Message.NotEnoughPurifiedWaterYet, "There is not enough purified water available in the still yet.");
-english.message(Message.NotEnoughStrengthToThrow, "You do not have enough strength to throw this!");
-english.message(Message.NotEnoughTreasureToReturn, "You do not have all the pieces of treasure in order to return to civilization.");
-english.message(Message.NotFacingCreatureToHeal, "You are not facing a creature to heal.");
-english.message(Message.NotFacingLockedObject, "You are not facing a locked object.");
-english.message(Message.NotFacingValidFoodForPreservation, "You are not facing a valid food item for preservation.");
-english.message(Message.NotFacingValidItemForReinforcement, "You are not facing a valid item for reinforcement.");
-english.message(Message.NotFacingValidItemForRepair, "You are not facing a valid item for repair.");
-english.message(Message.NotFacingValidItemToTransmogrify, "You are not facing a valid item to transmogrify.");
-english.message(Message.NothingHereToCarve, "There is nothing here to carve!");
-english.message(Message.NothingHereToFill, "There is nothing here to fill _0_.");
-english.message(Message.NothingHereToGardenWith, "There is nothing here to garden with _0_ here!");
-english.message(Message.NoTinderToStartFire, "You do not have any tinder to start the fire.");
-english.message(Message.NotInRangeOfTreasure, "You are not in the range of any buried treasure!");
-english.message(Message.NoWaterInStill, "There is no water in this still.");
-english.message(Message.NoWhereNearTreasure, "You are no where near the treasure.");
-english.message(Message.NumberEight, "eight");
-english.message(Message.NumberFive, "five");
-english.message(Message.NumberFour, "four");
-english.message(Message.NumberNine, "nine");
-english.message(Message.NumberOne, "one");
-english.message(Message.NumberSeven, "seven");
-english.message(Message.NumberSix, "six");
-english.message(Message.NumberTen, "ten");
-english.message(Message.NumberThree, "three");
-english.message(Message.NumberTwo, "two");
-english.message(Message.ObjectIsLocked, "The object is locked, you attempt to break it open.");
-english.message(Message.Offer, "Offer");
-english.message(Message.Ok, "OK");
-english.message(Message.OpenDoor, "Open Door");
-english.message(Message.OpenFolderFailed, "Failed to open the folder. Please navigate to the folder manually.");
-english.message(Message.OverEatingLostStamina, "You are over-eating! You have lost 10 stamina.");
-english.message(Message.OverHydratingLostStamina, "You are over-hydrating! You have lost 10 stamina.");
-english.message(Message.PaperTurnedToMush, "The wet piece of paper turned to mush as it was released from the bottle.");
-english.message(Message.PartiallyDecodedMap, "You partially decoded the map.");
-english.message(Message.PastExperiencesProvideBenefits, "Your past experiences provide you benefits for survival.");
-english.message(Message.PenultimateAnd, "and");
-english.message(Message.PetCreature, "You pet _0_. It appears to enjoy it.");
-english.message(Message.PickupAllItems, "Pick-up All Items");
-english.message(Message.PickupItem, "Pick-up Item");
-english.message(Message.Piercing, "Piercing");
-english.message(Message.Place, "place");
-english.message(Message.PlacedOnGround, "You placed _0_ on the ground!");
-english.message(Message.Plant, "plant");
-english.message(Message.PlantedInGround, "You planted _0_ in the ground.");
-english.message(Message.PlantIsFertile, "The plant is fertile and may spread a bit.");
-english.message(Message.PlantIsNotFertile, "The plant is not fertile and will not spread.");
-english.message(Message.PlantVeryHealthy, "The plant is very healthy and its fertility will allow it to spread a lot.");
-english.message(Message.Poisoned, "poisoned");
-english.message(Message.PoisonedLostHealth, "You are poisoned! You have lost _0_ health!");
-english.message(Message.PoisonWorkedItsCourse, "The poison has worked its course!");
-english.message(Message.PouredOutWater, "You poured out the water.");
-english.message(Message.PouredOutWaterOnYourself, "You poured out the water on yourself.");
-english.message(Message.PouredWaterIntoStill, "You poured the water into the still.");
-english.message(Message.Preserve, "Preserve");
-english.message(Message.PreservedFood, "You preserved the food.");
-english.message(Message.PublishingMod, "Publishing Mod");
-english.message(Message.PurifiedWaterInStill, "There is purified water in the still.");
-english.message(Message.Quality, "Quality");
-english.message(Message.Recent, "Recent");
-english.message(Message.RefreshingMods, "Refreshing Mods");
-english.message(Message.Reinforce, "You reinforce _0_.");
-english.message(Message.Release, "Release");
-english.message(Message.RemovedBlood, "You removed the blood.");
-english.message(Message.RemoveFromQuickslot, "Remove from Quickslot");
-english.message(Message.Rename, "Rename");
-english.message(Message.Repair, "repair");
-english.message(Message.RequiredForDisassembleLabel, "Required for Disassembly: ");
-english.message(Message.RequiredForDisassembly, "_0_ is required for disassembly of this item!");
-english.message(Message.RequiredModsMissingWantToContinue, "One or more required mods are missing. Unexpected results may occur. Are you sure you want to continue?");
-english.message(Message.RequiredModsNotLoaded, "One or more required mods are not loaded.");
-english.message(Message.RequiresFireToBeLit, "This still requires a fire to be lit underneath it to begin purifying water.");
-english.message(Message.RequiresYouAroundFireSource, "This item requires you to be around a fire source in order to light it.");
-english.message(Message.RequiresYouToBeAround, "This item requires you to be around _0_ in order to _1_ it.");
-english.message(Message.Rest, "Rest");
-english.message(Message.Rested, "rested");
-english.message(Message.Resting, "Resting");
-english.message(Message.RestInterrupted, "Your rest has been interrupted!");
-english.message(Message.RestOnGround, "Rest on Ground");
-english.message(Message.ReturnedToCivilization, "Returned to civilization!");
-english.message(Message.ReturningToCivilizationSetOffAgain, "After returning the treasure back to civilization, you set off again...");
-english.message(Message.ReturnsToLife, "_0_ returns to life!");
-english.message(Message.ReturnToTitleScreenNoSaveInDailyChallenge, "Are you sure you want to return to the title screen?<br />Note: Your progress is not saved in Daily Challenge Mode.");
-english.message(Message.ReturnToTitleScreenProgressWillBeSaved, "Are you sure you want to return to the title screen?<br />Note: Your progress will be saved automatically.");
-english.message(Message.RightHand, "Right Hand (Held)");
-english.message(Message.SailedToCivilization, "You sailed to civilization in this game.");
-english.message(Message.SavingGame, "Saving Game");
-english.message(Message.Score, "_0_ Score");
-english.message(Message.ScrollProvidedNoUsefulInsight, "You are truly a master of the crafts. The scroll provided no useful insight for you.");
-english.message(Message.SeaweedFromWater, "You dragged a slimy mass of seaweed up out of the water!");
-english.message(Message.SecondQuarterOfDay, "It is currently in the second quarter of the day.");
-english.message(Message.SecondQuarterOfNight, "It is currently in the second quarter of the night.");
-english.message(Message.SeeGrowing, "You see _0_growing _1_.");
-english.message(Message.SeemsToHaveDrawnEnergy, "_0_ seems to have drawn energy from _1_!");
-english.message(Message.SetTrapOffButNoDamage, "You set the trap off, but it does no damage to you.");
-english.message(Message.SetUp, "You have set up _0_.");
-english.message(Message.ShadowInTheWater, "You have seen a shadow in the water.");
-english.message(Message.Simple, "Simple");
-english.message(Message.Skill, "Skill");
-english.message(Message.SkillHasRaised, "Your skill in _0_ has raised to _1_%!");
-english.message(Message.Slashing, "Slashing");
-english.message(Message.Sleeping, "Sleeping");
-english.message(Message.SleepInterrupted, "Your sleep has been interrupted!");
-english.message(Message.Slept, "slept");
-english.message(Message.Soil, "soil");
-english.message(Message.SoilWouldHaveNoEffect, "The soil would have no effect on this plant.");
-english.message(Message.SomethingInTheWayOfCarving, "There is something in the way of your carving!");
-english.message(Message.SomethingInTheWayOfDigging, "There is something in the way of your digging!");
-english.message(Message.SomethingInTheWayOfDiggingCarveFirst, "There is something in the way of your digging. This must be carved.");
-english.message(Message.SomethingInTheWayOfFishing, "There is something in the way. You cannot fish past that!");
-english.message(Message.SomethingInTheWayOfGatheringCarveFirst, "There is something in the way of your gathering. This must be carved.");
-english.message(Message.SomethingInTheWayOfPerforming, "There is something in the way of performing this action.");
-english.message(Message.SomethingInTheWayOfPlacing, "There is something in the way of placing this.");
-english.message(Message.SomethingInWayOfClosingDoor, "There is something in the way of closing that door!");
-english.message(Message.SoothedYourBurnInjuries, "You have soothed your burn injuries!");
-english.message(Message.Sort, "Sort");
-english.message(Message.SortedByCategory, "_0_ sorted by category.");
-english.message(Message.SortedByDecay, "_0_ sorted by decay.");
-english.message(Message.SortedByDurability, "_0_ sorted by durability.");
-english.message(Message.SortedByGroup, "_0_ sorted by group.");
-english.message(Message.SortedByName, "_0_ sorted by name.");
-english.message(Message.SortedByQuality, "_0_ sorted by quality.");
-english.message(Message.SortedByRecent, "_0_ sorted by recent.");
-english.message(Message.SortedBySkill, "_0_ sorted by skill.");
-english.message(Message.SortedByWeight, "_0_ sorted by weight.");
-english.message(Message.StaminaIsFull, "Your stamina is full, you do not need to rest any more.");
-english.message(Message.StartedFire, "You have started a fire!");
-english.message(Message.StartTravelInWater, "You need to start your travels while in ocean water.");
-english.message(Message.StarvingToDeath, "You are starving to death!");
-english.message(Message.SteamWorkshop, "Steam Workshop");
-english.message(Message.SteppingOnHasInjuredYouForDamage, "Stepping on the _0_ has injured you for _1_ damage!");
-english.message(Message.StillHasNoWaterToPurify, "This still has no water to purify!");
-english.message(Message.StirredUpClawWorm, "You stirred up a claw worm from underground!");
-english.message(Message.StirredUpCreature, "You stirred up a creature from the depths!");
-english.message(Message.StoppedYourBleeding, "You have stopped your bleeding!");
-english.message(Message.StopUsingRaft, "You stop using the raft.");
-english.message(Message.StrengthIncreasing, "You felt your strength increasing!");
-english.message(Message.SummonedGuardiansByDiggingTreasure, "You have summoned the guardians by digging up the treasure.");
-english.message(Message.SunIsRising, "It appears the sun is rising.");
-english.message(Message.SunIsSetting, "It appears the sun is setting.");
-english.message(Message.SunNotBrightEnoughToStartFire, "The sun is not bright enough to start a fire with this!");
-english.message(Message.Tame, "Tame");
-english.message(Message.TamedAppearsAngered, "angered");
-english.message(Message.TamedAppearsContended, "contented");
-english.message(Message.TamedAppearsHappy, "happy");
-english.message(Message.TamedAppearsUpset, "upset");
-english.message(Message.TamedCreature, "This creature is tamed and appears _0_.");
-english.message(Message.TeleportBlocked, "Your teleport destination was blocked.");
-english.message(Message.Teleported, "You have teleported.");
-english.message(Message.ThereIsNoSunToStartFire, "There is no sun in here to start a fire with.");
-english.message(Message.ThirdQuarterOfDay, "It is currently in the third quarter of the day.");
-english.message(Message.ThirdQuarterOfNight, "It is currently in the third quarter of the night.");
-english.message(Message.Throw, "Throw");
-english.message(Message.ThrownIntoDepths, "You have thrown _0_ into the depths below.");
-english.message(Message.ThrownIntoObstacle, "You have thrown _0_ into an obstacle.");
-english.message(Message.TooDamaged, "_0_ is too damaged to attempt to _1_.");
-english.message(Message.TooExhaustedToJump, "You are too exhausted and overburdened to make this jump.");
-english.message(Message.ToolAppearedEffectiveForGathering, "The tool in use did not appear to be effective for gathering this resource.");
-english.message(Message.TrampledFire, "You trampled the fire, putting it out!");
-english.message(Message.TrampledIntoGround, "_0_ trampled _1_ into the ground.");
-english.message(Message.TrampleIntoGround, "You trampled _0_ into the ground.");
-english.message(Message.Trampling, "You are trampling _0_.");
-english.message(Message.Transmogrified, "You have transmogrified _0_.");
-english.message(Message.TravelAway, "Are you sure you want to travel away from these lands? You can never return. Make sure to grab all you need!");
-english.message(Message.TravelToFarOffLands, "You travel to far off lands...");
-english.message(Message.TreasureIsBlocked, "You find the spot where the treasure is buried, but it is blocked.");
-english.message(Message.True, "True");
-english.message(Message.UnableToImportSave, "Unable to import save. The file may be corrupt or invalid.");
-english.message(Message.UnableToLoadRequiredMods, "Unable to load one or more required mods.");
-english.message(Message.UnEquip, "Un-equip");
-english.message(Message.Unknown, "Unknown");
-english.message(Message.UnknownItem, "Unknown Item");
-english.message(Message.UnlockedChest, "You unlocked the wooden chest and viewed its contents.");
-english.message(Message.UnpurifiedWaterInStill, "There is unpurified water in the still.");
-english.message(Message.UpdatingMod, "Updating Mod");
-english.message(Message.URLHasOpenedInWebBrowser, "The URL has been opened in your default web browser.");
-english.message(Message.UsedSoilToIncreaseFertility, "You used the soil to increase the fertility of the plant.");
-english.message(Message.UsedToSpeedUpGrowing, "You used the _0_ to speed up the growing process.");
-english.message(Message.UsingBareFistsToFight, "using your bare fists to fight");
-english.message(Message.UsingBareHands, "using your bare hands to ");
-english.message(Message.UsingBareHands, "using your bare hands to ");
-english.message(Message.VersionWarning, `Warning!<br /><br />You're playing on an older version of the game. Unintended side effects may occur. You may need to delete all save data.</span>`);
-english.message(Message.WaitUntilFireCooledToGetWater, "You must wait until the fire has cooled off to get the purified water.");
-english.message(Message.WalkingDistanceOfTreasure, "You are within walking distance of the treasure.");
-english.message(Message.WantToDeleteAllSavedData, "Are you sure you want to permanently delete all saved data?");
-english.message(Message.WantToDeleteThisGame, "Are you sure you want to delete this game?");
-english.message(Message.WantToPublishThisMod, "Are you sure you want to publish this mod?");
-english.message(Message.WantToPublishUpdateToMod, "Are you sure you want to publish an update to this mod?");
-english.message(Message.WantToUninstallThisMod, "Are you sure you want to uninstall this mod?");
-english.message(Message.Water, "water");
-english.message(Message.WaterDoesNotNeedDesalination, "This water does not need to undergo the desalination process!");
-english.message(Message.WaterIncreaseFertilityOfPlant, "You used the water to increase the fertility of the plant.");
-english.message(Message.WaterPutOutFire, "The water has put out the fire.");
-english.message(Message.WaterWouldHaveNoEffect, "The water would have no effect on this plant.");
-english.message(Message.Weight, "Weight");
-english.message(Message.WeightCapacity, "Weight Capacity: _0_ / _1_");
-english.message(Message.WelcomeToWayward, `Welcome to Wayward beta ${gameVersion}!<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`);
-english.message(Message.WhatWouldYouLikeToNameItem, "What would you like to name this item?");
-english.message(Message.WinFindWayBackToCivilization, "You find your way back to civilization and end your journey.");
-english.message(Message.WinSailBackWithRiches, "You sail back and enjoyed a good life with your riches.");
-english.message(Message.WinTravelledBackToCivilization, "You travelled back to civilization, but is this the end?");
-english.message(Message.With, "with");
-english.message(Message.WorkingYourselfIntoExhaustion, "You are working yourself into exhaustion!");
-english.message(Message.WorkshopHasBeenOpenedPressOkAfter, "The Steam Workshop has been opened in a browser.<br />Press OK after you're done viewing the Workshop.");
-english.message(Message.Yes, "Yes");
-english.message(Message.YouAte, "You ate _0_!");
-english.message(Message.YouBeginResting, "You begin resting...");
-english.message(Message.YouCollected, "You collected _0_!");
-english.message(Message.YouCrafted, "You _0_ _1_!");
-english.message(Message.YouDied, "You died _0_!");
-english.message(Message.YouDisassembled, "You disassembled _0_.");
-english.message(Message.YouDismantled, "You dismantled _0_.");
-english.message(Message.YouDrank, "You drank _0_!");
-english.message(Message.YouEquip, "You equip _0_.");
-english.message(Message.YouFailedTo, "You failed to _0_ _1_ due to lack of skill._2_");
-english.message(Message.YouFailedToHeal, "You have failed to heal due to lack of skill in _0_.");
-english.message(Message.YouFailedToHealCreature, "You have failed to heal _0_ due to lack of skill in _1_.");
-english.message(Message.YouFire, "You fire _0_.");
-english.message(Message.YouGathered, "You gathered _0_!");
-english.message(Message.YouHaveHealedCreature, "You have healed _0_.");
-english.message(Message.YouHaveKilled, "You have killed _0_!");
-english.message(Message.YouHaveReleased, "You have released _0_ into the wild.");
-english.message(Message.YouHaveTamed, "You have tamed _0_.");
-english.message(Message.YouNoticeBecomeEnraged, "You notice _0_ become enraged and increase in strength.");
-english.message(Message.YouNoticeDying, "You notice _0_ dying.");
-english.message(Message.YouNoticeFertilityDecreasing, "You notice the fertility of _0_ decreasing.");
-english.message(Message.YouNoticeFertilityIncreasing, "You notice the fertility of _0_ increasing.");
-english.message(Message.YouNoticeGrowing, "You notice _0_ growing.");
-english.message(Message.YouNoticePerish, "You notice _0_ inexplicably collapse and perish.");
-english.message(Message.YouNoticeStumbleInjureItself, "You notice _0_ stumble and injure itself.");
-english.message(Message.YouNoticeTreeBecameLush, "You notice a tree has became more lush.");
-english.message(Message.YouNoticeTreeRegrown, "You notice a tree has regrown its leaves and branches.");
-english.message(Message.YouNoticeWoundsClosing, "You notice the wounds of _0_ closing.");
-english.message(Message.YouNoticeZombieHorde, "You notice a horde of zombies coming your way.");
-english.message(Message.YouOfferedToCreature, "You offered _0_ to _1_ and it appeared to be _2_.");
-english.message(Message.YouOpen, "You open _0_.");
-english.message(Message.YouPickedUp, "You picked up _0_.");
-english.message(Message.YouRepair, "You repair _0_.");
-english.message(Message.YourFist, "your fist");
-english.message(Message.YouRub, "You rub _0_ _1_ as it quickly disintegrates in your grasp. These lands now act differently to your presence.");
-english.message(Message.YouSalvaged, "You salvaged _0_.");
-english.message(Message.YouSee, "You see _0_.");
-english.message(Message.YouSeeAnAberrant, "You see an aberrant _0_.");
-english.message(Message.YouSeeSpringForth, "You see _0_ spring forth!");
-english.message(Message.YouSeparate, "You separate _0_.");
-english.message(Message.YouThrew, "You threw _0_!");
-english.message(Message.YouUnequip, "You un-equip _0_.");
-english.message(Message.YouUsed, "You have used _0_!");
+english.setDictionary(Dictionary.Action, {
+	[Action.AddFuel]: ["Add Fuel", ""],
+	[Action.Attack]: ["Attack", ""],
+	[Action.Build]: ["Build", "Attempt to construct or assemble the item on the tile you are facing towards."],
+	[Action.Carve]: ["Carve", "Used to carve creature corpses or to remove objects attached to the ground."],
+	[Action.Cast]: ["Cast", "Find a fish in a body of water and attempt to cast your line or net to catch it."],
+	[Action.CloseDoor]: ["Close Door", ""],
+	[Action.Craft]: ["Craft", ""],
+	[Action.Decode]: ["Decode", "Used for attempting to read the map. Use by the treasure location to reveal how far or close you are."],
+	[Action.Dig]: ["Dig", "Used to dig up resources and items from the ground."],
+	[Action.Disassemble]: ["Disassemble", ""],
+	[Action.Dismantle]: ["Dismantle", ""],
+	[Action.DrawMap]: ["Draw Map", "Draw a map using your skill in cartography of the surrounding area."],
+	[Action.Drink]: ["Drink ", ""],
+	[Action.DrinkCure]: ["Drink Cure", "Consumed on use. Used to cure poisoning while sometimes providing other health benefits."],
+	[Action.DrinkInFront]: ["Drink in Front", ""],
+	[Action.DrinkItem]: ["Drink", "Consumed on use. Will reduce your thirst; however, will provide negative effects when drinking sea/unpurified water."],
+	[Action.Drop]: ["Drop", ""],
+	[Action.Eat]: ["Eat", "Consumed on use. May provide benefits to hunger, thirst, health and stamina; however, may reduce them as well depending on the food."],
+	[Action.Equip]: ["Equip", ""],
+	[Action.Extinguish]: ["Extinguish", "Douse the torch, extinguishing the flame."],
+	[Action.Fire]: ["Fire", "Using a mixture of black powder along with a bullet, you may fire this weapon."],
+	[Action.Gather]: ["Gather", "Can be used directly to gather from an adjacent resource tile. Equipping this allows it to be automatically used when walking into resource tiles."],
+	[Action.GatherTreasure]: ["Gather Treasure", "Attempt to gather a treasure in the vicinity of use based on a decoded treasure map. Range of gather is dependent on your mining skill."],
+	[Action.GatherWater]: ["Gather Water", "Used to gather water into the item."],
+	[Action.Grasp]: ["Grasp", "Used to pick-up items using another item for safety reasons such as grasping items in a fire."],
+	[Action.Heal]: ["Heal", "Consumed on use. Used to restore a varied amount of health."],
+	[Action.HealCreature]: ["Heal Creature", "Consumed on use. Used to restore a varied amount of health to a creature."],
+	[Action.Idle]: ["Idle", ""],
+	[Action.Ignite]: ["Ignite", "Use this item on a fire source to start it on fire."],
+	[Action.Jump]: ["Jump", ""],
+	[Action.LockPick]: ["Lock Pick", "Used to unlock locked objects."],
+	[Action.Move]: ["Move", ""],
+	[Action.MoveItem]: ["Move Item", ""],
+	[Action.MoveTo]: ["Move To", ""],
+	[Action.Offer]: ["Offer", ""],
+	[Action.OpenBottle]: ["Open Bottle", "Consumed on use. Using this will open it, providing new and unknown items."],
+	[Action.OpenContainer]: ["Open Container", "Using this will open it where you may drag and drop items to and from. Weight reduction and decay reduction bonuses may apply to items inside."],
+	[Action.OpenDoor]: ["Open Door", ""],
+	[Action.Paddle]: ["Paddle", "Used to travel over water without getting your feet wet. Your speed is not reduced in water while paddling."],
+	[Action.Pet]: ["Pet", ""],
+	[Action.Pickup]: ["Pick-up", ""],
+	[Action.PickupAllItems]: ["Pickup All Items", ""],
+	[Action.PickupItem]: ["Pickup Item", ""],
+	[Action.Plant]: ["Plant", "Attempts to plant the item on the tile you are facing towards. Some plants may require certain ground types or conditions to be planted."],
+	[Action.Pour]: ["Pour", "Pour on fire to extinguish the flames, pour inside a water still to begin water filtration, pour on a suitable plant to increase its health, or just simply empty out."],
+	[Action.PourOnYourself]: ["Pour on Yourself", "Liquid is consumed on use. Used to sooth burn injuries."],
+	[Action.Preserve]: ["Preserve", "Used with food items to extend their life and decay rate."],
+	[Action.Read]: ["Read", "Consumed on use. Reading usually provides useful knowledge."],
+	[Action.Reinforce]: ["Reinforce", "Consumed on use. Use while facing a damaged item to attempt to increase the overall maximum and minimum durability. Success based on skill used to make the item."],
+	[Action.Release]: ["Release", ""],
+	[Action.Repair]: ["Repair", "Use while facing a damaged item to attempt to repair it. Success based on skill used to make the item."],
+	[Action.Rest]: ["Rest", "Used to rest for a period of time to regain health and stamina. You will stop resting when reaching full stamina."],
+	[Action.RubClockwise]: ["Rub Clockwise", "Rubbing this item manifests its effects to the holder."],
+	[Action.RubCounterclockwise]: ["Rub Counterclockwise", "Rubbing this item manifests its effects to the holder."],
+	[Action.SailToCivilization]: ["Sail To Civilization", "After collecting all the pieces of treasure, you can return to civilization and bask in the glory of your riches and fame. You can always return back to these lands afterwards."],
+	[Action.SetDown]: ["Set Down", "Using this item will place it on top of whatever tile is present in your facing direction. This is different than just dropping the item. It can also be used to extinguish fires."],
+	[Action.Shoot]: ["Shoot", "You can shoot arrows with this item."],
+	[Action.Sleep]: ["Sleep", "Used to sleep for a period of time to regain health and stamina. Duration is based on camping skill and time of day. A bonus to all effects (including length) will be granted if facing a fire or lit object. Hunger and dehydration increase slower while sleeping."],
+	[Action.Sling]: ["Sling", "You can sling bullets with this item."],
+	[Action.Squeeze]: ["Squeeze", "Consumed on use. Spews a stream of fire in your facing direction."],
+	[Action.StartFire]: ["Start Fire", "Used to start a fire. Use on campfires, furnaces, etc. to light them or on an empty tile. Using this action may require kindling, tinder and a fuel item in your inventory depending on the circumstance."],
+	[Action.StokeFire]: ["Stoke Fire", "Used on a fire source to increase the strength of the flame."],
+	[Action.Tame]: ["Tame", ""],
+	[Action.Teleport]: ["Teleport", "With a flick of the wand, teleport to a location in front of where you are facing."],
+	[Action.TellTime]: ["Tell Time", "Used to measure the time of day or night."],
+	[Action.Throw]: ["Throw", ""],
+	[Action.Till]: ["Till", "Use while facing a tile you wish to till, granting it properties for better plant growth."],
+	[Action.Transmogrify]: ["Transmogrify", "Use while facing an equippable item to attempt to infuse with magical properties."],
+	[Action.TraverseTheSea]: ["Traverse the Sea", "Used to travel to new, unexplored lands, leaving behind your current surroundings."],
+	[Action.Unequip]: ["Unequip", ""],
+	[Action.UpdateDirection]: ["Update Direction", ""],
+	[Action.UseItem]: ["Use Item", ""]
+});
 
-// Items
-english.item(ItemType.Acorn, "an ", "acorn", "A hard tree nut with a cupule that can grow into a sapling when planted.");
-english.item(ItemType.Amber, "", "amber", "Fossilized tree resin. Can be melted down to reinforce items.");
-english.item(ItemType.AnimalClaw, "an ", "animal claw", "A sharp claw from an animal. A perfect animal by-product for using as a needle.");
-english.item(ItemType.AnimalFat, "", "animal fat", "A gelatinous shaving of animal fat, slimy to the touch. Useful as a rendered fuel.");
-english.item(ItemType.AnimalFatTorch, "an ", "animal fat torch", "A torch; wrapped in rendered animal fat, producing a long-lasting light source.");
-english.item(ItemType.AnimalFur, "", "animal fur", "A large clump of animal fur and hair. Could be used as tinder in a situation where wood is not available.");
-english.item(ItemType.AnimalPelt, "an ", "animal pelt", "The remains of an unlucky skinned animal. Can be used as a makeshift garment or dismantled into the hide and fur separately.");
-english.item(ItemType.AnimalSkull, "an ", "animal skull", "A large hollowed out, bleached animal skull, suitable for crafting into a provisional helmet.");
-english.item(ItemType.Arrow, "an ", "arrow", "A projectile to be fired from a bow, crafted with an arrowhead and feather to control flight.");
-english.item(ItemType.Backpack, "a ", "backpack", "Crafted with leather, it's suitable for holding many items on your back, reducing overall weight.");
-english.item(ItemType.Bandage, "a ", "bandage", "A tattered piece of fabric, used to staunch wounds and prevent infection.");
-english.item(ItemType.BarkLeggings, "", "bark leggings", "Rudimentary leg armor, crafted from strong tree bark and secured with string.");
-english.item(ItemType.BarkShield, "a ", "bark shield", "A makeshift shield, used to block incoming attacks, made with tree bark and wrapped with string.");
-english.item(ItemType.BarkTorch, "a ", "bark torch", "A torch wrapped and bound by stripped tree bark, providing natural oils to increase the life of the torch.");
-english.item(ItemType.BarkTunic, "a ", "bark tunic", "Tree bark chest armor bound together with string.");
-english.item(ItemType.BerrySeeds, "", "berry seeds", "Black seeds that will grow into a berry bush, given enough time and care.");
-english.item(ItemType.BigRedBerry, "a ", "big red berry", "An abnormally large, plump red berry, full of luscious nutrition.");
-english.item(ItemType.BlackPowder, "", "black powder", "A highly combustible powder, made up of a combination of minerals.");
-english.item(ItemType.BoatPaddle, "a ", "boat paddle", "A makeshift boat paddle used with boats and rafts, or combat if in dire need.");
-english.item(ItemType.BoiledEgg, "a ", "boiled egg", "A moist, delicious boiled egg. Great tasting and packed with protein.");
-english.item(ItemType.Bone, "a ", "bone", "A heavy, sun-bleached animal bone, suitable for rudimentary combat, gathering, or crafting into more useful items.");
-english.item(ItemType.BoneFragments, "", "bone fragments", "A bundle of bones from a small vertebrate. Some cracked, others shattered. The pieces are quite sharp.");
-english.item(ItemType.BoneNeedle, "a ", "bone needle", "A thin, hard, sharp needle, carved from bone.");
-english.item(ItemType.BonePole, "a ", "bone pole", "A smooth cudgel crafted from a large bone.");
-english.item(ItemType.Bow, "a ", "bow", "A bent wooden pole with a shorter string tied to both ends. The tension of the string is used to fire arrows.");
-english.item(ItemType.BowDrill, "a ", "bow drill", "An advanced fire starting device. Uses the string on a bow to rotate into the wood, reducing much effort.");
-english.item(ItemType.Branch, "a ", "branch", "A typical tree branch, useful for a variety of crafts or stoking a fire.");
-english.item(ItemType.BullBoat, "a ", "bull boat", "A boat made from leather hides and framed with curved wooden poles. Used to travel to new, far away lands.");
-english.item(ItemType.CactiSeeds, "", "cacti seeds", "These appear to be cactus seeds. Can be planted to grow cacti or eaten.");
-english.item(ItemType.CactusNeedle, "a ", "cactus needle", "A needle from a cactus plant, useful in crafting smaller, more intricate items.");
-english.item(ItemType.CactusSpines, "", "cactus spines", "Thin, long spikes, suitable for crafting into makeshift needles.");
-english.item(ItemType.CarbonPowder, "", "carbon powder", "Black, sooty carbonized powder.");
-english.item(ItemType.Charcoal, "", "charcoal", "Condensed, carbon-rich burned matter.");
-english.item(ItemType.CharcoalBandage, "a ", "charcoal bandage", "A cloth bandage, coated in charcoal and used for its natural antiseptic and anticoagulant properties.");
-english.item(ItemType.ClayBlowpipe, "a ", "clay blowpipe", "A sturdy blowpipe used for glassblowing.");
-english.item(ItemType.ClayBrick, "a ", "clay brick", "A hardened clay brick, used in the building of structures such as floors and walls.");
-english.item(ItemType.ClayBrickFlooring, "", "clay brick flooring", "Flooring crafted from clay bricks. Could be used as decoration or as part of a building.");
-english.item(ItemType.ClayBrickWall, "a ", "clay brick wall", "A wall made from clay bricks, set into a typical skewed, grid-like fashion to increase durability.");
-english.item(ItemType.ClayCampfire, "a ", "clay campfire", "A grouping of clay bricks shaped into a ring to contain a fire.");
-english.item(ItemType.ClayFlakes, "", "clay flakes", "Dried shavings of clay. Created by shaving clay and drying over a period of time.");
-english.item(ItemType.ClayFurnace, "a ", "clay furnace", "An enclosed structure made of clay bricks, which traps in the heat to keep a long-lasting, high-temperature fire.");
-english.item(ItemType.ClayJug, "a ", "clay jug", "A fully hardened clay jug with a cork. Used to hold water.");
-english.item(ItemType.ClayJugOfDesalinatedWater, "a ", "clay jug of desalinated water", "Potable, safe-to-drink water. The water in this clay jug has gone through the desalination process.");
-english.item(ItemType.ClayJugOfMedicinalWater, "a ", "clay jug of medicinal water", "A clay jug containing medicinal water, used to cure and soothe certain ailments while also replenishing your thirst.");
-english.item(ItemType.ClayJugOfPurifiedFreshWater, "a ", "clay jug of purified fresh water", "A clay jug filled with fresh, purified water. Can be used to quench your thirst.");
-english.item(ItemType.ClayJugOfSeawater, "a ", "clay jug of seawater", "Unfiltered seawater, held in a clay jug. Unsuitable to drink in its current form but could be desalinated.");
-english.item(ItemType.ClayJugOfUnpurifiedFreshWater, "a ", "clay jug of unpurified fresh water", "A clay jug full of natural, fresh water. Although it is drinkable, further purification is recommended.");
-english.item(ItemType.ClayKiln, "a ", "clay kiln", "Similar to a furnace, but constructed with clay and in a way that allows for proper heat distribution for crafting glass and clay items.");
-english.item(ItemType.ClayWaterStill, "a ", "clay water still", "A carved out clay brick with a lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container.");
-english.item(ItemType.Coal, "", "coal", "A black and brittle mineral, staining anything it touches, but useful as fuel.");
-english.item(ItemType.CobblestoneFlooring, "", "cobblestone flooring", "Primitive flooring created by placing stones in an organized pattern, filling any gaps.");
-english.item(ItemType.Coconut, "a ", "coconut", "A fibrous and heavy fruit. Difficult to consume, but packed with plenty of caloric-dense coconut meat and milk.");
-english.item(ItemType.CompositeBow, "a ", "composite bow", "An expertly crafted bow, designed for both velocity and force.");
-english.item(ItemType.CookedBlindfish, "a ", "cooked blindfish", "While the source of the food is a bit suspect, after being cooked, it appears to be more palatable.");
-english.item(ItemType.CookedChicken, "a ", "cooked chicken", "A well cooked chicken, ready to consume and sure to satisfy.");
-english.item(ItemType.CookedCod, "a ", "cooked cod", "A seared, well cooked cod, ready to consume and enjoy.");
-english.item(ItemType.CookedFishSteak, "a ", "cooked fish steak", "A cooked fish fillet, seared on the outside and delicious.");
-english.item(ItemType.CookedMeat, "", "cooked meat", "Adequately heated meat, safe and ready for consumption.");
-english.item(ItemType.CookedReptileMeat, "", "cooked reptile meat", "A grilled piece of reptile meat. The look and texture could almost be passed as chicken.");
-english.item(ItemType.CookedSpiderMeat, "", "cooked spider meat", "Crispy spider meat. Not the best texture or flavor, but contains the more edible portions of the deceased arachnid.");
-english.item(ItemType.CookedTaintedMeat, "", "cooked tainted meat", "A piece of discolored meat, cooked to kill possible toxins, but possibly still unsafe for consumption.");
-english.item(ItemType.CookedTentacles, "", "cooked tentacles", "Although, still springy to the touch, this cooked cephalopod appendage can be stomached much easier than if raw.");
-english.item(ItemType.CookedWormMeat, "", "cooked worm meat", "A cooked patty of worm meat. Unappetizing to think about, but can provide as a good source of needed nutrition.");
-english.item(ItemType.CordedSling, "a ", "corded sling", "A thick piece of cordage, wrapped and bound with a slot made for a projectile. Used to swing ammunition, increasing throwing range.");
-english.item(ItemType.Cork, "a ", "cork", "A small cork plug. Crafted from rubbery tree bark; it can be used to contain liquids in bottles and other containers.");
-english.item(ItemType.Cotton, "", "cotton", "A downy bundle of opened cotton seeds, the ideal solution for spinning thread and making fabrics.");
-english.item(ItemType.CottonBedroll, "a ", "cotton bedroll", "A soft and downy sleeping mattress, rolled up for ease of carrying. Can be used to sleep or rest very comfortably.");
-english.item(ItemType.CottonFabric, "", "cotton fabric", "A soft piece of cloth spun from cotton.");
-english.item(ItemType.CottonSeeds, "", "cotton seeds", "Unopened, plantable cotton seeds, not yet revealing their white, soft interiors.");
-english.item(ItemType.CreatureIdol, "a ", "creature idol", "A mass of animal organs, crudely shaped into some kind of figure. It smells awful and emits an odd humming noise, and appears to attract creatures.");
-english.item(ItemType.Deadfall, "a ", "deadfall", "A large, flat rock, propped up with a stick. Once set, anything that triggers it will be crushed or injured from the falling rock.");
-english.item(ItemType.DrawnMap, "a ", "drawn map", "A paper sheet, scrawled with geographical landmarks and features. Used to approximate a location when read.");
-english.item(ItemType.Earthworm, "an ", "earthworm", "A live wriggling insect, effective for bait or eating on its own.");
-english.item(ItemType.Ectoplasm, "", "ectoplasm", "A ghostly, weightless fluff of misty goo, strangely self contained and quickly evaporating.");
-english.item(ItemType.Egg, "an ", "egg", "A brown colored egg, laid by a chicken. Can be eaten as is, or cooked for a tastier meal.");
-english.item(ItemType.ExplosiveTrap, "an ", "explosive trap", "A mound of leaves used to conceal a volatile explosive powder. Stepping on it will trigger a small explosion.");
-english.item(ItemType.Feather, "a ", "feather", "Some bright white plumage from an avian creature.");
-english.item(ItemType.FeatherBedroll, "a ", "feather bedroll", "A bedroll made with soft feathers and wrapped in fabric. Used for resting and sleeping in comfort.");
-english.item(ItemType.FertileSoil, "", "fertile soil", "A rich soil suitable for adding to plants to promote their fertility.");
-english.item(ItemType.FireBladder, "a ", "fire bladder", "An oddly shaped organ from a firebreathing creature. Hot to the touch; it appears to contain a deadly chemical reaction inside.");
-english.item(ItemType.FirePlough, "a ", "fire plough", "A fire making device which uses a stick and groove method to create heat through friction.");
-english.item(ItemType.FishingNet, "a ", "fishing net", "A checkered weave of string with weights on each corner, used to trap and catch fish.");
-english.item(ItemType.FishingRod, "a ", "fishing rod", "A flexible, smooth wooden rod with a string line and sharpened hook. Used for fly fishing.");
-english.item(ItemType.Flask, "a ", "flask", "A glass container which can be heated to use for desalination, a process used to make seawater drinkable.");
-english.item(ItemType.FlintlockPistol, "a ", "flintlock pistol", "A long range, high damage pistol. Requires black powder and bullets to fire.");
-english.item(ItemType.FlowerPetals, "", "flower petals", "The petals of a yellow flower. Only useful in creating medicinal tonics, or ingesting directly if food supply is low.");
-english.item(ItemType.FlowerSeeds, "", "flower seeds", "Dried flower seeds which can be planted to grow flowers.");
-english.item(ItemType.Fossil, "a ", "fossil", "A carbonized fossil of a species long since extinct.");
-english.item(ItemType.Giblets, "", "giblets", "A batch of cooked animal organs. Considerably repugnant, but nutritious and filling.");
-english.item(ItemType.GlassBottle, "a ", "glass bottle", "A transparent vessel with a cork for containment. Used for collecting water.");
-english.item(ItemType.GlassBottleOfDesalinatedWater, "a ", "glass bottle of desalinated water", "A bottle filled with clear seawater that has been processed to remove the salt content.");
-english.item(ItemType.GlassBottleOfMedicinalWater, "a ", "glass bottle of medicinal water", "A bottled concoction of herbs and nutrients. Used to cure thirst, poisons, and other ailments.");
-english.item(ItemType.GlassBottleOfPurifiedFreshWater, "a ", "glass bottle of purified fresh water", "Potable, and safe to hydrate yourself with. The water has been purified reducing any toxins and unsafe bacteria.");
-english.item(ItemType.GlassBottleOfSeawater, "a ", "glass bottle of seawater", "Filled to the top with seawater. While seawater is technically drinkable, it will not reduce your thirst.");
-english.item(ItemType.GlassBottleOfUnpurifiedFreshWater, "a ", "glass bottle of unpurified fresh water", "A bottle containing water that is likely unfit to drink. It will quench your thirst, but may have negative side-effects until it's purified.");
-english.item(ItemType.Glue, "", "glue", "A natural form of glue that can be used to bind and reinforce items.");
-english.item(ItemType.GoldCoins, "", "gold coins", "Shiny, golden coins, from a lost civilization unknown to you.");
-english.item(ItemType.GoldenChalice, "a ", "golden chalice", "A large, ornate, and resplendent chalice.");
-english.item(ItemType.GoldenKey, "a ", "golden key", "A large and decorative key forged from gold.");
-english.item(ItemType.GoldenRing, "a ", "golden ring", "A golden ring, most likely used as a sign of wealth and power.");
-english.item(ItemType.GoldenSword, "a ", "golden sword", "An ornate, but soft sword, forged from solid gold. Not suitable for combat due to its softness.");
-english.item(ItemType.GrassBlades, "", "grass blades", "Long and almost sharp to the touch. These semi-dried grass blades are perfect for cordage, string making, and tinder when dried.");
-english.item(ItemType.GrassSeeds, "", "grass seeds", "Small dried grass seeds. Can be planted to grow grass.");
-english.item(ItemType.GreenSand, "", "green sand", "A form of malleable sand made with clay, used to make molds for metal casting.");
-english.item(ItemType.Grindstone, "a ", "grindstone", "A coarse rock useful for sanding, sharpening, and repairing other items.");
-english.item(ItemType.Hammock, "a ", "hammock", "A comfortable place to sleep, although not too sturdy. Crafted by bound cordage and usually hung off of the ground.");
-english.item(ItemType.HandDrill, "a ", "hand drill", "A rudimentary fire making tool which uses a stick and another piece of wood. Both hands are used to twist the stick against wood, making friction to create an ember for the fire.");
-english.item(ItemType.Inkstick, "an ", "inkstick", "A hardened brick of ink, used for drawing and painting.");
-english.item(ItemType.IronAnvil, "an ", "iron anvil", "A sturdy iron anvil. Used in the production of metal armor, weapons, tools, and more.");
-english.item(ItemType.IronArrow, "an ", "iron arrow", "An arrow tipped with a high quality iron arrowhead. Fletched with feathers to stabilize flight and accuracy.");
-english.item(ItemType.IronArrowhead, "an ", "iron arrowhead", "An expertly forged iron arrowhead, used to create arrows. Alternatively can be used to carve if necessary.");
-english.item(ItemType.IronBoots, "", "iron boots", "Heavy iron plated boots, shielding your feet from damage.");
-english.item(ItemType.IronBreastplate, "an ", "iron breastplate", "Durable, armor worn over the torso. One could take a serious beating while wearing this.");
-english.item(ItemType.IronBullet, "an ", "iron bullet", "A strong, forged iron bullet. Used as sling or firearm ammunition.");
-english.item(ItemType.IronChest, "an ", "iron chest", "A large iron chest that is both roomy and sturdy. Foods contained within will decay at a slower rate.");
-english.item(ItemType.IronDoubleAxe, "an ", "iron double axe", "An axe with a forged, double sided head, ideal for both combat and gathering.");
-english.item(ItemType.IronGauntlets, "", "iron gauntlets", "Iron gloves designed to be protective and durable, while maintaining as much flexibility as possible.");
-english.item(ItemType.IronGorget, "an ", "iron gorget", "A round metal brace worn around the neck and over the shoulders.");
-english.item(ItemType.IronGreaves, "", "iron greaves", "Iron leggings; to be strapped on and function as leg protection.");
-english.item(ItemType.IronHammer, "an ", "iron hammer", "A strong hammer with an iron head, perfect for shaping and repairing items.");
-english.item(ItemType.IronHelmet, "an ", "iron helmet", "Iron plated headgear designed to withstand heavy blows.");
-english.item(ItemType.IronIngot, "an ", "iron ingot", "A solid brick of iron, ready to be formed or melted and cast in many ways.");
-english.item(ItemType.IronLockPick, "an ", "iron lock pick", "A pair of iron picks and wrenches, durable enough to pick the most adept of locks.");
-english.item(ItemType.IronOre, "", "iron ore", "Unprocessed, raw iron ore. Can be smelted into ingots.");
-english.item(ItemType.IronPickaxe, "an ", "iron pickaxe", "A robust mining implement, with a blade forged from iron.");
-english.item(ItemType.IronShield, "an ", "iron shield", "A large and heavy iron shield, used for blocking projectiles or melee attacks.");
-english.item(ItemType.IronShovel, "an ", "iron shovel", "A heavy iron digging implement, lifting and breaking through even the toughest gravels and soils.");
-english.item(ItemType.IronSpear, "an ", "iron spear", "A polearm with a strong pointed tip forged from iron.");
-english.item(ItemType.IronSword, "an ", "iron sword", "A strong, sharp blade designed for thrusting and slashing.");
-english.item(ItemType.IronTongs, "", "iron tongs", "Durable iron tongs used to grab hot items, protecting your hands from damage.");
-english.item(ItemType.Kindling, "", "kindling", "A gathering of small twigs and tree matter. A requirement for starting a fire.");
-english.item(ItemType.LargeRock, "a ", "large rock", "A rather large rock, handy for crafting many tools and devices.");
-english.item(ItemType.LeafBedroll, "a ", "leaf bedroll", "A provisional bed with poor insulation and scratchy half-dried leaves, used for sleeping or resting.");
-english.item(ItemType.LeatherBelt, "a ", "leather belt", "Made from tanned animal hide, cut, wrapped, and stitched together to tie around the waist.");
-english.item(ItemType.LeatherBoots, "", "leather boots", "Malleable yet tough foot protection, crafted from tanned animal hide.");
-english.item(ItemType.LeatherCap, "a ", "leather cap", "A hat made of leather, double layered for extra sturdiness.");
-english.item(ItemType.LeatherGloves, "", "leather gloves", "Leather-bound hand protection, crafted from tanned animal hide.");
-english.item(ItemType.LeatherGorget, "a ", "leather gorget", "A circlet of leather, bound in two, stitched together and used as neck protection.");
-english.item(ItemType.LeatherHide, "a ", "leather hide", "A fresh leather hide, stripped from an animal and de-furred.");
-english.item(ItemType.LeatherPants, "", "leather pants", "Basic leather leggings with just enough padding to provide some leg protection.");
-english.item(ItemType.LeatherQuiver, "a ", "leather quiver", "A leather-bound, back-mounted container designed to hold arrows; however, other items will also fit inside as well.");
-english.item(ItemType.LeatherSling, "a ", "leather sling", "A sling crafted from tanned leather. Designed to hold a projectile to be thrown at an increased velocity.");
-english.item(ItemType.LeatherTunic, "a ", "leather tunic", "A leather garment which provides protection for the torso.");
-english.item(ItemType.Leaves, "", "leaves", "A handful of foliage used as compost, to stoke a fire, or as tinder when dried.");
-english.item(ItemType.Lens, "a ", "lens", "Glass formed into a partially convex shape. It allows focusing sunlight into a single location, creating enough heat for a fire.");
-english.item(ItemType.Limestone, "", "limestone", "A mineral-rich rock that can be ground into a powder. Useful for metal and glass production.");
-english.item(ItemType.LimestonePowder, "", "limestone powder", "A white, mineral-dense powder used in glass tempering and the purifying of metals.");
-english.item(ItemType.LitAnimalFatTorch, "a ", "lit animal fat torch", "A bright burning, pleasant smelling torch. Made with a pole and long lasting, rendered animal fat.");
-english.item(ItemType.LitBarkTorch, "a ", "lit bark torch", "Provides light to your surroundings when equipped and can also be used to start other fires.");
-english.item(ItemType.LitPoleTorch, "a ", "lit pole torch", "A wooden pole that has been lit on fire. Not suitable for long journeys in the darkness.");
-english.item(ItemType.LockPick, "a ", "lock pick", "An improvised needle and prong that should be strong enough to pick a lock or two.");
-english.item(ItemType.Log, "a ", "log", "A sturdy piece of wood, useful for construction or as a fuel for a fire.");
-english.item(ItemType.LongBow, "a ", "long bow", "Nearly as tall as the average person, this bow is designed for maximum range.");
-english.item(ItemType.MageRobe, "a ", "mage robe", "An ancient tattered robe, once owned by a spell casting foe.");
-english.item(ItemType.MagicalEssence, "", "magical essence", "An odd transparent powder with organic and ethereal materials. This magical matter may be used on items to affix magical properties on to them.");
-english.item(ItemType.MeltedAmber, "", "melted amber", "Warmed amber resin; used to create a hardened bind when cooled on to an object.");
-english.item(ItemType.MessageInABottle, "a ", "message in a bottle", "An old cloudy bottle with an unidentified object contained inside.");
-english.item(ItemType.MortarAndPestle, "a ", "mortar and pestle", "Used for grinding and crushing, made from smooth stones.");
-english.item(ItemType.Niter, "", "niter", "A natural mineral, ground up to be used as a preservative or for other chemical applications.");
-english.item(ItemType.Nopal, "", "nopal", "A de-spined cactus fruit, filled with refreshing liquid and nutrition.");
-english.item(ItemType.Offal, "", "offal", "A mound of organs, tissue, and other undesirable portions of an unlucky animal.");
-english.item(ItemType.OldInstructionalScroll, "an ", "old instructional scroll", "A tattered sheet of paper with some roughly scribbled instructions and diagrams.");
-english.item(ItemType.OrbOfMalign, "an ", "orb of malign", "A strange spherical orb that gives off a shimmering radiance on your touch. It appears to hum as you hold it.");
-english.item(ItemType.OrnateCape, "an ", "ornate cape", "A red and gold stitched cape, which drapes the back and fastens at the neck. Worn as a status symbol.");
-english.item(ItemType.OrnateWoodenChest, "an ", "ornate wooden chest", "A decorative wooden container gilded with symbols inlaid into the wood.");
-english.item(ItemType.PalmLeaf, "a ", "palm leaf", "A large leaf from a palm tree. The strong inner fibers of the leaf are perfect for cordage.");
-english.item(ItemType.PaperMold, "a ", "paper mold", "A mold used for making paper. Contains a screen that holds wet recycled fibers to dry and press into flattened, usable paper.");
-english.item(ItemType.PaperSheet, "a ", "paper sheet", "A large piece of paper. It appears to contain many recycled fibers. Suitable for drawing on with ink.");
-english.item(ItemType.Peat, "", "peat", "A dried mass of sponge-like plants, great for fire fuel and composting.");
-english.item(ItemType.PeatBandage, "a ", "peat bandage", "A fabric bandage combined with peat as an effective antiseptic.");
-english.item(ItemType.Pemmican, "", "pemmican", "A ball of dried ground meat. With a long shelf life, this is the ultimate survival food. For the best benefits, prepare it with animal fat.");
-english.item(ItemType.PileOfAsh, "a ", "pile of ash", "The powdery remains of burned matter.");
-english.item(ItemType.PileOfCompost, "a ", "pile of compost", "A mix of decaying organic matter and soil, full of chemical nutrients and great for growing plants.");
-english.item(ItemType.PileOfGravel, "a ", "pile of gravel", "A large pile of damp stone and sand.");
-english.item(ItemType.PileOfSand, "a ", "pile of sand", "A large pile of moist sand, useful for making glass when refined.");
-english.item(ItemType.PileOfSnow, "a ", "pile of snow", "A melting snow pile. Useful to drink in desperate need, but be quick!");
-english.item(ItemType.Pineapple, "a ", "pineapple", "A juicy, ripe pineapple, loaded with vitamins and thirst-quenching attributes.");
-english.item(ItemType.PineappleSeeds, "", "pineapple seeds", "Small brown seeds that can be planted to grow into pineapple plants.");
-english.item(ItemType.PlantRoots, "", "plant roots", "A tangled mess of roots, with earth still hanging from the tips.");
-english.item(ItemType.PoisonIvyLeaves, "", "poison ivy leaves", "Causes irritation to the touch; these leaves of three do not belong on your person.");
-english.item(ItemType.PoisonIvySeeds, "", "poison ivy seeds", "Bright green, soft seeds, used to plant to grow into poison ivy.");
-english.item(ItemType.PreparedPemmican, "", "prepared pemmican", "A seasoned mound of dried ground meat, fried and cooked with fat for maximum flavor and caloric content.");
-english.item(ItemType.Raft, "a ", "raft", "A small, simple boat; a quicker alternative to swimming. Effective for traversing large expanses of water.");
-english.item(ItemType.RawBlindfish, "a ", "raw blindfish", "An odd looking fish with no eyes. Very slimy to the touch.");
-english.item(ItemType.RawChicken, "a ", "raw chicken", "A small, plump and de-feathered chicken carcass, ready for cooking.");
-english.item(ItemType.RawClay, "", "raw clay", "A soft, formable mud. Suitable for building materials, tool-making, and more.");
-english.item(ItemType.RawClayBlowpipe, "a ", "raw clay blowpipe", "An unfired clay blowpipe used in glassblowing. Unusable until it has been fired.");
-english.item(ItemType.RawClayBrick, "a ", "raw clay brick", "A soft piece of raw clay, molded into a rectangle. Ready to be fired inside a kiln.");
-english.item(ItemType.RawClayJug, "a ", "raw clay jug", "A formed and sculpted jug molded from raw clay. Requires a cork and a kiln to be fired and hardened.");
-english.item(ItemType.RawCod, "a ", "raw cod", "Slimy to the touch, but healthy and delicious to eat. Can be cooked for a better meal.");
-english.item(ItemType.RawFishSteak, "a ", "raw fish steak", "A raw piece of fish, cut into a fillet. Good to eat as is, but is tastier cooked.");
-english.item(ItemType.RawMeat, "", "raw meat", "A raw, bloody chunk of meat. Cooking is recommended before consumption.");
-english.item(ItemType.RawReptileMeat, "", "raw reptile meat", "A grainy piece of edible reptile flesh. Generally not safe to consume without being cooked due to bacteria.");
-english.item(ItemType.RawTaintedMeat, "", "raw tainted meat", "A piece of bad-smelling meat, possibly diseased or tainted with parasites. Possible to consume, but could be deadly.");
-english.item(ItemType.RedBerries, "", "red berries", "Lush, ripe berries, plucked from a tree or bush.");
-english.item(ItemType.RefinedSand, "", "refined sand", "A finely ground sand, useful in making glass.");
-english.item(ItemType.RollOfRedCarpet, "a ", "roll of red carpet", "A rolled up piece of red carpet, suitable for making a comfortable living space or welcoming important guests.");
-english.item(ItemType.Rope, "a ", "rope", "A thick, twisted piece of cordage, useful for heavy-duty binding.");
-english.item(ItemType.RottenMeat, "", "rotten meat", "Acrid decomposing animal tissue. You would not want to eat this, but can be used in compost.");
-english.item(ItemType.RottingVegetation, "", "rotting vegetation", "A stinking mash of organic plant matter, now usable as compost. Unless you want to risk eating it.");
-english.item(ItemType.Sail, "a ", "sail", "A large piece of fabric, woven together to be attached to a mast. Used on a sailboat to propel it along the sea.");
-english.item(ItemType.Sailboat, "a ", "sailboat", "A large one-man boat. Used to traverse large expanses of water and for travel back to civilization.");
-english.item(ItemType.Saltpeter, "", "saltpeter", "A ground mineral, to be used as a natural food preservative. If combined with other minerals, it can be combustible.");
-english.item(ItemType.SandCastFlask, "a ", "sand cast flask", "A mold for casting metal into any shape, made with green sand.");
-english.item(ItemType.Sandstone, "", "sandstone", "A soft, malleable rock, useful for construction and tool making.");
-english.item(ItemType.SandstoneCampfire, "a ", "sandstone campfire", "A grouping of sandstone shaped into a ring to contain a fire.");
-english.item(ItemType.SandstoneFlooring, "", "sandstone flooring", "A group of sandstone bricks, placed in a grid to be used as flooring.");
-english.item(ItemType.SandstoneFurnace, "a ", "sandstone furnace", "An enclosed structure made of sandstone, which traps in the heat to keep a long-lasting, high-temperature fire.");
-english.item(ItemType.SandstoneKiln, "a ", "sandstone kiln", "Similar to a furnace, but constructed with sandstone and in a way that allows for proper heat distribution for crafting glass and clay items.");
-english.item(ItemType.SandstoneWall, "a ", "sandstone wall", "A constructed wall built from mined sandstone.");
-english.item(ItemType.SandstoneWaterStill, "a ", "sandstone water still", "A hollowed out piece of sandstone with a lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container.");
-english.item(ItemType.Sapling, "a ", "sapling", "A young, fertile tree, suitable for replanting.");
-english.item(ItemType.Scales, "", "scales", "Dried and hardened scales from a reptilian creature. Can be used as a rudimentary fabric.");
-english.item(ItemType.Seaweed, "", "seaweed", "A stringy mass of sea plants. Can be used as cordage or eating in desperation.");
-english.item(ItemType.Shale, "", "shale", "A brittle but sharp carving implement.");
-english.item(ItemType.SharkFin, "a ", "shark fin", "Not much more than a trophy, this carved dorsal fin remains slippery and rubbery to the touch.");
-english.item(ItemType.SharpenedBone, "a ", "sharpened bone", "A sharp bone, useful for carving other objects.");
-english.item(ItemType.SharpGlass, "", "sharp glass", "A semi-opaque shard of glass, formed after melting sand down.");
-english.item(ItemType.SharpRock, "a ", "sharp rock", "A sharpened rock, useful for crafting, tool making, and carving when required.");
-english.item(ItemType.SheetOfGlass, "a ", "sheet of glass", "A cloudy tempered piece of glass. Practical for many optical tools and other simple devices used to harness the sun.");
-english.item(ItemType.ShortBow, "a ", "short bow", "A bow designed for powerful shots at close range.");
-english.item(ItemType.Sinew, "", "sinew", "Strong and flexible animal tissue. Commonly used for making bows or simple cordage.");
-english.item(ItemType.SkeletalMageWand, "a ", "skeletal mage wand", "A mysterious, gnarled staff with a twinkling red gemstone attached to the end.");
-english.item(ItemType.Skullcap, "a ", "skullcap", "A hollowed-out animal skull, useful as a provisional helmet.");
-english.item(ItemType.SlimeGelatin, "", "slime gelatin", "A lump of slime gelatin which jiggles upon your touch. Can be used to preserve food, or melted down and used as glue.");
-english.item(ItemType.SmallBag, "a ", "small bag", "A leather pouch used for holding a few items, carried at your waist, reducing encumbrance.");
-english.item(ItemType.SmoothRock, "a ", "smooth rock", "A round, smoothed rock, useful for many crafts.");
-english.item(ItemType.Snare, "a ", "snare", "A short pole pushed into the ground with a string attached. Designed to ensnare creatures in its slipknot.");
-english.item(ItemType.Soil, "", "soil", "A pile of moist dirt. The heavy smell of earth permeates your nostrils when holding it.");
-english.item(ItemType.SolarStill, "a ", "solar still", "A still that collects condensation and filters it into in a hole beneath the glass, desalinating the water and draining it into a container.");
-english.item(ItemType.SpiderEggs, "", "spider eggs", "Soft and squishy to the touch. These small silken eggs contain arachnid life inside.");
-english.item(ItemType.SpiderMeat, "", "spider meat", "A spider's fleshy innards. It's hard to stomach, even when cooked. Try not to think about what you're eating.");
-english.item(ItemType.SpiderSilk, "", "spider silk", "A delicate but strong strand of silk, produced by a spider. Can be used as cordage.");
-english.item(ItemType.SpottedRedMushroom, "a ", "spotted red mushroom", "An odd looking, foul smelling mushroom.");
-english.item(ItemType.Spyglass, "a ", "spyglass", "An improvised, short-range telescope, which can be used to see slightly further away in any direction when equipped.");
-english.item(ItemType.StoneAnvil, "a ", "stone anvil", "A solid stone anvil. Used in the production of metal armor, weapons, and tools.");
-english.item(ItemType.StoneArrowhead, "a ", "stone arrowhead", "Crafted from stone and to be used in the crafting of arrows. Could also be used as a carving implement.");
-english.item(ItemType.StoneAxe, "a ", "stone axe", "A dual-use tool which is both sharp and blunt. Can be used to chop wood or mine stone with ease.");
-english.item(ItemType.StoneBullet, "a ", "stone bullet", "A basic stone projectile for slings and firearms. Smooth and more or less spherical in shape.");
-english.item(ItemType.StoneCampfire, "a ", "stone campfire", "A grouping of rocks shaped into a ring to contain a fire.");
-english.item(ItemType.StoneFurnace, "a ", "stone furnace", "An enclosed structure made of stone, which traps in the heat to keep a long-lasting, high-temperature fire.");
-english.item(ItemType.StoneHammer, "a ", "stone hammer", "A rudimentary stone hammer, braced on the end of a pole with string. Used for gathering and repairing.");
-english.item(ItemType.StoneKiln, "a ", "stone kiln", "Similar to a furnace, but constructed with rocks and in a way that allows for proper heat distribution for crafting glass and clay items.");
-english.item(ItemType.StoneKnife, "a ", "stone knife", "A sharpened piece of stone, carved into a blade, with a handle for support. Can be used as a weapon, gathering tool or to carve.");
-english.item(ItemType.Stones, "", "stones", "A mass of small rocks. Can be used for throwing or crafting.");
-english.item(ItemType.StoneShovel, "a ", "stone shovel", "A digging tool made of stone, used to collect different materials from the ground or to route water.");
-english.item(ItemType.StoneSpear, "a ", "stone spear", "A hunting weapon crafted with a stone head, suitable as a throwing weapon.");
-english.item(ItemType.StoneWall, "a ", "stone wall", "A series of interlaced stones and rocks, shaped into a vertical wall structure. Can be built to keep enemies out.");
-english.item(ItemType.StoneWaterStill, "a ", "stone water still", "A hollowed out rock with a stone lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container.");
-english.item(ItemType.String, "", "string", "Woven fabric; the cornerstone of all crafting materials, mainly used for binding.");
-english.item(ItemType.StrippedBark, "", "stripped bark", "A strong, fibrous shaving from a branch, useful for making cordage.");
-english.item(ItemType.Sundial, "a ", "sundial", "A stone timepiece that uses the location of the sun or moon to show the approximate time of day or night.");
-english.item(ItemType.Suture, "a ", "suture", "A sharp needle tool with an attached thin string, used to sew and close gaping wounds.");
-english.item(ItemType.TailFeathers, "", "tail feathers", "A fluffy clump of white feathers, removed from an avian creature's backside.");
-english.item(ItemType.Talc, "", "talc", "A very chalky mineral, only useful in its powder form.");
-english.item(ItemType.TalcumPowder, "", "talcum powder", "Chalky and abundantly absorbent to the touch. An agent required for casting of advanced metals.");
-english.item(ItemType.TallGrassSeeds, "", "tall grass seeds", "Long dried grass seeds. Can be planted to grow a longer type of grass.");
-english.item(ItemType.TannedLeather, "", "tanned leather", "A durable, treated piece of leather. Used in crafting armor and other tools.");
-english.item(ItemType.Tannin, "", "tannin", "A natural treating agent. To be applied on hides to create tanned leather.");
-english.item(ItemType.TatteredMap, "a ", "tattered map", "An old torn map covered with drawings and scribbles, a bit hard to make sense of on first glance.");
-english.item(ItemType.TatteredPants, "", "tattered pants", "Brown colored pants, now reduced to shorts from distress and wear.");
-english.item(ItemType.TatteredShirt, "a ", "tattered shirt", "A once fine piece of a clothing, now torn and tattered.");
-english.item(ItemType.Tentacles, "", "tentacles", "A slimy, wriggling appendage from an unlucky cephalopod. Can be eaten, but with some force due to the rubbery unpleasant texture.");
-english.item(ItemType.Thistles, "", "thistles", "The flowering bulb of a thistle plant. Filled with a bitter but nutritious milk.");
-english.item(ItemType.ThistleSeeds, "", "thistle seeds", "Small hard seeds, used for growing thistle plants.");
-english.item(ItemType.WoodenShavings, "", "wooden shavings", "A dry bunch of wooden shavings, used to ignite kindling when starting a fire.");
-english.item(ItemType.Tourniquet, "a ", "tourniquet", "A hard stud twisted together with a string. Used to twist around a bleeding wound to stem the flow of blood.");
-english.item(ItemType.TreeBark, "", "tree bark", "A tough, dense chunk of bark, broken off from a tree.");
-english.item(ItemType.TreeFungus, "", "tree fungus", "A semi-hard chunk of fungus, grown from a tree and possibly edible.");
-english.item(ItemType.Twigs, "", "twigs", "A small pile of sticks and tree limbs.");
-english.item(ItemType.VenomGland, "a ", "venom gland", "The venom producing gland of a snake, still filled with some immobilizing venom.");
-english.item(ItemType.Vine, "a ", "vine", "A long, winding tree vine, suitable for cordage.");
-english.item(ItemType.VineSeeds, "", "vine seeds", "Seeds to grow vines. Can be eaten if desperate, but they do not contain any significant nutrition.");
-english.item(ItemType.VineWhip, "a ", "vine whip", "A makeshift weapon made simply with tree vines wrapped together.");
-english.item(ItemType.Waterskin, "a ", "waterskin", "A portable water container, made from stitched leather.");
-english.item(ItemType.WaterskinOfDesalinatedWater, "a ", "waterskin of desalinated water", "A waterskin full of freshly desalinated seawater.");
-english.item(ItemType.WaterskinOfMedicinalWater, "a ", "waterskin of medicinal water", "A soothing mixture of plants and roots. Used to heal poisons and illnesses.");
-english.item(ItemType.WaterskinOfPurifiedFreshWater, "a ", "waterskin of purified fresh water", "A full waterskin of fresh, safe-to-drink water.");
-english.item(ItemType.WaterskinOfSeawater, "a ", "waterskin of seawater", "A waterskin full of seawater, not suitable for drinking without desalination.");
-english.item(ItemType.WaterskinOfUnpurifiedFreshWater, "a ", "waterskin of unpurified fresh water", "Unpurified and possibly hazardous water. It is recommended you purify the water before drinking.");
-english.item(ItemType.WhiteMushrooms, "", "white mushrooms", "Edible, long lasting mushrooms. They appear safe to consume.");
-english.item(ItemType.WildOnion, "a ", "wild onion", "A strong smelling and tasting plant, packed with nutrients and vitamins.");
-english.item(ItemType.WoodenArrow, "a ", "wooden arrow", "A provisional wooden projectile to be fired from a bow. Crafted with a feather to control flight.");
-english.item(ItemType.WoodenChest, "a ", "wooden chest", "A large wooden container that can fit many items while placed on the ground. Foods will decay slower within it.");
-english.item(ItemType.WoodenDoor, "a ", "wooden door", "A door crafted from long wooden planks with large wooden hinges. Can be opened and closed when built.");
-english.item(ItemType.WoodenFence, "a ", "wooden fence", "A section of wooden fencing, constructed from three logs and held together with horizontal beams.");
-english.item(ItemType.WoodenFlooring, "", "wooden flooring", "Wooden floor boards; planed to equal height and length.");
-english.item(ItemType.WoodenGate, "a ", "wooden gate", "A gate crafted from long wooden planks with small wooden hinges. Can be opened and closed when built.");
-english.item(ItemType.WoodenPole, "a ", "wooden pole", "A long piece of wood, carved and shaved down into a smooth rod from a branch or log. ");
-english.item(ItemType.WoodenSpear, "a ", "wooden spear", "A makeshift, easy to craft hunting weapon. Makes for an ideal ranged weapon.");
-english.item(ItemType.WoodenSword, "a ", "wooden sword", "A sturdy blunt sword, crafted from wood with a sharp piercing point. Most useful for sparring practice.");
-english.item(ItemType.WoodenTongs, "", "wooden tongs", "A pair of simple wood tongs, used to pick up hot objects without injury.");
-english.item(ItemType.WoodenWall, "a ", "wooden wall", "A sturdy set of bound logs, forming a protective wall that can be placed.");
-english.item(ItemType.WormMeat, "", "worm meat", "Essentially a mash of worm innards, almost ground up into a paste. Definitely not the most appetizing, but can be cooked for better flavor.");
-english.item(ItemType.WovenFabric, "", "woven fabric", "A makeshift piece of fibrous tissue, woven together into fabric.");
-english.item(ItemType.WroughtIron, "", "wrought iron", "A heavily oxidized and unpurified form of iron, used in the forging of brittle tools, weapons, and armor.");
-english.item(ItemType.WroughtIronAnvil, "a ", "wrought iron anvil", "An anvil made from wrought iron with a wooden base. Useful for metalworking.");
-english.item(ItemType.WroughtIronArrow, "a ", "wrought iron arrow", "An arrow with a wrought iron arrowhead. The shaft of the arrow is long and is fletched with feathers.");
-english.item(ItemType.WroughtIronArrowhead, "a ", "wrought iron arrowhead", "Forged with wrought iron, this arrowhead is used to craft an arrow. In dire need, it could also be used for carving.");
-english.item(ItemType.WroughtIronBoots, "", "wrought iron boots", "Wrought iron footwear. Heavy and made specifically for protecting feet and lower legs.");
-english.item(ItemType.WroughtIronBreastPlate, "a ", "wrought iron breastplate", "A large wrought iron chest plate, worn over the torso.");
-english.item(ItemType.WroughtIronBullet, "a ", "wrought iron bullet", "A small ball of wrought iron, used as ammunition for slingshots or firearms.");
-english.item(ItemType.WroughtIronChest, "a ", "wrought iron chest", "A spacious container built from wrought iron that can store many items. Foods will spoil slower inside of it.");
-english.item(ItemType.WroughtIronDoubleAxe, "a ", "wrought iron double axe", "A dual-bladed axe which can provide enough slashing damage for both combat and gathering.");
-english.item(ItemType.WroughtIronGauntlets, "", "wrought iron gauntlets", "Intricate and sturdy, these wrought iron gloves fit snugly on your hands.");
-english.item(ItemType.WroughtIronGorget, "a ", "wrought iron gorget", "A molded piece of metal, used to protect the area around the neck and shoulders.");
-english.item(ItemType.WroughtIronGreaves, "", "wrought iron greaves", "Wrought iron leggings, strapped and padded around the legs to reduce most damage.");
-english.item(ItemType.WroughtIronHammer, "a ", "wrought iron hammer", "A large mallet crafted from wrought iron. Useful for repairing and sometimes gathering.");
-english.item(ItemType.WroughtIronHelmet, "a ", "wrought iron helmet", "Using a barbute design, this iron helmet shields the head from most kinds of attacks.");
-english.item(ItemType.WroughtIronLockPick, "a ", "wrought iron lock pick", "A set of picks and wrenches made from wrought iron, used for picking and unlocking locked devices.");
-english.item(ItemType.WroughtIronPickaxe, "a ", "wrought iron pickaxe", "A dual-headed mining implement. One head is heavy and blunt, the other, spiked to cut through rock with ease.");
-english.item(ItemType.WroughtIronShield, "a ", "wrought iron shield", "A sturdy wrought iron shield, made by bending large sheets of metal into shape.");
-english.item(ItemType.WroughtIronShovel, "a ", "wrought iron shovel", "A shovel with an angled, pointed head, useful for digging and water routing.");
-english.item(ItemType.WroughtIronSpear, "a ", "wrought iron spear", "A polearm with pointed head, crafted from wrought iron. Used in melee or thrown in combat.");
-english.item(ItemType.WroughtIronSword, "a ", "wrought iron sword", "A long, sharpened blade fitted into a solid hilt and forged from wrought iron. A good, strong weapon.");
-english.item(ItemType.WroughtIronTongs, "", "wrought iron tongs", "A pair of tongs, forged from wrought iron. Used to lift hot objects without injury.");
+english.setDictionary(Dictionary.Creature, {
+	[Creature.AcidSpitterDemon]: ["an", "acid spitter demon", "A small, but fierce demonic-looking creature with sharp claws. Appears to spit an acidic fluid."],
+	[Creature.Bear]: ["a", "bear", "A hulking carnivorous mammal attracted to your scent. A deadly foe without protection."],
+	[Creature.Blindfish]: ["a", "blindfish", "A cave-dwelling, sightless fish. Hard to see in detail within the murky depths."],
+	[Creature.Bogling]: ["a", "bogling", "A foul, sulphurous-smelling writhing mass of vegetation, seemingly animated and alive."],
+	[Creature.Chicken]: ["a", "chicken", "A flightless fowl that seems fearful of your presence. Produces feathers, eggs, meat, and more."],
+	[Creature.ClawWorm]: ["a", "claw worm", "A wriggling creature with a massive claw-mouth, spawned forth from the ground due to vibrations caused by your gathering."],
+	[Creature.Cod]: ["a", "cod", "A common ocean fish, known for it's nutritionally-dense, flaky white flesh."],
+	[Creature.Drake]: ["a", "drake", "A massive flightless lizard-dragon with large scales and the ability to breath fire. A fearsome foe."],
+	[Creature.FireElemental]: ["a", "fire elemental", "A creature that is seemingly composed of only fire. Appears to spread fire and destruction in its wake."],
+	[Creature.GiantRat]: ["a", "giant rat", "A rat of unusual size with sharp claws and piercing teeth. Keep at a distance without equipment."],
+	[Creature.GiantSpider]: ["a", "giant spider", "A gangly, frightful arachnid with the ability to poison you."],
+	[Creature.GreyWolf]: ["a", "grey wolf", "A tall canid animal. Able to tear into flesh with vicious abandon."],
+	[Creature.Harpy]: ["a", "harpy", "A large and unusual avian creature. Hostile to your presence."],
+	[Creature.Hobgoblin]: ["a", "hobgoblin", "An odd-looking humanoid. Dislikes your presence and appears to know how to use traps."],
+	[Creature.Imp]: ["an", "imp", "An odd hovering creature with thick wrinkled skin and sharp claws."],
+	[Creature.JellyCube]: ["a", "jelly cube", "An animated cube of gelatin. Its body jiggles to-and-fro as it moves towards you with hostile intent."],
+	[Creature.Kraken]: ["a", "kraken", "A wiry mass of thick tentacles, this lumbering sea-giant is angered by your existence."],
+	[Creature.LivingMushroom]: ["a", "living mushroom", "A living mycological abomination. It appears to have a vengeful attitude towards you."],
+	[Creature.LivingRock]: ["a", "living rock", "A massive pile of rocks and minerals that appears to be alive, or semi-aware at least."],
+	[Creature.PirateGhost]: ["a", "pirate ghost", "A glowing, ethereal visage of a pirate. It appears to be able to manifest a physical weapon to attack you."],
+	[Creature.Rabbit]: ["a", "rabbit", "A fast moving, peaceful herbivorous mammal. Useful for a good meal or as a pet."],
+	[Creature.Rat]: ["a", "rat", "A small and scurrying rodent. Afraid of predators, it will try to escape your grasp."],
+	[Creature.Shark]: ["a", "shark", "A large blood-thirsty cartilaginous sea creature. Its fin juts from the waters, taunting you."],
+	[Creature.SkeletalMage]: ["a", "skeletal mage", "A robed, magic-casting skeletal humanoid. Its spell casting produces walls and teleportation."],
+	[Creature.Skeleton]: ["a", "skeleton", "An animated pile of human, or human-like bones."],
+	[Creature.Slime]: ["a", "slime", "A bouncing globule of animated gelatin. It isn't aware of your stirring."],
+	[Creature.Snake]: ["a", "snake", "A slithering, poisonous reptile. Appears ambivalent to your encroachment."],
+	[Creature.TimeSkitter]: ["a", "time skitter", "An unusual spider-like creature that appears to be able to move through solid objects and move at incredible speeds."],
+	[Creature.TrapdoorSpider]: ["a", "trapdoor spider", "A large spider that appeared from an underground dwelling as you stumbled over it."],
+	[Creature.VampireBat]: ["a", "vampire bat", "A flying mammal with large rubbery wings. Appears to have a penchant for human blood."],
+	[Creature.Zombie]: ["a", "zombie", "A slow, but strong foul-smelling undead or diseased human. Appears to dislike the sun."],
+	[Creature.Sandcat]: ["a", "sandcat", "A small, but ferocious feline that lives exclusively in desert areas."],
+	[Creature.LavaBeetle]: ["a", "lava beetle", "A horned beetle with a large abdomen, filled with liquid magma."]
+});
 
-// Groups
-english.itemGroup(ItemTypeGroup.Anvil, "an ", "anvil");
-english.itemGroup(ItemTypeGroup.Arrow, "an ", "arrow");
-english.itemGroup(ItemTypeGroup.Bedding, "a ", "bedding", " item");
-english.itemGroup(ItemTypeGroup.Bullet, "a ", "bullet");
-english.itemGroup(ItemTypeGroup.Campfire, "a ", "campfire");
-english.itemGroup(ItemTypeGroup.Carbon, "a ", "carbon", " item");
-english.itemGroup(ItemTypeGroup.ClayJugOfPotableWater, "a ", "clay jug of potable water");
-english.itemGroup(ItemTypeGroup.Compost, "a ", "compost", " item");
-english.itemGroup(ItemTypeGroup.Container, "a ", "container");
-english.itemGroup(ItemTypeGroup.ContainerOfDesalinatedWater, "a ", "container of desalinated water");
-english.itemGroup(ItemTypeGroup.ContainerOfMedicinalWater, "a ", "container of medicinal water");
-english.itemGroup(ItemTypeGroup.ContainerOfPurifiedFreshWater, "a ", "container of purified fresh water");
-english.itemGroup(ItemTypeGroup.ContainerOfSeawater, "a ", "container of seawater");
-english.itemGroup(ItemTypeGroup.ContainerOfUnpurifiedFreshWater, "a ", "container of unpurified fresh water");
-english.itemGroup(ItemTypeGroup.CookedMeat, "a ", "cooked meat", " item");
-english.itemGroup(ItemTypeGroup.Cordage, "a ", "cordage", " item");
-english.itemGroup(ItemTypeGroup.Equipment, "an ", "equipment", " item");
-english.itemGroup(ItemTypeGroup.Fabric, "a ", "fabric", " item");
-english.itemGroup(ItemTypeGroup.Firemaking, "a ", "firemaking", " item");
-english.itemGroup(ItemTypeGroup.Food, "a ", "food", " item");
-english.itemGroup(ItemTypeGroup.Fruit, "a ", "fruit");
-english.itemGroup(ItemTypeGroup.Fuel, "a ", "fuel", " item");
-english.itemGroup(ItemTypeGroup.Furnace, "a ", "furnace");
-english.itemGroup(ItemTypeGroup.Gardening, "a ", "gardening", " item");
-english.itemGroup(ItemTypeGroup.GlassBottleOfPotableWater, "a ", "glass bottle of potable water");
-english.itemGroup(ItemTypeGroup.Hammer, "a ", "hammer");
-english.itemGroup(ItemTypeGroup.Health, "a ", "health", " item");
-english.itemGroup(ItemTypeGroup.Heating, "a ", "heating", " item");
-english.itemGroup(ItemTypeGroup.Housing, "a ", "housing", " item");
-english.itemGroup(ItemTypeGroup.Insect, "an ", "insect");
-english.itemGroup(ItemTypeGroup.Kiln, "a ", "kiln");
-english.itemGroup(ItemTypeGroup.LightSource, "a ", "light source");
-english.itemGroup(ItemTypeGroup.Meat, "a ", "meat", " item");
-english.itemGroup(ItemTypeGroup.Medicinal, "a ", "medicinal", " item");
-english.itemGroup(ItemTypeGroup.Needle, "a ", "needle");
-english.itemGroup(ItemTypeGroup.Other, "an ", "other", " item");
-english.itemGroup(ItemTypeGroup.Pole, "a ", "pole");
-english.itemGroup(ItemTypeGroup.Powder, "a ", "powder");
-english.itemGroup(ItemTypeGroup.Preservative, "a ", "preservative");
-english.itemGroup(ItemTypeGroup.Pulp, "a ", "pulp", " item");
-english.itemGroup(ItemTypeGroup.RawMeat, "a ", "raw meat", " item");
-english.itemGroup(ItemTypeGroup.Reinforce, "a ", "reinforce", " item");
-english.itemGroup(ItemTypeGroup.Repair, "a ", "repair", " item");
-english.itemGroup(ItemTypeGroup.Rock, "a ", "rock");
-english.itemGroup(ItemTypeGroup.Seed, "a ", "seed");
-english.itemGroup(ItemTypeGroup.Sharpened, "a ", "sharpened", " item");
-english.itemGroup(ItemTypeGroup.SharpenedRock, "a ", "sharpened rock");
-english.itemGroup(ItemTypeGroup.Skewer, "a ", "skewer");
-english.itemGroup(ItemTypeGroup.Storage, "a ", "storage", " item");
-english.itemGroup(ItemTypeGroup.Tinder, "a ", "tinder", " item");
-english.itemGroup(ItemTypeGroup.Tongs, "", "tongs");
-english.itemGroup(ItemTypeGroup.Tool, "a ", "tool");
-english.itemGroup(ItemTypeGroup.Transmogrify, "a ", "transmogrify", " item");
-english.itemGroup(ItemTypeGroup.Trap, "a ", "trap");
-english.itemGroup(ItemTypeGroup.Travel, "a ", "travel", " item");
-english.itemGroup(ItemTypeGroup.Treasure, "a ", "treasure");
-english.itemGroup(ItemTypeGroup.Vegetable, "a ", "vegetable");
-english.itemGroup(ItemTypeGroup.Water, "a ", "water", " item");
-english.itemGroup(ItemTypeGroup.WaterskinOfPotableWater, "a ", "waterskin of potable water");
-english.itemGroup(ItemTypeGroup.WaterStill, "a ", "water still");
-english.itemGroup(ItemTypeGroup.Weapon, "a ", "weapon");
+english.setDictionary(Dictionary.Corpse, {
+	[Creature.FireElemental]: ["a", "pile of embers"],
+	[Creature.Blood]: ["", "blood"],
+	[Creature.WaterBlood]: ["", "blood in water"]
+});
 
-// Doodads
-english.doodad(DoodadType.Acid, "", "acid", "A neon-green ooze; boiling and bubbling into the ground.");
-english.doodad(DoodadType.BarePalmTree, "a ", "bare palm tree", "A tall palm tree stripped of its leaves.");
-english.doodad(DoodadType.BareTree, "a ", "bare tree", "A tree stripped of most of its leaves and branches.");
-english.doodad(DoodadType.BerryBush, "a ", "berry bush", "A small bush, bearing small amounts berries.");
-english.doodad(DoodadType.Cacti, "", "cacti", "Spined cacti, known for its edible fruit and needles.");
-english.doodad(DoodadType.CaveEntrance, "a ", "cave entrance", "An entrance into the the dark caverns below.");
-english.doodad(DoodadType.ClayBrickWall, "a ", "clay brick wall", "A wall made from fired clay bricks.");
-english.doodad(DoodadType.ClayCampfire, "a ", "clay campfire", "An organized circle of clay bricks, used to contain a fire.");
-english.doodad(DoodadType.ClayFurnace, "a ", "clay furnace", "A clay furnace for creating an enclosed high-temperature fire.");
-english.doodad(DoodadType.ClayKiln, "a ", "clay kiln", "A high-temperature fire enclosure made from clay.");
-english.doodad(DoodadType.ClayWaterStill, "a ", "clay water still", "A clay water still, ready to be lit to desalinate water.");
-english.doodad(DoodadType.Cotton, "", "cotton", "A white and fluffy cotton plant, ready to be harvested.");
-english.doodad(DoodadType.CreatureIdol, "a ", "creature idol", "An odd mass of organs. A humm emanates from it, attracting creatures.");
-english.doodad(DoodadType.DeadBush, "a ", "dead bush", "A sparse, dried out mass of branches.");
-english.doodad(DoodadType.GrowingGrass, "", "growing grass", "A small mound of growing grass.");
-english.doodad(DoodadType.GrowingMushroom, "a ", "growing mushroom", "A batch of small growing mushrooms.");
-english.doodad(DoodadType.GrowingPlant, "a ", "growing plant", "A growing plant of some kind.");
-english.doodad(DoodadType.IronAnvil, "an ", "iron anvil", "An iron anvil used for metalworking. Used in addition with a fire source.");
-english.doodad(DoodadType.IronChest, "an ", "iron chest", "An iron container for storing items and reducing food decay.");
-english.doodad(DoodadType.LitClayCampfire, "a ", "lit clay campfire", "A lit fire inside an enclosure of clay bricks.");
-english.doodad(DoodadType.LitClayFurnace, "a ", "lit clay furnace", "A lit clay furnance, ready to be used in production.");
-english.doodad(DoodadType.LitClayKiln, "a ", "lit clay kiln", "A lit clay kiln, ready for firing items.");
-english.doodad(DoodadType.LitClayWaterStill, "a ", "lit clay water still", "A lit clay water still, desalinating water through evaporation.");
-english.doodad(DoodadType.LitSandstoneCampfire, "a ", "lit sandstone campfire", "A lit fire inside an enclosure of sandstone.");
-english.doodad(DoodadType.LitSandstoneFurnace, "a ", "lit sandstone furnace", "A lit sandstone furnance, ready to be used in production.");
-english.doodad(DoodadType.LitSandstoneKiln, "a ", "lit sandstone kiln", "A lit sandstone kiln, ready for firing items.");
-english.doodad(DoodadType.LitSandstoneWaterStill, "a ", "lit sandstone water still", "A lit sandstone water still, desalinating water through evaporation.");
-english.doodad(DoodadType.LitStoneCampfire, "a ", "lit stone campfire", "A lit fire inside an enclosure of rocks.");
-english.doodad(DoodadType.LitStoneFurnace, "a ", "lit stone furnace", "A lit stone furnance, ready to be used in production.");
-english.doodad(DoodadType.LitStoneKiln, "a ", "lit stone kiln", "A lit stone kiln, ready for firing items.");
-english.doodad(DoodadType.LitStoneWaterStill, "a ", "lit stone water still", "A lit stone water still, desalinating water through evaporation.");
-english.doodad(DoodadType.LitTorchStand, "a ", "lit torch stand", "A torch stuck in the ground and lit on fire.");
-english.doodad(DoodadType.LockedWoodenChest, "a ", "locked wooden chest", "A locked chest, too heavy to move. Able to be broken or lockpicked.");
-english.doodad(DoodadType.OrnateWoodenChest, "an ", "ornate wooden chest", "A decorative chest used for storing items and preserving perishables.");
-english.doodad(DoodadType.PalmTree, "a ", "palm tree", "A tree with many palm leaves and usable wood.");
-english.doodad(DoodadType.PalmTreeWithCoconuts, "a ", "palm tree with coconuts", "A tall palm tree with some coconuts hanging from it.");
-english.doodad(DoodadType.PileOfRocks, "a ", "pile of rocks", "A mass of rocks, stuck into the ground.");
-english.doodad(DoodadType.PineapplePlant, "a ", "pineapple plant", "A large spikey plant, with a ripened pineapple fruit within.");
-english.doodad(DoodadType.PoisonIvy, "", "poison ivy", "A creeping plant with leaves of three.");
-english.doodad(DoodadType.SandstoneCampfire, "a ", "sandstone campfire", "An organized circle of sandstone, used to contain a fire.");
-english.doodad(DoodadType.SandstoneFurnace, "a ", "sandstone furnace", "A sandstone furnace for creating an enclosed high-temperature fire.");
-english.doodad(DoodadType.SandstoneKiln, "a ", "sandstone kiln", "A high-temperature fire enclosure made from sandstone.");
-english.doodad(DoodadType.SandstoneWall, "a ", "sandstone wall", "A robust wall created from sandstone.");
-english.doodad(DoodadType.SandstoneWaterStill, "a ", "sandstone water still", "A sandstone water still, ready to be lit to desalinate water.");
-english.doodad(DoodadType.Sapling, "a ", "sapling", "A young tree, not yet mature.");
-english.doodad(DoodadType.Seaweed, "", "seaweed", "A gathering of long sea plants, useful for eating or cordage.");
-english.doodad(DoodadType.SetDeadfall, "a ", "set deadfall", "A construced deadfall, ready to fall and crush a creature.");
-english.doodad(DoodadType.SetExplosiveTrap, "a ", "set explosive trap", "An elaborate trap, ready to be triggered and exploded by touch.");
-english.doodad(DoodadType.SetHobgoblinSnare, "a ", "set hobgoblin snare", "A hobgoblin constructed snare, ready to catch your feet or an unsuspecting creature.");
-english.doodad(DoodadType.SetSnare, "a ", "set snare", "A constructed snare, ready to trap a creature's appendage.");
-english.doodad(DoodadType.SkeletalRemains, "", "skeletal remains", "A pile of bones that appear to be stirring.");
-english.doodad(DoodadType.SolarStill, "a ", "solar still", "A constructed solar still, desalinating water through evaporation.");
-english.doodad(DoodadType.SpottedRedMushroom, "a ", "spotted red mushroom", "An odd looking batch of red spotted mushrooms.");
-english.doodad(DoodadType.StoneAnvil, "a ", "stone anvil", "A stone anvil used primarily for metalworking and used in conjunction with a fire source.");
-english.doodad(DoodadType.StoneCampfire, "a ", "stone campfire", "An organized circle of rocks, used to contain a fire.");
-english.doodad(DoodadType.StoneFurnace, "a ", "stone furnace", "A rock furnace for creating an enclosed high-temperature fire.");
-english.doodad(DoodadType.StoneKiln, "a ", "stone kiln", "A high-temperature fire enclosure made from stone.");
-english.doodad(DoodadType.StoneWall, "a ", "stone wall", "A hardy wall built from rocks.");
-english.doodad(DoodadType.StoneWaterStill, "a ", "stone water still", "A stone water still, ready to be lit to desalinate water.");
-english.doodad(DoodadType.TallGrass, "", "tall grass", "A collection of long grass, suitable for cordage.");
-english.doodad(DoodadType.Thistles, "", "thistles", "A couple thistles, known for their medicinal properties.");
-english.doodad(DoodadType.TorchStand, "a ", "torch stand", "A torch stuck in the ground, ready for being lit to provide illumination.");
-english.doodad(DoodadType.Tree, "a ", "tree", "A large tree with a wealth of resources.");
-english.doodad(DoodadType.TreeWithBerries, "a ", "tree with berries", "A tree covered with seemingly edible berries.");
-english.doodad(DoodadType.TreeWithFungus, "a ", "tree with fungus", "A tree covered with hard tree fungus.");
-english.doodad(DoodadType.TreeWithVines, "a ", "tree with vines", "A tree wrapped with thick vines, draped across it.");
-english.doodad(DoodadType.Vines, "", "vines", "A wiry tangle of thick vines.");
-english.doodad(DoodadType.WhiteMushrooms, "", "white mushrooms", "A few possibly edible white mushrooms.");
-english.doodad(DoodadType.WildOnion, "a ", "wild onion", "A single onion planted in to the ground.");
-english.doodad(DoodadType.WoodenChest, "a ", "wooden chest", "A chest used for stockpiling items and preserving food.");
-english.doodad(DoodadType.WoodenDoor, "a ", "wooden door", "A sturdy door, used to keep unwanted creatures out.");
-english.doodad(DoodadType.WoodenDoorOpen, "an ", "open wooden door", "An open door, allowing anything to enter.");
-english.doodad(DoodadType.WoodenFence, "a ", "wooden fence", "A set of panels, usually used to keep creatures inside.");
-english.doodad(DoodadType.WoodenGate, "a ", "wooden gate", "A gate, used as a passage through connected fences.");
-english.doodad(DoodadType.WoodenGateOpen, "an ", "open wooden gate", "An opened gate, allowing anything to escape or enter.");
-english.doodad(DoodadType.WoodenWall, "a ", "wooden wall", "A wall crafted by connecting wooden logs together.");
-english.doodad(DoodadType.WroughtIronAnvil, "a ", "wrought iron anvil", "A wrought iron anvil, used for blacksmithing with a fire source.");
-english.doodad(DoodadType.WroughtIronChest, "a ", "wrought iron chest", "A large chest, used for storage and keeping edibles fresher.");
-english.doodad(DoodadType.YellowFlowers, "", "yellow flowers", "A grouping of bright yellow flowers.");
+english.setDictionary(Dictionary.Doodad, {
+	[Doodad.Acid]: ["", "acid", "A neon-green ooze; boiling and bubbling into the ground."],
+	[Doodad.BarePalmTree]: ["a", "bare palm tree", "A tall palm tree stripped of its leaves."],
+	[Doodad.BareTree]: ["a", "bare tree", "A tree stripped of most of its leaves and branches."],
+	[Doodad.BerryBush]: ["a", "berry bush", "A small bush, bearing small amounts berries."],
+	[Doodad.Cacti]: ["", "cacti", "Spined cacti, known for its edible fruit and needles."],
+	[Doodad.CaveEntrance]: ["a", "cave entrance", "An entrance into the the dark caverns below."],
+	[Doodad.ClayBrickWall]: ["a", "clay brick wall", "A wall made from fired clay bricks."],
+	[Doodad.ClayCampfire]: ["a", "clay campfire", "An organized circle of clay bricks, used to contain a fire."],
+	[Doodad.ClayFurnace]: ["a", "clay furnace", "A clay furnace for creating an enclosed high-temperature fire."],
+	[Doodad.ClayKiln]: ["a", "clay kiln", "A high-temperature fire enclosure made from clay."],
+	[Doodad.ClayWaterStill]: ["a", "clay water still", "A clay water still, ready to be lit to desalinate water."],
+	[Doodad.Cotton]: ["", "cotton", "A white and fluffy cotton plant, ready to be harvested."],
+	[Doodad.CreatureIdol]: ["a", "creature idol", "An odd mass of organs. A humm emanates from it, attracting creatures."],
+	[Doodad.DeadBush]: ["a", "dead bush", "A sparse, dried out mass of branches."],
+	[Doodad.GrowingGrass]: ["", "growing grass", "A small mound of growing grass."],
+	[Doodad.GrowingMushroom]: ["a", "growing mushroom", "A batch of small growing mushrooms."],
+	[Doodad.GrowingPlant]: ["a", "growing plant", "A growing plant of some kind."],
+	[Doodad.IronAnvil]: ["an", "iron anvil", "An iron anvil used for metalworking. Used in addition with a fire source."],
+	[Doodad.IronChest]: ["an", "iron chest", "An iron container for storing items and reducing food decay."],
+	[Doodad.LitClayCampfire]: ["a", "lit clay campfire", "A lit fire inside an enclosure of clay bricks."],
+	[Doodad.LitClayFurnace]: ["a", "lit clay furnace", "A lit clay furnance, ready to be used in production."],
+	[Doodad.LitClayKiln]: ["a", "lit clay kiln", "A lit clay kiln, ready for firing items."],
+	[Doodad.LitClayWaterStill]: ["a", "lit clay water still", "A lit clay water still, desalinating water through evaporation."],
+	[Doodad.LitSandstoneCampfire]: ["a", "lit sandstone campfire", "A lit fire inside an enclosure of sandstone."],
+	[Doodad.LitSandstoneFurnace]: ["a", "lit sandstone furnace", "A lit sandstone furnance, ready to be used in production."],
+	[Doodad.LitSandstoneKiln]: ["a", "lit sandstone kiln", "A lit sandstone kiln, ready for firing items."],
+	[Doodad.LitSandstoneWaterStill]: ["a", "lit sandstone water still", "A lit sandstone water still, desalinating water through evaporation."],
+	[Doodad.LitStoneCampfire]: ["a", "lit stone campfire", "A lit fire inside an enclosure of rocks."],
+	[Doodad.LitStoneFurnace]: ["a", "lit stone furnace", "A lit stone furnance, ready to be used in production."],
+	[Doodad.LitStoneKiln]: ["a", "lit stone kiln", "A lit stone kiln, ready for firing items."],
+	[Doodad.LitStoneWaterStill]: ["a", "lit stone water still", "A lit stone water still, desalinating water through evaporation."],
+	[Doodad.LitTorchStand]: ["a", "lit torch stand", "A torch stuck in the ground and lit on fire."],
+	[Doodad.LockedWoodenChest]: ["a", "locked wooden chest", "A locked chest, too heavy to move. Able to be broken or lockpicked."],
+	[Doodad.OrnateWoodenChest]: ["an", "ornate wooden chest", "A decorative chest used for storing items and preserving perishables."],
+	[Doodad.PalmTree]: ["a", "palm tree", "A tree with many palm leaves and usable wood."],
+	[Doodad.PalmTreeWithCoconuts]: ["a", "palm tree with coconuts", "A tall palm tree with some coconuts hanging from it."],
+	[Doodad.PileOfRocks]: ["a", "pile of rocks", "A mass of rocks, stuck into the ground."],
+	[Doodad.PineapplePlant]: ["a", "pineapple plant", "A large spikey plant, with a ripened pineapple fruit within."],
+	[Doodad.PoisonIvy]: ["", "poison ivy", "A creeping plant with leaves of three."],
+	[Doodad.SandstoneCampfire]: ["a", "sandstone campfire", "An organized circle of sandstone, used to contain a fire."],
+	[Doodad.SandstoneFurnace]: ["a", "sandstone furnace", "A sandstone furnace for creating an enclosed high-temperature fire."],
+	[Doodad.SandstoneKiln]: ["a", "sandstone kiln", "A high-temperature fire enclosure made from sandstone."],
+	[Doodad.SandstoneWall]: ["a", "sandstone wall", "A robust wall created from sandstone."],
+	[Doodad.SandstoneWaterStill]: ["a", "sandstone water still", "A sandstone water still, ready to be lit to desalinate water."],
+	[Doodad.Sapling]: ["a", "sapling", "A young tree, not yet mature."],
+	[Doodad.Seaweed]: ["", "seaweed", "A gathering of long sea plants, useful for eating or cordage."],
+	[Doodad.SetDeadfall]: ["a", "set deadfall", "A construced deadfall, ready to fall and crush a creature."],
+	[Doodad.SetExplosiveTrap]: ["a", "set explosive trap", "An elaborate trap, ready to be triggered and exploded by touch."],
+	[Doodad.SetHobgoblinSnare]: ["a", "set hobgoblin snare", "A hobgoblin constructed snare, ready to catch your feet or an unsuspecting creature."],
+	[Doodad.SetSnare]: ["a", "set snare", "A constructed snare, ready to trap a creature's appendage."],
+	[Doodad.SkeletalRemains]: ["", "skeletal remains", "A pile of bones that appear to be stirring."],
+	[Doodad.SolarStill]: ["a", "solar still", "A constructed solar still, desalinating water through evaporation."],
+	[Doodad.SpottedRedMushroom]: ["a", "spotted red mushroom", "An odd looking batch of red spotted mushrooms."],
+	[Doodad.StoneAnvil]: ["a", "stone anvil", "A stone anvil used primarily for metalworking and used in conjunction with a fire source."],
+	[Doodad.StoneCampfire]: ["a", "stone campfire", "An organized circle of rocks, used to contain a fire."],
+	[Doodad.StoneFurnace]: ["a", "stone furnace", "A rock furnace for creating an enclosed high-temperature fire."],
+	[Doodad.StoneKiln]: ["a", "stone kiln", "A high-temperature fire enclosure made from stone."],
+	[Doodad.StoneWall]: ["a", "stone wall", "A hardy wall built from rocks."],
+	[Doodad.StoneWaterStill]: ["a", "stone water still", "A stone water still, ready to be lit to desalinate water."],
+	[Doodad.TallGrass]: ["", "tall grass", "A collection of long grass, suitable for cordage."],
+	[Doodad.Thistles]: ["", "thistles", "A couple thistles, known for their medicinal properties."],
+	[Doodad.TorchStand]: ["a", "torch stand", "A torch stuck in the ground, ready for being lit to provide illumination."],
+	[Doodad.Tree]: ["a", "tree", "A large tree with a wealth of resources."],
+	[Doodad.TreeWithBerries]: ["a", "tree with berries", "A tree covered with seemingly edible berries."],
+	[Doodad.TreeWithFungus]: ["a", "tree with fungus", "A tree covered with hard tree fungus."],
+	[Doodad.TreeWithVines]: ["a", "tree with vines", "A tree wrapped with thick vines, draped across it."],
+	[Doodad.Vines]: ["", "vines", "A wiry tangle of thick vines."],
+	[Doodad.WhiteMushrooms]: ["", "white mushrooms", "A few possibly edible white mushrooms."],
+	[Doodad.WildOnion]: ["a", "wild onion", "A single onion planted in to the ground."],
+	[Doodad.WoodenChest]: ["a", "wooden chest", "A chest used for stockpiling items and preserving food."],
+	[Doodad.WoodenDoor]: ["a", "wooden door", "A sturdy door, used to keep unwanted creatures out."],
+	[Doodad.WoodenDoorOpen]: ["an", "open wooden door", "An open door, allowing anything to enter."],
+	[Doodad.WoodenFence]: ["a", "wooden fence", "A set of panels, usually used to keep creatures inside."],
+	[Doodad.WoodenGate]: ["a", "wooden gate", "A gate, used as a passage through connected fences."],
+	[Doodad.WoodenGateOpen]: ["an", "open wooden gate", "An opened gate, allowing anything to escape or enter."],
+	[Doodad.WoodenWall]: ["a", "wooden wall", "A wall crafted by connecting wooden logs together."],
+	[Doodad.WroughtIronAnvil]: ["a", "wrought iron anvil", "A wrought iron anvil, used for blacksmithing with a fire source."],
+	[Doodad.WroughtIronChest]: ["a", "wrought iron chest", "A large chest, used for storage and keeping edibles fresher."],
+	[Doodad.YellowFlowers]: ["", "yellow flowers", "A grouping of bright yellow flowers."],
 
-// Doodad groups
-english.doodadGroup(DoodadTypeGroup.LitCampfire, "a ", "lit campfire");
-english.doodadGroup(DoodadTypeGroup.LitFurnace, "a ", "lit furnace");
-english.doodadGroup(DoodadTypeGroup.LitKiln, "a ", "lit kiln");
-english.doodadGroup(DoodadTypeGroup.LitWaterStill, "a ", "lit water still");
-english.doodadGroup(DoodadTypeGroup.Anvil, "an ", "anvil");
+	// includes groups
+	[DoodadGroup.LitCampfire]: ["a", "lit campfire"],
+	[DoodadGroup.LitFurnace]: ["a", "lit furnace"],
+	[DoodadGroup.LitKiln]: ["a", "lit kiln"],
+	[DoodadGroup.LitWaterStill]: ["a", "lit water still"],
+	[DoodadGroup.Anvil]: ["an", "anvil"]
+});
 
-// Uses
-english.use(ActionType.Attack, "Attack", "");
-english.use(ActionType.Build, "Build", "Attempt to construct or assemble the item on the tile you are facing towards.");
-english.use(ActionType.Carve, "Carve", "Used to carve creature corpses or to remove objects attached to the ground.");
-english.use(ActionType.Cast, "Cast", "Find a fish in a body of water and attempt to cast your line or net to catch it.");
-english.use(ActionType.Decode, "Decode", "Used for attempting to read the map. Use by the treasure location to reveal how far or close you are.");
-english.use(ActionType.Dig, "Dig", "Used to dig up resources and items from the ground.");
-english.use(ActionType.Disassemble, "Disassemble", "");
-english.use(ActionType.Dismantle, "Dismantle", "");
-english.use(ActionType.DrawMap, "Draw Map", "Draw a map using your skill in cartography of the surrounding area.");
-english.use(ActionType.Drink, "Drink", "Consumed on use. Will reduce your thirst; however, will provide negative effects when drinking sea/unpurified water.");
-english.use(ActionType.DrinkCure, "Drink Cure", "Consumed on use. Used to cure poisoning while sometimes providing other health benefits.");
-english.use(ActionType.Eat, "Eat", "Consumed on use. May provide benefits to hunger, thirst, health and stamina; however, may reduce them as well depending on the food.");
-english.use(ActionType.Extinguish, "Extinguish", "Douse the torch, extinguishing the flame.");
-english.use(ActionType.Fire, "Fire", "Using a mixture of black powder along with a bullet, you may fire this weapon.");
-english.use(ActionType.Garden, "Garden", "Use on a plant to increase its fertility. Can only be used on some plant types.");
-english.use(ActionType.Gather, "Gather", "Can be used directly to gather from an adjacent resource tile. Equipping this allows it to be automatically used when walking into resource tiles.");
-english.use(ActionType.GatherTreasure, "Gather Treasure", "Attempt to gather a treasure in the vicinity of use based on a decoded treasure map. Range of gather is dependent on your mining skill.");
-english.use(ActionType.GatherWater, "Gather Water", "Used to gather water into the item.");
-english.use(ActionType.Heal, "Heal", "Consumed on use. Used to restore a varied amount of health.");
-english.use(ActionType.HealCreature, "Heal Creature", "Consumed on use. Used to restore a varied amount of health to a creature.");
-english.use(ActionType.Ignite, "Ignite", "Use this item on a fire source to start it on fire.");
-english.use(ActionType.LockPick, "Lock Pick", "Used to unlock locked objects.");
-english.use(ActionType.Open, "Open", "Consumed on use. Using this will open it, providing new and unknown items.");
-english.use(ActionType.OpenContainer, "Open Container", "Using this will open it where you may drag and drop items to and from. Weight reduction and decay reduction bonuses may apply to items inside.");
-english.use(ActionType.Paddle, "Paddle", "Used to travel over water without getting your feet wet. Your speed is not reduced in water while paddling.");
-english.use(ActionType.Pet, "Pet", "");
-english.use(ActionType.Pickup, "Pick-up", "");
-english.use(ActionType.Plant, "Plant", "Attempts to plant the item on the tile you are facing towards. Some plants may require certain ground types or conditions to be planted.");
-english.use(ActionType.Pour, "Pour", "Pour on fire to extinguish the flames, pour inside a water still to begin water filtration, pour on a suitable plant to increase its health, or just simply empty out.");
-english.use(ActionType.PourOnYourself, "Pour on Yourself", "Liquid is consumed on use. Used to sooth burn injuries.");
-english.use(ActionType.Preserve, "Preserve", "Used with food items to extend their life and decay rate.");
-english.use(ActionType.Read, "Read", "Consumed on use. Reading usually provides useful knowledge.");
-english.use(ActionType.Reinforce, "Reinforce", "Consumed on use. Use while facing a damaged item to attempt to increase the overall maximum and minimum durability. Success based on skill used to make the item.");
-english.use(ActionType.Release, "Release", "");
-english.use(ActionType.Repair, "Repair", "Use while facing a damaged item to attempt to repair it. Success based on skill used to make the item.");
-english.use(ActionType.Rest, "Rest", "Used to rest for a period of time to regain health and stamina. You will stop resting when reaching full stamina.");
-english.use(ActionType.RubClockwise, "Rub Clockwise", "Rubbing this item manifests its effects to the holder.");
-english.use(ActionType.RubCounterclockwise, "Rub Counterclockwise", "Rubbing this item manifests its effects to the holder.");
-english.use(ActionType.SailToCivilization, "Sail To Civilization", "After collecting all the pieces of treasure, you can return to civilization and bask in the glory of your riches and fame. You can always return back to these lands afterwards.");
-english.use(ActionType.SetDown, "Set Down", "Using this item will place it on top of whatever tile is present in your facing direction. This is different than just dropping the item. It can also be used to extinguish fires.");
-english.use(ActionType.Shoot, "Shoot", "You can shoot arrows with this item.");
-english.use(ActionType.Sleep, "Sleep", "Used to sleep for a period of time to regain health and stamina. Duration is based on camping skill and time of day. A bonus to all effects (including length) will be granted if facing a fire or lit object. Hunger and dehydration increases slower while sleeping.");
-english.use(ActionType.Sling, "Sling", "You can sling bullets with this item.");
-english.use(ActionType.Squeeze, "Squeeze", "Consumed on use. Spews a stream of fire in your facing direction.");
-english.use(ActionType.StartFire, "Start Fire", "Used to start a fire. Use on campfires, furnaces, etc. to light them or on an empty tile. Using this action may require kindling, tinder and a fuel item in your inventory depending on the circumstance.");
-english.use(ActionType.StokeFire, "Stoke Fire", "Used on a fire source to increase the strength of the flame.");
-english.use(ActionType.Tame, "Tame", "");
-english.use(ActionType.Teleport, "Teleport", "With a flick of the wand, teleport to a location in front of where you are facing.");
-english.use(ActionType.TellTime, "Tell Time", "Used to measure the time of day or night.");
-english.use(ActionType.Throw, "Throw", "");
-english.use(ActionType.Transmogrify, "Transmogrify", "Use while facing an equippable item to attempt to infuse with magical properties.");
-english.use(ActionType.TraverseTheSea, "Traverse the Sea", "Used to travel to new, unexplored lands, leaving behind your current surroundings.");
+english.setDictionary(Dictionary.Hint, {
+	[Hint.WelcomeToWayward]: ["Welcome to Wayward", "Welcome to the Early Access version of Wayward! Wayward is currently in beta status and many things will change and improve over time. Hint windows like these will display as you play the game if enabled. You can disable automatic hints by clicking the button \"Disable Hints\" below or in the options. If you need further help or hints, visit the <a target=\"_blank\" href=\"http://steamcommunity.com/app/379210/discussions/\">Steam Discussions forums</a>.<br /><br />If you want to keep up with Wayward, please visit the <a target=\"_blank\" href=\"http://www.unlok.ca/category/wayward/\">Wayward Blog</a> or <a target=\"_blank\" href=\"http://www.reddit.com/r/Wayward/\">Subreddit</a>.<br /><br />Want to help Wayward? Spread the word, or follow us on one of the following sites: <a target=\"_blank\" href=\"https://www.facebook.com/waywardgame\">Facebook</a>, <a target=\"_blank\" href=\"https://twitter.com/Wayward_Game\">Twitter</a>, or <a target=\"_blank\" href=\"http://www.indiedb.com/games/wayward\">IndieDB</a>."],
 
-// Terrain/tiles
-english.terrain(TerrainType.Ash, "", "ash");
-english.terrain(TerrainType.BarePalmTree, "a ", "bare palm tree");
-english.terrain(TerrainType.BareTree, "a ", "bare tree");
-english.terrain(TerrainType.CaveEntrance, "a ", "cave entrance");
-english.terrain(TerrainType.Clay, "", "clay");
-english.terrain(TerrainType.ClayBrickFlooring, "", "clay brick flooring");
-english.terrain(TerrainType.CobblestoneFlooring, "", "cobblestone flooring");
-english.terrain(TerrainType.DeepFreshWater, "", "deep fresh water");
-english.terrain(TerrainType.DeepSeawater, "", "deep seawater");
-english.terrain(TerrainType.Dirt, "", "dirt");
-english.terrain(TerrainType.FreshWater, "", "fresh water");
-english.terrain(TerrainType.Grass, "", "grass");
-english.terrain(TerrainType.Gravel, "", "gravel");
-english.terrain(TerrainType.Lava, "", "lava");
-english.terrain(TerrainType.PalmTree, "a ", "palm tree");
-english.terrain(TerrainType.PalmTreeWithCoconuts, "a ", "palm tree with coconuts");
-english.terrain(TerrainType.RedCarpet, "", "red carpet");
-english.terrain(TerrainType.Rocks, "", "rocks");
-english.terrain(TerrainType.RocksWithCoal, "", "rocks with coal");
-english.terrain(TerrainType.RocksWithIron, "", "rocks with iron");
-english.terrain(TerrainType.RocksWithLimestone, "", "rocks with limestone");
-english.terrain(TerrainType.RocksWithTalc, "", "rocks with talc");
-english.terrain(TerrainType.Sand, "", "sand");
-english.terrain(TerrainType.Sandstone, "", "sandstone");
-english.terrain(TerrainType.SandstoneFlooring, "", "sandstone flooring");
-english.terrain(TerrainType.SandstoneWithIron, "", "sandstone with iron");
-english.terrain(TerrainType.SandstoneWithNiter, "", "sandstone with niter");
-english.terrain(TerrainType.Seawater, "", "seawater");
-english.terrain(TerrainType.ShallowFreshWater, "", "shallow fresh water");
-english.terrain(TerrainType.ShallowSeawater, "", "shallow seawater");
-english.terrain(TerrainType.Snow, "", "snow");
-english.terrain(TerrainType.Swamp, "", "swamp");
-english.terrain(TerrainType.Tree, "a ", "tree");
-english.terrain(TerrainType.TreeWithBerries, "a ", "tree with berries");
-english.terrain(TerrainType.TreeWithFungus, "a ", "tree with fungus");
-english.terrain(TerrainType.TreeWithVines, "a ", "tree with vines", );
-english.terrain(TerrainType.WoodenFlooring, "", "wooden flooring");
+	[Hint.Controls]: ["Controls", "Keybinds can be changed under \"Keybinds\" in the options menu.<br /><br /><h3>Window Shortcuts</h3><br />{ui.getStringForKeyBind(KeyBind.Escape)} = Close Menus and Windows, {ui.getStringForKeyBind(KeyBind.Inventory)} = Inventory, {ui.getStringForKeyBind(KeyBind.Equipment)} = Equipment, {ui.getStringForKeyBind(KeyBind.Crafting)} = Crafting, {ui.getStringForKeyBind(KeyBind.Help)} = Help, {ui.getStringForKeyBind(KeyBind.Skills)} = Skills, {ui.getStringForKeyBind(KeyBind.Messages)} = Messages, {ui.getStringForKeyBind(KeyBind.Options)} = Options, {ui.getStringForKeyBind(KeyBind.Actions)} = Actions, {ui.getStringForKeyBind(KeyBind.Milestones)} = Milestones<br /><br /><h3>Movement</h3><br />To move, you can to use {ui.getStringForKeyBind(KeyBind.Up)}, {ui.getStringForKeyBind(KeyBind.Left)}, {ui.getStringForKeyBind(KeyBind.Down)}, {ui.getStringForKeyBind(KeyBind.Right)} or by clicking/tapping on the game screen in the direction you want to move. To skip/pass a turn, or to pick up item(s) on the tile you are standing on, press the spacebar or left click/tap your character on the game screen.<br /><br /><h3>Actions</h3><br />Opening up the Actions menu will bring up a list of actions you can perform on the adjacent tile or object; for example, collecting a pineapple without needing to carve it up. This is also an alternate way to inspect a tile without needing to right click or hover on the game screen. Jumping is also selectable in the actions menu which can help you get out of tight spots, but watch out for the heavy stamina reduction; it's based on your current weight.<br /><br /><h3>Using Items</h3><br />To use an item, you may left click/tap it to bring up the item's menu. You will see a list of actions you can perform. Additionally, you are able to drag and drop an item into one of the quickslots. Press the number or hotkey ({ui.getStringForKeyBind(KeyBind.One)}, {ui.getStringForKeyBind(KeyBind.Two)}, {ui.getStringForKeyBind(KeyBind.Three)}, etc.) that corresponds with which quickslot it is attached to perform the primary action for the item (unless changed).<br /><br /><h3>Item Uses, Dropping and Information</h3><br />Some items have more than one use - these will show up in the item's menu if available. You are able to right click an item to automatically drop it without going into the item menu. If you are facing a container, you will drop the item inside. You can shift + right click (or use \"Drop All\" from the menu) to drop multiple items of the same kind. You are also able to right click on the game screen to reveal information about what you are clicking on (referred to as \"Inspect\"), whether it be items, creatures, tiles, and more.<br /><br /><h3>More Information</h3><br />Hovering over elements on screen will typically reveal more information. Tool-tips will appear over items. Hovering over crafting items will highlight items used in the craft.<br /><br /><h3>Item Management</h3><br />Besides dragging and dropping items to your quickslots, you are also able to equip items in this fashion, provided it is an equipment item and fits in that slot. Dragging and dropping is also used to move items to your container window and inventory (shift + dragging will move all items of the same ). Additionally, right clicking an item in your equipment list, quickslots or container window will remove it from that slot."],
 
-// Events
-english.tileEvent(TileEvent.Type.Fire, "fire", "A dangerous open flame providing heat and light.");
+	[Hint.CorpseCarving]: ["Corpse Carving", "To harvest potential resources from corpses, you must carve them with a sharp item. Choose \"Carve\" from the item's menu or try moving it to a quickslot for ease of use."],
 
-// On Equips
-english.onEquipType(OnEquipType.LightSource, "Light Source");
-english.onEquipType(OnEquipType.Telescopy, "Telescopy");
+	[Hint.Doodads]: ["Doodads", "Doodads are considered objects attached to the ground like plants, piles of rocks, furnaces, campfires, etc. To collect them, you can do one of the following:<br /><br />1. While facing the item, click or press the \"Actions\" hotkey with {ui.getStringForKeyBind(KeyBind.Actions)}, and select the \"Collect Object With Hands\" option.<br />2. Use an item with \"Digging\" such as a stone shovel.<br />3. Use an item with \"Carving\" such as a sharp rock.<br />4. Use an item with \"Gather\" such as a wooden pole.<br /><br />Using your bare hands with no tool (option 1) can sometimes harm you. Using a tool (option 2/3/4) will decrease the durability of the item. Some objects may require a \"Carving\" tool such as corpses to harvest from them."],
 
-// Creatures
-english.creature(CreatureType.AcidSpitterDemon, "an ", "acid spitter demon", "A small, but fierce demonic-looking creature with sharp claws. Appears to spit an acidic fluid.");
-english.creature(CreatureType.Bear, "a ", "bear", "A hulking carnivorous mammal attracted to your scent. A deadly foe without protection.");
-english.creature(CreatureType.Blindfish, "a ", "blindfish", "A cave-dwelling, sightless fish. Hard to see in detail within the murky depths.");
-english.creature(CreatureType.Bogling, "a ", "bogling", "A foul, sulphurous-smelling writhing mass of vegetation, seemingly animated and alive.");
-english.creature(CreatureType.Chicken, "a ", "chicken", "A flightless fowl that seems fearful of your presence. Produces feathers, eggs, meat, and more.");
-english.creature(CreatureType.ClawWorm, "a ", "claw worm", "A wriggling creature with a massive claw-mouth, spawned forth from the ground due to vibrations caused by your gathering.");
-english.creature(CreatureType.Cod, "a ", "cod", "A common ocean fish, known for it's nutritionally-dense, flaky white flesh.");
-english.creature(CreatureType.Drake, "a ", "drake", "A massive flightless lizard-dragon with large scales and the ability to breath fire. A fearsome foe.");
-english.creature(CreatureType.FireElemental, "a ", "fire elemental", "A creature that is seemingly composed of only fire. Appears to spread fire and destruction in its wake.");
-english.creature(CreatureType.GiantRat, "a ", "giant rat", "A rat of unusual size with sharp claws and piercing teeth. Keep at a distance without equipment.");
-english.creature(CreatureType.GiantSpider, "a ", "giant spider", "A gangly frightful arachnid with the ability to poison you.");
-english.creature(CreatureType.GreyWolf, "a ", "grey wolf", "A tall canid animal. Able to tear into flesh with vicious abandon.");
-english.creature(CreatureType.Harpy, "a ", "harpy", "A large and unusual avian creature. Hostile to your presence.");
-english.creature(CreatureType.Hobgoblin, "a ", "hobgoblin", "An odd-looking humanoid. Dislikes your presence and appears to know how to use traps.");
-english.creature(CreatureType.Imp, "an ", "imp", "An odd hovering creature with thick wrinkled skin and sharp claws.");
-english.creature(CreatureType.JellyCube, "a ", "jelly cube", "An animated cube of gelatin. Its body jiggles to-and-fro as it moves towards you with hostile intent.");
-english.creature(CreatureType.Kraken, "a ", "kraken", "A wiry mass of thick tentacles, this lumbering sea-giant is angered by your existence.");
-english.creature(CreatureType.LivingMushroom, "a ", "living mushroom", "A living mycological abomination. It appears to have a vengeful attitude towards you.");
-english.creature(CreatureType.LivingRock, "a ", "living rock", "A massive pile of rocks and minerals that appears to be alive, or semi-aware at least.");
-english.creature(CreatureType.PirateGhost, "a ", "pirate ghost", "A glowing, ethereal visage of a pirate. It appears to be able to manifest a physical weapon to attack you.");
-english.creature(CreatureType.Rabbit, "a ", "rabbit", "A fast moving, peaceful herbivorous mammal. Useful for a good meal or as a pet.");
-english.creature(CreatureType.Rat, "a ", "rat", "A small and scurrying rodent. Afraid of predators, it will try to escape your grasp.");
-english.creature(CreatureType.Shark, "a ", "shark", "A large blood-thirsty cartilaginous sea creature. Its fin juts from the waters, taunting you.");
-english.creature(CreatureType.SkeletalMage, "a ", "skeletal mage", "A robed, magic-casting skeletal humanoid. Its spell casting produces walls and teleportation.");
-english.creature(CreatureType.Skeleton, "a ", "skeleton", "An animated pile of human, or human-like bones.");
-english.creature(CreatureType.Slime, "a ", "slime", "A bouncing globule of animated gelatin. It isn't aware of your stirring.");
-english.creature(CreatureType.Snake, "a ", "snake", "A slithering, poisonous reptile. Appears ambivalent to your encroachment.");
-english.creature(CreatureType.TimeSkitter, "a ", "time skitter", "An unusual spider-like creature that appears to be able to move through solid objects and move at incredible speeds.");
-english.creature(CreatureType.TrapdoorSpider, "a ", "trapdoor spider", "A large spider that appeared from an underground dwelling as you stumbled over it.");
-english.creature(CreatureType.VampireBat, "a ", "vampire bat", "A flying mammal with large rubbery wings. Appears to have a penchant for human blood.");
-english.creature(CreatureType.Zombie, "a ", "zombie", "A slow, but strong foul-smelling undead or diseased human. Appears to dislike the sun.");
-english.creature(CreatureType.Sandcat, "a ", "sandcat", "A small, but ferocious feline that lives exclusively in desert areas.");
+	[Hint.Caves]: ["Caves", "Caves are the perfect place for hidden treasure, but first, they may need illumination with a torch to explore them further. Caves can be extremely dangerous and may require advanced armor and weaponry."],
 
-// Unique corpse types
-english.creatureCorpse(CreatureType.FireElemental, "a ", "pile of embers");
-english.creatureCorpse(CreatureType.Blood, "", "blood");
-english.creatureCorpse(CreatureType.WaterBlood, "", "blood in water");
+	[Hint.Nightfall]: ["Nightfall", "If nightfall is approaching, find a safe area to camp out and prepare yourself for combat! Many tough creatures can prowl the night."],
 
-// Skills
-english.skill(SkillType.Chemistry, "Chemistry", "Influences quality and success rate of crafted items using chemical mixtures.");
-english.skill(SkillType.Anatomy, "Anatomy", "Increases accuracy of creature health description.<br />Decreases chance of bleeding and poisoning.<br />Increases effectiveness of healing consumables.<br />Increases success chance when healing.");
-english.skill(SkillType.Archery, "Archery & Firearms", "Increases attack damage, accuracy and maximum range when using bows and firearms.");
-english.skill(SkillType.Blacksmithing, "Blacksmithing", "Influences quality, repair, and success rate of crafted items using metal.");
-english.skill(SkillType.Botany, "Botany", "Increases chance of successfully planting a plant.<br />Increases effectiveness of eating plant-based consumables.<br />Decreases chance of trampling plants when stepping on them.");
-english.skill(SkillType.Camping, "Camping", "Increases the amount of turns slept when using a bedroll.<br />Increases chance of starting a fire.");
-english.skill(SkillType.Cartography, "Cartography", "Increases chance to successfully read tattered maps.<br />Decreases obscurity when reading tattered maps.");
-english.skill(SkillType.Claythrowing, "Clay Throwing", "Influences quality and success rate of crafting items using clay.");
-english.skill(SkillType.Cooking, "Cooking", "Influences quality and success rate of cooking items (via crafting).<br />Influences decay of cooked items.");
-english.skill(SkillType.Fishing, "Fishing", "Increases chance to successfully catch a fish. Increases maximum range when using a fishing rod.<br />Increases the range in which you can gather underwater treasure from.");
-english.skill(SkillType.Fletching, "Fletching & Rangedcraft", "Influences quality and repair rate of crafted arrows, bows, and slings.");
-english.skill(SkillType.Glassblowing, "Glassblowing", "Influences quality and success rate of crafted items using glass.");
-english.skill(SkillType.Leatherworking, "Leatherworking", "Influences quality, repair, and success rate of crafted items using leather.");
-english.skill(SkillType.LockPicking, "Lock Picking", "Increases chance to successfully unlock a chest.");
-english.skill(SkillType.Lumberjacking, "Lumberjacking", "Increases chance of resource dropping on trees.<br />Decreases chance of stamina reduction while lumberjacking.");
-english.skill(SkillType.Mining, "Mining", "Increases chance of resource dropping on rocks.<br />Decreases chance of stamina reduction while mining.<br />Increases the range in which you can gather treasure from.");
-english.skill(SkillType.Mycology, "Mycology", "Increases chance of planting a mushroom.<br />Increases effectiveness of eating mushroom consumables.<br />Decreases chance of trampling mushrooms when stepping on them.");
-english.skill(SkillType.Parrying, "Parrying", "Increases your base defense value.<br />Increases chance to take less damage in combat.<br />Decreases chance of stamina reduction from being attacked.");
-english.skill(SkillType.Stonecrafting, "Stonecrafting", "Influences quality, repair, and success rate of crafted items using stones and rocks.");
-english.skill(SkillType.Swimming, "Swimming", "Increases speed in water travel.<br />Decreases chance of stamina reduction in water.");
-english.skill(SkillType.Tactics, "Tactics", "Increases your base attack value.<br />Increases chance to hit targets in combat.<br />Decreases chance of stamina reduction while attacking.");
-english.skill(SkillType.Tailoring, "Tailoring", "Influences quality, repair, and success rate of crafted items using cloth and leather.");
-english.skill(SkillType.Taming, "Taming", "Increases chance of successfully taming a creature.<br />Increases length of time creature will be tamed for.<br />Decreases chance of stamina reduction when taming/offering.");
-english.skill(SkillType.Throwing, "Throwing", "Increases attack damage, accuracy, and maximum range when throwing or slinging an item.");
-english.skill(SkillType.Tinkering, "Tinkering", "Influences quality, repair, and success rate of crafted items using miscellaneous resources and methods.");
-english.skill(SkillType.Trapping, "Trapping", "Increases the amount of damage and success rate of trapping creatures.<br />Reduces chance of setting off traps and reduces damage taken from traps.");
-english.skill(SkillType.Woodworking, "Woodworking", "Influences quality, repair, and success rate of crafted items using wood.");
+	[Hint.StaminaReplenishment]: ["Stamina Replenishment", "If you find yourself getting exhausted, sleep or rest using a bedroll or hammock to regenerate stamina. You can also rest by going into the Actions menu and selecting \"Rest\"; however, resting with an item will produce better regenerative effects. Rest is different from sleep in that you will only ever rest until your stamina is maxed out. Alternatively, you may hold spacebar or click your character to skip turns."],
 
-// Milestones
-english.milestone(MilestoneType.Abnormalizer, "Abnormalizer", "Killed 25 aberrant creatures.");
-english.milestone(MilestoneType.Chef, "Chef", "Cooked 25 food items.");
-english.milestone(MilestoneType.Crafter, "Crafter", "Crafted 250 items.");
-english.milestone(MilestoneType.Extincteur, "Extincteur", "Killed 1000 creatures.");
-english.milestone(MilestoneType.Gardener, "Gardener", "Planted 50 plants or mushrooms.");
-english.milestone(MilestoneType.Gatherer, "Gatherer", "Gathered 1000 times.");
-english.milestone(MilestoneType.Hunter, "Hunter", "Killed 100 creatures.");
-english.milestone(MilestoneType.Locksmith, "Locksmith", "Lock picked 10 locks.");
-english.milestone(MilestoneType.ReaperOfSouls, "Reaper of Souls", "Killed 50 pirate ghosts and harvested their corpses.");
-english.milestone(MilestoneType.Survivor, "Survivor", "Survived for 10000 turns.");
-english.milestone(MilestoneType.Thrower, "Thrower", "Thrown 500 items.");
-english.milestone(MilestoneType.Trapper, "Trapper", "Injured 10 creatures with traps.");
-english.milestone(MilestoneType.TreasureHunter, "Treasure Hunter", "Dug or fished up 10 treasure chests.");
-english.milestone(MilestoneType.Collector, "Collector", "Collected one of every item.");
-english.milestone(MilestoneType.Explorer, "Explorer", "Stepped on or gathered from every type of tile.");
-english.milestone(MilestoneType.Grandmaster, "Grandmaster", "Raised a skill to 100%.");
-english.milestone(MilestoneType.Prepared, "Prepared", "Equipped something in each equipment slot.");
-english.milestone(MilestoneType.Doctor, "Doctor", "Cured each status effect.");
-english.milestone(MilestoneType.Artificer, "Artificer", "Transmogrified an item.");
-english.milestone(MilestoneType.Seafarer, "Seafarer", "Sailed to civilization and completed the game.");
-english.milestone(MilestoneType.Navigator, "Navigator", "Traversed the seas in search of new lands.");
-english.milestone(MilestoneType.DragonSlayer, "Dragon Slayer", "Slayed a drake.");
-english.milestone(MilestoneType.Treasurer, "Treasurer", "Collected every one of the five types of treasure.");
-english.milestone(MilestoneType.Pulchritudinous, "Pulchritudinous", "Equipped a legendary item in each equipment slot.");
+	[Hint.HealthProblems]: ["Health Problems", "If you find yourself injured, you replenish your health with food or healing-type items. Some status effects reduce your ability to regenerate your health including bleeding and poisoning. Alternatively, you can also try sleeping or resting to regenerate health."],
 
-// Hints
-english.hint(HintType.WelcomeToWayward, "Welcome to Wayward", "Welcome to the Early Access version of Wayward! Wayward is currently in beta status and many things will change and improve over time. Hint windows like these will display as you play the game if enabled. You can disable automatic hints by clicking the button \"Disable Hints\" below or in the options. If you need further help or hints, visit the <a target=\"_blank\" href=\"http://steamcommunity.com/app/379210/discussions/\">Steam Discussions forums</a>.<br /><br />If you want to keep up with Wayward, please visit the <a target=\"_blank\" href=\"http://www.unlok.ca/category/wayward/\">Wayward Blog</a> or <a target=\"_blank\" href=\"http://www.reddit.com/r/Wayward/\">Subreddit</a>.<br /><br />Want to help Wayward? Spread the word, or follow us on one of the following sites: <a target=\"_blank\" href=\"https://www.facebook.com/waywardgame\">Facebook</a>, <a target=\"_blank\" href=\"https://twitter.com/Wayward_Game\">Twitter</a>, or <a target=\"_blank\" href=\"http://www.indiedb.com/games/wayward\">IndieDB</a>.");
-english.hint(HintType.Controls, "Controls", "Keybinds can be changed under \"Keybinds\" in the options menu.<br /><br /><h3>Window Shortcuts</h3><br />{ui.getStringForKeyBind(KeyBind.Escape)} = Close Menus and Windows, {ui.getStringForKeyBind(KeyBind.Inventory)} = Inventory, {ui.getStringForKeyBind(KeyBind.Equipment)} = Equipment, {ui.getStringForKeyBind(KeyBind.Crafting)} = Crafting, {ui.getStringForKeyBind(KeyBind.Help)} = Help, {ui.getStringForKeyBind(KeyBind.Skills)} = Skills, {ui.getStringForKeyBind(KeyBind.Messages)} = Messages, {ui.getStringForKeyBind(KeyBind.Options)} = Options, {ui.getStringForKeyBind(KeyBind.Actions)} = Actions, {ui.getStringForKeyBind(KeyBind.Milestones)} = Milestones<br /><br /><h3>Movement</h3><br />To move, you can to use {ui.getStringForKeyBind(KeyBind.Up)}, {ui.getStringForKeyBind(KeyBind.Left)}, {ui.getStringForKeyBind(KeyBind.Down)}, {ui.getStringForKeyBind(KeyBind.Right)} or by clicking/tapping on the game screen in the direction you want to move. To skip/pass a turn, or to pick up item(s) on the tile you are standing on, press the spacebar or left click/tap your character on the game screen.<br /><br /><h3>Actions</h3><br />Opening up the Actions menu will bring up a list of actions you can perform on the adjacent tile or object; for example, collecting a pineapple without needing to carve it up. This is also an alternate way to inspect a tile without needing to right click or hover on the game screen. Jumping is also selectable in the actions menu which can help you get out of tight spots, but watch out for the heavy stamina reduction; it's based on your current weight.<br /><br /><h3>Using Items</h3><br />To use an item, you may left click/tap it to bring up the item's menu. You will see a list of actions you can perform. Additionally, you are able to drag and drop an item into one of the quickslots. Press the number or hotkey ({ui.getStringForKeyBind(KeyBind.One)}, {ui.getStringForKeyBind(KeyBind.Two)}, {ui.getStringForKeyBind(KeyBind.Three)}, etc.) that corresponds with which quickslot it is attached to perform the primary action for the item (unless changed).<br /><br /><h3>Item Uses, Dropping and Information</h3><br />Some items have more than one use - these will show up in the item's menu if available. You are able to right click an item to automatically drop it without going into the item menu. If you are facing a container, you will drop the item inside. You can shift + right click (or use \"Drop All\" from the menu) to drop multiple items of the same kind. You are also able to right click on the game screen to reveal information about what you are clicking on (referred to as \"Inspect\"), whether it be items, creatures, tiles, and more.<br /><br /><h3>More Information</h3><br />Hovering over elements on screen will typically reveal more information. Tool-tips will appear over items. Hovering over crafting items will highlight items used in the craft.<br /><br /><h3>Item Management</h3><br />Besides dragging and dropping items to your quickslots, you are also able to equip items in this fashion, provided it is an equipment item and fits in that slot. Dragging and dropping is also used to move items to your container window and inventory (shift + dragging will move all items of the same type). Additionally, right clicking an item in your equipment list, quickslots or container window will remove it from that slot.");
-english.hint(HintType.CorpseCarving, "Corpse Carving", "To harvest potential resources from corpses, you must carve them with a sharp item. Choose \"Carve\" from the item's menu or try moving it to a quickslot for ease of use.");
-english.hint(HintType.Doodads, "Doodads", "Doodads are considered objects attached to the ground like plants, piles of rocks, furnaces, campfires, etc. To collect them, you can do one of the following:<br /><br />1. While facing the item, click or press the \"Actions\" hotkey with {ui.getStringForKeyBind(KeyBind.Actions)}, and select the \"Collect Object With Hands\" option.<br />2. Use an item with \"Digging\" such as a stone shovel.<br />3. Use an item with \"Carving\" such as a sharp rock.<br />4. Use an item with \"Gather\" such as a wooden pole.<br /><br />Using your bare hands with no tool (option 1) can sometimes harm you. Using a tool (option 2/3/4) will decrease the durability of the item. Some objects may require a \"Carving\" tool such as corpses to harvest from them.");
-english.hint(HintType.Caves, "Caves", "Caves are the perfect place for hidden treasure, but first, they may need illumination with a torch to explore them further. Caves can be extremely dangerous and may require advanced armor and weaponry.");
-english.hint(HintType.Nightfall, "Nightfall", "If nightfall is approaching, find a safe area to camp out and prepare yourself for combat! Many tough creatures can prowl the night.");
-english.hint(HintType.StaminaReplenishment, "Stamina Replenishment", "If you find yourself getting exhausted, sleep or rest using a bedroll or hammock to regenerate stamina. You can also rest by going into the Actions menu and selecting \"Rest\"; however, resting with an item will produce better regenerative effects. Rest is different from sleep in that you will only ever rest until your stamina is maxed out. Alternatively, you may hold spacebar or click your character to skip turns.");
-english.hint(HintType.HealthProblems, "Health Problems", "If you find yourself injured, you replenish your health with food or healing-type items. Some status effects reduce your ability to regenerate your health including bleeding and poisoning. Alternatively, you can also try sleeping or resting to regenerate health.");
-english.hint(HintType.Bleeding, "Bleeding", "The bleeding status effect is usually the result of a low anatomy skill percentage while fighting a tough creature. Make sure to use a healing item to stop the bleeding, such as a bandage or tourniquet. Bleeding causes you to starve/dehydrate faster, regenerate stamina slower, and stops regeneration of health.");
-english.hint(HintType.Poisoned, "Poisoned", "Poisoning can happen from eating bad things or from some types of creatures. Make sure to use a curing item to cure the poison, such as medicinal water. Poisoning causes you to starve/dehydrate faster, regenerate stamina slower, and stops regeneration of health.");
-english.hint(HintType.Dehydration, "Dehydration", "There's many ways to get drinkable water, but unfortunately for you, the largest source of water, from the sea is nearly undrinkable in its raw form. You must desalinate the water through the use of a water still or flask before drinking it without adverse effects. Alternatively, you may seek out a fresh water source, such as from caves, small lakes, oases, swamps or ponds. Fresh water is drinkable in it's raw form without too many bad effects; however, you may still want to boil it for the best health results.");
-english.hint(HintType.UseATool, "Use A Tool", "Gathering resources with your hands is difficult and harmful; try equipping or using a tool to eliminate the chance of injury. If you are mining or lumberjacking, your weapon(s) attack value will also help gather items faster. Blunt attack weapon will help you gather faster while mining, while slashing weapons will help you gather faster while lumberjacking.");
-english.hint(HintType.Durability, "Durability", "If you find one of your your tools, weapons or armor is close to breaking from overuse (highlighted with a red border), you will need to repair it using a hammer item or a grindstone. If you can't find or craft an item to repair it, it will soon break completely upon use.");
-english.hint(HintType.Death, "Death", "Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your milestones will also carry over, providing you multiple starting benefits.");
-english.hint(HintType.ConsumingBadThings, "Consuming Bad Things", "Ow! Not all edible/drinkable objects should be consumed, at least not without facing the consequences. On the other hand, sometimes it's worth the risk to gain its other effects. Consuming bad things can sometimes result in poisoning.");
-english.hint(HintType.FastPickup, "Fast Pick-up", "You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving.");
-english.hint(HintType.Bugs, "BUGS!", "Did you find an error? Would you kindly let us know about what happened, so that we may seek to stop this from happening to other players? You can do so by posting the issue in the <a target=\"_blank\" href=\"http://steamcommunity.com/app/379210/discussions/1/\">Steam Discussions Bug Reports forum</a>.");
-english.hint(HintType.HeldItems, "Held Items", "Your left and right hand equipment slots are interchangeable. You can equip two weapons, two tools, two shields or any combination in between. Be careful of damaging useful equipment such as torches or shields while gathering or attacking. Make sure to always equip another weapon or tool in the other hand if you want to use it to attack or gather over damaging an equipped torch. You attack with both hands in combat, so it's important to equip both your hands if possible.");
-english.hint(HintType.Milestones, "Milestones", "Milestones are personalized goals and achievements. Each playthrough, you are given an amount to either discover or work towards. Milestones are saved after each playthrough or death. The more you have completed, the more starting skill and stat points you get, as well as more starting items.");
-english.hint(HintType.Burned, "Burn Injuries", "Lasting burn injuries and pain can be caused from stepping in an open flame without protection, or possibly other sources. Pouring liquid on yourself will soothe the injuries and pain. Alternatively, you can also take a swim in deep water. Keep swimming until the effect subsides. Being burned will stop you from regenerating health and can last awhile if untreated.");
-english.hint(HintType.Crafting, "Crafting", "Crafting is simple, but has many rules!<br /><br />When hovering over an item in the crafting window, you will see which items will be used in the craft through a highlighted border that will appear around items in your inventory. You will also notice that you will use the first instance of a required item. Simply drag around the order of items in your inventory or use the sort to use different items in the craft.<br /><br />Using items in a craft that have lower durability will affect the crafted item's durability. Additionally, using remarkable, exceptional or legendary items in a craft increases your chances to craft such an item. Decayable items (such as food) also gain decay bonuses from using higher quality items in the craft.<br /><br />You can find new crafting recipes by gathering the required items in your inventory and by finding old instructional scrolls.");
-english.hint(HintType.Encumberance, "Encumberance", "The first level of encumberance will slow down your movement and reduce stamina regeneration. The second level, \"overburdened\" will physically hurt you as you will begin to take damage while trying to move. You can drop items from your inventory by right clicking, through the item's menu, or by dragging and dropping them on to the game screen.");
-english.hint(HintType.DailyChallengeMode, "Daily Challenge Mode", "Daily challenge mode is an extra difficult game mode with some unique game rules to add an extra challenge for skilled players. You can expect more creatures, a harder beginning of the game, and more. You cannot save your game in this mode. The world and randomization is unique per day, allowing multiple players to play in the same set of circumstances.");
-english.hint(HintType.MovingItems, "Moving Items", "There are many ways to organize and move items in Wayward<br /><br />1. Dragging and dropping: You can drag and drop items into a container window, quickslot, equipment slot, or directly on to the ground, by dragging it to the desired location. Dragging and dropping to the game screen will drop it in front of you, or inside a chest if you are facing one. Holding Shift while dragging will drag/drop all items of the same type<br />2. From the item's menu. Left clicking an item will display the item's menu with options to \"Drop/Drop All\", or if you have a container window open, will present you the option to \"Move/Move All\". If you click an item that has a special quality, additional options will be visible to Drop/Move all of the same quality.<br />3. Right clicking/dropping. You can right click any item in your inventory to drop it in front of you. This will automatically drop it into a chest if you are facing one. Holding shift while you right click will drop all of the same type.<br /><br />Note: You can change the default drop direction from the facing tile to underneath your character in the game's option menu.");
-english.hint(HintType.CraftingFailure, "Crafting Failure", "All crafts in Wayward have a skill level assosiated with them. Hovering over each craft will reveal the item's craft skill level. These levels going from easiest to harder are: simple, intermediate, advanced, and expert.<br /><br />Trying to craft an item with a higher skill level than your own crafting skill can sometimes result in failure. Your chance to successfully craft the item raises as your skills increase. If the item's skill level appears in orange, you will have a low chance at success for crafting that item. Each unsucessful attempt at crafting will reduce the durability of each item involved in the craft.");
-english.hint(HintType.Malignity, "Malignity", "These lands are mysterious and seem to react to your presence and actions. Crafting and using items, killing creatures, and performing skills will all effect your malignity positively or negatively. The higher your malignity, the more challenging survival becomes. Having a low or even negative malignity assumes you are peaceful, and these lands will act in kindness towards you by not allowing more difficult creatures to spawn. Certain peaceful actions may reduce your level of malign such as gardening or planting mushrooms and plants. Travelling away to other lands using boats can significantly reduce your malignity.<br /><br />Caves will always feature the same creatures, regardless of malignity and during the night, if your malignity is above 0, some very dangerous creatures can spawn.");
-english.hint(HintType.Interface, "Interface", "The windowed interface in Wayward is completely customizable. You can move them around as you see fit, and resize them to expand the information that is viewable. Move them around by dragging the title bar of each window. Resize them by dragging the corner of the window.<br /><br />If you are still having issues finding certain items within the inventory or crafting windows, try using the filter or sorting features.");
-english.hint(HintType.CreatureTaming, "Creature Taming", `Violence is sometimes not the best option! Besides running away from a confrontation with the hostile island creatures, another option is to attempt to tame them. To attempt creature taming, simply face the creature and select "Tame" from your action menu (opened with {ui.getStringForKeyBind(KeyBind.Actions)}). Sometimes attempting to calm the creature directly will not be enough. You can also attempt to offer an item to creature. Simply face the creature, open a item's menu and select "Offer". If the creature likes or wants the item, it will become tamed.`);
+	[Hint.Bleeding]: ["Bleeding", "The bleeding status effect is usually the result of a low anatomy skill percentage while fighting a tough creature. Make sure to use a healing item to stop the bleeding, such as a bandage or tourniquet. Bleeding causes you to starve/dehydrate faster, regenerate stamina slower, and stops regeneration of health."],
 
-Languages.add(english);
+	[Hint.Poisoned]: ["Poisoned", "Poisoning can happen from eating bad things or from some types of creatures. Make sure to use a curing item to cure the poison, such as medicinal water. Poisoning causes you to starve/dehydrate faster, regenerate stamina slower, and stops regeneration of health."],
+
+	[Hint.Dehydration]: ["Dehydration", "There's many ways to get drinkable water, but unfortunately for you, the largest source of water, from the sea is nearly undrinkable in its raw form. You must desalinate the water through the use of a water still or flask before drinking it without adverse effects. Alternatively, you may seek out a fresh water source, such as from caves, small lakes, oases, swamps or ponds. Fresh water is drinkable in it's raw form without too many bad effects; however, you may still want to boil it for the best health results."],
+
+	[Hint.UseATool]: ["Use A Tool", "Gathering resources with your hands is difficult and harmful; try equipping or using a tool to eliminate the chance of injury. If you are mining or lumberjacking, your weapon(s) attack value will also help gather items faster. Blunt attack weapon will help you gather faster while mining, while slashing weapons will help you gather faster while lumberjacking."],
+
+	[Hint.Durability]: ["Durability", "If you find one of your your tools, weapons or armor is close to breaking from overuse (highlighted with a red border), you will need to repair it using a hammer item or a grindstone. If you can't find or craft an item to repair it, it will soon break completely upon use."],
+
+	[Hint.Death]: ["Death", "Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your milestones will also carry over, providing you multiple starting benefits."],
+
+	[Hint.ConsumingBadThings]: ["Consuming Bad Things", "Ow! Not all edible/drinkable objects should be consumed, at least not without facing the consequences. On the other hand, sometimes it's worth the risk to gain its other effects. Consuming bad things can sometimes result in poisoning."],
+
+	[Hint.FastPickup]: ["Fast Pick-up", "You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving."],
+
+	[Hint.Bugs]: ["BUGS!", "Did you find an error? Would you kindly let us know about what happened, so that we may seek to stop this from happening to other players? You can do so by posting the issue in the <a target=\"_blank\" href=\"http://steamcommunity.com/app/379210/discussions/1/\">Steam Discussions Bug Reports forum</a>."],
+
+	[Hint.HeldItems]: ["Held Items", "Your left and right hand equipment slots are interchangeable. You can equip two weapons, two tools, two shields or any combination in between. With both the left and right hand options selected, you will use both hands (and whatever is equipped in each slot) in combat and in gathering. You can disable either the left or right hands to disable using that one in attacking and gathering. Disabling both will prevent you from attacking or gathering automatically."],
+
+	[Hint.Milestones]: ["Milestones", "Milestones are personalized goals and achievements. Each playthrough, you are given an amount to either discover or work towards. Milestones are saved after each playthrough or death. The more you have completed, the more starting skill and stat points you get, as well as more starting items."],
+
+	[Hint.Burned]: ["Burn Injuries", "Lasting burn injuries and pain can be caused from stepping in an open flame without protection, or possibly other sources. Pouring liquid on yourself will soothe the injuries and pain. Alternatively, you can also take a swim in deep water. Keep swimming until the effect subsides. Being burned will stop you from regenerating health and can last awhile if untreated."],
+
+	[Hint.Crafting]: ["Crafting", "Crafting is simple, but has many rules!<br /><br />When hovering over an item in the crafting window, you will see which items will be used in the craft through a highlighted border that will appear around items in your inventory. You will also notice that you will use the first instance of a required item. Simply drag around the order of items in your inventory or use the sort to use different items in the craft.<br /><br />Using items in a craft that have lower durability will affect the crafted item's durability. Additionally, using remarkable, exceptional or legendary items in a craft increases your chances to craft such an item. Decayable items (such as food) also gain decay bonuses from using higher quality items in the craft.<br /><br />You can find new crafting recipes by gathering the required items in your inventory and by finding old instructional scrolls."],
+
+	[Hint.Encumberance]: ["Encumberance", "The first level of encumberance will slow down your movement and reduce stamina regeneration. The second level, \"overburdened\" will physically hurt you as you will begin to take damage while trying to move. You can drop items from your inventory by right clicking, through the item's menu, or by dragging and dropping them on to the game screen."],
+
+	[Hint.DailyChallengeMode]: ["Daily Challenge Mode", "Daily challenge mode is an extra difficult game mode with some unique game rules to add an extra challenge for skilled players. You can expect more creatures, a harder beginning of the game, and more. You cannot save your game in this mode. The world and randomization is unique per day, allowing multiple players to play in the same set of circumstances."],
+
+	[Hint.MovingItems]: ["Moving Items", "There are many ways to organize and move items in Wayward<br /><br />1. Dragging and dropping: You can drag and drop items into a container window, quickslot, equipment slot, or directly on to the ground, by dragging it to the desired location. Dragging and dropping to the game screen will drop it in front of you, or inside a chest if you are facing one. Holding Shift while dragging will drag/drop all items of the same br />2. From the item's menu. Left clicking an item will display the item's menu with options to \"Drop/Drop All\", or if you have a container window open, will present you the option to \"Move/Move All\". If you click an item that has a special quality, additional options will be visible to Drop/Move all of the same quality.<br />3. Right clicking/dropping. You can right click any item in your inventory to drop it in front of you. This will automatically drop it into a chest if you are facing one. Holding shift while you right click will drop all of the same .<br /><br />Note: You can change the default drop direction from the facing tile to underneath your character in the game's option menu."],
+
+	[Hint.CraftingFailure]: ["Crafting Failure", "All crafts in Wayward have a skill level assosiated with them. Hovering over each craft will reveal the item's craft skill level. These levels going from easiest to harder are: simple, intermediate, advanced, and expert.<br /><br />Trying to craft an item with a higher skill level than your own crafting skill can sometimes result in failure. Your chance to successfully craft the item raises as your skills increase. If the item's skill level appears in orange, you will have a low chance at success for crafting that item. Each unsucessful attempt at crafting will reduce the durability of each item involved in the craft."],
+
+	[Hint.Reputation]: ["Reputation", "These lands are mysterious and seem to react to your presence and actions. Crafting and using items, killing creatures, and performing skills will all effect your malignity and benignity, and thus your reputation. The lower your reputation becomes, the more challenging survival becomes. Having a high reputation assumes you are peaceful, and these lands will act in kindness towards you by not allowing more difficult creatures to spawn. Certain peaceful actions may increase your reputation and benignity such as gardening or planting mushrooms and plants. Travelling away to other lands using boats can significantly increase your reputation as well.<br /><br />Caves will always feature the same creatures, regardless of reputation and during the night, if your reputation is below 0, some very dangerous creatures can spawn."],
+
+	[Hint.Interface]: ["Interface", "The windowed interface in Wayward is completely customizable. You can move them around as you see fit, and resize them to expand the information that is viewable. Move them around by dragging the title bar of each window. Resize them by dragging the corner of the window.<br /><br />If you are still having issues finding certain items within the inventory or crafting windows, try using the filter or sorting features."],
+
+	[Hint.CreatureTaming]: ["Creature Taming", `Violence is sometimes not the best option! Besides running away from a confrontation with the hostile island creatures, another option is to attempt to tame them. To attempt creature taming, simply face the creature and select "Tame" from your action menu (opened with {ui.getStringForKeyBind(KeyBind.Actions)}).<br /><br />Sometimes attempting to calm the creature directly will not be enough. You can also attempt to offer an item to creature. Simply face the creature, open a item's menu and select "Offer". If the creature likes or wants the item, it will become tamed.`],
+
+	[Hint.Combat]: ["Combat", `Engaging in combat with creatures may not be the best option. In Wayward, you are free to attempt to kill creatures as well as tame or flee from them. The strategy is up to you!<br /><br />Many skills play an important role in your successfulness at slaying the creature. Open your skills window using {ui.getStringForKeyBind(KeyBind.Skills)} and view the hints provided when hovering over skills such as tactics and parrying. Skills are not the only important factor when battling creatures. Your weaponry and armaments also play a role. The combat messages will tell you of your effectivenesses and inadequacies when in combat.`]
+});
+
+english.setDictionary(Dictionary.Item, {
+	[Item.Acorn]: ["an", "acorn", "A hard tree nut with a cupule that can grow into a sapling when planted."],
+	[Item.Amber]: ["", "amber", "Fossilized tree resin. Can be melted down to reinforce items."],
+	[Item.AnimalClaw]: ["an", "animal claw", "A sharp claw from an animal. A perfect animal by-product for using as a needle."],
+	[Item.AnimalFat]: ["", "animal fat", "A gelatinous shaving of animal fat, slimy to the touch. Useful as a rendered fuel."],
+	[Item.AnimalFatTorch]: ["an", "animal fat torch", "A torch; wrapped in rendered animal fat, producing a long-lasting light source."],
+	[Item.AnimalFur]: ["", "animal fur", "A large clump of animal fur and hair. Could be used as tinder in a situation where wood is not available."],
+	[Item.AnimalPelt]: ["an", "animal pelt", "The remains of an unlucky skinned animal. Can be used as a makeshift garment or dismantled into the hide and fur separately."],
+	[Item.AnimalSkull]: ["an", "animal skull", "A large hollowed out, bleached animal skull, suitable for crafting into a provisional helmet."],
+	[Item.Arrow]: ["an", "arrow", "A projectile to be fired from a bow, crafted with an arrowhead and feather to control flight."],
+	[Item.Backpack]: ["a", "backpack", "Crafted with leather, it's suitable for holding many items on your back, reducing overall weight."],
+	[Item.Bandage]: ["a", "bandage", "A tattered piece of fabric, used to staunch wounds and prevent infection."],
+	[Item.BarkLeggings]: ["", "bark leggings", "Rudimentary leg armor, crafted from strong tree bark and secured with string."],
+	[Item.BarkShield]: ["a", "bark shield", "A makeshift shield, used to block incoming attacks, made with tree bark and wrapped with string."],
+	[Item.BarkTorch]: ["a", "bark torch", "A torch wrapped and bound by stripped tree bark, providing natural oils to increase the life of the torch."],
+	[Item.BarkTunic]: ["a", "bark tunic", "Tree bark chest armor bound together with string."],
+	[Item.BerrySeeds]: ["", "berry seeds", "Black seeds that will grow into a berry bush, given enough time and care."],
+	[Item.BigRedBerry]: ["a", "big red berry", "An abnormally large, plump red berry, full of luscious nutrition."],
+	[Item.BlackPowder]: ["", "black powder", "A highly combustible powder, made up of a combination of minerals."],
+	[Item.BoatPaddle]: ["a", "boat paddle", "A makeshift boat paddle used with boats and rafts, or combat if in dire need."],
+	[Item.BoiledEgg]: ["a", "boiled egg", "A moist, delicious boiled egg. Great tasting and packed with protein."],
+	[Item.Bone]: ["a", "bone", "A heavy, sun-bleached animal bone, suitable for rudimentary combat, gathering, or crafting into more useful items."],
+	[Item.BoneFragments]: ["", "bone fragments", "A bundle of bones from a small vertebrate. Some cracked, others shattered. The pieces are quite sharp."],
+	[Item.BoneNeedle]: ["a", "bone needle", "A thin, hard, sharp needle, carved from bone."],
+	[Item.BonePole]: ["a", "bone pole", "A smooth cudgel crafted from a large bone."],
+	[Item.Bow]: ["a", "bow", "A bent wooden pole with a shorter string tied to both ends. The tension of the string is used to fire arrows."],
+	[Item.BowDrill]: ["a", "bow drill", "An advanced fire starting device. Uses the string on a bow to rotate into the wood, reducing much effort."],
+	[Item.Branch]: ["a", "branch", "A typical tree branch, useful for a variety of crafts or stoking a fire."],
+	[Item.BullBoat]: ["a", "bull boat", "A boat made from leather hides and framed with curved wooden poles. Used to travel to new, far away lands."],
+	[Item.CactiSeeds]: ["", "cacti seeds", "These appear to be cactus seeds. Can be planted to grow cacti or eaten."],
+	[Item.CactusNeedle]: ["a", "cactus needle", "A needle from a cactus plant, useful in crafting smaller, more intricate items."],
+	[Item.CactusSpines]: ["", "cactus spines", "Thin, long spikes, suitable for crafting into makeshift needles."],
+	[Item.CarbonPowder]: ["", "carbon powder", "Black, sooty carbonized powder."],
+	[Item.Charcoal]: ["", "charcoal", "Condensed, carbon-rich burned matter."],
+	[Item.CharcoalBandage]: ["a", "charcoal bandage", "A cloth bandage, coated in charcoal and used for its natural antiseptic and anticoagulant properties."],
+	[Item.ClayBlowpipe]: ["a", "clay blowpipe", "A sturdy blowpipe used for glassblowing."],
+	[Item.ClayBrick]: ["a", "clay brick", "A hardened clay brick, used in the building of structures such as floors and walls."],
+	[Item.ClayBrickFlooring]: ["", "clay brick flooring", "Flooring crafted from clay bricks. Could be used as decoration or as part of a building."],
+	[Item.ClayBrickWall]: ["a", "clay brick wall", "A wall made from clay bricks, set into a typical skewed, grid-like fashion to increase durability."],
+	[Item.ClayCampfire]: ["a", "clay campfire", "A grouping of clay bricks shaped into a ring to contain a fire."],
+	[Item.ClayFlakes]: ["", "clay flakes", "Dried shavings of clay. Created by shaving clay and drying over a period of time."],
+	[Item.ClayFurnace]: ["a", "clay furnace", "An enclosed structure made of clay bricks, which traps in the heat to keep a long-lasting, high-temperature fire."],
+	[Item.ClayJug]: ["a", "clay jug", "A fully hardened clay jug with a cork. Used to hold water."],
+	[Item.ClayJugOfDesalinatedWater]: ["a", "clay jug of desalinated water", "Potable, safe-to-drink water. The water in this clay jug has gone through the desalination process."],
+	[Item.ClayJugOfMedicinalWater]: ["a", "clay jug of medicinal water", "A clay jug containing medicinal water, used to cure and soothe certain ailments while also replenishing your thirst."],
+	[Item.ClayJugOfPurifiedFreshWater]: ["a", "clay jug of purified fresh water", "A clay jug filled with fresh, purified water. Can be used to quench your thirst."],
+	[Item.ClayJugOfSeawater]: ["a", "clay jug of seawater", "Unfiltered seawater, held in a clay jug. Unsuitable to drink in its current form but could be desalinated."],
+	[Item.ClayJugOfUnpurifiedFreshWater]: ["a", "clay jug of unpurified fresh water", "A clay jug full of natural, fresh water. Although it is drinkable, further purification is recommended."],
+	[Item.ClayKiln]: ["a", "clay kiln", "Similar to a furnace, but constructed with clay and in a way that allows for proper heat distribution for crafting glass and clay items."],
+	[Item.ClayWaterStill]: ["a", "clay water still", "A carved out clay brick with a lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container."],
+	[Item.Coal]: ["", "coal", "A black and brittle mineral, staining anything it touches, but useful as fuel."],
+	[Item.CobblestoneFlooring]: ["", "cobblestone flooring", "Primitive flooring created by placing stones in an organized pattern, filling any gaps."],
+	[Item.Coconut]: ["a", "coconut", "A fibrous and heavy fruit. Difficult to consume, but packed with plenty of caloric-dense coconut meat and milk."],
+	[Item.CompositeBow]: ["a", "composite bow", "An expertly crafted bow, designed for both velocity and force."],
+	[Item.CookedBlindfish]: ["a", "cooked blindfish", "While the source of the food is a bit suspect, after being cooked, it appears to be more palatable."],
+	[Item.CookedChicken]: ["a", "cooked chicken", "A well cooked chicken, ready to consume and sure to satisfy."],
+	[Item.CookedCod]: ["a", "cooked cod", "A seared, well cooked cod, ready to consume and enjoy."],
+	[Item.CookedFishSteak]: ["a", "cooked fish steak", "A cooked fish fillet, seared on the outside and delicious."],
+	[Item.CookedMeat]: ["", "cooked meat", "Adequately heated meat, safe and ready for consumption."],
+	[Item.CookedReptileMeat]: ["", "cooked reptile meat", "A grilled piece of reptile meat. The look and texture could almost be passed as chicken."],
+	[Item.CookedSpiderMeat]: ["", "cooked spider meat", "Crispy spider meat. Not the best texture or flavor, but contains the more edible portions of the deceased arachnid."],
+	[Item.CookedTaintedMeat]: ["", "cooked tainted meat", "A piece of discolored meat, cooked to kill possible toxins, but possibly still unsafe for consumption."],
+	[Item.CookedTentacles]: ["", "cooked tentacles", "Although, still springy to the touch, this cooked cephalopod appendage can be stomached much easier than if raw."],
+	[Item.CookedWormMeat]: ["", "cooked worm meat", "A cooked patty of worm meat. Unappetizing to think about, but can provide as a good source of needed nutrition."],
+	[Item.CordedSling]: ["a", "corded sling", "A thick piece of cordage, wrapped and bound with a slot made for a projectile. Used to swing ammunition, increasing throwing range."],
+	[Item.Cork]: ["a", "cork", "A small cork plug. Crafted from rubbery tree bark; it can be used to contain liquids in bottles and other containers."],
+	[Item.Cotton]: ["", "cotton", "A downy bundle of opened cotton seeds, the ideal solution for spinning thread and making fabrics."],
+	[Item.CottonBedroll]: ["a", "cotton bedroll", "A soft and downy sleeping mattress, rolled up for ease of carrying. Can be used to sleep or rest very comfortably."],
+	[Item.CottonFabric]: ["", "cotton fabric", "A soft piece of cloth spun from cotton."],
+	[Item.CottonSeeds]: ["", "cotton seeds", "Unopened, plantable cotton seeds, not yet revealing their white, soft interiors."],
+	[Item.CreatureIdol]: ["a", "creature idol", "A mass of animal organs, crudely shaped into some kind of figure. It smells awful and emits an odd humming noise, and appears to attract creatures."],
+	[Item.Deadfall]: ["a", "deadfall", "A large, flat rock, propped up with a stick. Once set, anything that triggers it will be crushed or injured from the falling rock."],
+	[Item.DrawnMap]: ["a", "drawn map", "A paper sheet, scrawled with geographical landmarks and features. Used to approximate a location when read."],
+	[Item.Earthworm]: ["an", "earthworm", "A live wriggling insect, effective for bait or eating on its own."],
+	[Item.Ectoplasm]: ["", "ectoplasm", "A ghostly, weightless fluff of misty goo, strangely self contained and quickly evaporating."],
+	[Item.Egg]: ["an", "egg", "A brown colored egg, laid by a chicken. Can be eaten as is, or cooked for a tastier meal."],
+	[Item.ExplosiveTrap]: ["an", "explosive trap", "A mound of leaves used to conceal a volatile explosive powder. Stepping on it will trigger a small explosion."],
+	[Item.Feather]: ["a", "feather", "Some bright white plumage from an avian creature."],
+	[Item.FeatherBedroll]: ["a", "feather bedroll", "A bedroll made with soft feathers and wrapped in fabric. Used for resting and sleeping in comfort."],
+	[Item.FertileSoil]: ["", "fertile soil", "A rich soil, suitable for setting down to attempt to grow plants on."],
+	[Item.Fertilizer]: ["", "fertilizer", "A rich mixture of organic materials and chemicals, suitable for combining with soil to create a fertile soil."],
+	[Item.FireBladder]: ["a", "fire bladder", "An oddly shaped organ from a firebreathing creature. Hot to the touch; it appears to contain a deadly chemical reaction inside."],
+	[Item.FirePlough]: ["a", "fire plough", "A fire making device which uses a stick and groove method to create heat through friction."],
+	[Item.FishingNet]: ["a", "fishing net", "A checkered weave of string with weights on each corner, used to trap and catch fish."],
+	[Item.FishingRod]: ["a", "fishing rod", "A flexible, smooth wooden rod with a string line and sharpened hook. Used for fly fishing."],
+	[Item.Flask]: ["a", "flask", "A glass container which can be heated to use for desalination, a process used to make seawater drinkable."],
+	[Item.FlintlockPistol]: ["a", "flintlock pistol", "A long range, high damage pistol. Requires black powder and bullets to fire."],
+	[Item.FlowerPetals]: ["", "flower petals", "The petals of a yellow flower. Only useful in creating medicinal tonics, or ingesting directly if food supply is low."],
+	[Item.FlowerSeeds]: ["", "flower seeds", "Dried flower seeds which can be planted to grow flowers."],
+	[Item.Fossil]: ["a", "fossil", "A carbonized fossil of a species long since extinct."],
+	[Item.Giblets]: ["", "giblets", "A batch of cooked animal organs. Considerably repugnant, but nutritious and filling."],
+	[Item.GlassBottle]: ["a", "glass bottle", "A transparent vessel with a cork for containment. Used for collecting water."],
+	[Item.GlassBottleOfDesalinatedWater]: ["a", "glass bottle of desalinated water", "A bottle filled with clear seawater that has been processed to remove the salt content."],
+	[Item.GlassBottleOfMedicinalWater]: ["a", "glass bottle of medicinal water", "A bottled concoction of herbs and nutrients. Used to cure thirst, poisons, and other ailments."],
+	[Item.GlassBottleOfPurifiedFreshWater]: ["a", "glass bottle of purified fresh water", "Potable, and safe to hydrate yourself with. The water has been purified reducing any toxins and unsafe bacteria."],
+	[Item.GlassBottleOfSeawater]: ["a", "glass bottle of seawater", "Filled to the top with seawater. While seawater is technically drinkable, it will not reduce your thirst."],
+	[Item.GlassBottleOfUnpurifiedFreshWater]: ["a", "glass bottle of unpurified fresh water", "A bottle containing water that is likely unfit to drink. It will quench your thirst, but may have negative side-effects until it's purified."],
+	[Item.Glue]: ["", "glue", "A natural form of glue that can be used to bind and reinforce items."],
+	[Item.GoldCoins]: ["", "gold coins", "Shiny, golden coins, from a lost civilization unknown to you."],
+	[Item.GoldenChalice]: ["a", "golden chalice", "A large, ornate, and resplendent chalice."],
+	[Item.GoldenKey]: ["a", "golden key", "A large and decorative key forged from gold."],
+	[Item.GoldenRing]: ["a", "golden ring", "A golden ring, most likely used as a sign of wealth and power."],
+	[Item.GoldenSword]: ["a", "golden sword", "An ornate, but soft sword, forged from solid gold. Not suitable for combat due to its softness."],
+	[Item.GrassBlades]: ["", "grass blades", "Long and almost sharp to the touch. These semi-dried grass blades are perfect for cordage, string making, and tinder when dried."],
+	[Item.GrassSeeds]: ["", "grass seeds", "Small dried grass seeds. Can be planted to grow grass."],
+	[Item.GreenSand]: ["", "green sand", "A form of malleable sand made with clay, used to make molds for metal casting."],
+	[Item.Grindstone]: ["a", "grindstone", "A coarse rock useful for sanding, sharpening, and repairing other items."],
+	[Item.Hammock]: ["a", "hammock", "A comfortable place to sleep, although not too sturdy. Crafted by bound cordage and usually hung off of the ground."],
+	[Item.HandDrill]: ["a", "hand drill", "A rudimentary fire making tool which uses a stick and another piece of wood. Both hands are used to twist the stick against wood, making friction to create an ember for the fire."],
+	[Item.Inkstick]: ["an", "inkstick", "A hardened brick of ink, used for drawing and painting."],
+	[Item.IronAnvil]: ["an", "iron anvil", "A sturdy iron anvil. Used in the production of metal armor, weapons, tools, and more."],
+	[Item.IronArrow]: ["an", "iron arrow", "An arrow tipped with a high quality iron arrowhead. Fletched with feathers to stabilize flight and accuracy."],
+	[Item.IronArrowhead]: ["an", "iron arrowhead", "An expertly forged iron arrowhead, used to create arrows. Alternatively can be used to carve if necessary."],
+	[Item.IronAxe]: ["an", "iron axe", "An iron-forged axe used in wood chopping. Its sharp end can be used for crafting and carving."],
+	[Item.IronBoots]: ["", "iron boots", "Heavy iron plated boots, shielding your feet from damage."],
+	[Item.IronBreastplate]: ["an", "iron breastplate", "Durable, armor worn over the torso. One could take a serious beating while wearing this."],
+	[Item.IronBullet]: ["an", "iron bullet", "A strong, forged iron bullet. Used as sling or firearm ammunition."],
+	[Item.IronChest]: ["an", "iron chest", "A large iron chest that is both roomy and sturdy. Foods contained within will decay at a slower rate."],
+	[Item.IronDoubleAxe]: ["an", "iron double axe", "An axe with a forged, double sided head, ideal for both combat and gathering."],
+	[Item.IronGauntlets]: ["", "iron gauntlets", "Iron gloves designed to be protective and durable, while maintaining as much flexibility as possible."],
+	[Item.IronGorget]: ["an", "iron gorget", "A round metal brace worn around the neck and over the shoulders."],
+	[Item.IronGreaves]: ["", "iron greaves", "Iron leggings; to be strapped on and function as leg protection."],
+	[Item.IronHammer]: ["an", "iron hammer", "A strong hammer with an iron head, perfect for shaping and repairing items."],
+	[Item.IronHelmet]: ["an", "iron helmet", "Iron plated headgear designed to withstand heavy blows."],
+	[Item.IronHoe]: ["an", "iron hoe", "A long-handled gardening tool with a blade on the end, forged from iron. Used to till soil for better plant growth."],
+	[Item.IronIngot]: ["an", "iron ingot", "A solid brick of iron, ready to be formed or melted and cast in many ways."],
+	[Item.IronLockPick]: ["an", "iron lock pick", "A pair of iron picks and wrenches, durable enough to pick the most adept of locks."],
+	[Item.IronOre]: ["", "iron ore", "Unprocessed, raw iron ore. Can be smelted into ingots."],
+	[Item.IronPickaxe]: ["an", "iron pickaxe", "A robust mining implement, with a blade forged from iron."],
+	[Item.IronShield]: ["an", "iron shield", "A large and heavy iron shield, used for blocking projectiles or melee attacks."],
+	[Item.IronShovel]: ["an", "iron shovel", "A heavy iron digging implement, lifting and breaking through even the toughest gravels and soils."],
+	[Item.IronSpear]: ["an", "iron spear", "A polearm with a strong pointed tip forged from iron."],
+	[Item.IronSword]: ["an", "iron sword", "A strong, sharp blade designed for thrusting and slashing."],
+	[Item.IronTongs]: ["", "iron tongs", "Durable iron tongs used to grab hot items, protecting your hands from damage."],
+	[Item.Kindling]: ["", "kindling", "A gathering of small twigs and tree matter. A requirement for starting a fire."],
+	[Item.LargeRock]: ["a", "large rock", "A rather large rock, handy for crafting many tools and devices."],
+	[Item.LavaBeetleHelmet]: ["a", "lava beetle helmet", "An extremely hardened and fire resistant helmet, sourced from the carcass of a fallen lava beetle."],
+	[Item.LeafBedroll]: ["a", "leaf bedroll", "A provisional bed with poor insulation and scratchy half-dried leaves, used for sleeping or resting."],
+	[Item.LeatherBelt]: ["a", "leather belt", "Made from tanned animal hide, cut, wrapped, and stitched together to tie around the waist."],
+	[Item.LeatherBoots]: ["", "leather boots", "Malleable yet tough foot protection, crafted from tanned animal hide."],
+	[Item.LeatherCap]: ["a", "leather cap", "A hat made of leather, double layered for extra sturdiness."],
+	[Item.LeatherGloves]: ["", "leather gloves", "Leather-bound hand protection, crafted from tanned animal hide."],
+	[Item.LeatherGorget]: ["a", "leather gorget", "A circlet of leather, bound in two, stitched together and used as neck protection."],
+	[Item.LeatherHide]: ["a", "leather hide", "A fresh leather hide, stripped from an animal and de-furred."],
+	[Item.LeatherPants]: ["", "leather pants", "Basic leather leggings with just enough padding to provide some leg protection."],
+	[Item.LeatherQuiver]: ["a", "leather quiver", "A leather-bound, back-mounted container designed to hold arrows; however, other items will also fit inside as well."],
+	[Item.LeatherSling]: ["a", "leather sling", "A sling crafted from tanned leather. Designed to hold a projectile to be thrown at an increased velocity."],
+	[Item.LeatherTunic]: ["a", "leather tunic", "A leather garment which provides protection for the torso."],
+	[Item.Leaves]: ["", "leaves", "A handful of foliage used as compost, to stoke a fire, or as tinder when dried."],
+	[Item.Lens]: ["a", "lens", "Glass formed into a partially convex shape. It allows focusing sunlight into a single location, creating enough heat for a fire."],
+	[Item.Limestone]: ["", "limestone", "A mineral-rich rock that can be ground into a powder. Useful for metal and glass production."],
+	[Item.LimestonePowder]: ["", "limestone powder", "A white, mineral-dense powder used in glass tempering and the purifying of metals."],
+	[Item.LitAnimalFatTorch]: ["a", "lit animal fat torch", "A bright burning, pleasant smelling torch. Made with a pole and long lasting, rendered animal fat."],
+	[Item.LitBarkTorch]: ["a", "lit bark torch", "Provides light to your surroundings when equipped and can also be used to start other fires."],
+	[Item.LitPoleTorch]: ["a", "lit pole torch", "A wooden pole that has been lit on fire. Not suitable for long journeys in the darkness."],
+	[Item.LockPick]: ["a", "lock pick", "An improvised needle and prong that should be strong enough to pick a lock or two."],
+	[Item.Log]: ["a", "log", "A sturdy piece of wood, useful for construction or as a fuel for a fire."],
+	[Item.LongBow]: ["a", "long bow", "Nearly as tall as the average person, this bow is designed for maximum range."],
+	[Item.MageRobe]: ["a", "mage robe", "An ancient tattered robe, once owned by a spell casting foe."],
+	[Item.MagicalEssence]: ["", "magical essence", "An odd transparent powder with organic and ethereal materials. This magical matter may be used on items to affix magical properties on to them."],
+	[Item.MeltedAmber]: ["", "melted amber", "Warmed amber resin; used to create a hardened bind when cooled on to an object."],
+	[Item.MessageInABottle]: ["a", "message in a bottle", "An old cloudy bottle with an unidentified object contained inside."],
+	[Item.MortarAndPestle]: ["a", "mortar and pestle", "Used for grinding and crushing, made from smooth stones."],
+	[Item.Niter]: ["", "niter", "A natural mineral, ground up to be used as a preservative or for other chemical applications."],
+	[Item.Nopal]: ["", "nopal", "A de-spined cactus fruit, filled with refreshing liquid and nutrition."],
+	[Item.Offal]: ["", "offal", "A mound of organs, tissue, and other undesirable portions of an unlucky animal."],
+	[Item.OldInstructionalScroll]: ["an", "old instructional scroll", "A tattered sheet of paper with some roughly scribbled instructions and diagrams."],
+	[Item.OrbOfMalign]: ["an", "orb of malign", "A strange spherical orb that gives off a shimmering radiance on your touch. It appears to hum as you hold it."],
+	[Item.OrnateCape]: ["an", "ornate cape", "A red and gold stitched cape, which drapes the back and fastens at the neck. Worn as a status symbol."],
+	[Item.OrnateWoodenChest]: ["an", "ornate wooden chest", "A decorative wooden container gilded with symbols inlaid into the wood."],
+	[Item.PalmLeaf]: ["a", "palm leaf", "A large leaf from a palm tree. The strong inner fibers of the leaf are perfect for cordage."],
+	[Item.PaperMold]: ["a", "paper mold", "A mold used for making paper. Contains a screen that holds wet recycled fibers to dry and press into flattened, usable paper."],
+	[Item.PaperSheet]: ["a", "paper sheet", "A large piece of paper. It appears to contain many recycled fibers. Suitable for drawing on with ink."],
+	[Item.Peat]: ["", "peat", "A dried mass of sponge-like plants, great for fire fuel and composting."],
+	[Item.PeatBandage]: ["a", "peat bandage", "A fabric bandage combined with peat as an effective antiseptic."],
+	[Item.Pemmican]: ["", "pemmican", "A ball of dried ground meat. With a long shelf life, this is the ultimate survival food. For the best benefits, prepare it with animal fat."],
+	[Item.PileOfAsh]: ["a", "pile of ash", "The powdery remains of burned matter."],
+	[Item.PileOfCompost]: ["a", "pile of compost", "A mix of decaying organic matter, full of chemical nutrients and great for growing plants with when combined with soil."],
+	[Item.PileOfGravel]: ["a", "pile of gravel", "A large pile of damp stone and sand."],
+	[Item.PileOfSand]: ["a", "pile of sand", "A large pile of moist sand, useful for making glass when refined."],
+	[Item.PileOfSnow]: ["a", "pile of snow", "A melting snow pile. Useful to drink in desperate need, but be quick!"],
+	[Item.Pineapple]: ["a", "pineapple", "A juicy, ripe pineapple, loaded with vitamins and thirst-quenching attributes."],
+	[Item.PineappleSeeds]: ["", "pineapple seeds", "Small brown seeds that can be planted to grow into pineapple plants."],
+	[Item.PlantRoots]: ["", "plant roots", "A tangled mess of roots, with earth still hanging from the tips."],
+	[Item.PoisonIvyLeaves]: ["", "poison ivy leaves", "Causes irritation to the touch; these leaves of three do not belong on your person."],
+	[Item.PoisonIvySeeds]: ["", "poison ivy seeds", "Bright green, soft seeds, used to plant to grow into poison ivy."],
+	[Item.PreparedPemmican]: ["", "prepared pemmican", "A seasoned mound of dried ground meat, fried and cooked with fat for maximum flavor and caloric content."],
+	[Item.Raft]: ["a", "raft", "A small, simple boat; a quicker alternative to swimming. Effective for traversing large expanses of water."],
+	[Item.RawBlindfish]: ["a", "raw blindfish", "An odd looking fish with no eyes. Very slimy to the touch."],
+	[Item.RawChicken]: ["a", "raw chicken", "A small, plump and de-feathered chicken carcass, ready for cooking."],
+	[Item.RawClay]: ["", "raw clay", "A soft, formable mud. Suitable for building materials, tool-making, and more."],
+	[Item.RawClayBlowpipe]: ["a", "raw clay blowpipe", "An unfired clay blowpipe used in glassblowing. Unusable until it has been fired."],
+	[Item.RawClayBrick]: ["a", "raw clay brick", "A soft piece of raw clay, molded into a rectangle. Ready to be fired inside a kiln."],
+	[Item.RawClayJug]: ["a", "raw clay jug", "A formed and sculpted jug molded from raw clay. Requires a cork and a kiln to be fired and hardened."],
+	[Item.RawCod]: ["a", "raw cod", "Slimy to the touch, but healthy and delicious to eat. Can be cooked for a better meal."],
+	[Item.RawFishSteak]: ["a", "raw fish steak", "A raw piece of fish, cut into a fillet. Good to eat as is, but is tastier cooked."],
+	[Item.RawMeat]: ["", "raw meat", "A raw, bloody chunk of meat. Cooking is recommended before consumption."],
+	[Item.RawReptileMeat]: ["", "raw reptile meat", "A grainy piece of edible reptile flesh. Generally not safe to consume without being cooked due to bacteria."],
+	[Item.RawTaintedMeat]: ["", "raw tainted meat", "A piece of bad-smelling meat, possibly diseased or tainted with parasites. Possible to consume, but could be deadly."],
+	[Item.RedBerries]: ["", "red berries", "Lush, ripe berries, plucked from a tree or bush."],
+	[Item.RefinedSand]: ["", "refined sand", "A finely ground sand, useful in making glass."],
+	[Item.RollOfRedCarpet]: ["a", "roll of red carpet", "A rolled up piece of red carpet, suitable for making a comfortable living space or welcoming important guests."],
+	[Item.Rope]: ["a", "rope", "A thick, twisted piece of cordage, useful for heavy-duty binding."],
+	[Item.RottenMeat]: ["", "rotten meat", "Acrid decomposing animal tissue. You would not want to eat this, but can be used in compost."],
+	[Item.RottingVegetation]: ["", "rotting vegetation", "A stinking mash of organic plant matter, now usable as compost. Unless you want to risk eating it."],
+	[Item.Sail]: ["a", "sail", "A large piece of fabric, woven together to be attached to a mast. Used on a sailboat to propel it along the sea."],
+	[Item.Sailboat]: ["a", "sailboat", "A large one-man boat. Used to traverse large expanses of water and for travel back to civilization."],
+	[Item.Saltpeter]: ["", "saltpeter", "A ground mineral, to be used as a natural food preservative. If combined with other minerals, it can be combustible."],
+	[Item.SandCastFlask]: ["a", "sand cast flask", "A mold for casting metal into any shape, made with green sand."],
+	[Item.Sandstone]: ["", "sandstone", "A soft, malleable rock, useful for construction and tool making."],
+	[Item.SandstoneCampfire]: ["a", "sandstone campfire", "A grouping of sandstone shaped into a ring to contain a fire."],
+	[Item.SandstoneFlooring]: ["", "sandstone flooring", "A group of sandstone bricks, placed in a grid to be used as flooring."],
+	[Item.SandstoneFurnace]: ["a", "sandstone furnace", "An enclosed structure made of sandstone, which traps in the heat to keep a long-lasting, high-temperature fire."],
+	[Item.SandstoneKiln]: ["a", "sandstone kiln", "Similar to a furnace, but constructed with sandstone and in a way that allows for proper heat distribution for crafting glass and clay items."],
+	[Item.SandstoneWall]: ["a", "sandstone wall", "A constructed wall built from mined sandstone."],
+	[Item.SandstoneWaterStill]: ["a", "sandstone water still", "A hollowed out piece of sandstone with a lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container."],
+	[Item.Sapling]: ["a", "sapling", "A young, fertile tree, suitable for replanting."],
+	[Item.Scales]: ["", "scales", "Dried and hardened scales from a reptilian creature. Can be used as a rudimentary fabric."],
+	[Item.Seaweed]: ["", "seaweed", "A stringy mass of sea plants. Can be used as cordage or eating in desperation."],
+	[Item.Shale]: ["", "shale", "A brittle but sharp carving implement."],
+	[Item.SharkFin]: ["a", "shark fin", "Not much more than a trophy, this carved dorsal fin remains slippery and rubbery to the touch."],
+	[Item.SharpenedBone]: ["a", "sharpened bone", "A sharp bone, useful for carving other objects."],
+	[Item.SharpGlass]: ["", "sharp glass", "A semi-opaque shard of glass, formed after melting sand down."],
+	[Item.SharpRock]: ["a", "sharp rock", "A sharpened rock, useful for crafting, tool making, and carving when required."],
+	[Item.SheetOfGlass]: ["a", "sheet of glass", "A cloudy tempered piece of glass. Practical for many optical tools and other simple devices used to harness the sun."],
+	[Item.ShortBow]: ["a", "short bow", "A bow designed for powerful shots at close range."],
+	[Item.Sinew]: ["", "sinew", "Strong and flexible animal tissue. Commonly used for making bows or simple cordage."],
+	[Item.SkeletalMageWand]: ["a", "skeletal mage wand", "A mysterious, gnarled staff with a twinkling red gemstone attached to the end."],
+	[Item.Skullcap]: ["a", "skullcap", "A hollowed-out animal skull, useful as a provisional helmet."],
+	[Item.SlimeGelatin]: ["", "slime gelatin", "A lump of slime gelatin which jiggles upon your touch. Can be used to preserve food, or melted down and used as glue."],
+	[Item.SmallBag]: ["a", "small bag", "A leather pouch used for holding a few items, carried at your waist, reducing encumbrance."],
+	[Item.SmoothRock]: ["a", "smooth rock", "A round, smoothed rock, useful for many crafts."],
+	[Item.Snare]: ["a", "snare", "A short pole pushed into the ground with a string attached. Designed to ensnare creatures in its slipknot."],
+	[Item.Soil]: ["", "soil", "A pile of moist dirt. The heavy smell of earth permeates your nostrils when holding it."],
+	[Item.SolarStill]: ["a", "solar still", "A still that collects condensation and filters it into in a hole beneath the glass, desalinating the water and draining it into a container."],
+	[Item.SpiderEggs]: ["", "spider eggs", "Soft and squishy to the touch. These small silken eggs contain arachnid life inside."],
+	[Item.SpiderMeat]: ["", "spider meat", "A spider's fleshy innards. It's hard to stomach, even when cooked. Try not to think about what you're eating."],
+	[Item.SpiderSilk]: ["", "spider silk", "A delicate but strong strand of silk, produced by a spider. Can be used as cordage."],
+	[Item.SpottedRedMushroom]: ["a", "spotted red mushroom", "An odd looking, foul smelling mushroom."],
+	[Item.Spyglass]: ["a", "spyglass", "An improvised, short-range telescope, which can be used to see slightly further away in any direction when equipped."],
+	[Item.StoneAnvil]: ["a", "stone anvil", "A solid stone anvil. Used in the production of metal armor, weapons, and tools."],
+	[Item.StoneArrowhead]: ["a", "stone arrowhead", "Crafted from stone and to be used in the crafting of arrows. Could also be used as a carving implement."],
+	[Item.StoneAxe]: ["a", "stone axe", "A simple stone axe used for chopping wood or as a carving implement."],
+	[Item.StoneBullet]: ["a", "stone bullet", "A basic stone projectile for slings and firearms. Smooth and more or less spherical in shape."],
+	[Item.StoneCampfire]: ["a", "stone campfire", "A grouping of rocks shaped into a ring to contain a fire."],
+	[Item.StoneFurnace]: ["a", "stone furnace", "An enclosed structure made of stone, which traps in the heat to keep a long-lasting, high-temperature fire."],
+	[Item.StoneHammer]: ["a", "stone hammer", "A rudimentary stone hammer, braced on the end of a pole with string. Used for gathering and repairing."],
+	[Item.StoneHoe]: ["a", "stone hoe", "A rudimentary tilling and gardening tool, used to break up soil for more successful growth of plants."],
+	[Item.StoneKiln]: ["a", "stone kiln", "Similar to a furnace, but constructed with rocks and in a way that allows for proper heat distribution for crafting glass and clay items."],
+	[Item.StoneKnife]: ["a", "stone knife", "A sharpened piece of stone, carved into a blade, with a handle for support. Can be used as a weapon, gathering tool or to carve."],
+	[Item.StonePickaxe]: ["a", "stone pickaxe", "A primitive stone pickaxe used for mining into rock or as a stopgap blunt weapon."],
+	[Item.Stones]: ["", "stones", "A mass of small rocks. Can be used for throwing or crafting."],
+	[Item.StoneShovel]: ["a", "stone shovel", "A digging tool made of stone, used to collect different materials from the ground or to route water."],
+	[Item.StoneSpear]: ["a", "stone spear", "A hunting weapon crafted with a stone head, suitable as a throwing weapon."],
+	[Item.StoneWall]: ["a", "stone wall", "A series of interlaced stones and rocks, shaped into a vertical wall structure. Can be built to keep enemies out."],
+	[Item.StoneWaterStill]: ["a", "stone water still", "A hollowed out rock with a stone lid. It's used to desalinate water by boiling it and then collecting the steam into a separate container."],
+	[Item.String]: ["", "string", "Woven fabric; the cornerstone of all crafting materials, mainly used for binding."],
+	[Item.StrippedBark]: ["", "stripped bark", "A strong, fibrous shaving from a branch, useful for making cordage."],
+	[Item.Sundial]: ["a", "sundial", "A stone timepiece that uses the location of the sun or moon to show the approximate time of day or night."],
+	[Item.Suture]: ["a", "suture", "A sharp needle tool with an attached thin string, used to sew and close gaping wounds."],
+	[Item.TailFeathers]: ["", "tail feathers", "A fluffy clump of white feathers, removed from an avian creature's backside."],
+	[Item.Talc]: ["", "talc", "A very chalky mineral, only useful in its powder form."],
+	[Item.TalcumPowder]: ["", "talcum powder", "Chalky and abundantly absorbent to the touch. An agent required for casting of advanced metals."],
+	[Item.TallGrassSeeds]: ["", "tall grass seeds", "Long dried grass seeds. Can be planted to grow a longer type of grass."],
+	[Item.TannedLeather]: ["", "tanned leather", "A durable, treated piece of leather. Used in crafting armor and other tools."],
+	[Item.Tannin]: ["", "tannin", "A natural treating agent. To be applied on hides to create tanned leather."],
+	[Item.TatteredMap]: ["a", "tattered map", "An old torn map covered with drawings and scribbles, a bit hard to make sense of on first glance."],
+	[Item.TatteredPants]: ["", "tattered pants", "Brown colored pants, now reduced to shorts from distress and wear."],
+	[Item.TatteredShirt]: ["a", "tattered shirt", "A once fine piece of a clothing, now torn and tattered."],
+	[Item.Tentacles]: ["", "tentacles", "A slimy, wriggling appendage from an unlucky cephalopod. Can be eaten, but with some force due to the rubbery unpleasant texture."],
+	[Item.Thistles]: ["", "thistles", "The flowering bulb of a thistle plant. Filled with a bitter but nutritious milk."],
+	[Item.ThistleSeeds]: ["", "thistle seeds", "Small hard seeds, used for growing thistle plants."],
+	[Item.Tourniquet]: ["a", "tourniquet", "A hard stud twisted together with a string. Used to twist around a bleeding wound to stem the flow of blood."],
+	[Item.TreeBark]: ["", "tree bark", "A tough, dense chunk of bark, broken off from a tree."],
+	[Item.TreeFungus]: ["", "tree fungus", "A semi-hard chunk of fungus, grown from a tree and possibly edible."],
+	[Item.Twigs]: ["", "twigs", "A small pile of sticks and tree limbs."],
+	[Item.VenomGland]: ["a", "venom gland", "The venom producing gland of a snake, still filled with some immobilizing venom."],
+	[Item.Vine]: ["a", "vine", "A long, winding tree vine, suitable for cordage."],
+	[Item.VineSeeds]: ["", "vine seeds", "Seeds to grow vines. Can be eaten if desperate, but they do not contain any significant nutrition."],
+	[Item.VineWhip]: ["a", "vine whip", "A makeshift weapon made simply with tree vines wrapped together."],
+	[Item.Waterskin]: ["a", "waterskin", "A portable water container, made from stitched leather."],
+	[Item.WaterskinOfDesalinatedWater]: ["a", "waterskin of desalinated water", "A waterskin full of freshly desalinated seawater."],
+	[Item.WaterskinOfMedicinalWater]: ["a", "waterskin of medicinal water", "A soothing mixture of plants and roots. Used to heal poisons and illnesses."],
+	[Item.WaterskinOfPurifiedFreshWater]: ["a", "waterskin of purified fresh water", "A full waterskin of fresh, safe-to-drink water."],
+	[Item.WaterskinOfSeawater]: ["a", "waterskin of seawater", "A waterskin full of seawater, not suitable for drinking without desalination."],
+	[Item.WaterskinOfUnpurifiedFreshWater]: ["a", "waterskin of unpurified fresh water", "Unpurified and possibly hazardous water. It is recommended you purify the water before drinking."],
+	[Item.WhiteMushrooms]: ["", "white mushrooms", "Edible, long lasting mushrooms. They appear safe to consume."],
+	[Item.WildOnion]: ["a", "wild onion", "A strong smelling and tasting plant, packed with nutrients and vitamins."],
+	[Item.WoodenArrow]: ["a", "wooden arrow", "A provisional wooden projectile to be fired from a bow. Crafted with a feather to control flight."],
+	[Item.WoodenChest]: ["a", "wooden chest", "A large wooden container that can fit many items while placed on the ground. Foods will decay slower within it."],
+	[Item.WoodenDoor]: ["a", "wooden door", "A door crafted from long wooden planks with large wooden hinges. Can be opened and closed when built."],
+	[Item.WoodenFence]: ["a", "wooden fence", "A section of wooden fencing, constructed from three logs and held together with horizontal beams."],
+	[Item.WoodenFlooring]: ["", "wooden flooring", "Wooden floor boards; planed to equal height and length."],
+	[Item.WoodenGate]: ["a", "wooden gate", "A gate crafted from long wooden planks with small wooden hinges. Can be opened and closed when built."],
+	[Item.WoodenPole]: ["a", "wooden pole", "A long piece of wood, carved and shaved down into a smooth rod from a branch or log. "],
+	[Item.WoodenShavings]: ["", "wooden shavings", "A dry bunch of wooden shavings, used to ignite kindling when starting a fire."],
+	[Item.WoodenSpear]: ["a", "wooden spear", "A makeshift, easy to craft hunting weapon. Makes for an ideal ranged weapon."],
+	[Item.WoodenSword]: ["a", "wooden sword", "A sturdy blunt sword, crafted from wood with a sharp piercing point. Most useful for sparring practice."],
+	[Item.WoodenTongs]: ["", "wooden tongs", "A pair of simple wood tongs, used to pick up hot objects without injury."],
+	[Item.WoodenWall]: ["a", "wooden wall", "A sturdy set of bound logs, forming a protective wall that can be placed."],
+	[Item.WormMeat]: ["", "worm meat", "Essentially a mash of worm innards, almost ground up into a paste. Definitely not the most appetizing, but can be cooked for better flavor."],
+	[Item.WovenFabric]: ["", "woven fabric", "A makeshift piece of fibrous tissue, woven together into fabric."],
+	[Item.WroughtIron]: ["", "wrought iron", "A heavily oxidized and unpurified form of iron, used in the forging of brittle tools, weapons, and armor."],
+	[Item.WroughtIronAnvil]: ["a", "wrought iron anvil", "An anvil made from wrought iron with a wooden base. Useful for metalworking."],
+	[Item.WroughtIronArrow]: ["a", "wrought iron arrow", "An arrow with a wrought iron arrowhead. The shaft of the arrow is long and is fletched with feathers."],
+	[Item.WroughtIronArrowhead]: ["a", "wrought iron arrowhead", "Forged with wrought iron, this arrowhead is used to craft an arrow. In dire need, it could also be used for carving."],
+	[Item.WroughtIronAxe]: ["a", "wrought iron axe", "An axe forged out of wrought iron, primarily used for lumberjacking and carving."],
+	[Item.WroughtIronBoots]: ["", "wrought iron boots", "Wrought iron footwear. Heavy and made specifically for protecting feet and lower legs."],
+	[Item.WroughtIronBreastPlate]: ["a", "wrought iron breastplate", "A large wrought iron chest plate, worn over the torso."],
+	[Item.WroughtIronBullet]: ["a", "wrought iron bullet", "A small ball of wrought iron, used as ammunition for slingshots or firearms."],
+	[Item.WroughtIronChest]: ["a", "wrought iron chest", "A spacious container built from wrought iron that can store many items. Foods will spoil slower inside of it."],
+	[Item.WroughtIronDoubleAxe]: ["a", "wrought iron double axe", "A dual-bladed axe which can provide enough slashing damage for both combat and gathering."],
+	[Item.WroughtIronGauntlets]: ["", "wrought iron gauntlets", "Intricate and sturdy, these wrought iron gloves fit snugly on your hands."],
+	[Item.WroughtIronGorget]: ["a", "wrought iron gorget", "A molded piece of metal, used to protect the area around the neck and shoulders."],
+	[Item.WroughtIronGreaves]: ["", "wrought iron greaves", "Wrought iron leggings, strapped and padded around the legs to reduce most damage."],
+	[Item.WroughtIronHammer]: ["a", "wrought iron hammer", "A large mallet crafted from wrought iron. Useful for repairing and sometimes gathering."],
+	[Item.WroughtIronHelmet]: ["a", "wrought iron helmet", "Using a barbute design, this iron helmet shields the head from most kinds of attacks."],
+	[Item.WroughtIronHoe]: ["a", "wrought iron hoe", "A long pole with a wrought iron metal blade attached to the end. Used to till the ground for planting seeds."],
+	[Item.WroughtIronLockPick]: ["a", "wrought iron lock pick", "A set of picks and wrenches made from wrought iron, used for picking and unlocking locked devices."],
+	[Item.WroughtIronPickaxe]: ["a", "wrought iron pickaxe", "A dual-headed mining implement. One head is heavy and blunt, the other, spiked to cut through rock with ease."],
+	[Item.WroughtIronShield]: ["a", "wrought iron shield", "A sturdy wrought iron shield, made by bending large sheets of metal into shape."],
+	[Item.WroughtIronShovel]: ["a", "wrought iron shovel", "A shovel with an angled, pointed head, useful for digging and water routing."],
+	[Item.WroughtIronSpear]: ["a", "wrought iron spear", "A polearm with pointed head, crafted from wrought iron. Used in melee or thrown in combat."],
+	[Item.WroughtIronSword]: ["a", "wrought iron sword", "A long, sharpened blade fitted into a solid hilt and forged from wrought iron. A good, strong weapon."],
+	[Item.WroughtIronTongs]: ["", "wrought iron tongs", "A pair of tongs, forged from wrought iron. Used to lift hot objects without injury."],
+
+	// includes groups
+	[ItemGroup.Anvil]: ["an", "anvil"],
+	[ItemGroup.Arrow]: ["an", "arrow"],
+	[ItemGroup.Bedding]: ["a", "bedding", " item"],
+	[ItemGroup.Bone]: ["a", "bone"],
+	[ItemGroup.Bullet]: ["a", "bullet"],
+	[ItemGroup.Campfire]: ["a", "campfire"],
+	[ItemGroup.Carbon]: ["a", "carbon", " item"],
+	[ItemGroup.ClayJugOfPotableWater]: ["a", "clay jug of potable water"],
+	[ItemGroup.Compost]: ["a", "compost", " item"],
+	[ItemGroup.Container]: ["a", "container"],
+	[ItemGroup.ContainerOfDesalinatedWater]: ["a", "container of desalinated water"],
+	[ItemGroup.ContainerOfMedicinalWater]: ["a", "container of medicinal water"],
+	[ItemGroup.ContainerOfPurifiedFreshWater]: ["a", "container of purified fresh water"],
+	[ItemGroup.ContainerOfSeawater]: ["a", "container of seawater"],
+	[ItemGroup.ContainerOfUnpurifiedFreshWater]: ["a", "container of unpurified fresh water"],
+	[ItemGroup.CookedMeat]: ["a", "cooked meat", " item"],
+	[ItemGroup.Cordage]: ["a", "cordage", " item"],
+	[ItemGroup.Equipment]: ["an", "equipment", " item"],
+	[ItemGroup.Fabric]: ["a", "fabric", " item"],
+	[ItemGroup.Firemaking]: ["a", "firemaking", " item"],
+	[ItemGroup.Food]: ["a", "food", " item"],
+	[ItemGroup.Fruit]: ["a", "fruit"],
+	[ItemGroup.Fuel]: ["a", "fuel", " item"],
+	[ItemGroup.Furnace]: ["a", "furnace"],
+	[ItemGroup.Gardening]: ["a", "gardening", " item"],
+	[ItemGroup.GlassBottleOfPotableWater]: ["a", "glass bottle of potable water"],
+	[ItemGroup.Hammer]: ["a", "hammer"],
+	[ItemGroup.Health]: ["a", "health", " item"],
+	[ItemGroup.Heating]: ["a", "heating", " item"],
+	[ItemGroup.Housing]: ["a", "housing", " item"],
+	[ItemGroup.Insect]: ["an", "insect"],
+	[ItemGroup.Kiln]: ["a", "kiln"],
+	[ItemGroup.LightSource]: ["a", "light source"],
+	[ItemGroup.Meat]: ["a", "meat", " item"],
+	[ItemGroup.Medicinal]: ["a", "medicinal", " item"],
+	[ItemGroup.Needle]: ["a", "needle"],
+	[ItemGroup.Other]: ["an", "other", " item"],
+	[ItemGroup.Pole]: ["a", "pole"],
+	[ItemGroup.Powder]: ["a", "powder"],
+	[ItemGroup.Preservative]: ["a", "preservative"],
+	[ItemGroup.Pulp]: ["a", "pulp", " item"],
+	[ItemGroup.RawMeat]: ["a", "raw meat", " item"],
+	[ItemGroup.Reinforce]: ["a", "reinforce", " item"],
+	[ItemGroup.Repair]: ["a", "repair", " item"],
+	[ItemGroup.Rock]: ["a", "rock"],
+	[ItemGroup.Seed]: ["a", "seed"],
+	[ItemGroup.Sharpened]: ["a", "sharpened", " item"],
+	[ItemGroup.SharpenedRock]: ["a", "sharpened rock"],
+	[ItemGroup.Skewer]: ["a", "skewer"],
+	[ItemGroup.Storage]: ["a", "storage", " item"],
+	[ItemGroup.Tinder]: ["a", "tinder", " item"],
+	[ItemGroup.Tongs]: ["", "tongs"],
+	[ItemGroup.Tool]: ["a", "tool"],
+	[ItemGroup.Transmogrify]: ["a", "transmogrify", " item"],
+	[ItemGroup.Trap]: ["a", "trap"],
+	[ItemGroup.Travel]: ["a", "travel", " item"],
+	[ItemGroup.Treasure]: ["a", "treasure"],
+	[ItemGroup.Vegetable]: ["a", "vegetable"],
+	[ItemGroup.Water]: ["a", "water", " item"],
+	[ItemGroup.WaterskinOfPotableWater]: ["a", "waterskin of potable water"],
+	[ItemGroup.WaterStill]: ["a", "water still"],
+	[ItemGroup.Weapon]: ["a", "weapon"]
+});
+
+english.setDictionary(Dictionary.Message, {
+	// NOTE: Style guide
+	// No contractions for in-game messages (other UI/dialogs can use them)
+	// Past tense for all messages that appear when/during taking a turn
+	// Present tense for all messages that appear when no turn is passed
+	// For the style guide of the enum names, check enums.ts
+
+	[Message.AberrantCreatureDroppedItem]: "Mysteriously, the aberrant creature dropped _0_.",
+	[Message.AboutHours]: "It appeared you have _0_ for about _1_ _2_.",
+	[Message.AddedFuelToFire]: "You added the fuel to the fire! The fire grows stronger.",
+	[Message.AddedFuelToTorch]: "You added the fuel to the torch.",
+	[Message.AddFuel]: "Add Fuel",
+	[Message.AddToQuickslot]: "Add to Quickslot",
+	[Message.Advanced]: "Advanced",
+	[Message.AllEquipmentUnEquipped]: "All equipment has been un-equipped.",
+	[Message.AlreadyFullyRepaired]: "_0_ is already fully repaired.",
+	[Message.AlreadyPreserved]: "_0_ is already well preserved.",
+	[Message.AlreadyWaterInStill]: "There is already water in this still!",
+	[Message.AppearedNotEffectiveForGathering]: "_0_ did not appear to be the most effective for gathering this resource.",
+	[Message.AppearsToBeAberrant]: "It appears to be aberrant and abnormally strong.",
+	[Message.ArmorAppeared]: "Your armor appeared to be _0_ to the attack.",
+	[Message.ArmorProtectedFromInjuryAgainst]: "Your armor protected you from injury against the _0_.",
+	[Message.Attack]: "Attack",
+	[Message.AttemptedToDropAllIntoFire]: "You attempted to drop all of _0_ into the fire.",
+	[Message.AttemptToPlaceAllOnGround]: "You attempted to place all of _0_ on the ground.",
+	[Message.AwakeToFindYourself]: "You awake to find yourself no longer in the company of good men or a fine seafaring vessel. Instead you discover yourself in tattered clothing, with a pocket full of shoddy items. Treasure... you remember something about treasure.",
+	[Message.Back]: "Back",
+	[Message.BadlyBurnedLostHealth]: "You have been badly burned! You have lost _0_ health!",
+	[Message.BeenPoisoned]: "You have been poisoned!",
+	[Message.BeginSleeping]: "You begin sleeping...",
+	[Message.BeginUsingRaft]: "You begin using a raft.",
+	[Message.Belt]: "Belt",
+	[Message.BleedingHasStopped]: "The bleeding has stopped!",
+	[Message.BleedingProfusely]: "You start bleeding profusely!",
+	[Message.BleedingToDeathLostHealth]: "You are bleeding to death! You have lost _0_ health!",
+	[Message.Blunt]: "Blunt",
+	[Message.BrokeIntoPieces]: "_0_ could no longer be repaired and broke into pieces.",
+	[Message.BrokenOnImpact]: "_0_ has broken on impact!",
+	[Message.BrokenWhileFiring]: "_0_ has broken while firing!",
+	[Message.Build]: "build",
+	[Message.Burned]: "burned",
+	[Message.By]: "by ",
+	[Message.ByBleedingOut]: "by bleeding out",
+	[Message.ByBurnInjuries]: "by your burn injuries",
+	[Message.ByEatingSomethingBad]: "by eating something bad for you",
+	[Message.ByPoisoning]: "by poisoning",
+	[Message.BySteppingOnA]: "by stepping on a ",
+	[Message.BySteppingOnTrap]: "by stepping on a trap",
+	[Message.ByWorkingYourselfIntoExhaustion]: "by working yourself into exhaustion",
+	[Message.CannotAddAnyMoreFuel]: "You cannot add any more fuel to _0_.",
+	[Message.CannotBePerformedOverWater]: "This action cannot be performed over water.",
+	[Message.CannotBePreserved]: "_0_ cannot be preserved.",
+	[Message.CannotBeReinforced]: "_0_ cannot be reinforced.",
+	[Message.CannotBeRepaired]: "_0_ cannot be repaired.",
+	[Message.CannotBeTamed]: "_0_ cannot be tamed.",
+	[Message.CannotBeTransmogrified]: "_0_ cannot be transmogrified.",
+	[Message.CannotBuildHere]: "You cannot build _0_ here!",
+	[Message.CannotDoThatHere]: "You cannot _0_ here!",
+	[Message.CannotDropHere]: "You cannot drop _0_ here!",
+	[Message.CannotEquipThatThere]: "You cannot equip _0_ there!",
+	[Message.CannotFishFor]: "You cannot fish for _0_.",
+	[Message.CannotGatherFromWhileOnFire]: "You cannot gather from that while it is on fire!",
+	[Message.CannotGatherHere]: "You cannot gather anything here.",
+	[Message.CannotImproveGrowingSpeed]: "You cannot improve the growing speed of _0_ any further.",
+	[Message.CannotInWater]: "You cannot _0_ items in water.",
+	[Message.CannotPickupWhenFull]: "You cannot pick _0_ up while it is full of water.",
+	[Message.CannotPickUpWhileLit]: "You cannot pick _0_ up while it is lit.",
+	[Message.CannotPickUpWithItemsInside]: "You cannot pick _0_ up with items inside!",
+	[Message.CannotPlaceContainerInItself]: "You cannot place a container inside itself.",
+	[Message.CannotPlaceHere]: "You cannot place _0_ here!",
+	[Message.CannotPlaceThatFromHere]: "You cannot place _0_ from here.",
+	[Message.CannotPlaceThatHere]: "You cannot place _0_ here.",
+	[Message.CannotPlantHere]: "You cannot plant _0_ here!",
+	[Message.CannotPlantHereTilled]: "You cannot plant _0_ here with the _1_ untilled.",
+	[Message.CannotRepairWhileLit]: "You cannot repair _0_ while it is lit!",
+	[Message.CannotRestHere]: "You cannot rest here.",
+	[Message.CannotSeeHere]: "You cannot see anything here.",
+	[Message.CannotSleepHere]: "You cannot sleep here.",
+	[Message.CannotStartFireHere]: "You cannot start a fire here!",
+	[Message.CannotToTellTime]: "You cannot tell time from here!",
+	[Message.CarryingTooMuchWeight]: "You are carrying too much weight!",
+	[Message.CarvedUpCorpse]: "You carved and hacked up the corpse.",
+	[Message.CarveWithTool]: "Carve With Tool",
+	[Message.Carving]: "carving",
+	[Message.CastYourLine]: "You cast your line out _0_ spaces.",
+	[Message.Category]: "Category",
+	[Message.CaughtFish]: "You caught _0_!",
+	[Message.ChatPlayerMessage]: `<span class="player-name">_0_</span>: _1_`,
+	[Message.ChatUnknownCommand]: `Unknown command "_0_"`,
+	[Message.Chest]: "Chest",
+	[Message.ClearMessages]: "Clear Messages",
+	[Message.Clockwise]: "clockwise",
+	[Message.CloseDoor]: "Close Door",
+	[Message.CollectObjectWithHands]: "Collect Object With Hands",
+	[Message.Consumed]: "Consumed",
+	[Message.Container]: "Container",
+	[Message.Cook]: "cook",
+	[Message.Cooked]: "cooked",
+	[Message.Corpse]: "corpse",
+	[Message.CorruptSaveDetected]: "Corrupt save detected. This save may not load properly.",
+	[Message.CouldNotDecipher]: "You could not decipher the map.",
+	[Message.Counterclockwise]: "counterclockwise",
+	[Message.Craft]: "craft",
+	[Message.Crafted]: "crafted",
+	[Message.Crafts]: "Crafts",
+	[Message.CreatureAlreadyFullHealth]: "_0_ is already at full health!",
+	[Message.CreatureAngered]: "angered",
+	[Message.CreatureAppears]: "_0_ appears!",
+	[Message.CreatureAppearsHealthy]: "The creature appears to be healthy.",
+	[Message.CreatureAppearsUnhealthy]: "The creature appears to be unhealthy.",
+	[Message.CreatureAppeased]: "appeased",
+	[Message.CreatureIdolAttractedCreature]: "The creature idol attracted another creature.",
+	[Message.CreatureIsAtPercentHealth]: "The creature is at _0_% health.",
+	[Message.CreatureLooksBarelyHurt]: "The creature looks barely hurt.",
+	[Message.CreatureLooksHealthyAndUndamaged]: "The creature looks healthy and fairly undamaged.",
+	[Message.CreatureLooksInjured]: "The creature looks injured.",
+	[Message.CreatureLooksSeverelyDamaged]: "The creature looks severely damaged.",
+	[Message.CreatureSeemsHurt]: "The creature seems hurt.",
+	[Message.CreatureSeemsInjured]: "The creature seems very injured.",
+	[Message.CreatureSeemsUnimpaired]: "The creature seems unimpaired.",
+	[Message.CreatureUntamed]: "_0_ has become untamed.",
+	[Message.CuredYourPoison]: "You have cured your poison!",
+	[Message.Cut]: "cut",
+	[Message.DailyChallengeMode]: "Daily Challenge Mode",
+	[Message.DamageAppeared]: "_0_ damage appeared to be _1_.",
+	[Message.DamagedByPouringWater]: "You damaged _0_ by pouring out the water.",
+	[Message.DayQuarter1]: "It is currently in the first quarter of the day.",
+	[Message.DayQuarter2]: "It is currently in the second quarter of the day.",
+	[Message.DayQuarter3]: "It is currently in the third quarter of the day.",
+	[Message.DayQuarter4]: "It is currently in the fourth quarter of the day.",
+	[Message.DealtNoDamageToYou]: "_0_ has dealt no damage to you.",
+	[Message.Decay]: "Decay",
+	[Message.DefaultGameName]: "Untitled Save _0_",
+	[Message.DestroyedFromUse]: "_0_ has been destroyed from use.",
+	[Message.DestroyedGrowingByPickingItUp]: "You destroyed _0_growing _1_ by trying to pick it up!",
+	[Message.DestroyedGrowingGrassByPickingItUp]: "You destroyed the growing grass by trying to pick it up!",
+	[Message.DexterityIncreasing]: "You felt your dexterity increasing!",
+	[Message.DidNotSeemToBeHurting]: "_0_ did not seem to be hurting _1_.",
+	[Message.Dig]: "dig",
+	[Message.Digging]: "digging",
+	[Message.DigWithHands]: "Dig With Hands",
+	[Message.Disassemble]: "disassemble",
+	[Message.DisassembleAction]: "Disassemble",
+	[Message.Disassembling]: "disassembling",
+	[Message.DiscoveredCaveEntrance]: "You have discovered a cave entrance!",
+	[Message.DiscoveredInTheBottle]: "You have discovered _0_ in the bottle!",
+	[Message.Dismantle]: "dismantle",
+	[Message.DismantleAction]: "Dismantle",
+	[Message.DismantleLabel]: "Dismantle: ",
+	[Message.Dismantling]: "dismantling",
+	[Message.DismantlingRequires]: "Dismantling _0_ requires _1_.",
+	[Message.DoNotHaveTreasureMaps]: "You do not have any treasure maps!",
+	[Message.DoodadAppearsDamaged]: "The _0_ appears have to have suffered a great deal of damage.",
+	[Message.DoodadAppearsOnVergeOfBreaking]: "The _0_ is on the verge of breaking.",
+	[Message.DoodadAppearsUnscathed]: "The _0_ appears to be unscathed.",
+	[Message.DoodadCauseStatus]: "The _0_ has _1_ you. You have lost _2_ health!",
+	[Message.DoodadShowsSignsOfWear]: "The _0_ shows signs of wear.",
+	[Message.DrewSurroundings]: "You drew your surroundings.",
+	[Message.Drink]: "Drink",
+	[Message.Drop]: "Drop",
+	[Message.DropAll]: "Drop All",
+	[Message.DropAllOfSameQuality]: "Drop All of the Same Quality",
+	[Message.DroppedAllIntoDepths]: "You dropped all of _0_ into the depths below.",
+	[Message.DroppedIntoDepths]: "You dropped _0_ into the depths below.",
+	[Message.DroppedIntoFire]: "You dropped _0_ into the fire.",
+	[Message.DueToDehydration]: "due to dehydration",
+	[Message.DueToStarvation]: "due to starvation",
+	[Message.DugTreasureOut]: "You dug the treasure out.",
+	[Message.DumpContentsOfContainerInInventory]: "You dump the contents of the container into your inventory!",
+	[Message.Durability]: "Durability",
+	[Message.DyingOfDehydration]: "You are dying of dehydration!",
+	[Message.EarnedMilestone]: "You have earned the milestone '_0_', _1_",
+	[Message.Effective]: "effective",
+	[Message.EquipTo]: "Equip to ",
+	[Message.ErrorHasOccured]: "An error has occurred!",
+	[Message.Expert]: "Expert",
+	[Message.ExtinguishedFire]: "You extinguished the fire.",
+	[Message.ExtinguishedTorch]: "You extinguished the torch.",
+	[Message.FailedToAddFuelToTorch]: "You failed to add the fuel to the torch properly.",
+	[Message.FailedToCatchFish]: "You failed to catch the fish!",
+	[Message.FailedToCauseDamage]: "You failed to cause any damage to _0_ with _1_! _2_",
+	[Message.FailedToDrawMap]: "You failed to draw the map.",
+	[Message.FailedToPickLock]: "You failed to pick the lock.",
+	[Message.FailedToPlant]: "You failed to plant _0_ in the ground.",
+	[Message.FailedToPreserve]: "You failed to preserve the food.",
+	[Message.FailedToReinforce]: "You failed to reinforce _0_.",
+	[Message.FailedToRepair]: "You failed to repair _0_.",
+	[Message.FailedToStartFire]: "You failed to start a fire!",
+	[Message.FailedToTame]: "You have failed to tame _0_.",
+	[Message.FailedToTransmogrify]: "You failed to transmogrify _0_.",
+	[Message.FarAwayFromTreasure]: "You are far away from the treasure.",
+	[Message.Feet]: "Feet",
+	[Message.FeltBurningPainLostHealth]: "You felt burning pain! You have lost _0_ health!",
+	[Message.FewMinutes]: "It appeared you _0_ for a few minutes.",
+	[Message.Filled]: "You filled _0_.",
+	[Message.FilledFrom]: "You filled _0_ from _1_.",
+	[Message.Fire]: "Fire",
+	[Message.FireAlmostExtinguished]: "The fire is almost extinguished.",
+	[Message.FiredIntoObstacle]: "You fired _0_ into an obstacle.",
+	[Message.FireFacingYouIsWarm]: "The fire facing you is warm and comforting.",
+	[Message.FireIsHealthy]: "The fire is very healthy.",
+	[Message.FireIsRaging]: "The fire is raging!",
+	[Message.FireIsStruggling]: "The fire is struggling.",
+	[Message.FireOverflowed]: "The fire has overflowed and spread unexpectedly.",
+	[Message.FireSource]: "A Fire Source",
+	[Message.Food]: "food",
+	[Message.FullyDecodedMap]: "You fully decoded the map!",
+	[Message.GainedHealth]: "You have regained _0_ health.", // good
+	[Message.GainedHunger]: "You have gained _0_ hunger.", // bad
+	[Message.GainedStamina]: "You have regained _0_ stamina.", // good
+	[Message.GainedThirst]: "You have gained _0_ thirst.", // bad
+	[Message.GameHasBeenSavedIsTakingUpMB]: "Your game has been saved! Your save is using _0_MB.",
+	[Message.Gather]: "gather",
+	[Message.Gathering]: "gathering",
+	[Message.GatherWithHands]: "Gather With Hands",
+	[Message.GhostNoActions]: "You can't do that as a ghost!",
+	[Message.GrabAll]: "Grab All",
+	[Message.Group]: "Group",
+	[Message.Hands]: "Hands",
+	[Message.HandsNotEffectiveForDigging]: "Your hands did not appear to be the most effective for digging.",
+	[Message.HasBeenHurtByATrap]: "_0_ has been hurt by a trap!",
+	[Message.HasBeenHurtByYourTrap]: "_0_ has been hurt by your trap!",
+	[Message.HasDecayed]: "Your _0_ has decayed.",
+	[Message.HasHitYouForDamage]: "_0_ has hit you for _1_ damage! _2_",
+	[Message.HasSplit]: "_0_ has split.",
+	[Message.Head]: "Head",
+	[Message.Held]: "Held",
+	[Message.Help]: "Help",
+	[Message.HighscoreTurns]: "Turn _0_: ",
+	[Message.Hints]: "Hints",
+	[Message.HintsDisabled]: "Hints disabled.",
+	[Message.HintsEnabled]: "Hints enabled.",
+	[Message.HitForDamage]: "You hit _0_ for _1_ damage with _2_! _3_",
+	[Message.Hour]: "hour",
+	[Message.Hours]: "hours",
+	[Message.HurtHandsHittingWithoutWeapons]: "You hurt your hands hitting _0_ without any weapons!",
+	[Message.HurtHandsWithNoTool]: "You hurt your hands by _0_ with no tool.",
+	[Message.Ineffective]: "ineffective",
+	[Message.InExactLocationOfTreasure]: "You are in the exact location of where the treasure is buried.",
+	[Message.InjuredFromTrap]: "You have been injured from a trap!",
+	[Message.InNeedOfRepair]: "_0_ is in need of repair.",
+	[Message.Inspect]: "Inspect",
+	[Message.Intermediate]: "Intermediate",
+	[Message.Inventory]: "Inventory",
+	[Message.ItContains]: "It contains _0_.",
+	[Message.ItsWeightCapacity]: "Its weight capacity is _0_ / _1_.",
+	[Message.Jump]: "Jump",
+	[Message.Killed]: "Killed _0_!",
+	[Message.LabelAdditionalRequirements]: "Additional Requirements: ",
+	[Message.LabelAttackFromTactics]: "Attack From Tactics:",
+	[Message.LabelAuthor]: "Author: ",
+	[Message.LabelBase]: "Base: ",
+	[Message.LabelBaseDefense]: "Base Defense:",
+	[Message.LabelBenignity]: "Benignity: ",
+	[Message.LabelBluntResist]: "Blunt Resist:",
+	[Message.LabelCraftingReputation]: "Crafting Reputation: ",
+	[Message.LabelDecay]: "Decay: ",
+	[Message.LabelDefense]: "Defense:",
+	[Message.LabelDefenseFromParrying]: "Defense From Parrying:",
+	[Message.LabelDurability]: "Durability: ",
+	[Message.LabelEquip]: "Equip:",
+	[Message.LabelFireResist]: "Fire Resist:",
+	[Message.LabelGrouping]: "Grouping: ",
+	[Message.LabelHave]: "Have: ",
+	[Message.LabelHp]: "HP: ",
+	[Message.LabelLastUpdated]: "Last Updated: ",
+	[Message.LabelLeftHandAttack]: "Left Hand Attack:",
+	[Message.LabelLevel]: "Level: ",
+	[Message.LabelLightSourceWhenLit]: "Light Source When Lit: ",
+	[Message.LabelMalignity]: "Malignity: ",
+	[Message.LabelOnEquip]: "On Equip: ",
+	[Message.LabelPiercingResist]: "Piercing Resist:",
+	[Message.LabelRange]: "Range: ",
+	[Message.LabelRanged]: "Ranged: ",
+	[Message.LabelRangedAttack]: "Ranged Attack: ",
+	[Message.LabelRangedDamage]: "Ranged Damage:",
+	[Message.LabelRequiredMods]: "Required Mods: ",
+	[Message.LabelRequires]: "Requires: ",
+	[Message.LabelResists]: "Resists: ",
+	[Message.LabelRightHandAttack]: "Right Hand Attack:",
+	[Message.LabelScore]: "Score: ",
+	[Message.LabelSkill]: "Skill: ",
+	[Message.LabelSlashingResist]: "Slashing Resist:",
+	[Message.LabelStokeFireStrength]: "Stoke Fire Strength: ",
+	[Message.LabelTrapDamage]: "Trap Damage:",
+	[Message.LabelTurns]: "Turn:",
+	[Message.LabelUse]: "Use: ",
+	[Message.LabelUses]: "Uses: ",
+	[Message.LabelVersion]: "Version: ",
+	[Message.LabelVulnerabilities]: "Vulnerabilities: ",
+	[Message.LabelWeight]: "Weight: ",
+	[Message.LabelWeightCapacity]: "Weight Capacity: ",
+	[Message.LabelWeightReduction]: "Weight Reduction: ",
+	[Message.LastPlaceYouLeftOff]: "You awake to discover yourself in the last place you left off...",
+	[Message.LearnedHowToCreate]: "You have learned how to create _0_!",
+	[Message.LeftHand]: "Left Hand (Held)",
+	[Message.Legs]: "Legs",
+	[Message.LikelyFailures]: " It is likely you will not be able to craft _0_ without many failures.",
+	[Message.LoseBonesLayBleaching]: "Your bones lay bleaching, lost to time.",
+	[Message.LoseEndIsBeginning]: "The end is just the beginning.",
+	[Message.LoseSadlyNoTrace]: "Sadly, no trace of you was ever found.",
+	[Message.LostHealth]: "You have lost _0_ health.", // bad
+	[Message.LostHunger]: "You have sated _0_ hunger.", // good
+	[Message.LostStamina]: "You have lost _0_ stamina.", // bad
+	[Message.LostThirst]: "You have quenched _0_ thirst.", // good
+	[Message.MapNotOfThisArea]: "This map is not of this area.",
+	[Message.MaterialsDestroyed]: "Some materials have been destroyed from _0_.",
+	[Message.MetabolismSlowed]: "Your metabolism has slowed. You will require less food and water.",
+	[Message.MilestoneIsHidden]: "This milestone is hidden.",
+	[Message.MilestoneIsInvisible]: "This milestone is invisible.",
+	[Message.MissedWith]: "You missed _0_ with _1_!",
+	[Message.ModImportedSaveGame]: "A mod has imported a saved game.",
+	[Message.MouseButton]: "M_0_",
+	[Message.MoveAllOfSameQualityToInventory]: "Move All of Same Quality to Inventory",
+	[Message.MoveAllOfSameQualityToLastOpenedContainer]: "Move All of Same Quality to Last Opened Container",
+	[Message.MoveAllOfSameQualityToOpenedContainer]: "Move All of Same Quality to Opened Container",
+	[Message.MoveAllToInventory]: "Move All to Inventory",
+	[Message.MoveAllToLastOpenedContainer]: "Move All to Last Opened Container",
+	[Message.MoveAllToOpenedContainer]: "Move All to Opened Container",
+	[Message.MoveOverTrapButDoNotSetOff]: "You move over the trap, but do not set it off.",
+	[Message.MoveToInventory]: "Move to Inventory",
+	[Message.MoveToLastOpenedContainer]: "Move to Last Opened Container",
+	[Message.MoveToOpenedContainer]: "Move to Opened Container",
+	[Message.MultiplayerDisconnected]: `Disconnected from the server.`,
+	[Message.MultiplayerGamePaused]: "The game has been paused.",
+	[Message.MultiplayerGameResumed]: "The game has been resumed.",
+	[Message.MultiplayerPlayerConnected]: `<span class="player-name">_0_</span> is connecting.`,
+	[Message.MultiplayerPlayerDied]: `<span class="player-name">_0_</span> died _1_!`,
+	[Message.MultiplayerPlayerDisconnected]: `<span class="player-name">_0_</span> has disconnected.`,
+	[Message.MultiplayerPlayerJoined]: `<span class="player-name">_0_</span> has joined.`,
+	[Message.MustBeEquippedToIgnite]: "_0_ must be equipped to ignite it.",
+	[Message.MustCastIntoWater]: "You must cast into water to catch anything.",
+	[Message.Mysteriously]: "mysteriously",
+	[Message.Name]: "Name",
+	[Message.NearlyBurnedEquipmentProtectedYou]: "You were nearly burned, but your equipment protected you.",
+	[Message.Neck]: "Neck",
+	[Message.NeedAShovelToDigTreasure]: "You need a shovel to be able to dig up this treasure.",
+	[Message.NeedFishingNetForTreasure]: "You need a fishing net to be able to get this treasure.",
+	[Message.NeedToEquipToShoot]: "You need to equip _0_ to shoot from it!",
+	[Message.NeedToStartTravelsOutside]: "You need to start your travels outside.",
+	[Message.NeedWaterForRaft]: "You need to be in water to use a raft.",
+	[Message.NightQuarter1]: "It is currently in the first quarter of the night.",
+	[Message.NightQuarter2]: "It is currently in the second quarter of the night.",
+	[Message.NightQuarter3]: "It is currently in the third quarter of the night.",
+	[Message.NightQuarter4]: "It is currently in the fourth quarter of the night.",
+	[Message.NoAmmunitionForThatWeapon]: "You do not have any ammunition for _0_ in your inventory!",
+	[Message.NoBlackPowderToFireWeapon]: "You do not have any black powder to fire _0_.",
+	[Message.NoFireToStokeWith]: "There is no fire to stoke with _0_ here!",
+	[Message.NoFishAtLocation]: "There is no fish at this location!",
+	[Message.NoFuelItemsToStartFire]: "You do not have any fuel to start the fire.",
+	[Message.NoInkToDrawMap]: "You do not have any ink to draw a map with!",
+	[Message.NoKindlingToStartFire]: "You do not have any kindling to start the fire.",
+	[Message.NoLongerFeelPainOfBeingBurned]: "You no longer feel the pain of being burned!",
+	[Message.NoMoreRoomInContainer]: "There is no more room in this container for _0_.",
+	[Message.NoNeedToStokeFire]: "There is no need to stoke this fire.",
+	[Message.NoRoomForImprovement]: "_0_ has no room for improvement!",
+	[Message.NoRoomToDrop]: "There is no room to drop _0_ here!",
+	[Message.NotAvailable]: "N/A",
+	[Message.NotEnoughFoodToTravel]: "You do not have enough _0_ to attempt a long travel!",
+	[Message.NotEnoughPurifiedWaterYet]: "There is not enough purified water available in the still yet.",
+	[Message.NotEnoughStrengthToThrow]: "You do not have enough strength to throw _0_!",
+	[Message.NotEnoughTreasureToReturn]: "You do not have all the pieces of treasure in order to return to civilization.",
+	[Message.NotFacingCreatureToHeal]: "You are not facing a creature to heal.",
+	[Message.NotFacingLockedObject]: "You are not facing a locked object.",
+	[Message.NotFacingValidItem]: "You are not facing a valid item for _0_.",
+	[Message.NothingHereToCarve]: "There is nothing here to carve!",
+	[Message.NothingHereToFill]: "There is nothing here to fill _0_.",
+	[Message.NoTinderToStartFire]: "You do not have any tinder to start the fire.",
+	[Message.NotInRangeOfTreasure]: "You are not in the range of any buried treasure!",
+	[Message.NoWaterInStill]: "There is no water in this still.",
+	[Message.NoWhereNearTreasure]: "You are no where near the treasure.",
+	[Message.NumberEight]: "eight",
+	[Message.NumberFive]: "five",
+	[Message.NumberFour]: "four",
+	[Message.NumberNine]: "nine",
+	[Message.NumberOne]: "one",
+	[Message.NumberSeven]: "seven",
+	[Message.NumberSix]: "six",
+	[Message.NumberTen]: "ten",
+	[Message.NumberThree]: "three",
+	[Message.NumberTwo]: "two",
+	[Message.ObjectIsLocked]: "The object is locked, you attempt to break it open.",
+	[Message.Offer]: "Offer",
+	[Message.OpenDoor]: "Open Door",
+	[Message.OpenFolderFailed]: "Failed to open the folder. Please navigate to the folder manually.",
+	[Message.OverEatingLostStamina]: "You are over-eating! You have lost 10 stamina.",
+	[Message.OverHydratingLostStamina]: "You are over-hydrating! You have lost 10 stamina.",
+	[Message.PaperTurnedToMush]: "The wet piece of paper turned to mush as it was released from the bottle.",
+	[Message.PartiallyDecodedMap]: "You partially decoded the map.",
+	[Message.PastExperiencesProvideBenefits]: "Your past experiences provide you benefits for survival.",
+	[Message.PenultimateAnd]: "and",
+	[Message.PetCreature]: "You pet _0_. It appears to enjoy it.",
+	[Message.PickupAllItems]: "Pick-up All Items",
+	[Message.PickupItem]: "Pick-up Item",
+	[Message.Piercing]: "Piercing",
+	[Message.Place]: "place",
+	[Message.PlacedOnGround]: "You placed _0_ on the ground!",
+	[Message.Plant]: "plant",
+	[Message.PlantedInGround]: "You planted _0_ in the ground.",
+	[Message.PlantIsFertile]: "The plant is fertile and may spread in its vicinity.",
+	[Message.PlantIsNotFertile]: "The plant is not fertile and will not spread.",
+	[Message.PlantHighlyFertile]: "The plant is highly fertile and may spread in its vicinity.",
+	[Message.Poisoned]: "poisoned",
+	[Message.PoisonedLostHealth]: "You are poisoned! You have lost _0_ health!",
+	[Message.PoisonWorkedItsCourse]: "The poison has worked its course!",
+	[Message.PouredOutWater]: "You poured out the water.",
+	[Message.PouredOutWaterOnYourself]: "You poured out the water on yourself.",
+	[Message.PouredWaterIntoStill]: "You poured the water into the still.",
+	[Message.Preservation]: "preservation",
+	[Message.Preserve]: "Preserve",
+	[Message.PreservedFood]: "You preserved the food.",
+	[Message.PurifiedWaterInStill]: "There is purified water in the still.",
+	[Message.Quality]: "Quality",
+	[Message.Recent]: "Recent",
+	[Message.RefusedToBeTamed]: "_0_ refuses to be tamed so quickly after being released.",
+	[Message.Reinforce]: "You reinforce _0_.",
+	[Message.Reinforcement]: "reinforcement",
+	[Message.Release]: "Release",
+	[Message.RemovedBlood]: "You removed the blood.",
+	[Message.RemoveFromQuickslot]: "Remove from Quickslot",
+	[Message.Repair]: "repair",
+	[Message.RequiredForDisassembleLabel]: "Required for Disassembly: ",
+	[Message.RequiredForDisassembly]: "_0_ is required for disassembly of _1_!",
+	[Message.RequiresFireToBeLit]: "This still requires a fire to be lit underneath it to begin purifying water.",
+	[Message.RequiresYouFacingFireSource]: "_0_ requires you to be facing a fire source in order to light it.",
+	[Message.RequiresYouToBeAround]: "_0_ requires you to be around _1_ in order to _2_ it.",
+	[Message.Resistant]: "resistant",
+	[Message.Rest]: "Rest",
+	[Message.Rested]: "rested",
+	[Message.RestingOnGroundNotEffective]: "Resting on the ground did not appear to be the most effective.",
+	[Message.RestInterrupted]: "Your _0_ has been interrupted!",
+	[Message.RestInterruptedLoudNoise]: "Your _0_ was interrupted by a loud, crashing noise.",
+	[Message.RestOnGround]: "Rest on Ground",
+	[Message.ReturnedToCivilization]: "Returned to civilization!",
+	[Message.ReturningToCivilizationSetOffAgain]: "After returning the treasure back to civilization, you set off again...",
+	[Message.ReturnsToLife]: "_0_ returns to life!",
+	[Message.RightHand]: "Right Hand (Held)",
+	[Message.SailedToCivilization]: "You sailed to civilization in this game.",
+	[Message.Score]: "_0_ Score",
+	[Message.ScrollProvidedNoUsefulInsight]: "You are truly a master of the crafts. The scroll provided no useful insight for you.",
+	[Message.SeaweedFromWater]: "You dragged a slimy mass of seaweed up out of the water!",
+	[Message.SeeGrowing]: "You see _0_growing _1_.",
+	[Message.SeemsToHaveDrawnEnergy]: "_0_ seems to have drawn energy from _1_!",
+	[Message.SetTrapOffButNoDamage]: "You set the trap off, but it does no damage to you.",
+	[Message.SetUp]: "You have set up _0_.",
+	[Message.ShadowInTheWater]: "You have seen a shadow in the water.",
+	[Message.Simple]: "Simple",
+	[Message.Skill]: "Skill",
+	[Message.SkillHasRaised]: "Your skill in _0_ has raised to _1_%!",
+	[Message.Slashing]: "Slashing",
+	[Message.Sleep]: "Sleep",
+	[Message.Slept]: "slept",
+	[Message.Soil]: "soil",
+	[Message.SomethingInTheWayOf]: "There is something in the way of your _0_!",
+	[Message.SomethingInTheWayOfCarveFirst]: "There is something in the way of your _0_. This must be carved.",
+	[Message.SomethingInTheWayOfFire]: "There is something in the way of _0_ the fire!",
+	[Message.SomethingInTheWayOfFishing]: "There is something in the way. You cannot fish past that!",
+	[Message.SomethingInTheWayOfGatheringCarveFirst]: "There is something in the way of your gathering. This must be carved.",
+	[Message.SomethingInTheWayOfPerforming]: "There is something in the way of performing this action.",
+	[Message.SomethingInTheWayOfPlacing]: "There is something in the way of placing _0_.",
+	[Message.SomethingInWayOfClosingDoor]: "There is something in the way of closing that door!",
+	[Message.SoothedYourBurnInjuries]: "You have soothed your burn injuries!",
+	[Message.Sort]: "Sort",
+	[Message.SortedByCategory]: "_0_ sorted by category.",
+	[Message.SortedByDecay]: "_0_ sorted by decay.",
+	[Message.SortedByDurability]: "_0_ sorted by durability.",
+	[Message.SortedByGroup]: "_0_ sorted by group.",
+	[Message.SortedByName]: "_0_ sorted by name.",
+	[Message.SortedByQuality]: "_0_ sorted by quality.",
+	[Message.SortedByRecent]: "_0_ sorted by recent.",
+	[Message.SortedBySkill]: "_0_ sorted by skill.",
+	[Message.SortedByUnlockedTime]: "_0_ sorted by unlocked time.",
+	[Message.SortedByWeight]: "_0_ sorted by weight.",
+	[Message.StaminaIsFull]: "Your stamina is full, you do not need to rest any more.",
+	[Message.StartedFire]: "You have started a fire!",
+	[Message.Starting]: "starting",
+	[Message.StartTravelInWater]: "You need to start your travels while in ocean water.",
+	[Message.StarvingToDeath]: "You are starving to death!",
+	[Message.SteppingOnHasInjuredYouForDamage]: "Stepping on the _0_ has injured you for _1_ damage!",
+	[Message.StillHasNoWaterToPurify]: "This still has no water to purify!",
+	[Message.StirredUpClawWorm]: "You stirred up a claw worm from underground!",
+	[Message.StirredUpCreature]: "You stirred up a creature from the depths!",
+	[Message.Stoking]: "stoking",
+	[Message.StoppedYourBleeding]: "You have stopped your bleeding!",
+	[Message.StopUsingRaft]: "You stop using the raft.",
+	[Message.StrengthIncreasing]: "You felt your strength increasing!",
+	[Message.SummonedGuardiansByDiggingTreasure]: "You have summoned the guardians by digging up the treasure.",
+	[Message.SunNotBrightEnoughToStartFire]: "The sun is not bright enough to start a fire with _0_!",
+	[Message.Tame]: "Tame",
+	[Message.TamedAppearsAngered]: "angered",
+	[Message.TamedAppearsContended]: "contented",
+	[Message.TamedAppearsHappy]: "happy",
+	[Message.TamedAppearsUpset]: "upset",
+	[Message.TamedCreature]: "This creature is tamed and appears _0_.",
+	[Message.TeleportBlocked]: "Your teleport destination was blocked.",
+	[Message.Teleported]: "You have teleported.",
+	[Message.ThereIsNoSunToStartFire]: "There is no sun in here to start a fire with.",
+	[Message.Throw]: "Throw",
+	[Message.ThrownIntoDepths]: "You have thrown _0_ into the depths below.",
+	[Message.ThrownIntoObstacle]: "You have thrown _0_ into an obstacle.",
+	[Message.Till]: "till",
+	[Message.Tilling]: "tilling",
+	[Message.TimeIs]: "It appears to be around _1_ o'clock.",
+	[Message.TimeIsDawn]: "It is dawn.",
+	[Message.TimeIsDaytime]: "It is daytime.",
+	[Message.TimeIsDusk]: "It is dusk.",
+	[Message.TimeIsNighttime]: "It is nighttime.",
+	[Message.TimeIsSunrise]: "The sun is rising.",
+	[Message.TimeIsSunset]: "The sun is setting.",
+	[Message.TooDamaged]: "_0_ is too damaged to attempt to _1_.",
+	[Message.TooExhaustedToJump]: "You are too exhausted and overburdened to make this jump.",
+	[Message.TrampledFire]: "You trampled the fire, putting it out!",
+	[Message.TrampledIntoGround]: "_0_ trampled _1_ into the ground.",
+	[Message.TrampleIntoGround]: "You trampled _0_ into the ground.",
+	[Message.Trampling]: "You are trampling _0_.",
+	[Message.Transmogrification]: "transmogrification",
+	[Message.Transmogrified]: "You have transmogrified _0_.",
+	[Message.TravelToFarOffLands]: "You travel to far off lands...",
+	[Message.TreasureIsBlocked]: "You find the spot where the treasure is buried, but it is blocked.",
+	[Message.True]: "True",
+	[Message.UnEquip]: "Un-equip",
+	[Message.UnEquipAll]: "Un-equip All",
+	[Message.Unknown]: "Unknown",
+	[Message.UnknownItem]: "Unknown Item",
+	[Message.UnlockedChest]: "You unlocked the wooden chest and viewed its contents.",
+	[Message.UnlockedTime]: "Unlocked Time",
+	[Message.UnpurifiedWaterInStill]: "There is unpurified water in the still.",
+	[Message.URLHasOpenedInWebBrowser]: "The URL has been opened in your default web browser.",
+	[Message.UsedToSpeedUpGrowing]: "You used the _0_ to speed up the growing process.",
+	[Message.UsingBareFistsToFight]: "using your bare fists to fight",
+	[Message.UsingBareHands]: "using your bare hands to ",
+	[Message.UsingBareHands]: "using your bare hands to ",
+	[Message.Vulnerable]: "vulnerable",
+	[Message.WaitUntilFireCooledToGetWater]: "You must wait until the fire has cooled off to get the purified water.",
+	[Message.WalkingDistanceOfTreasure]: "You are within walking distance of the treasure.",
+	[Message.Water]: "water",
+	[Message.WaterDoesNotNeedDesalination]: "This water does not need to undergo the desalination process!",
+	[Message.WaterIncreaseFertilityOfPlant]: "You used the water to increase the fertility of _0_.",
+	[Message.WaterPutOutFire]: "The water has put out the fire.",
+	[Message.WaterWouldHaveNoEffect]: "The water would have no effect on _0_.",
+	[Message.Weight]: "Weight",
+	[Message.WeightCapacity]: "Weight Capacity: _0_ / _1_",
+	[Message.WinFindWayBackToCivilization]: "You find your way back to civilization and end your journey.",
+	[Message.WinSailBackWithRiches]: "You sail back and enjoyed a good life with your riches.",
+	[Message.WinTravelledBackToCivilization]: "You travelled back to civilization, but is this the end?",
+	[Message.With]: "with",
+	[Message.WorkingYourselfIntoExhaustion]: "You are working yourself into exhaustion!",
+	[Message.WorkshopHasBeenOpenedPressOkAfter]: "The Steam Workshop has been opened in a browser.<br />Press OK after you're done viewing the Workshop.",
+	[Message.YouAte]: "You ate _0_!",
+	[Message.YouBeginResting]: "You begin resting...",
+	[Message.YouCollected]: "You collected _0_!",
+	[Message.YouCrafted]: "You _0_ _1_!",
+	[Message.YouDied]: "You died _0_!",
+	[Message.YouDisassembled]: "You disassembled _0_.",
+	[Message.YouDismantled]: "You dismantled _0_.",
+	[Message.YouDrank]: "You drank _0_!",
+	[Message.YouEquip]: "You equip _0_.",
+	[Message.YouFailedTo]: "You failed to _0_ _1_ due to lack of skill._2_",
+	[Message.YouFailedToHeal]: "You have failed to heal due to lack of skill in _0_.",
+	[Message.YouFailedToHealCreature]: "You have failed to heal _0_ due to lack of skill in _1_.",
+	[Message.YouFire]: "You fire _0_.",
+	[Message.YouGathered]: "You gathered _0_!",
+	[Message.YouHaveHealedCreature]: "You have healed _0_.",
+	[Message.YouHaveKilled]: "You have killed _0_!",
+	[Message.YouHaveReleased]: "You have released _0_ into the wild.",
+	[Message.YouHaveTamed]: "You have tamed _0_.",
+	[Message.YouNoticeBecomeEnraged]: "You notice _0_ become enraged and increase in strength.",
+	[Message.YouNoticeDying]: "You notice _0_ dying.",
+	[Message.YouNoticeFertilityDecreasing]: "You notice the fertility of _0_ decreasing.",
+	[Message.YouNoticeFertilityIncreasing]: "You notice the fertility of _0_ increasing.",
+	[Message.YouNoticeGrowing]: "You notice _0_ growing.",
+	[Message.YouNoticePerish]: "You notice _0_ inexplicably collapse and perish.",
+	[Message.YouNoticeStumbleInjureItself]: "You notice _0_ stumble and injure itself.",
+	[Message.YouNoticeTreeBecameLush]: "You notice a tree has became more lush.",
+	[Message.YouNoticeTreeRegrown]: "You notice a tree has regrown its leaves and branches.",
+	[Message.YouNoticeWoundsClosing]: "You notice the wounds of _0_ closing.",
+	[Message.YouNoticeZombieHorde]: "You notice a horde of zombies coming your way.",
+	[Message.YouOfferedToCreature]: "You offered _0_ to _1_ and it appeared to be _2_.",
+	[Message.YouOpen]: "You open _0_.",
+	[Message.YouPacked]: "You packed the _0_.",
+	[Message.YouPickedUp]: "You picked up _0_.",
+	[Message.YouRepair]: "You repair _0_.",
+	[Message.YourFist]: "your fist",
+	[Message.YourHands]: "Your hands",
+	[Message.YouRub]: "You rub _0_ _1_ as it quickly disintegrates in your grasp. These lands now act differently to your presence.",
+	[Message.YouSalvaged]: "You salvaged _0_.",
+	[Message.YouSee]: "You see _0_.",
+	[Message.YouSeeAnAberrant]: "You see an aberrant _0_.",
+	[Message.YouSeeDrop]: "You see _0_ drop from _1_.",
+	[Message.YouSeeEngulfFire]: "You see _0_ engulf its surroundings with fire.",
+	[Message.YouSeeLay]: "You see _0_ lay _1_.",
+	[Message.YouSeeLayingTrap]: "You see _0_ laying down a trap.",
+	[Message.YouSeeSpewLava]: "You see _0_ spew forth lava in defense.",
+	[Message.YouSeeSpitAcid]: "You see _0_ spit acid.",
+	[Message.YouSeeSpringForth]: "You see _0_ spring forth!",
+	[Message.YouSeeSummon]: "You see _0_ chant and summon _1_.",
+	[Message.YouSeeSwampFlood]: "You see _0_ inundate and flood the ground on which it moves.",
+	[Message.YouSeparate]: "You separate _0_.",
+	[Message.YouThrew]: "You threw _0_!",
+	[Message.YouTilled]: "You tilled the _0_.",
+	[Message.YouUnequip]: "You un-equip _0_.",
+	[Message.YouUsed]: "You have used _0_!"
+});
+
+english.setDictionary(Dictionary.Milestone, {
+	[Milestone.Abnormalizer]: ["Abnormalizer", "Killed 25 aberrant creatures."],
+	[Milestone.Chef]: ["Chef", "Cooked 25 food items."],
+	[Milestone.Crafter]: ["Crafter", "Crafted 250 items."],
+	[Milestone.Extincteur]: ["Extincteur", "Killed 1000 creatures."],
+	[Milestone.Gardener]: ["Gardener", "Planted 50 plants or mushrooms."],
+	[Milestone.Gatherer]: ["Gatherer", "Gathered 1000 times."],
+	[Milestone.Hunter]: ["Hunter", "Killed 100 creatures."],
+	[Milestone.Locksmith]: ["Locksmith", "Lock picked 10 locks."],
+	[Milestone.ReaperOfSouls]: ["Reaper of Souls", "Killed 50 pirate ghosts and harvested their corpses."],
+	[Milestone.Survivor]: ["Survivor", "Survived for 10000 turns."],
+	[Milestone.Thrower]: ["Thrower", "Thrown 500 items."],
+	[Milestone.Trapper]: ["Trapper", "Injured 10 creatures with traps."],
+	[Milestone.TreasureHunter]: ["Treasure Hunter", "Dug or fished up 10 treasure chests."],
+	[Milestone.Collector]: ["Collector", "Collected one of every item."],
+	[Milestone.Explorer]: ["Explorer", "Stepped on or gathered from every type of tile."],
+	[Milestone.Grandmaster]: ["Grandmaster", "Raised a skill to 100%."],
+	[Milestone.Prepared]: ["Prepared", "Equipped something in each equipment slot."],
+	[Milestone.Doctor]: ["Doctor", "Cured each status effect."],
+	[Milestone.Artificer]: ["Artificer", "Transmogrified an item."],
+	[Milestone.Seafarer]: ["Seafarer", "Sailed to civilization and completed the game."],
+	[Milestone.Navigator]: ["Navigator", "Traversed the seas in search of new lands."],
+	[Milestone.DragonSlayer]: ["Dragon Slayer", "Slayed a drake."],
+	[Milestone.Treasurer]: ["Treasurer", "Collected every one of the five types of treasure."],
+	[Milestone.Pulchritudinous]: ["Pulchritudinous", "Equipped a legendary item in each equipment slot."],
+	[Milestone.Friendly]: ["Friendly", "Tamed 25 creatures."],
+	[Milestone.Malevolent]: ["Malevolent", "Reached 64,000 malignity."],
+	[Milestone.Benevolent]: ["Benevolent", "Reached 64,000 benignity."]
+});
+
+english.setDictionary(Dictionary.OnEquip, {
+	[OnEquip.LightSource]: "Light Source",
+	[OnEquip.Telescopy]: "Telescopy"
+});
+
+english.setDictionary(Dictionary.Skill, {
+	[Skill.Chemistry]: ["Chemistry", "Influences quality and success rate of crafted items using chemical mixtures."],
+	[Skill.Anatomy]: ["Anatomy", "Increases accuracy of creature health description.<br />Decreases chance of bleeding and poisoning.<br />Increases effectiveness of healing consumables.<br />Increases success chance when healing."],
+	[Skill.Archery]: ["Archery & Firearms", "Increases attack damage, accuracy and maximum range when using bows and firearms."],
+	[Skill.Blacksmithing]: ["Blacksmithing", "Influences quality, repair, and success rate of crafted items using metal."],
+	[Skill.Botany]: ["Botany", "Increases chance of successfully planting a plant.<br />Increases effectiveness of eating plant-based consumables.<br />Decreases chance of trampling plants when stepping on them."],
+	[Skill.Camping]: ["Camping", "Increases the amount of turns slept when using a bedroll.<br />Increases chance of starting a fire.<br />Increases the accuracy of telling the time with a sundial."],
+	[Skill.Cartography]: ["Cartography", "Increases chance to successfully read tattered maps.<br />Decreases obscurity when reading tattered maps."],
+	[Skill.Claythrowing]: ["Clay Throwing", "Influences quality and success rate of crafting items using clay."],
+	[Skill.Cooking]: ["Cooking", "Influences quality and success rate of cooking items (via crafting).<br />Influences decay of cooked items."],
+	[Skill.Fishing]: ["Fishing", "Increases chance to successfully catch a fish. Increases maximum range when using a fishing rod.<br />Increases the range in which you can gather underwater treasure from."],
+	[Skill.Fletching]: ["Fletching & Rangedcraft", "Influences quality and repair rate of crafted arrows, bows, and slings."],
+	[Skill.Glassblowing]: ["Glassblowing", "Influences quality and success rate of crafted items using glass."],
+	[Skill.Leatherworking]: ["Leatherworking", "Influences quality, repair, and success rate of crafted items using leather."],
+	[Skill.LockPicking]: ["Lock Picking", "Increases chance to successfully unlock a chest."],
+	[Skill.Lumberjacking]: ["Lumberjacking", "Increases chance of resource dropping on trees.<br />Decreases chance of stamina reduction while lumberjacking."],
+	[Skill.Mining]: ["Mining", "Increases chance of resource dropping on rocks.<br />Decreases chance of stamina reduction while mining.<br />Increases the range in which you can gather treasure from."],
+	[Skill.Mycology]: ["Mycology", "Increases chance of planting a mushroom.<br />Increases effectiveness of eating mushroom consumables.<br />Decreases chance of trampling mushrooms when stepping on them."],
+	[Skill.Parrying]: ["Parrying", "Increases your base defense value.<br />Increases chance to take less damage in combat.<br />Decreases chance of stamina reduction from being attacked."],
+	[Skill.Stonecrafting]: ["Stonecrafting", "Influences quality, repair, and success rate of crafted items using stones and rocks."],
+	[Skill.Swimming]: ["Swimming", "Increases speed in water travel.<br />Decreases chance of stamina reduction in water."],
+	[Skill.Tactics]: ["Tactics", "Increases your base attack value.<br />Increases chance to hit targets in combat.<br />Decreases chance of stamina reduction while attacking."],
+	[Skill.Tailoring]: ["Tailoring", "Influences quality, repair, and success rate of crafted items using cloth and leather."],
+	[Skill.Taming]: ["Taming", "Increases chance of successfully taming a creature.<br />Increases length of time creature will be tamed for.<br />Decreases chance of stamina reduction when taming/offering."],
+	[Skill.Throwing]: ["Throwing", "Increases attack damage, accuracy, and maximum range when throwing or slinging an item."],
+	[Skill.Tinkering]: ["Tinkering", "Influences quality, repair, and success rate of crafted items using miscellaneous resources and methods."],
+	[Skill.Trapping]: ["Trapping", "Increases the amount of damage and success rate of trapping creatures.<br />Reduces chance of setting off traps and reduces damage taken from traps."],
+	[Skill.Woodworking]: ["Woodworking", "Influences quality, repair, and success rate of crafted items using wood."]
+});
+
+english.setDictionary(Dictionary.Terrain, {
+	[Terrain.Ash]: ["", "ash"],
+	[Terrain.BarePalmTree]: ["a", "bare palm tree"],
+	[Terrain.BareTree]: ["a", "bare tree"],
+	[Terrain.CaveEntrance]: ["a", "cave entrance"],
+	[Terrain.Clay]: ["", "clay"],
+	[Terrain.ClayBrickFlooring]: ["", "clay brick flooring"],
+	[Terrain.CobblestoneFlooring]: ["", "cobblestone flooring"],
+	[Terrain.DeepFreshWater]: ["", "deep fresh water"],
+	[Terrain.DeepSeawater]: ["", "deep seawater"],
+	[Terrain.Dirt]: ["", "dirt"],
+	[Terrain.FertileDirt]: ["", "fertile dirt"],
+	[Terrain.FreshWater]: ["", "fresh water"],
+	[Terrain.Grass]: ["", "grass"],
+	[Terrain.Gravel]: ["", "gravel"],
+	[Terrain.Lava]: ["", "lava"],
+	[Terrain.PalmTree]: ["a", "palm tree"],
+	[Terrain.PalmTreeWithCoconuts]: ["a", "palm tree with coconuts"],
+	[Terrain.RedCarpet]: ["", "red carpet"],
+	[Terrain.Rocks]: ["", "rocks"],
+	[Terrain.RocksWithCoal]: ["", "rocks with coal"],
+	[Terrain.RocksWithIron]: ["", "rocks with iron"],
+	[Terrain.RocksWithLimestone]: ["", "rocks with limestone"],
+	[Terrain.RocksWithTalc]: ["", "rocks with talc"],
+	[Terrain.Sand]: ["", "sand"],
+	[Terrain.Sandstone]: ["", "sandstone"],
+	[Terrain.SandstoneFlooring]: ["", "sandstone flooring"],
+	[Terrain.SandstoneWithIron]: ["", "sandstone with iron"],
+	[Terrain.SandstoneWithNiter]: ["", "sandstone with niter"],
+	[Terrain.Seawater]: ["", "seawater"],
+	[Terrain.ShallowFreshWater]: ["", "shallow fresh water"],
+	[Terrain.ShallowSeawater]: ["", "shallow seawater"],
+	[Terrain.Snow]: ["", "snow"],
+	[Terrain.Swamp]: ["", "swamp"],
+	[Terrain.Tree]: ["a", "tree"],
+	[Terrain.TreeWithBerries]: ["a", "tree with berries"],
+	[Terrain.TreeWithFungus]: ["a", "tree with fungus"],
+	[Terrain.TreeWithVines]: ["a", "tree with vines"],
+	[Terrain.WoodenFlooring]: ["", "wooden flooring"]
+});
+
+english.setDictionary(Dictionary.TileEvent, {
+	[TileEvent.Fire]: ["", "fire", "A dangerous open flame providing heat and light."]
+});
+
+english.setDictionary(Dictionary.UiStatic, {
+	[UiStatic.Bleeding]: "Bleeding",
+	[UiStatic.Burned]: "Burned",
+	[UiStatic.DisableHints]: "Disable Hints",
+	[UiStatic.EnableHints]: "Enable Hints",
+	[UiStatic.EquipmentBack]: "Back",
+	[UiStatic.EquipmentBelt]: "Belt",
+	[UiStatic.EquipmentChest]: "Chest",
+	[UiStatic.EquipmentFeet]: "Feet",
+	[UiStatic.EquipmentHands]: "Hands",
+	[UiStatic.EquipmentHead]: "Head",
+	[UiStatic.EquipmentLeftHand]: "Left Hand (Held)",
+	[UiStatic.EquipmentLeftHandOption]: "Left Hand",
+	[UiStatic.EquipmentLegs]: "Legs",
+	[UiStatic.EquipmentNeck]: "Neck",
+	[UiStatic.EquipmentRightHand]: "Right Hand (Held)",
+	[UiStatic.EquipmentRightHandOption]: "Right Hand",
+	[UiStatic.EquipmentUse]: "Use",
+	[UiStatic.Health]: "Health (Strength)",
+	[UiStatic.HudActions]: "Actions",
+	[UiStatic.HudCrafting]: "Crafting",
+	[UiStatic.HudEquipment]: "Equipment",
+	[UiStatic.HudFilter]: "Filter",
+	[UiStatic.HudHelp]: "Help",
+	[UiStatic.HudInventory]: "Inventory",
+	[UiStatic.HudMessages]: "Messages",
+	[UiStatic.HudMilestones]: "Milestones",
+	[UiStatic.HudOptions]: "Options",
+	[UiStatic.HudSave]: "Save",
+	[UiStatic.HudSkills]: "Skills",
+	[UiStatic.HudTitleScreen]: "Title Screen",
+	[UiStatic.Hunger]: "Hunger (Metabolism/Starvation)",
+	[UiStatic.MenuAbout]: "About",
+	[UiStatic.MenuAboutCredits]: "Vaughn 'Drathy' Royko (Programming/Web/PR/Design),Gary 'Spacetech' Wilber (Programming),Dusty 'Goaticide' Melling (Art/Design),Mackenzie 'Aarilight' McClane (Programming),Frank 'Sassafrass' Sasto (Programming),Austin Dhillon (Music)",
+	[UiStatic.MenuAboutDonators]: "An extra special thank you to all the early testers, donators, and other supporters.",
+	[UiStatic.MenuAboutIntro]: "Wayward is a turn-based, top-down, wilderness survival roguelike currently in beta. It's brought to you by these fine folk:",
+	[UiStatic.MenuAboutLibraries]: "Greenworks, Electron, TypeScript, Node.js, jQuery, jQueryUI, TSM, lz-string, jQuery contextMenu, jQuery UI Touch Punch, Pluralize, Fixedsys Excelsior",
+	[UiStatic.MenuAboutLibrariesIntro]: "Wayward is made possible with the following projects:",
+	[UiStatic.MenuAboutMessage]: "Learn More About Wayward",
+	[UiStatic.MenuAboutThanks]: "Richard 'Orillian' Hobson,Vlad 'vlsd' Seghete,Unstoppable Carl Olsen,Justin 'boxofrox' Charette,Frank Orechio,Drachlen,Joshua 'jday' Day,Oddmund 'oddmunds' Strømme",
+	[UiStatic.MenuAboutThanksIntro]: "With special thanks to:",
+	[UiStatic.MenuAboutUnlok]: `Wayward _0_ © Unlok, 2011-2017`,
+	[UiStatic.MenuChangelog]: "Changelog",
+	[UiStatic.MenuChangelogBalance]: "Balance",
+	[UiStatic.MenuChangelogBugFixes]: "Bug Fixes",
+	[UiStatic.MenuChangelogImprovements]: "Improvements",
+	[UiStatic.MenuChangelogMessage]: "View the changelog",
+	[UiStatic.MenuChangelogMod]: "Mods",
+	[UiStatic.MenuChangelogModding]: "Modding",
+	[UiStatic.MenuChangelogNew]: "New",
+	[UiStatic.MenuChangelogTechnical]: "Technical",
+	[UiStatic.MenuCharacter]: "Character",
+	[UiStatic.MenuCharacterAccept]: "Accept",
+	[UiStatic.MenuCharacterExport]: "Export",
+	[UiStatic.MenuCharacterHairColor]: "Hair Color",
+	[UiStatic.MenuCharacterHairStyle]: "Hairstyle",
+	[UiStatic.MenuCharacterHairStyleNext]: "Next",
+	[UiStatic.MenuCharacterHairStylePrevious]: "Previous",
+	[UiStatic.MenuCharacterImport]: "Import",
+	[UiStatic.MenuCharacterMessage]: "Customize Your Character",
+	[UiStatic.MenuCharacterSkinColor]: "Skin Tone",
+	[UiStatic.MenuDailyChallenge]: "Daily Challenge",
+	[UiStatic.MenuDeleteAllGameData]: "Delete All Game Data",
+	[UiStatic.MenuDeleteGame]: "Delete Game",
+	[UiStatic.MenuEditGame]: "Edit Name",
+	[UiStatic.MenuEndGameDead]: "You Died",
+	[UiStatic.MenuEndGameWon]: "You Won",
+	[UiStatic.MenuExportGame]: "Export Game",
+	[UiStatic.MenuExportSave]: "Export Save",
+	[UiStatic.MenuHighscores]: "Highscores",
+	[UiStatic.MenuHighscoresAll]: "All",
+	[UiStatic.MenuHighscoresDailyChallenge]: "Daily Challenge",
+	[UiStatic.MenuHighscoresMessage]: "Previous Deaths in Game",
+	[UiStatic.MenuHighscoresNone]: "No Highscores Available",
+	[UiStatic.MenuHighscoresNormal]: "Normal",
+	[UiStatic.MenuImportGame]: "Import Game",
+	[UiStatic.MenuImportSave]: "Import Save",
+	[UiStatic.MenuManageMods]: "Mods",
+	[UiStatic.MenuManageModsDisableAll]: "Disable All",
+	[UiStatic.MenuManageModsEnableAll]: "Enable All",
+	[UiStatic.MenuManageModsInternal]: "Internal Mods",
+	[UiStatic.MenuManageModsLocal]: "Local Mods",
+	[UiStatic.MenuManageModsMessage]: "Open Steam Workshop to Install Mods",
+	[UiStatic.MenuManageModsPublishMod]: "Publish Mod",
+	[UiStatic.MenuManageModsUninstallMod]: "Uninstall Mod",
+	[UiStatic.MenuManageModsViewInSteamWorkshop]: "View Steam Workshop Page",
+	[UiStatic.MenuManageModsWorkshop]: "Workshop Mods",
+	[UiStatic.MenuModdingGuide]: "Modding Guide",
+	[UiStatic.MenuNewGame]: "New Game",
+	[UiStatic.MenuNewGameCustomizationEnable]: "Character",
+	[UiStatic.MenuNewGameEditSeed]: "Seed",
+	[UiStatic.MenuNewGameMessage]: "Create a New World",
+	[UiStatic.MenuNewGameName]: "Name",
+	[UiStatic.MenuNewGameSeedPlaceholder]: "Random",
+	[UiStatic.MenuNewGameStart]: "Start",
+	[UiStatic.MenuNews]: "News",
+	[UiStatic.MenuNoMods]: "You have no mods installed",
+	[UiStatic.MenuOpenLogsFolder]: "Open Logs Folder",
+	[UiStatic.MenuOpenModsFolder]: "Open Mods Folder",
+	[UiStatic.MenuOptions]: "Options",
+	[UiStatic.MenuOptionsMessage]: "Change Your Game Settings",
+	[UiStatic.MenuPlayGame]: "Play Game",
+	[UiStatic.MenuPlayGameMessage]: "Continue or Create New",
+	[UiStatic.MenuPlayGameNewGame]: "New Game",
+	[UiStatic.MenuPostATweet]: "Share on Twitter",
+	[UiStatic.MenuQuitGame]: "Quit Game",
+	[UiStatic.MenuReloadGame]: "Reload Game",
+	[UiStatic.MenuShareOnFacebook]: "Share on Facebook",
+	[UiStatic.MenuToggleDeveloperTools]: "Toggle Developer Tools",
+	[UiStatic.MenuVisitSteamWorkshop]: "Visit Steam Workshop",
+	[UiStatic.NextHint]: "Next Hint",
+	[UiStatic.OptionsAlternateContextMenu]: "Alternate Context Menu",
+	[UiStatic.OptionsAlternateContextMenuTooltip]: "If checked, right clicking items will display the item's menu instead of left click.",
+	[UiStatic.OptionsAlternateFont]: "Alternate Font",
+	[UiStatic.OptionsAudio]: "Audio",
+	[UiStatic.OptionsAudio]: "Audio",
+	[UiStatic.OptionsAutoGather]: "Auto Gather",
+	[UiStatic.OptionsAutoGatherTooltip]: "If checked, you will automatically gather when moving into resource tiles.",
+	[UiStatic.OptionsAutoPickup]: "Auto Pick-up",
+	[UiStatic.OptionsAutoPickupTooltip]: "If checked, you will automatically pick-up items as you move on top of them.",
+	[UiStatic.OptionsBindDefault]: "Default",
+	[UiStatic.OptionsBinds]: "Binds",
+	[UiStatic.OptionsDeveloper]: "Developer",
+	[UiStatic.OptionsDeveloperLogging]: "Enable Developer Logging",
+	[UiStatic.OptionsDeveloperLoggingTooltip]: "Enable verbose logging for language and mod debugging.",
+	[UiStatic.OptionsDialogOpacity]: "Dialog Opacity",
+	[UiStatic.OptionsDropOnGather]: "Drop on Gather",
+	[UiStatic.OptionsDropOnGatherTooltip]: "If checked, you will automatically drop items under your character as you gather them.",
+	[UiStatic.OptionsDropUnderYourself]: "Drop Under Yourself",
+	[UiStatic.OptionsDropUnderYourselfTooltip]: "If checked, dropping items will place them at your feet instead of to the adjacent facing tile.",
+	[UiStatic.OptionsEffects]: "Effects",
+	[UiStatic.OptionsEnableHints]: "Enable Hints",
+	[UiStatic.OptionsEnableHintsTooltip]: "If checked, the game will display unseen hints when triggered.",
+	[UiStatic.OptionsFullscreenMode]: "Fullscreen Mode",
+	[UiStatic.OptionsGame]: "Game",
+	[UiStatic.OptionsGraphics]: "Graphics",
+	[UiStatic.OptionsKeepSortActive]: "Keep Sort Active",
+	[UiStatic.OptionsKeepSortActiveTooltip]: "If checked, your inventory will keep sorting automatically as you get items.",
+	[UiStatic.OptionsKeyBindRebinding]: "Press any key...",
+	[UiStatic.OptionsLanguage]: "Language",
+	[UiStatic.OptionsMouseClickMovement]: "Mouse Click Movement",
+	[UiStatic.OptionsMouseClickMovementTooltip]: "If checked, you will be able to tap or use your mouse to move on screen.",
+	[UiStatic.OptionsMusic]: "Music",
+	[UiStatic.OptionsMute]: "Mute",
+	[UiStatic.OptionsNextSong]: "Next",
+	[UiStatic.OptionsPixelFont]: "Pixel Font",
+	[UiStatic.OptionsProtectedCraftingItems]: "Protected Crafting Items",
+	[UiStatic.OptionsProtectedCraftingItemsTooltip]: "If checked, equipped and quickslotted items won't be used in crafting.",
+	[UiStatic.OptionsSaveData]: "Save Data",
+	[UiStatic.OptionsScaleDefault]: "Default",
+	[UiStatic.OptionsScaleIn]: "Scale In +",
+	[UiStatic.OptionsScaleOut]: "Scale Out -",
+	[UiStatic.OptionsScreenshotMode]: "Screenshot Mode",
+	[UiStatic.OptionsScreenshotModeTooltip]: "If checked, all user interface items will be hidden.",
+	[UiStatic.OptionsSkipIntro]: "Skip Intro",
+	[UiStatic.OptionsSkipIntroTooltip]: "If checked, the game will skip the Unlok logo screen.",
+	[UiStatic.OptionsVisionDither]: "Dither Vision",
+	[UiStatic.OptionsVisionFade]: "Fade Vision",
+	[UiStatic.OptionsWarnOnDangerousActions]: "Warn On Dangerous Actions",
+	[UiStatic.OptionsWarnOnDangerousActionsTooltip]: "If checked, a confirmation screen will display when stepping over doodads or objects that could injure you.",
+	[UiStatic.OptionsWarnWhenBreakingItems]: "Warn When Breaking Items",
+	[UiStatic.OptionsWarnWhenBreakingItemsTooltip]: "If checked, a confirmation screen will display when trying to craft using items that will break on failure.",
+	[UiStatic.OptionsWindowedMode]: "Windowed Mode",
+	[UiStatic.OptionsWorldTooltips]: "World Tooltips",
+	[UiStatic.OptionsWorldTooltipsTooltip]: "If checked, hovering over non-empty tiles will reveal information in a tooltip so you don't have to inspect.",
+	[UiStatic.OptionsZoomIn]: "Zoom In +",
+	[UiStatic.OptionsZoomOnScroll]: "Zoom on Scroll",
+	[UiStatic.OptionsZoomOnScrollTooltip]: "If checked, you will be able to zoom in and out in game using your mouse wheel/zoom gesture.",
+	[UiStatic.OptionsZoomOut]: "Zoom Out -",
+	[UiStatic.Poisoned]: "Poisoned",
+	[UiStatic.PreviousHint]: "Previous Hint",
+	[UiStatic.QuickSlot1]: "1",
+	[UiStatic.QuickSlot2]: "2",
+	[UiStatic.QuickSlot3]: "3",
+	[UiStatic.QuickSlot4]: "4",
+	[UiStatic.QuickSlot5]: "5",
+	[UiStatic.QuickSlot6]: "6",
+	[UiStatic.QuickSlot7]: "7",
+	[UiStatic.QuickSlot8]: "8",
+	[UiStatic.QuickSlot9]: "9",
+	[UiStatic.Reputation]: "Reputation (Malignity/Benignity)",
+	[UiStatic.ReturnToTitleScreen]: "Return to Title Screen",
+	[UiStatic.Stamina]: "Stamina (Dexterity)",
+	[UiStatic.TabCrafting]: "Crafting",
+	[UiStatic.TabDismantle]: "Dismantle",
+	[UiStatic.Thirst]: "Thirst (Metabolism/Dehydration)",
+	[UiStatic.Version]: "Wayward Version",
+	[UiStatic.Weight]: "Weight (Strength)",
+	[UiStatic.WindowTitleContainer]: "Container",
+	[UiStatic.WindowTitleCrafting]: "Crafting",
+	[UiStatic.WindowTitleEquipment]: "Equipment",
+	[UiStatic.WindowTitleHighscores]: "Highscores",
+	[UiStatic.WindowTitleInventory]: "Inventory",
+	[UiStatic.WindowTitleMap]: "Map",
+	[UiStatic.WindowTitleMessages]: "Messages",
+	[UiStatic.WindowTitleMilestones]: "Milestones",
+	[UiStatic.WindowTitleOptions]: "Options",
+	[UiStatic.WindowTitleSkills]: "Skills"
+});
+
+english.setDictionary(Dictionary.Ui, {
+	[Ui.AreYouSureYouWantToSail]: "Are you sure you want to sail to civilization? Your journey will be over.",
+	[Ui.AreYouSureYouWantToSailReturn]: "Are you sure you want to sail to civilization? Your journey will be over, but you can always return back to these lands.",
+	[Ui.AreYouSureYouWantToStepOn]: "Are you sure you want to step on to _0_?",
+	[Ui.AutoSaving]: "Auto Saving",
+	[Ui.Cancel]: "Cancel",
+	[Ui.DependencyIssue]: "Dependency issue.",
+	[Ui.DoNotForgetToAddRequiredModsOnWorkshop]: "Don't forget to add the required mods on the Steam Workshop page!",
+	[Ui.FinalizingWorld]: "Finalizing World",
+	[Ui.GeneratingWorld]: "Generating World",
+	[Ui.HowDoYouWantToExportSave]: "How do you want to export this save?",
+	[Ui.IncompatibleVersion]: "This mod is not compatible with this version of Wayward.",
+	[Ui.ItemInCraftMayBeDestroyed]: "Items in the craft may be destroyed on failure. Do you wish to continue?",
+	[Ui.LoadingMods]: "Loading Mods",
+	[Ui.LoadingSprites]: "Loading Sprites",
+	[Ui.LoadingWorld]: "Loading World",
+	[Ui.LocalFile]: "Local File",
+	[Ui.LocalVersionOfModDetected]: "A local version of this mod has been detected. The Workshop version will not load.",
+	[Ui.MissingRequiredMods]: "You are missing one or more required mods.",
+	[Ui.ModLoadError]: "Error loading mod. One or more files may be corrupt.",
+	[Ui.ModRequiresItself]: "This mod requires itself.",
+	[Ui.ModWithNameAlreadyExists]: "A mod with that name already exists. Try changing the name of the slot.",
+	[Ui.MultiplayerConnecting]: "Connecting to server",
+	[Ui.MultiplayerFailedToConnect]: `Failed to connect to server.`,
+	[Ui.MultiplayerRetry]: `Retry`,
+	[Ui.No]: "No",
+	[Ui.Ok]: "OK",
+	[Ui.PublishingMod]: "Publishing Mod",
+	[Ui.QuittingGame]: "Quitting Game",
+	[Ui.RefreshingMods]: "Refreshing Mods",
+	[Ui.Rename]: "Rename",
+	[Ui.RequiredModsMissingWantToContinue]: "One or more required mods are missing. Unexpected results may occur. Are you sure you want to continue?",
+	[Ui.RequiredModsNotLoaded]: "One or more required mods are not loaded.",
+	[Ui.Resting]: "Resting",
+	[Ui.ReturnToTitleScreenNoSaveInDailyChallenge]: "Are you sure you want to return to the title screen?<br />Note: Your progress is not saved in Daily Challenge Mode.",
+	[Ui.ReturnToTitleScreenProgressWillBeSaved]: "Are you sure you want to return to the title screen?<br />Note: Your progress will be saved automatically.",
+	[Ui.SavingGame]: "Saving Game",
+	[Ui.Sleeping]: "Sleeping",
+	[Ui.SteamWorkshop]: "Steam Workshop",
+	[Ui.TravelAway]: "Are you sure you want to travel away from these lands? You can never return. Make sure to grab all you need!",
+	[Ui.UnableToImportSave]: "Unable to import save. The file may be corrupt or invalid.",
+	[Ui.UnableToLoadRequiredMods]: "Unable to load one or more required mods.",
+	[Ui.UpdatingMod]: "Updating Mod",
+	[Ui.VersionWarning]: `Warning!<br /><br />You're playing on an older version of the game. Unintended side effects may occur. You may need to delete all save data.</span>`,
+	[Ui.WantToDeleteAllSavedData]: "Are you sure you want to permanently delete all saved data?",
+	[Ui.WantToDeleteThisGame]: "Are you sure you want to delete this game?",
+	[Ui.WantToPublishThisMod]: "Are you sure you want to publish this mod?",
+	[Ui.WantToPublishUpdateToMod]: "Are you sure you want to publish an update to this mod?",
+	[Ui.WantToUninstallThisMod]: "Are you sure you want to uninstall this mod?",
+	[Ui.WelcomeToWayward]: `Welcome to Wayward _0_!<br /><br />Please visit the <a href="https://steamcommunity.com/app/379210/allnews/" target="_blank">Steam Community News</a> section to see what's new.<br /><br /><span class="normal-size">All mods have been disabled by default.</span>`,
+	[Ui.WhatWouldYouLikeToNameItem]: "What would you like to name this item?",
+	[Ui.Yes]: "Yes"
+});
+
+// Export language
+// console.log(JSON.stringify(LanguageSerializer.serialize(english)));
