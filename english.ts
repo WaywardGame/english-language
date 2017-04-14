@@ -226,7 +226,7 @@ english.setDictionary(Dictionary.Doodad, {
 english.setDictionary(Dictionary.Hint, {
 	[Hint.WelcomeToWayward]: ["Welcome to Wayward", "Welcome to the Early Access version of Wayward! Wayward is currently in beta status and many things will change and improve over time. Hint windows like these will display as you play the game if enabled. You can disable automatic hints by clicking the button \"Disable Hints\" below or in the options. If you need further help or hints, visit the <a target=\"_blank\" href=\"http://steamcommunity.com/app/379210/discussions/\">Steam Discussions forums</a>.<br /><br />If you want to keep up with Wayward, please visit the <a target=\"_blank\" href=\"http://www.unlok.ca/category/wayward/\">Wayward Blog</a> or <a target=\"_blank\" href=\"http://www.reddit.com/r/Wayward/\">Subreddit</a>.<br /><br />Want to help Wayward? Spread the word, or follow us on one of the following sites: <a target=\"_blank\" href=\"https://www.facebook.com/waywardgame\">Facebook</a>, <a target=\"_blank\" href=\"https://twitter.com/Wayward_Game\">Twitter</a>, or <a target=\"_blank\" href=\"http://www.indiedb.com/games/wayward\">IndieDB</a>."],
 
-	[Hint.Controls]: ["Controls", "Keybinds can be changed under \"Keybinds\" in the options menu.<br /><br /><h3>Window Shortcuts</h3><br />{ui.getStringForKeyBind(KeyBind.Escape)} = Close Menus and Windows, {ui.getStringForKeyBind(KeyBind.Inventory)} = Inventory, {ui.getStringForKeyBind(KeyBind.Equipment)} = Equipment, {ui.getStringForKeyBind(KeyBind.Crafting)} = Crafting, {ui.getStringForKeyBind(KeyBind.Help)} = Help, {ui.getStringForKeyBind(KeyBind.Skills)} = Skills, {ui.getStringForKeyBind(KeyBind.Messages)} = Messages, {ui.getStringForKeyBind(KeyBind.Options)} = Options, {ui.getStringForKeyBind(KeyBind.Actions)} = Actions, {ui.getStringForKeyBind(KeyBind.Milestones)} = Milestones<br /><br /><h3>Movement</h3><br />To move, you can to use {ui.getStringForKeyBind(KeyBind.Up)}, {ui.getStringForKeyBind(KeyBind.Left)}, {ui.getStringForKeyBind(KeyBind.Down)}, {ui.getStringForKeyBind(KeyBind.Right)} or by clicking/tapping on the game screen in the direction you want to move. To skip/pass a turn, or to pick up item(s) on the tile you are standing on, press the spacebar or left click/tap your character on the game screen.<br /><br /><h3>Actions</h3><br />Opening up the Actions menu will bring up a list of actions you can perform on the adjacent tile or object; for example, collecting a pineapple without needing to carve it up. This is also an alternate way to inspect a tile without needing to right click or hover on the game screen. Jumping is also selectable in the actions menu which can help you get out of tight spots, but watch out for the heavy stamina reduction; it's based on your current weight.<br /><br /><h3>Using Items</h3><br />To use an item, you may left click/tap it to bring up the item's menu. You will see a list of actions you can perform. Additionally, you are able to drag and drop an item into one of the quickslots. Press the number or hotkey ({ui.getStringForKeyBind(KeyBind.One)}, {ui.getStringForKeyBind(KeyBind.Two)}, {ui.getStringForKeyBind(KeyBind.Three)}, etc.) that corresponds with which quickslot it is attached to perform the primary action for the item (unless changed).<br /><br /><h3>Item Uses, Dropping and Information</h3><br />Some items have more than one use - these will show up in the item's menu if available. You are able to right click an item to automatically drop it without going into the item menu. If you are facing a container, you will drop the item inside. You can shift + right click (or use \"Drop All\" from the menu) to drop multiple items of the same kind. You are also able to right click on the game screen to reveal information about what you are clicking on (referred to as \"Inspect\"), whether it be items, creatures, tiles, and more.<br /><br /><h3>More Information</h3><br />Hovering over elements on screen will typically reveal more information. Tool-tips will appear over items. Hovering over crafting items will highlight items used in the craft.<br /><br /><h3>Item Management</h3><br />Besides dragging and dropping items to your quickslots, you are also able to equip items in this fashion, provided it is an equipment item and fits in that slot. Dragging and dropping is also used to move items to your container window and inventory (shift + dragging will move all items of the same ). Additionally, right clicking an item in your equipment list, quickslots or container window will remove it from that slot."],
+	[Hint.Controls]: ["Controls", "Keybinds can be changed under \"Keybinds\" in the options menu.<br /><br /><h3>Window Shortcuts</h3><br />{ui.getStringForKeyBind(KeyBind.Escape)} = Close Menus and Windows, {ui.getStringForKeyBind(KeyBind.Inventory)} = Inventory, {ui.getStringForKeyBind(KeyBind.Equipment)} = Equipment, {ui.getStringForKeyBind(KeyBind.Crafting)} = Crafting, {ui.getStringForKeyBind(KeyBind.Help)} = Help, {ui.getStringForKeyBind(KeyBind.Skills)} = Skills, {ui.getStringForKeyBind(KeyBind.Messages)} = Messages, {ui.getStringForKeyBind(KeyBind.Options)} = Options, {ui.getStringForKeyBind(KeyBind.Actions)} = Actions, {ui.getStringForKeyBind(KeyBind.Milestones)} = Milestones<br /><br /><h3>Movement</h3><br />To move, you can to use {ui.getStringForKeyBind(KeyBind.Up)}, {ui.getStringForKeyBind(KeyBind.Left)}, {ui.getStringForKeyBind(KeyBind.Down)}, {ui.getStringForKeyBind(KeyBind.Right)} or by clicking/tapping on the game screen in the direction you want to move. To skip/pass a turn, or to pick up item(s) on the tile you are standing on, press the spacebar or left click/tap your character on the game screen.<br /><br /><h3>Actions</h3><br />Opening up the Actions menu will bring up a list of actions you can perform on the adjacent tile or object; for example, collecting a pineapple without needing to carve it up. This is also an alternate way to inspect a tile without needing to right click or hover on the game screen. Jumping is also selectable in the actions menu which can help you get out of tight spots, but watch out for the heavy stamina reduction; it's based on your current weight.<br /><br /><h3>Using Items</h3><br />To use an item, you may left click/tap it to bring up the item's menu. You will see a list of actions you can perform. Additionally, you are able to drag and drop an item into one of the quickslots. Press the number or hotkey ({ui.getStringForKeyBind(KeyBind.One)}, {ui.getStringForKeyBind(KeyBind.Two)}, {ui.getStringForKeyBind(KeyBind.Three)}, etc.) that corresponds with which quickslot it is attached to perform the primary action for the item (unless changed).<br /><br /><h3>Item Uses, Dropping and Information</h3><br />Some items have more than one use - these will show up in the item's menu if available. You are able to right click an item to automatically drop it without going into the item menu. If you are facing a container, you will drop the item inside. You can shift + right click (or use \"Drop All\" from the menu) to drop multiple items of the same kind. You are also able to right click on the game screen to reveal information about what you are clicking on (referred to as \"Inspect\"), whether it be items, creatures, tiles, and more.<br /><br /><h3>More Information</h3><br />Hovering over elements on screen will typically reveal more information. Tool-tips will appear over items. Hovering over crafting items will highlight items used in the craft.<br /><br /><h3>Item Management</h3><br />Besides dragging and dropping items to your quickslots, you are also able to equip items in this fashion, provided it is an equipment item and fits in that slot. Dragging and dropping is also used to move items to your container window and inventory (shift + dragging will move all items of the same type). Additionally, right clicking an item in your equipment list, quickslots or container window will remove it from that slot."],
 
 	[Hint.CorpseCarving]: ["Corpse Carving", "To harvest potential resources from corpses, you must carve them with a sharp item. Choose \"Carve\" from the item's menu or try moving it to a quickslot for ease of use."],
 
@@ -270,7 +270,7 @@ english.setDictionary(Dictionary.Hint, {
 
 	[Hint.DailyChallengeMode]: ["Daily Challenge Mode", "Daily challenge mode is an extra difficult game mode with some unique game rules to add an extra challenge for skilled players. You can expect more creatures, a harder beginning of the game, and more. You cannot save your game in this mode. The world and randomization is unique per day, allowing multiple players to play in the same set of circumstances."],
 
-	[Hint.MovingItems]: ["Moving Items", "There are many ways to organize and move items in Wayward<br /><br />1. Dragging and dropping: You can drag and drop items into a container window, quickslot, equipment slot, or directly on to the ground, by dragging it to the desired location. Dragging and dropping to the game screen will drop it in front of you, or inside a chest if you are facing one. Holding Shift while dragging will drag/drop all items of the same br />2. From the item's menu. Left clicking an item will display the item's menu with options to \"Drop/Drop All\", or if you have a container window open, will present you the option to \"Move/Move All\". If you click an item that has a special quality, additional options will be visible to Drop/Move all of the same quality.<br />3. Right clicking/dropping. You can right click any item in your inventory to drop it in front of you. This will automatically drop it into a chest if you are facing one. Holding shift while you right click will drop all of the same .<br /><br />Note: You can change the default drop direction from the facing tile to underneath your character in the game's option menu."],
+	[Hint.MovingItems]: ["Moving Items", "There are many ways to organize and move items in Wayward<br /><br />1. Dragging and dropping: You can drag and drop items into a container window, quickslot, equipment slot, or directly on to the ground, by dragging it to the desired location. Dragging and dropping to the game screen will drop it in front of you, or inside a chest if you are facing one. Holding Shift while dragging will drag/drop all items of the same type.<br />2. From the item's menu. Left clicking an item will display the item's menu with options to \"Drop/Drop All\", or if you have a container window open, will present you the option to \"Move/Move All\". If you click an item that has a special quality, additional options will be visible to Drop/Move all of the same quality.<br />3. Right clicking/dropping. You can right click any item in your inventory to drop it in front of you. This will automatically drop it into a chest if you are facing one. Holding shift while you right click will drop all of the same type.<br /><br />Note: You can change the default drop direction from the facing tile to underneath your character in the game's option menu."],
 
 	[Hint.CraftingFailure]: ["Crafting Failure", "All crafts in Wayward have a skill level assosiated with them. Hovering over each craft will reveal the item's craft skill level. These levels going from easiest to harder are: simple, intermediate, advanced, and expert.<br /><br />Trying to craft an item with a higher skill level than your own crafting skill can sometimes result in failure. Your chance to successfully craft the item raises as your skills increase. If the item's skill level appears in orange, you will have a low chance at success for crafting that item. Each unsucessful attempt at crafting will reduce the durability of each item involved in the craft."],
 
@@ -577,7 +577,7 @@ english.setDictionary(Dictionary.Item, {
 	[Item.WoodenFence]: ["a", "wooden fence", "A section of wooden fencing, constructed from three logs and held together with horizontal beams."],
 	[Item.WoodenFlooring]: ["", "wooden flooring", "Wooden floor boards; planed to equal height and length."],
 	[Item.WoodenGate]: ["a", "wooden gate", "A gate crafted from long wooden planks with small wooden hinges. Can be opened and closed when built."],
-	[Item.WoodenPole]: ["a", "wooden pole", "A long piece of wood, carved and shaved down into a smooth rod from a branch or log. "],
+	[Item.WoodenPole]: ["a", "wooden pole", "A long piece of wood, carved and shaved down into a smooth rod from a branch or log."],
 	[Item.WoodenShavings]: ["", "wooden shavings", "A dry bunch of wooden shavings, used to ignite kindling when starting a fire."],
 	[Item.WoodenSpear]: ["a", "wooden spear", "A makeshift, easy to craft hunting weapon. Makes for an ideal ranged weapon."],
 	[Item.WoodenSword]: ["a", "wooden sword", "A sturdy blunt sword, crafted from wood with a sharp piercing point. Most useful for sparring practice."],
@@ -997,7 +997,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.MoveToInventory]: "Move to Inventory",
 	[Message.MoveToLastOpenedContainer]: "Move to Last Opened Container",
 	[Message.MoveToOpenedContainer]: "Move to Opened Container",
-	[Message.MultiplayerDisconnected]: `Disconnected from the server.`,
 	[Message.MultiplayerGamePaused]: "The game has been paused.",
 	[Message.MultiplayerGameResumed]: "The game has been resumed.",
 	[Message.MultiplayerPlayerConnected]: `<span class="player-name">_0_</span> is connecting.`,
@@ -1055,7 +1054,8 @@ english.setDictionary(Dictionary.Message, {
 	[Message.NumberTen]: "ten",
 	[Message.NumberThree]: "three",
 	[Message.NumberTwo]: "two",
-	[Message.ObjectIsLocked]: "The object is locked, you attempt to break it open.",
+	[Message.ObjectIsLocked]: "The object is locked.",
+	[Message.ObjectIsLockedAttemptToBreakIt]: "The object is locked, you attempt to break it open.",
 	[Message.Offer]: "Offer",
 	[Message.OpenDoor]: "Open Door",
 	[Message.OpenFolderFailed]: "Failed to open the folder. Please navigate to the folder manually.",
@@ -1145,7 +1145,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.SortedByQuality]: "_0_ sorted by quality.",
 	[Message.SortedByRecent]: "_0_ sorted by recent.",
 	[Message.SortedBySkill]: "_0_ sorted by skill.",
-	[Message.SortedByUnlockedTime]: "_0_ sorted by unlocked time.",
+	[Message.SortedByUnlockedTime]: "_0_ sorted by discovered time.",
 	[Message.SortedByWeight]: "_0_ sorted by weight.",
 	[Message.StaminaIsFull]: "Your stamina is full, you do not need to rest any more.",
 	[Message.StartedFire]: "You have started a fire!",
@@ -1199,12 +1199,11 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Unknown]: "Unknown",
 	[Message.UnknownItem]: "Unknown Item",
 	[Message.UnlockedChest]: "You unlocked the wooden chest and viewed its contents.",
-	[Message.UnlockedTime]: "Unlocked Time",
+	[Message.UnlockedTime]: "Discovered Time",
 	[Message.UnpurifiedWaterInStill]: "There is unpurified water in the still.",
 	[Message.URLHasOpenedInWebBrowser]: "The URL has been opened in your default web browser.",
 	[Message.UsedToSpeedUpGrowing]: "You used the _0_ to speed up the growing process.",
 	[Message.UsingBareFistsToFight]: "using your bare fists to fight",
-	[Message.UsingBareHands]: "using your bare hands to ",
 	[Message.UsingBareHands]: "using your bare hands to ",
 	[Message.Vulnerable]: "vulnerable",
 	[Message.WaitUntilFireCooledToGetWater]: "You must wait until the fire has cooled off to get the purified water.",
@@ -1424,7 +1423,7 @@ english.setDictionary(Dictionary.UiStatic, {
 	[UiStatic.MenuAboutCredits]: "Vaughn 'Drathy' Royko (Programming/Web/PR/Design),Gary 'Spacetech' Wilber (Programming),Dusty 'Goaticide' Melling (Art/Design),Mackenzie 'Aarilight' McClane (Programming),Frank 'Sassafrass' Sasto (Programming),Austin Dhillon (Music)",
 	[UiStatic.MenuAboutDonators]: "An extra special thank you to all the early testers, donators, and other supporters.",
 	[UiStatic.MenuAboutIntro]: "Wayward is a turn-based, top-down, wilderness survival roguelike currently in beta. It's brought to you by these fine folk:",
-	[UiStatic.MenuAboutLibraries]: "Greenworks, Electron, TypeScript, Node.js, jQuery, jQueryUI, TSM, lz-string, jQuery contextMenu, jQuery UI Touch Punch, Pluralize, Fixedsys Excelsior",
+	[UiStatic.MenuAboutLibraries]: "Greenworks, Electron, TypeScript, Node.js, jQuery, jQueryUI, TSM, lz-string, jQuery contextMenu, jQuery UI Touch Punch, Pluralize, Fixedsys Excelsior, msgpack-lite",
 	[UiStatic.MenuAboutLibrariesIntro]: "Wayward is made possible with the following projects:",
 	[UiStatic.MenuAboutMessage]: "Learn More About Wayward",
 	[UiStatic.MenuAboutThanks]: "Richard 'Orillian' Hobson,Vlad 'vlsd' Seghete,Unstoppable Carl Olsen,Justin 'boxofrox' Charette,Frank Orechio,Drachlen,Joshua 'jday' Day,Oddmund 'oddmunds' Strømme",
@@ -1608,11 +1607,16 @@ english.setDictionary(Dictionary.Ui, {
 	[Ui.LocalVersionOfModDetected]: "A local version of this mod has been detected. The Workshop version will not load.",
 	[Ui.MissingRequiredMods]: "You are missing one or more required mods.",
 	[Ui.ModLoadError]: "Error loading mod. One or more files may be corrupt.",
+	[Ui.ModProvidesLanguage]: "This mod provides a language. Would you like to update your language settings now?",
 	[Ui.ModRequiresItself]: "This mod requires itself.",
 	[Ui.ModWithNameAlreadyExists]: "A mod with that name already exists. Try changing the name of the slot.",
 	[Ui.MultiplayerConnecting]: "Connecting to server",
 	[Ui.MultiplayerFailedToConnect]: `Failed to connect to server.`,
+	[Ui.MultiplayerLostConnection]: "Lost connection to server.",
 	[Ui.MultiplayerRetry]: `Retry`,
+	[Ui.MultiplayerServerShutdown]: "The server is shutting down.",
+	[Ui.MultiplayerSynchronizationError]: "A synchronization error occured",
+	[Ui.MultiplayerVersionMismatch]: `Unable to connect to the server.<br />The server version (_0_) is different than your version (_1_)`,
 	[Ui.No]: "No",
 	[Ui.Ok]: "OK",
 	[Ui.PublishingMod]: "Publishing Mod",
@@ -1642,5 +1646,5 @@ english.setDictionary(Dictionary.Ui, {
 	[Ui.Yes]: "Yes"
 });
 
-// Export language
+// Export language - use http://jsonlint.com/ to format it
 // console.log(JSON.stringify(LanguageSerializer.serialize(english)));
