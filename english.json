@@ -891,7 +891,7 @@
 			"fire": ["Fire"],
 			"fireAlmostExtinguished": ["The fire is almost extinguished."],
 			"firedIntoObstacle": ["You fired _0_ into an obstacle."],
-			"fireFacingYouIsWarm": ["The fire facing you is warm and comforting."],
+			"fireAroundYouIsWarm": ["The fire around you is warm and comforting."],
 			"fireIsHealthy": ["The fire is very healthy."],
 			"fireIsRaging": ["The fire is raging!"],
 			"fireIsStruggling": ["The fire is struggling."],

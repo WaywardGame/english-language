@@ -946,7 +946,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Fire]: "Fire",
 	[Message.FireAlmostExtinguished]: "The fire is almost extinguished.",
 	[Message.FiredIntoObstacle]: "You fired _0_ into an obstacle.",
-	[Message.FireFacingYouIsWarm]: "The fire facing you is warm and comforting.",
+	[Message.FireAroundYouIsWarm]: "The fire around you is warm and comforting.",
 	[Message.FireIsHealthy]: "The fire is very healthy.",
 	[Message.FireIsRaging]: "The fire is raging!",
 	[Message.FireIsStruggling]: "The fire is struggling.",
