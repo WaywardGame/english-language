@@ -1276,6 +1276,7 @@
 			"youFire": ["You fire _0_."],
 			"youGathered": ["You gathered _0_!"],
 			"youHarvested": ["You harvested _0_!"],
+			"youHaveDied": ["You have died _0_!"],
 			"youHaveHealedCreature": ["You have healed _0_."],
 			"youHaveKilled": ["You have killed _0_!"],
 			"youHaveReleased": ["You have released _0_ into the wild."],

@@ -1331,6 +1331,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.YouFire]: "You fire _0_.",
 	[Message.YouGathered]: "You gathered _0_!",
 	[Message.YouHarvested]: "You harvested _0_!",
+	[Message.YouHaveDied]: "You have died _0_!",
 	[Message.YouHaveHealedCreature]: "You have healed _0_.",
 	[Message.YouHaveKilled]: "You have killed _0_!",
 	[Message.YouHaveReleased]: "You have released _0_ into the wild.",
