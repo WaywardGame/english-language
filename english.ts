@@ -634,7 +634,7 @@ english.setDictionary(Dictionary.Hint, {
 	
 	<h3>Using a Quickslotted Item</h3><br>
 	
-	By default, pressing the bind for a quickslot will perform the default action for the item in that slot.  You can change the action to perform for a quickslot item by opening the actions menu for the item in the quickslot, and clicking the x icon next to the preferred action, turning it into a √.<br>
+	By default, pressing the bind for a quickslot will perform the default action for the item in that slot. You can change the action to perform for a quickslot item by opening the actions menu for the item in the quickslot, and clicking the x icon next to the preferred action, turning it into a √.<br>
 	
 	<h3>Removing a Quickslotted Item</h3><br>
 	
@@ -1450,6 +1450,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.LabelOnEat]: "On Eat: ",
 	[Message.LabelOnEquip]: "On Equip: ",
 	[Message.LabelOnHeal]: "On Heal: ",
+	[Message.LabelOnCreatureHeal]: "On Heal Creature: ",
 	[Message.LabelPiercingResist]: "Piercing Resist:",
 	[Message.LabelProtected]: "Protected",
 	[Message.LabelRange]: "Range: ",
@@ -1675,7 +1676,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.SortedBySkill]: "_0_ sorted by skill.",
 	[Message.SortedByUnlockedTime]: "_0_ sorted by discovered time.",
 	[Message.SortedByWeight]: "_0_ sorted by weight.",
-	[Message.StaminaIsFull]: "Your stamina is full, you do not need to rest any more.",
+	[Message.StaminaIsFull]: "Your stamina is full, you do not need to rest anymore.",
 	[Message.StartedFire]: "You have started a fire!",
 	[Message.StartTravelInWater]: "You need to start your travels while in ocean water.",
 	[Message.StarvingToDeath]: "You are starving to death!",
@@ -2002,6 +2003,8 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.GameInterruptLoadingGameDescription]: "",
 	[UiTranslation.GameInterruptLoadingSprites]: "Loading Sprites",
 	[UiTranslation.GameInterruptLoadingSpritesDescription]: "",
+	[UiTranslation.GameInterruptMultiplayerSynchronizing]: "Synchronizing",
+	[UiTranslation.GameInterruptMultiplayerSynchronizingDescription]: "Synchronizing game state with the server",
 
 	[UiTranslation.GameMultiplayerInterruptBanned]: "You have been banned from the server.",
 	[UiTranslation.GameMultiplayerInterruptConnecting]: "Connecting",

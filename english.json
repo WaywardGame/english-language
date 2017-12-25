@@ -160,10 +160,7 @@
 			"menuRight": ["Selection Right"],
 			"developerToggleDeveloperMode": ["Toggle Developer Mode"],
 			"developerReloadGame": ["Reload Game"],
-			"developerToggleDeveloperTools": ["Toggle Developer Tools"],
-			"modDeveloperToolsToggle": ["Toggle Developer Tools"],
-			"modDeveloperToolsSelectLocation": ["Select Location"],
-			"modStarterQuestToggle": ["Toggle Starter Quest"]
+			"developerToggleDeveloperTools": ["Toggle Developer Tools"]
 		},
 		"book": {
 			"islandPresence": ["William J. Andrews", "\"This island seems to react to my presence. I often have a weird feeling, like something is watching me, but besides the constant barrage of bloodthirsty creatures at my heels, that feeling never leaves me; it follows me even into my dreams. I'm not sure how many more sleepless nights I can lead.\"<br><br>\n\t\n\t\"There it is again. I felled a tree. I hear it.\"<br><br>\n\t\n\t\"There it is again. I burned a tree. The humming continues.\"<br><br>\n\t\n\t\"There it is again, the end. I started a forest fire. It's too loud!\"<br><br>\n\t\n\tThe next pages have undecipherable scribbles and diagrams."],
@@ -352,7 +349,7 @@
 			"interface": ["Interface", "The windowed interface in Wayward is completely customizable. You can move them around as you see fit, and resize them to expand the information that is viewable. Move them around by dragging the title bar of each window. Resize them by dragging the corner of the window.<br><br>\n\t\n\tIf you are still having issues finding certain items within the inventory or crafting windows, try using the filter or sorting features."],
 			"creatureTaming": ["Creature Taming", "Violence is sometimes not the best option! Besides running away from a confrontation with the hostile island creatures, another option is to attempt to tame them. To attempt creature taming, simply face the creature and select \"Tame\" from your action menu (opened with {Bindable.GameActions}).<br><br>\n\t\n\tSometimes attempting to calm the creature directly will not be enough. You can also attempt to offer an item to creature. Simply face the creature, open a item's menu and select \"Offer\". If the creature likes or wants the item, it will become tamed. Aberrant creatures can sometimes require multiple item offerings before they will become tamed. All of these actions are based on chance and your taming skill."],
 			"combat": ["Combat", "Engaging in combat with creatures may not be the best option. In Wayward, you are free to attempt to kill creatures as well as tame or flee from them. The strategy is up to you!<br><br>\n\t\n\tMany skills play an important role in your successfulness at slaying the creature. Open your skills window using {Bindable.DialogSkills} and view the hints provided when hovering over skills such as tactics and parrying. Skills are not the only important factor when battling creatures. Your weaponry and armaments also play a role. The combat messages will tell you of your effectivenesses and inadequacies when in combat. When holding two items (one in each hand), you will also receive a parrying defense bonus (based on your parrying skill)."],
-			"quickslots": ["Quickslots", "Opening an item's menu to perform actions can be tiresome. Quickslots are for using an action on an item with the press of a bind.<br>\n\t\n\t<h3>Quickslotting an Item</h3><br>\n\t\n\tYou can drag any item into one of your 9 quickslots to quickslot the item in that slot. You can also use any of the quickslot binds to toggle the item being quickslotted to the slot of the bind you press.<br>\n\t\n\tAlternatively, you can open an item's menu and select \"Add to Quickslot\" to add it to an open quickslot.<br>\n\t\n\t<h3>Using a Quickslotted Item</h3><br>\n\t\n\tBy default, pressing the bind for a quickslot will perform the default action for the item in that slot.  You can change the action to perform for a quickslot item by opening the actions menu for the item in the quickslot, and clicking the x icon next to the preferred action, turning it into a √.<br>\n\t\n\t<h3>Removing a Quickslotted Item</h3><br>\n\t\n\tThere are two binds provided for removing items from quickslots. You can press {Bindable.GameQuickSlotClear} to clear the hovered item from its quickslot, or to clear the hovered quickslot. You can also press any of the quickslot binds to toggle the hovered item being quickslotted to that slot."],
+			"quickslots": ["Quickslots", "Opening an item's menu to perform actions can be tiresome. Quickslots are for using an action on an item with the press of a bind.<br>\n\t\n\t<h3>Quickslotting an Item</h3><br>\n\t\n\tYou can drag any item into one of your 9 quickslots to quickslot the item in that slot. You can also use any of the quickslot binds to toggle the item being quickslotted to the slot of the bind you press.<br>\n\t\n\tAlternatively, you can open an item's menu and select \"Add to Quickslot\" to add it to an open quickslot.<br>\n\t\n\t<h3>Using a Quickslotted Item</h3><br>\n\t\n\tBy default, pressing the bind for a quickslot will perform the default action for the item in that slot. You can change the action to perform for a quickslot item by opening the actions menu for the item in the quickslot, and clicking the x icon next to the preferred action, turning it into a √.<br>\n\t\n\t<h3>Removing a Quickslotted Item</h3><br>\n\t\n\tThere are two binds provided for removing items from quickslots. You can press {Bindable.GameQuickSlotClear} to clear the hovered item from its quickslot, or to clear the hovered quickslot. You can also press any of the quickslot binds to toggle the hovered item being quickslotted to that slot."],
 			"resourceGathering": ["Resource Gathering", "To gather resources from trees or rocks, simply move into them (this feature can be disabled in options). You may not always succeed in gathering materials (the chances are based on your skill and tool). You will use whatever is in your hands to gather. You can choose what tool specifically is used in either your left or right hand by selecting which to use at the bottom of your equipment menu. It is harmful to try to resource gather without tools.<br><br>\n\t\n\tAlternatively, if you do not want to use what you are holding, you use an item's \"Gather\" action from its menu by right clicking on it. You can make this easier by quickslotting it. Review the \"Quickslots\" hint for more information on this functionality.<br><br>\n\t\n\tSome resources are not gathered in this fashion. Things like small plants and other objects attached to the ground (referred to as doodads) require different methods. Review the \"Doodads\" hint for more information on these items."],
 			"multiplayer": ["Multiplayer", "Multiplayer in Wayward is enabled for up to 32 players. Multiplayer works on a simulated real-time mode where each turn happens on a fixed interval. Casual and Hardcore modes work a bit differently than in single player. Casual mode allows players to respawn as per normal, but in Hardcore mode, when you die you will continue to play in ghost form, allowing you to spectate but not interact normally. Multiplayer also allows for a special PVP flag to be set to allow players to hurt and kill other players. Multiplayer options can be set in the multiplayer menu via the pause menu accessed with {Bindable.GamePause}.<br><br>\n\t\n\tCreature spawn rates, creature difficulty, and reputation are all based on how many connected players there are and will scale and average based on each individual player.<br>\n\t<h3>Commands</h3><br>\n\tYou can use several special commands while playing multiplayer. To see a list of all possible commands, type \"/commands\" in the chat bar and hit enter. The following commands are also available for use:<br><br>\n\t\n\t/players – Shows a list of all connected players.<br>\n\t/ping – Shows your latency to the host player.<br>\n\t/kick – Allows the host to kick a player.<br>\n\t/banned – Shows a list of all banned players.<br>\n\t/ban – Allows the host to ban a player.<br>\n\t/unban – Allows the host to unban a player."]
 		},
@@ -1136,6 +1133,7 @@
 			"labelOnEat": ["On Eat: "],
 			"labelOnEquip": ["On Equip: "],
 			"labelOnHeal": ["On Heal: "],
+			"labelOnCreatureHeal": ["On Heal Creature: "],
 			"labelPiercingResist": ["Piercing Resist:"],
 			"labelProtected": ["Protected"],
 			"labelRange": ["Range: "],
@@ -1361,7 +1359,7 @@
 			"sortedBySkill": ["_0_ sorted by skill."],
 			"sortedByUnlockedTime": ["_0_ sorted by discovered time."],
 			"sortedByWeight": ["_0_ sorted by weight."],
-			"staminaIsFull": ["Your stamina is full, you do not need to rest any more."],
+			"staminaIsFull": ["Your stamina is full, you do not need to rest anymore."],
 			"startedFire": ["You have started a fire!"],
 			"startTravelInWater": ["You need to start your travels while in ocean water."],
 			"starvingToDeath": ["You are starving to death!"],
@@ -1677,6 +1675,8 @@
 			"gameInterruptLoadingGameDescription": [""],
 			"gameInterruptLoadingSprites": ["Loading Sprites"],
 			"gameInterruptLoadingSpritesDescription": [""],
+			"gameInterruptMultiplayerSynchronizing": ["Synchronizing"],
+			"gameInterruptMultiplayerSynchronizingDescription": ["Synchronizing game state with the server"],
 			"gameMultiplayerInterruptBanned": ["You have been banned from the server."],
 			"gameMultiplayerInterruptConnecting": ["Connecting"],
 			"gameMultiplayerInterruptConnectingDescription": [""],
@@ -2250,11 +2250,6 @@
 			"windowTitleMilestones": ["Milestones"],
 			"windowTitleOptions": ["Quick Settings"],
 			"windowTitleSkills": ["Skills"]
-		},
-		"developerTools": {
-			"queryInspection": ["Choose an object to inspect by clicking on its tile."],
-			"queryObjectNotFound": ["The selected tile contains no object that can be inspected."],
-			"optionsAutoOpen": ["Open Dialog on Load"]
 		}
 	},
 	"shouldPluralize": true
