@@ -176,6 +176,7 @@ english.setDictionary(Dictionary.Bindable, {
 	[Bindable.MenuDown]: "Selection Down",
 	[Bindable.DeveloperToggleDeveloperMode]: "Toggle Developer Mode",
 	[Bindable.DeveloperReloadGame]: "Reload Game",
+	[Bindable.DeveloperReloadAndContinueGame]: "Reload and Continue Game",
 	[Bindable.DeveloperToggleDeveloperTools]: "Toggle Developer Tools"
 });
 
@@ -496,11 +497,11 @@ english.setDictionary(Dictionary.Book, {
 english.setDictionary(Dictionary.Hint, {
 	[Hint.WelcomeToWayward]: ["Welcome to Wayward", `Welcome to the Early Access version of Wayward! Wayward is currently in beta status and many things will change and improve over time. Hint windows like these will display as you play the game if enabled. You can disable automatic hints by clicking the button "Disable Hints" below or in the options. If you need further help or hints, visit the <a target="_blank" href="http://steamcommunity.com/app/379210/discussions/">Steam Discussions forums</a>.<br><br>
 	
-	If you want to keep up with Wayward, please visit the <a target="_blank" href="http://www.unlok.ca/category/wayward/">Wayward Blog</a> or <a target="_blank" href="http://www.reddit.com/r/Wayward/">Subreddit</a>.<br><br>
+	If you want to keep up with Wayward, please visit the <a target="_blank" href="http://www.waywardgame.com/">Wayward Website</a>, <a target="_blank" href="http://www.reddit.com/r/Wayward/">Subreddit</a>, or <a target="_blank" href="https://discord.gg/wayward">Discord</a>.<br><br>
 	
 	Want to help Wayward? Spread the word, or follow us on one of the following sites: <a target="_blank" href="https://www.facebook.com/waywardgame">Facebook</a>, <a target="_blank" href="https://twitter.com/Wayward_Game">Twitter</a>, or <a target="_blank" href="http://www.indiedb.com/games/wayward">IndieDB</a>.`],
 
-	[Hint.Controls]: ["Controls", `Keybinds can be changed under "Keybinds" in the options menu.<br>
+	[Hint.Controls]: ["Controls", `Keybinds can be changed under "Keybinds" in the Options menu.<br>
 	
 	<h3>Window Shortcuts</h3><br>
 	
@@ -549,9 +550,7 @@ english.setDictionary(Dictionary.Hint, {
 	4. Use an item with "Gather" such as a wooden pole.<br>
 	5. Use an item with "Harvest" such as a stone knife.<br><br>
 	
-	Using your bare hands with no tool (option 1) can sometimes harm you. Using a tool (option 2/3/4/5) will decrease the durability of the item. Some objects may require a "Carving" tool such as corpses to harvest from them.<br><br>
-	
-	Note that gathering is a destructive process. When gathering from plants and mushrooms, it will attempt to acquire all resources, thus destroying the doodad. In contrast, when a plant is ready for harvest, you may attempt to use the "Harvest" action to simply obtain only the resources that will not destroy the plant in the process.`],
+	Using your bare hands with no tool (option 1) can sometimes harm you. Using a tool (option 2/3/4/5) will decrease the durability of the item. Some objects may require a "Carving" tool such as corpses to harvest from them.`],
 
 	[Hint.Caves]: ["Caves", "Caves are the perfect place for hidden treasure, but first, they may need illumination with a torch to explore them further. Caves can be extremely dangerous and may require advanced armor and weaponry."],
 
@@ -567,7 +566,9 @@ english.setDictionary(Dictionary.Hint, {
 
 	[Hint.Dehydration]: ["Dehydration", "There's many ways to get drinkable water, but unfortunately for you, the largest source of water, from the sea is nearly undrinkable in its raw form. You must desalinate the water through the use of a water still or flask before drinking it without adverse effects. Alternatively, you may seek out a fresh water source, such as from caves, small lakes, oases, swamps or ponds. Fresh water is drinkable in it's raw form without too many bad effects; however, you may still want to boil it for the best health results."],
 
-	[Hint.UseATool]: ["Use A Tool", "Gathering resources with your hands is difficult and harmful; try equipping or using a tool to eliminate the chance of injury. If you are mining or lumberjacking, your weapon(s) attack value will also help gather items faster. Blunt attack weapon will help you gather faster while mining, while slashing weapons will help you gather faster while lumberjacking."],
+	[Hint.UseATool]: ["Use A Tool", `Gathering resources with your hands is difficult and harmful; try equipping or using a tool to eliminate the chance of injury. Quickslotting an item can help you control the exact tool you wish to use for fast usage.<br><br>
+	
+	If you are mining or lumberjacking, your weapon(s) attack value will also help gather items faster. Blunt attack weapon will help you gather faster while mining, while slashing weapons will help you gather faster while lumberjacking.`],
 
 	[Hint.Durability]: ["Durability", "If you find one of your tools, weapons or armor is close to breaking from overuse (highlighted with a red border), you will need to repair it using a hammer item or a grindstone. If you can't find or craft an item to repair it, it will soon break completely upon use."],
 
@@ -642,7 +643,7 @@ english.setDictionary(Dictionary.Hint, {
 
 	[Hint.ResourceGathering]: ["Resource Gathering", `To gather resources from trees or rocks, simply move into them (this feature can be disabled in options). You may not always succeed in gathering materials (the chances are based on your skill and tool). You will use whatever is in your hands to gather. You can choose what tool specifically is used in either your left or right hand by selecting which to use at the bottom of your equipment menu. It is harmful to try to resource gather without tools.<br><br>
 	
-	Alternatively, if you do not want to use what you are holding, you use an item's "Gather" action from its menu by right clicking on it. You can make this easier by quickslotting it. Review the "Quickslots" hint for more information on this functionality.<br><br>
+	Alternatively, if you do not want to use what you are holding, you can use an item's "Gather" action from its menu. You can make this easier by quickslotting it. Review the "Quickslots" hint for more information on this functionality.<br><br>
 	
 	Some resources are not gathered in this fashion. Things like small plants and other objects attached to the ground (referred to as doodads) require different methods. Review the "Doodads" hint for more information on these items.`],
 
@@ -657,7 +658,18 @@ english.setDictionary(Dictionary.Hint, {
 	/kick – Allows the host to kick a player.<br>
 	/banned – Shows a list of all banned players.<br>
 	/ban – Allows the host to ban a player.<br>
-	/unban – Allows the host to unban a player.`]
+	/unban – Allows the host to unban a player.`],
+
+	[Hint.Gardening]: ["Gardening", `The full plant life cycle is represented in Wayward. In order, these are: germinating, seedling, vegetative, budding, flowering, ripening, and dead. Fungus follows the same steps, but are named: germinating, spreading, forming, young, fruiting, and full.<br><br>
+	
+	Each of the steps means something different for each plant and fungus. Every plant is unique, including the resources you can gather or harvest from each of them. If you attempt to gather from a plant too early, you may not get the full amount of resources.<br><br>
+		
+	Gathering is a destructive process, meaning, you will attempt to gather everything from the plant. Some vegetables and fruits require this to get the edible portion, such as potatoes or carrots for example.<br><br>
+		
+	Harvesting a plant will only attempt to get what will keep the plant alive and/or sustainable. This is not always an option for all plants, and sometimes will only result in getting their seeds.<br><br>
+		
+	You can attempt to water plants (by using the "Pour" action on water containers) or plant them on fertile soil to reduce their growth time and increase their fertility for spreading.
+	`]
 });
 
 english.setDictionary(Dictionary.Item, {
@@ -961,7 +973,7 @@ english.setDictionary(Dictionary.Item, {
 	[Item.SmoothRock]: ["a", "smooth rock", "A round, smoothed rock, useful for many crafts."],
 	[Item.Snare]: ["a", "snare", "A short pole pushed into the ground with a string attached. Designed to ensnare creatures in its slipknot."],
 	[Item.Soil]: ["", "soil", "A pile of moist dirt. The heavy smell of earth permeates your nostrils when holding it."],
-	[Item.SolarStill]: ["a", "solar still", "A still that collects condensation and filters it into in a hole beneath the glass, desalinating the water and draining it into a container."],
+	[Item.SolarStill]: ["a", "solar still", "A still that collects condensation and filters it into a hole beneath the glass, desalinating the water and draining it into a container."],
 	[Item.SpiderEggs]: ["", "spider eggs", "Soft and squishy to the touch. These small silken eggs contain arachnid life inside."],
 	[Item.SpiderMeat]: ["", "spider meat", "A spider's fleshy innards. It's hard to stomach, even when cooked. Try not to think about what you're eating."],
 	[Item.SpiderSilk]: ["", "spider silk", "A delicate but strong strand of silk, produced by a spider. Can be used as cordage."],
@@ -1146,6 +1158,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Advanced]: "Advanced",
 	[Message.All]: "all",
 	[Message.AllEquipmentUnEquipped]: "All equipment has been unequipped.",
+	[Message.AlreadyDesalinatedWaterInStill]: "There is already desalinated water in this still!",
 	[Message.AlreadyFullyRepaired]: "_0_ is already fully repaired.",
 	[Message.AlreadyPreserved]: "_0_ is already well preserved.",
 	[Message.AlreadyWaterInStill]: "There is already water in this still!",
@@ -1238,7 +1251,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Cooked]: "cooked",
 	[Message.CopySelectedText]: "Copy Selected Text",
 	[Message.Corpse]: "corpse",
-	[Message.CorruptSaveDetected]: "Corrupt save detected. This save may not load properly.",
 	[Message.CouldNotDecipher]: "You could not decipher the map.",
 	[Message.Counterclockwise]: "counterclockwise",
 	[Message.Craft]: "craft",
@@ -1255,7 +1267,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.CreatureUntamed]: "_0_ has become untamed.",
 	[Message.CuredYourPoison]: "You have cured your poison!",
 	[Message.Cut]: "cut",
-	[Message.Damage]: "damage",
 	[Message.DamageAppeared]: "_0_ damage appeared to be _1_.",
 	[Message.DamagedByPouring]: "You damaged _0_ by pouring out the _1_.",
 	[Message.DayQuarter1]: "It is currently in the first quarter of the day.",
@@ -1276,8 +1287,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.DeathByWeaponByPlayer]: "by _0_ wielded by _1_",
 	[Message.Decay]: "Decay",
 	[Message.DestroyedFromUse]: "_0_ has been destroyed from use.",
-	[Message.DestroyedGrowingByPickingItUp]: "You destroyed _0_growing _1_ by trying to pick it up!",
-	[Message.DestroyedGrowingGrassByPickingItUp]: "You destroyed the growing grass by trying to pick it up!",
 	[Message.Dexterity]: "Dexterity",
 	[Message.DexterityIncreasing]: "You felt your dexterity increasing!",
 	[Message.DidNotSeemToBeHurting]: "_0_ did not seem to be hurting _1_.",
@@ -1362,7 +1371,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.FireOverflowed]: "The fire has overflowed and spread unexpectedly.",
 	[Message.FireReducedToEmbers]: "The fire has reduced to embers.",
 	[Message.FireSource]: "A Fire Source",
-	[Message.Food]: "food",
 	[Message.FullyDecodedMap]: "You fully decoded the map!",
 	[Message.GainedHealth]: "You have regained _0_ health.", // good
 	[Message.GainedHunger]: "You have gained _0_ hunger.", // bad
@@ -1395,7 +1403,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Held]: "Held",
 	[Message.Help]: "Help",
 	[Message.HelpGrow]: "You used the _0_ to help _1_ grow.",
-	[Message.HighscoreTurns]: "Turn _0_: ",
 	[Message.Hints]: "Hints",
 	[Message.HintsDisabled]: "Hints disabled.",
 	[Message.HintsEnabled]: "Hints enabled.",
@@ -1409,7 +1416,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.InExactLocationOfTreasure]: "You are in the exact location of where the treasure is buried.",
 	[Message.InjuredFromTrap]: "You have been injured from a trap, causing _0_ damage!",
 	[Message.InNeedOfRepair]: "_0_ is in need of repair.",
-	[Message.Inspect]: "Inspect",
 	[Message.Intermediate]: "Intermediate",
 	[Message.Inventory]: "Inventory",
 	[Message.IsAtPercentHealth]: "Your high anatomy skill reveals _0_ is at _1_% health.",
@@ -1423,7 +1429,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Killed]: "Killed _0_!",
 	[Message.LabelAdditionalRequirements]: "Additional Requirements: ",
 	[Message.LabelAttackFromTactics]: "Attack From Tactics:",
-	[Message.LabelAuthor]: "Author: ",
 	[Message.LabelBase]: "Base: ",
 	[Message.LabelBaseDefense]: "Base Defense:",
 	[Message.LabelBenignity]: "Benignity: ",
@@ -1439,18 +1444,16 @@ english.setDictionary(Dictionary.Message, {
 	[Message.LabelFireResist]: "Fire Resist:",
 	[Message.LabelGrouping]: "Grouping: ",
 	[Message.LabelHave]: "Have: ",
-	[Message.LabelHp]: "HP: ",
-	[Message.LabelLastUpdated]: "Last Updated: ",
 	[Message.LabelLeftHandAttack]: "Left Hand Attack:",
 	[Message.LabelLevel]: "Level: ",
 	[Message.LabelLightSourceWhenLit]: "Light Source When Lit: ",
 	[Message.LabelMalignity]: "Malignity: ",
+	[Message.LabelOnCreatureHeal]: "On Heal Creature: ",
 	[Message.LabelOnCure]: "On Cure: ",
 	[Message.LabelOnDrink]: "On Drink: ",
 	[Message.LabelOnEat]: "On Eat: ",
 	[Message.LabelOnEquip]: "On Equip: ",
 	[Message.LabelOnHeal]: "On Heal: ",
-	[Message.LabelOnCreatureHeal]: "On Heal Creature: ",
 	[Message.LabelPiercingResist]: "Piercing Resist:",
 	[Message.LabelProtected]: "Protected",
 	[Message.LabelRange]: "Range: ",
@@ -1458,7 +1461,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.LabelRangedAttack]: "Ranged Attack: ",
 	[Message.LabelRangedDamage]: "Ranged Damage:",
 	[Message.LabelReputationImpact]: "Reputation Impact: ",
-	[Message.LabelRequiredMods]: "Required Mods: ",
 	[Message.LabelRequires]: "Requires: ",
 	[Message.LabelResists]: "Resists: ",
 	[Message.LabelRightHandAttack]: "Right Hand Attack:",
@@ -1472,7 +1474,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.LabelTurns]: "Turn:",
 	[Message.LabelUse]: "Use: ",
 	[Message.LabelUses]: "Uses: ",
-	[Message.LabelVersion]: "Version: ",
 	[Message.LabelVulnerabilities]: "Vulnerabilities: ",
 	[Message.LabelWeight]: "Weight: ",
 	[Message.LabelWeightCapacity]: "Weight Capacity: ",
@@ -1498,7 +1499,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.MissedWith]: "You missed _0_ with _1_!",
 	[Message.MissedYouWith]: "_0_ missed you with _1_!",
 	[Message.MoreInformation]: "Press _0_ to display more information.",
-	[Message.MouseButton]: "M_0_",
 	[Message.MoveAllOfSameQualityToInventory]: "Move All of Same Quality to Inventory",
 	[Message.MoveAllOfSameQualityToLastOpenedContainer]: "Move All of Same Quality to Last Opened Container",
 	[Message.MoveAllOfSameQualityToOpenedContainer]: "Move All of Same Quality to Opened Container",
@@ -1635,8 +1635,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.ReturnsToLife]: "_0_ returns to life!",
 	[Message.RightHand]: "right hand",
 	[Message.RightHandEquip]: "Right Hand (Held)",
-	[Message.SailedToCivilization]: "You sailed to civilization in this game.",
-	[Message.Score]: "_0_ Score",
 	[Message.ScrollProvidedNoUsefulInsight]: "You are truly a master of the crafts. The scroll provided no useful insight for you.",
 	[Message.SeaweedFromWater]: "You dragged a slimy mass of seaweed up out of the water!",
 	[Message.SeemsHurt]: "Your anatomy skill reveals with moderate accuracy that _0_ seems hurt.",
@@ -1654,7 +1652,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.Slept]: "slept",
 	[Message.SlitherSuckerConstricts]: "_0_ constricts and moves on your head, causing its teeth to pierce you as it writhes.",
 	[Message.SlitherSuckerJumpedOnHead]: "_0_ jumps on top of you, suctioning and constricting itself on top of your head.",
-	[Message.Soil]: "soil",
 	[Message.Some]: "some",
 	[Message.SomethingInTheWayOf]: "There is something in the way of your _0_!",
 	[Message.SomethingInTheWayOfCarveFirst]: "There is something in the way of your _0_. This must be carved.",
@@ -1751,7 +1748,6 @@ english.setDictionary(Dictionary.Message, {
 	[Message.YouAte]: "You ate _0_!",
 	[Message.YouBeginResting]: "You begin resting...",
 	[Message.YouCannotDoThatYet]: "You cannot do that yet!",
-	[Message.YouCollected]: "You collected _0_!",
 	[Message.YouCooledLava]: "You cooled the lava.",
 	[Message.YouCrafted]: "You _0_ _1_!",
 	[Message.YouDied]: "You died _0_!",
@@ -1935,13 +1931,13 @@ english.setDictionary(Dictionary.Ui, {
 	// ui rewrite
 	// in game
 	[UiTranslation.GameActionGather]: "gather",
-	[UiTranslation.GameQualityExceptional]: "Exceptional",
-	[UiTranslation.GameQualityRemarkable]: "Remarkable",
-	[UiTranslation.GameQualityLegendary]: "Legendary",
-	[UiTranslation.GameDamageTypeBlunt]: "Blunt",
-	[UiTranslation.GameDamageTypeSlashing]: "Slashing",
-	[UiTranslation.GameDamageTypePiercing]: "Piercing",
-	[UiTranslation.GameDamageTypeFire]: "Fire",
+	[UiTranslation.GameQualityExceptional]: "Exceptional", // Dynamic
+	[UiTranslation.GameQualityRemarkable]: "Remarkable", // Dynamic
+	[UiTranslation.GameQualityLegendary]: "Legendary", // Dynamic
+	[UiTranslation.GameDamageTypeBlunt]: "Blunt", // Dynamic
+	[UiTranslation.GameDamageTypeSlashing]: "Slashing", // Dynamic
+	[UiTranslation.GameDamageTypePiercing]: "Piercing", // Dynamic
+	[UiTranslation.GameDamageTypeFire]: "Fire", // Dynamic
 
 	[UiTranslation.GameInterruptItemMayBeDestroyedOnUse]: "Item may be destroyed on use.",
 	[UiTranslation.GameInterruptItemMayBeDestroyedOnUseDescription]: "Do you wish to continue?",
@@ -2010,7 +2006,7 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.GameMultiplayerInterruptConnecting]: "Connecting",
 	[UiTranslation.GameMultiplayerInterruptConnectingDescription]: "",
 	[UiTranslation.GameMultiplayerInterruptFailedToConnect]: "Failed to connect.",
-	[UiTranslation.GameMultiplayerInterruptFailedToLoadMods]: "Failed to load required mods: _0_",
+	[UiTranslation.GameMultiplayerInterruptFailedToLoadMods]: "Failed to load required mods:\n_0_",
 	[UiTranslation.GameMultiplayerInterruptKicked]: "You have been kicked from the server.",
 	[UiTranslation.GameMultiplayerInterruptLostConnection]: "Lost connection to server.",
 	[UiTranslation.GameMultiplayerInterruptServerShutdown]: "The server is shutting down.",
@@ -2028,14 +2024,14 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuAboutDescription]: "Learn more about Wayward.",
 	[UiTranslation.MenuAboutGameDescription]: "Wayward is a challenging turn-based, top-down, wilderness survival roguelike. Explore, build, and most importantly, survive in these unforgiving lands.",
 	[UiTranslation.MenuAboutSectionTeam]: "Team",
-	[UiTranslation.MenuAboutTeamMemberResponsibilities]: "_0_",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityProgramming]: "Programming",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityDesign]: "Design",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityWeb]: "Web",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityArt]: "Art",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityPR]: "PR",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityUX]: "UX",
-	[UiTranslation.MenuAboutTeamMemberResponsibilityMusic]: "Music",
+	[UiTranslation.MenuAboutTeamMemberResponsibilities]: "_0_", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityProgramming]: "Programming", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityDesign]: "Design", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityWeb]: "Web", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityArt]: "Art", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityPR]: "PR", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityUX]: "UX", // Dynamic
+	[UiTranslation.MenuAboutTeamMemberResponsibilityMusic]: "Music", // Dynamic
 	[UiTranslation.MenuAboutTeamMemberName]: "_0_ _2__1_",
 	[UiTranslation.MenuAboutTeamMemberNickname]: "\"_0_\" ",
 	[UiTranslation.MenuAboutSectionContributors]: "Contributors",
@@ -2046,13 +2042,13 @@ english.setDictionary(Dictionary.Ui, {
 
 	[UiTranslation.MenuChangelogTitle]: "Changelog",
 	[UiTranslation.MenuChangelogDescription]: "View major and minor updates to Wayward.",
-	[UiTranslation.MenuChangelogSectionBalance]: "Balance",
-	[UiTranslation.MenuChangelogSectionBugFixes]: "Bug Fixes",
-	[UiTranslation.MenuChangelogSectionImprovements]: "Improvements",
-	[UiTranslation.MenuChangelogSectionMod]: "Mods",
-	[UiTranslation.MenuChangelogSectionModding]: "Modding",
-	[UiTranslation.MenuChangelogSectionNew]: "New",
-	[UiTranslation.MenuChangelogSectionTechnical]: "Technical",
+	[UiTranslation.MenuChangelogSectionBalance]: "Balance", // Dynamic
+	[UiTranslation.MenuChangelogSectionBugFixes]: "Bug Fixes", // Dynamic
+	[UiTranslation.MenuChangelogSectionImprovements]: "Improvements", // Dynamic
+	[UiTranslation.MenuChangelogSectionMod]: "Mods", // Dynamic
+	[UiTranslation.MenuChangelogSectionModding]: "Modding", // Dynamic
+	[UiTranslation.MenuChangelogSectionNew]: "New", // Dynamic
+	[UiTranslation.MenuChangelogSectionTechnical]: "Technical", // Dynamic
 	[UiTranslation.MenuChangelogHeadingFailedLoad]: "Failed to load the changelog for _0_.",
 	[UiTranslation.MenuChangelogHeadingChangeCount]: "(_0_ changes)",
 	[UiTranslation.MenuChangelogInterruptLoadingChangelog]: "Loading Changelog",
@@ -2075,9 +2071,9 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuCharacterCreationButtonRandomizeTooltip]: "Randomize",
 
 	[UiTranslation.MenuCharacterSelectionButtonNewCharacter]: "New Character",
-	[UiTranslation.MenuCharacterSelectionCharacterSortLastUse]: "Last Use",
-	[UiTranslation.MenuCharacterSelectionCharacterSortName]: "Name",
-	[UiTranslation.MenuCharacterSelectionCharacterSortUseCount]: "Times Used",
+	[UiTranslation.MenuCharacterSelectionCharacterSortLastUse]: "Last Use", // Dynamic
+	[UiTranslation.MenuCharacterSelectionCharacterSortName]: "Name", // Dynamic
+	[UiTranslation.MenuCharacterSelectionCharacterSortUseCount]: "Times Used", // Dynamic
 	[UiTranslation.MenuCharacterSelectionDescription]: "Randomize a new character or create from a template.",
 	[UiTranslation.MenuCharacterSelectionHeadingNoCharacters]: "No Saved Templates",
 	[UiTranslation.MenuCharacterSelectionLabelLastUse]: "Last Used: _0_",
@@ -2098,24 +2094,24 @@ english.setDictionary(Dictionary.Ui, {
 
 	[UiTranslation.MenuGameEndTitleDead]: "You Died",
 	[UiTranslation.MenuGameEndTitleWon]: "You Won",
-	[UiTranslation.MenuGameEndDescriptionDead1]: "Your bones lay bleaching, lost to time.",
-	[UiTranslation.MenuGameEndDescriptionDead2]: "The end is just the beginning.",
-	[UiTranslation.MenuGameEndDescriptionDead3]: "Sadly, no trace of you was ever found.",
-	[UiTranslation.MenuGameEndDescriptionWin1]: "You find your way back to civilization and end your journey.",
-	[UiTranslation.MenuGameEndDescriptionWin2]: "You sail back and enjoyed a good life with your riches.",
-	[UiTranslation.MenuGameEndDescriptionWin3]: "You travelled back to civilization, but is this the end?",
+	[UiTranslation.MenuGameEndDescriptionDead1]: "Your bones lay bleaching, lost to time.", // Dynamic
+	[UiTranslation.MenuGameEndDescriptionDead2]: "The end is just the beginning.", // Dynamic
+	[UiTranslation.MenuGameEndDescriptionDead3]: "Sadly, no trace of you was ever found.", // Dynamic
+	[UiTranslation.MenuGameEndDescriptionWin1]: "You find your way back to civilization and end your journey.", // Dynamic
+	[UiTranslation.MenuGameEndDescriptionWin2]: "You sail back and enjoyed a good life with your riches.", // Dynamic
+	[UiTranslation.MenuGameEndDescriptionWin3]: "You travelled back to civilization, but is this the end?", // Dynamic
 	[UiTranslation.MenuGameEndShareFacebook]: "Share on Facebook",
 	[UiTranslation.MenuGameEndShareTwitter]: "Share on Twitter",
 
 	[UiTranslation.MenuHighscoresTitle]: "Highscores",
 	[UiTranslation.MenuHighscoresDescription]: "See how well you did in your past adventures.",
-	[UiTranslation.MenuHighscoresDifficultyFilterHardcore]: "Hardcore",
-	[UiTranslation.MenuHighscoresDifficultyFilterCasual]: "Casual",
-	[UiTranslation.MenuHighscoresDifficultyFilterDailyChallenge]: "Daily Challenge",
-	[UiTranslation.MenuHighscoresDifficultyFilterAll]: "All",
-	[UiTranslation.MenuHighscoresSortScore]: "Score",
-	[UiTranslation.MenuHighscoresSortSaveName]: "Save Name",
-	[UiTranslation.MenuHighscoresSortRecency]: "Last Played",
+	[UiTranslation.MenuHighscoresDifficultyFilterHardcore]: "Hardcore", // Dynamic
+	[UiTranslation.MenuHighscoresDifficultyFilterCasual]: "Casual", // Dynamic
+	[UiTranslation.MenuHighscoresDifficultyFilterDailyChallenge]: "Daily Challenge", // Dynamic
+	[UiTranslation.MenuHighscoresDifficultyFilterAll]: "All", // Dynamic
+	[UiTranslation.MenuHighscoresSortScore]: "Score", // Dynamic
+	[UiTranslation.MenuHighscoresSortSaveName]: "Save Name", // Dynamic
+	[UiTranslation.MenuHighscoresSortRecency]: "Last Played", // Dynamic
 	[UiTranslation.MenuHighscoresHighscoreLabelDifficulty]: "_0_",
 	[UiTranslation.MenuHighscoresHighscoreLabelTurns]: "Turns: _0_",
 	[UiTranslation.MenuHighscoresHighscoreLabelScore]: "Score: _0_",
@@ -2132,16 +2128,16 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuLoadGameSaveButtonDeleteTooltip]: "Delete Save",
 	[UiTranslation.MenuLoadGameSaveButtonEditNameTooltip]: "Edit Name",
 	[UiTranslation.MenuLoadGameSaveButtonExportTooltip]: "Export Save",
-	[UiTranslation.MenuLoadGameSaveSortCreatedTime]: "Creation Time",
-	[UiTranslation.MenuLoadGameSaveSortName]: "Name",
-	[UiTranslation.MenuLoadGameSaveSortSaveTime]: "Last Played",
-	[UiTranslation.MenuLoadGameSaveSortTurnCount]: "Turn Count",
+	[UiTranslation.MenuLoadGameSaveSortCreatedTime]: "Creation Time", // Dynamic
+	[UiTranslation.MenuLoadGameSaveSortName]: "Name", // Dynamic
+	[UiTranslation.MenuLoadGameSaveSortSaveTime]: "Last Played", // Dynamic
+	[UiTranslation.MenuLoadGameSaveSortTurnCount]: "Turn Count", // Dynamic
 	[UiTranslation.MenuLoadGameSaveTooltipLabelCreatedTime]: "Created Time: _0_",
-	[UiTranslation.MenuLoadGameSaveTooltipLabelMods]: "Mods: _0_",
 	[UiTranslation.MenuLoadGameSaveTooltipLabelSaveTime]: "Save Time: _0_",
 	[UiTranslation.MenuLoadGameSaveTooltipLabelScore]: "Score: _0_",
 	[UiTranslation.MenuLoadGameSaveTooltipLabelSeed]: "Seed: _0_",
 	[UiTranslation.MenuLoadGameSaveTooltipLabelTurns]: "Turns: _0_",
+	[UiTranslation.MenuLoadGameSaveTooltipLabelMods]: "Mods: ",
 	[UiTranslation.MenuLoadGameSaveTooltipLabelOriginalVersion]: "Original Version: _0_",
 	[UiTranslation.MenuLoadGameSlotsRemaining]: "Slots remaining: _0_",
 	[UiTranslation.MenuLoadGameTitle]: "Load Game",
@@ -2157,11 +2153,14 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuLoadGameInterruptExportTypeDescription]: "",
 	[UiTranslation.MenuLoadGameInterruptPublishingSave]: "Publishing Save",
 	[UiTranslation.MenuLoadGameInterruptPublishingSaveDescription]: "",
+	[UiTranslation.MenuLoadGameInterruptMissingMod]: "Are you sure you want to load this save?\nMod(s) are missing. This may cause bugs.",
+	[UiTranslation.MenuLoadGameInterruptMissingModDescription]: "_0_\n_1_",
+	[UiTranslation.MenuLoadGameInterruptMissingModDescriptionLabelModsMissing]: "Missing Mods: _0_",
+	[UiTranslation.MenuLoadGameInterruptMissingModDescriptionLabelModsDisabled]: "Disabled Mods: _0_",
 
 	[UiTranslation.MenuMainButtonAbout]: "About",
 	[UiTranslation.MenuMainButtonChangelog]: "Changelog",
 	[UiTranslation.MenuMainButtonContinueGame]: "Continue Game",
-	[UiTranslation.MenuMainButtonDailyChallenge]: "Daily Challenge",
 	[UiTranslation.MenuMainButtonFriends]: "Friends",
 	[UiTranslation.MenuMainButtonFriendsWithCount]: "Friends (_0_)",
 	[UiTranslation.MenuMainButtonHighscores]: "Highscores",
@@ -2185,10 +2184,10 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuModsButtonOpenFolder]: "Open Mods Folder",
 	[UiTranslation.MenuModsButtonOpenWorkshop]: "Open Steam Workshop",
 	[UiTranslation.MenuModsDescription]: "Manage installed mods and publish your own.",
-	[UiTranslation.MenuModsHeadingInternal]: "Internal Mods",
-	[UiTranslation.MenuModsHeadingLocal]: "Local Mods",
-	[UiTranslation.MenuModsHeadingNoMods]: "You have no mods installed.",
-	[UiTranslation.MenuModsHeadingWorkshop]: "Workshop Mods",
+	[UiTranslation.MenuModsHeadingInternal]: "Internal Mods", // Dynamic
+	[UiTranslation.MenuModsHeadingLocal]: "Local Mods", // Dynamic
+	[UiTranslation.MenuModsHeadingNoMods]: "You have no mods installed.", // Dynamic
+	[UiTranslation.MenuModsHeadingWorkshop]: "Workshop Mods", // Dynamic
 	[UiTranslation.MenuModsInterruptConfirmPublish]: "Are you sure you want\nto publish this mod?",
 	[UiTranslation.MenuModsInterruptConfirmPublishUpdate]: "Are you sure you want to publish\nan update to this mod?",
 	[UiTranslation.MenuModsInterruptModEnableMultipleLanguages]: "This mod provides multiple languages.",
@@ -2204,19 +2203,20 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuModsInterruptConfirmDisableDependentsDescription]: "Dependents: _0_",
 	[UiTranslation.MenuModsInterruptConfirmUninstallMod]: "Are you sure you want to\nuninstall _0_?",
 	[UiTranslation.MenuModsInterruptConfirmUninstallModDescription]: "",
-	[UiTranslation.MenuModsSortAuthor]: "Author",
-	[UiTranslation.MenuModsSortCreatedDate]: "Created Date",
-	[UiTranslation.MenuModsSortInstallDate]: "Install Date",
-	[UiTranslation.MenuModsSortName]: "Name",
-	[UiTranslation.MenuModsSortLastUpdated]: "Last Update Date",
-	[UiTranslation.MenuModsTabInternal]: "Internal",
-	[UiTranslation.MenuModsTabLocal]: "Local",
-	[UiTranslation.MenuModsTabWorkshop]: "Workshop",
+	[UiTranslation.MenuModsSortAuthor]: "Author", // Dynamic
+	[UiTranslation.MenuModsSortCreatedDate]: "Created Date", // Dynamic
+	[UiTranslation.MenuModsSortInstallDate]: "Install Date", // Dynamic
+	[UiTranslation.MenuModsSortName]: "Name", // Dynamic
+	[UiTranslation.MenuModsSortLastUpdated]: "Last Update Date", // Dynamic
+	[UiTranslation.MenuModsTabInternal]: "Internal", // Dynamic
+	[UiTranslation.MenuModsTabLocal]: "Local", // Dynamic
+	[UiTranslation.MenuModsTabWorkshop]: "Workshop", // Dynamic 
 	[UiTranslation.MenuModsTitle]: "Mods",
 	[UiTranslation.MenuModsTooltipLabelAuthor]: "Author: _0_",
 	[UiTranslation.MenuModsTooltipLabelDependencies]: "Dependencies: ",
 	[UiTranslation.MenuModsTooltipLabelProvides]: "Provides: _0_",
 	[UiTranslation.MenuModsTooltipLabelVersion]: "Version: _0_",
+	[UiTranslation.MenuModsTooltipLabelDescription]: "Description: _0_",
 	[UiTranslation.MenuModsTooltipLabelInstallDate]: "Install Date: _0_",
 	[UiTranslation.MenuModsTooltipLabelCreatedDate]: "Created Date: _0_",
 	[UiTranslation.MenuModsTooltipLabelLastUpdatedDate]: "Last Updated Date: _0_",
@@ -2240,13 +2240,13 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuModsInterruptUpdatingModDescription]: "",
 	[UiTranslation.MenuModsInterruptPublishUpdateError]: "Could Not Publish Mod Update",
 	[UiTranslation.MenuModsInterruptPublishUpdateErrorDescription]: "Error: _0_",
-	[UiTranslation.MenuModsTooltipCanLoadStateModLoadError]: "Error loading mod",
-	[UiTranslation.MenuModsTooltipCanLoadStateDependencyIssue]: "Issue with dependencies",
-	[UiTranslation.MenuModsTooltipCanLoadStateModRequiresItself]: "Mod requires itself",
-	[UiTranslation.MenuModsTooltipCanLoadStateMissingRequiredMod]: "Missing required mod",
-	[UiTranslation.MenuModsTooltipCanLoadStateReqiredModNotLoaded]: "Required mod is not loaded",
-	[UiTranslation.MenuModsTooltipCanLoadStateLocalModPrecedence]: "Installed locally, local mods have precedence",
-	[UiTranslation.MenuModsTooltipCanLoadStateIncompatibleVersion]: "Incompatible with this version",
+	[UiTranslation.MenuModsTooltipCanLoadStateModLoadError]: "Error loading mod", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateDependencyIssue]: "Issue with dependencies", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateModRequiresItself]: "Mod requires itself", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateMissingRequiredMod]: "Missing required mod", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateReqiredModNotLoaded]: "Required mod is not loaded", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateLocalModPrecedence]: "Installed locally, local mods have precedence", // Dynamic
+	[UiTranslation.MenuModsTooltipCanLoadStateIncompatibleVersion]: "Incompatible with this version", // Dynamic
 
 	[UiTranslation.MenuNewGameButtonNext]: "Next",
 	[UiTranslation.MenuNewGameButtonStartServer]: "Start Server",
@@ -2255,12 +2255,12 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuNewGameLabelEditSeed]: "Seed",
 	[UiTranslation.MenuNewGamePlaceholderEditSeed]: "Random",
 	[UiTranslation.MenuNewGameTitle]: "New Game",
-	[UiTranslation.MenuNewGameChoiceDifficultyCasual]: "Casual Mode",
-	[UiTranslation.MenuNewGameChoiceDifficultyCasualDescription]: "Dying will respawn you in the last place you rested or slept. All items will be dropped at the location of your demise.",
-	[UiTranslation.MenuNewGameChoiceDifficultyHardcore]: "Hardcore Mode",
-	[UiTranslation.MenuNewGameChoiceDifficultyHardcoreDescription]: "The default and definitive way to play. Permanent character death is enabled.",
-	[UiTranslation.MenuNewGameChoiceDifficultyDailyChallenge]: "Daily Challenge",
-	[UiTranslation.MenuNewGameChoiceDifficultyDailyChallengeDescription]: "Uses a random seed which changes every 24 hours. This mode features low starting reputation, lower skills, less items, and difficult starting creatures for an extreme challenge. Skills are gained four times faster. Saving is disabled in this mode.",
+	[UiTranslation.MenuNewGameChoiceDifficultyCasual]: "Casual Mode", // Dynamic
+	[UiTranslation.MenuNewGameChoiceDifficultyCasualDescription]: "Dying will respawn you in the last place you rested or slept. All items will be dropped at the location of your demise.", // Dynamic
+	[UiTranslation.MenuNewGameChoiceDifficultyHardcore]: "Hardcore Mode", // Dynamic
+	[UiTranslation.MenuNewGameChoiceDifficultyHardcoreDescription]: "The default and definitive way to play. Permanent character death is enabled.", // Dynamic
+	[UiTranslation.MenuNewGameChoiceDifficultyDailyChallenge]: "Daily Challenge", // Dynamic
+	[UiTranslation.MenuNewGameChoiceDifficultyDailyChallengeDescription]: "Uses a random seed which changes every 24 hours. This mode features low starting reputation, lower skills, less items, and difficult starting creatures for an extreme challenge. Skills are gained four times faster. Saving is disabled in this mode.", // Dynamic
 	[UiTranslation.MenuNewGameChoiceSingleplayer]: "Singleplayer",
 	[UiTranslation.MenuNewGameChoiceSingleplayerDescription]: "Survive on your own.",
 	[UiTranslation.MenuNewGameChoiceMultiplayer]: "Multiplayer",
@@ -2285,7 +2285,6 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuOptionsInterruptLoadingDescription]: "",
 	[UiTranslation.MenuOptionsButtonDitherFogOfWar]: "Dither Style Fog of War",
 	[UiTranslation.MenuOptionsButtonFullscreen]: "Fullscreen",
-	// [UiTranslation.MenuOptionsButtonOpenNotesAutomatically]: "Open Notes Automatically",
 	[UiTranslation.MenuOptionsButtonOpenNotesAutomatically]: "Hints",
 	[UiTranslation.MenuOptionsButtonScreenshotMode]: "Screenshot Mode",
 	[UiTranslation.MenuOptionsButtonPixelFont]: "Pixel Font",
@@ -2317,19 +2316,13 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuOptionsHeadingTooltips]: "Tooltips",
 	[UiTranslation.MenuOptionsHeadingVideo]: "Video",
 	[UiTranslation.MenuOptionsInterruptReloadGame]: "Are you sure you want\nto reload the game?",
-	[UiTranslation.MenuOptionsInterruptReloadGameDescription]: "",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearAll]: "Are you sure you want\nto clear all save data?",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearAllDescription]: "This includes options, game saves, and milestone progress.",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearHighscores]: "Are you sure you want to\nremove your highscores?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearHighscoresDescription]: "",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearMilestones]: "Are you sure you want to\nreset your milestone progress?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearMilestonesDescription]: "",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearOptions]: "Are you sure you want to\nreset all of your options?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearOptionsDescription]: "",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearSaves]: "Are you sure you want to\ndelete all of your game saves?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearSavesDescription]: "",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearCraftingRecipes]: "Are you sure you want to reset\nyour unlocked crafting recipes?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearCraftingRecipesDescription]: "",
 	[UiTranslation.MenuOptionsLabelInterfaceScale]: "Interface Scale",
 	[UiTranslation.MenuOptionsLabelTurnDelay]: "Turn Delay",
 	[UiTranslation.MenuOptionsLabelVolumeEffects]: "Effects",
@@ -2345,17 +2338,14 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuOptionsTitle]: "Options",
 	[UiTranslation.MenuOptionsTooltipMusicNextTrack]: "Next Track",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearCharacters]: "Are you sure you want to\ndelete all of your previous characters?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearCharactersDescription]: "",
 	[UiTranslation.MenuOptionsButtonSaveDataClearCharacters]: "Remove Saved Characters",
 	[UiTranslation.MenuOptionsBindChoose]: "Press anything to choose the bind.",
 	[UiTranslation.MenuOptionsBindChooseAdd]: "Press anything to choose the secondary bind.",
-	[UiTranslation.MenuOptionsBindLabelMouse]: "Mouse_0_",
-	[UiTranslation.MenuOptionsBindLabelGamepad]: "Gamepad_0_",
-	[UiTranslation.MenuOptionsBindableTypeGame]: "Gameplay",
-	[UiTranslation.MenuOptionsBindableTypeDialog]: "Dialogs",
-	[UiTranslation.MenuOptionsBindableTypeMenu]: "Menus",
-	[UiTranslation.MenuOptionsBindableTypeDeveloper]: "Developer",
-	[UiTranslation.MenuOptionsBindableTypeMod]: "Mods",
+	[UiTranslation.MenuOptionsBindableTypeGame]: "Gameplay", // Dynamic
+	[UiTranslation.MenuOptionsBindableTypeDialog]: "Dialogs", // Dynamic
+	[UiTranslation.MenuOptionsBindableTypeMenu]: "Menus", // Dynamic
+	[UiTranslation.MenuOptionsBindableTypeDeveloper]: "Developer", // Dynamic
+	[UiTranslation.MenuOptionsBindableTypeMod]: "Mods", // Dynamic
 	[UiTranslation.MenuOptionsBindLabelModifier]: "_0_ + ",
 	[UiTranslation.MenuOptionsBindLabelOr]: "_0_ OR ",
 	[UiTranslation.MenuOptionsBindButtonResetTooltip]: "Reset to Default",
@@ -2387,7 +2377,6 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuOptionsButtonAlwaysShowMoreInformationTooltip]: "If checked, you will never have to hold down a key to show more information in tooltips.",
 	[UiTranslation.MenuOptionsButtonSaveDataClearBindings]: "Reset All Bindings",
 	[UiTranslation.MenuOptionsInterruptSaveDataClearBindings]: "Are you sure you want to\nreset all bindings to defaults?",
-	[UiTranslation.MenuOptionsInterruptSaveDataClearBindingsDescription]: "",
 	[UiTranslation.MenuOptionsTooltipDialogOpacity]: "Controls how opaque the in-game dialogs are.",
 	[UiTranslation.MenuOptionsLabelDialogOpacity]: "Dialog Opacity",
 
@@ -2435,12 +2424,12 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MiscSaveNameDefault]: "Untitled Save _0_",
 	[UiTranslation.MiscSaveVersionUnknown]: "Unknown",
 	[UiTranslation.MiscDailyChallengeName]: "Daily Challenge _0_",
-	[UiTranslation.MiscDifficultyHardcore]: "Hardcore",
-	[UiTranslation.MiscDifficultyCasual]: "Casual",
-	[UiTranslation.MiscDifficultyDailyChallenge]: "Daily Challenge",
+	[UiTranslation.MiscDifficultyHardcore]: "Hardcore", // Dynamic
+	[UiTranslation.MiscDifficultyCasual]: "Casual", // Dynamic
+	[UiTranslation.MiscDifficultyDailyChallenge]: "Daily Challenge", // Dynamic
 	[UiTranslation.MiscVersion]: "_0_ _1_._2_._3_",
-	[UiTranslation.MiscVersionBeta]: "Beta",
-	[UiTranslation.MiscVersionRelease]: "Release",
+	[UiTranslation.MiscVersionBeta]: "Beta", // Dynamic
+	[UiTranslation.MiscVersionRelease]: "Release", // Dynamic
 
 	[UiTranslation.SharedListSeparator]: ", ",
 
@@ -2492,92 +2481,53 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.HudSkills]: "Skills",
 	[UiTranslation.HudTitleScreen]: "Menu",
 	[UiTranslation.Hunger]: "Hunger (Metabolism/Starvation)",
-	[UiTranslation.MenuDeleteAllGameData]: "Delete All Game Data",
-	[UiTranslation.MenuDeleteGame]: "Delete Game",
-	[UiTranslation.MenuEditGame]: "Edit Name",
-	[UiTranslation.MenuExportGame]: "Export Game",
-	[UiTranslation.MenuExportSave]: "Export Save",
-	[UiTranslation.MenuHighscoresAll]: "All",
-	[UiTranslation.MenuHighscoresDailyChallenge]: "Daily Challenge",
-	[UiTranslation.MenuHighscoresMessage]: "Previous Deaths in Game",
-	[UiTranslation.MenuHighscoresNone]: "No Highscores Available",
-	[UiTranslation.MenuHighscoresNormal]: "Normal",
-	[UiTranslation.MenuImportGame]: "Import Game",
-	[UiTranslation.MenuImportSave]: "Import Save",
-	[UiTranslation.MenuJoinGame]: "Join Game",
-	[UiTranslation.MenuJoinGameJoin]: "Join Game",
-	[UiTranslation.MenuJoinGameMessage]: "Join Another Player's World",
-	[UiTranslation.MenuJoinGameName]: "Name",
-	[UiTranslation.MenuJoinGameServer]: "Server",
-	[UiTranslation.MenuOpenLogsFolder]: "Open Logs Folder",
-	[UiTranslation.MenuOptionsMessage]: "Change Your Game Settings",
-	[UiTranslation.MenuQuitGame]: "Quit Game",
-	[UiTranslation.MenuReloadGame]: "Reload Game",
-	[UiTranslation.MenuToggleDeveloperTools]: "Toggle Developer Tools",
-	[UiTranslation.MenuVisitSteamWorkshop]: "Visit Steam Workshop",
+	[UiTranslation.MenuDeleteAllGameData]: "Delete All Game Data", // Dynamic
+	[UiTranslation.MenuDeleteGame]: "Delete Game", // Dynamic
+	[UiTranslation.MenuEditGame]: "Edit Name", // Dynamic
+	[UiTranslation.MenuExportGame]: "Export Game", // Dynamic
+	[UiTranslation.MenuExportSave]: "Export Save", // Dynamic
+	[UiTranslation.MenuHighscoresAll]: "All", // Dynamic
+	[UiTranslation.MenuHighscoresDailyChallenge]: "Daily Challenge", // Dynamic
+	[UiTranslation.MenuHighscoresMessage]: "Previous Deaths in Game", // Dynamic
+	[UiTranslation.MenuHighscoresNone]: "No Highscores Available", // Dynamic
+	[UiTranslation.MenuHighscoresNormal]: "Normal", // Dynamic
+	[UiTranslation.MenuImportGame]: "Import Game", // Dynamic
+	[UiTranslation.MenuImportSave]: "Import Save", // Dynamic
+	[UiTranslation.MenuJoinGame]: "Join Game", // Dynamic
+	[UiTranslation.MenuJoinGameJoin]: "Join Game", // Dynamic
+	[UiTranslation.MenuJoinGameMessage]: "Join Another Player's World", // Dynamic
+	[UiTranslation.MenuJoinGameName]: "Name", // Dynamic
+	[UiTranslation.MenuJoinGameServer]: "Server", // Dynamic
+	[UiTranslation.MenuOpenLogsFolder]: "Open Logs Folder", // Dynamic
+	[UiTranslation.MenuOptionsMessage]: "Change Your Game Settings", // Dynamic
+	[UiTranslation.MenuQuitGame]: "Quit Game", // Dynamic
+	[UiTranslation.MenuReloadGame]: "Reload Game", // Dynamic
+	[UiTranslation.MenuToggleDeveloperTools]: "Toggle Developer Tools", // Dynamic
+	[UiTranslation.MenuVisitSteamWorkshop]: "Visit Steam Workshop", // Dynamic
 	[UiTranslation.NextHint]: "Next Hint",
-	[UiTranslation.OptionsAlternateContextMenu]: "Alternate Context Menu",
-	[UiTranslation.OptionsAlternateContextMenuTooltip]: "If checked, left clicking items will display the item's menu instead of right click. Shift + right click actions also turn into just right click actions.",
-	[UiTranslation.OptionsAlternateFont]: "Alternate Font",
-	[UiTranslation.OptionsAudio]: "Audio",
 	[UiTranslation.OptionsAudio]: "Audio",
 	[UiTranslation.OptionsAutoGather]: "Auto Gather",
 	[UiTranslation.OptionsAutoGatherTooltip]: "If checked, you will automatically gather when moving into resource tiles.",
 	[UiTranslation.OptionsAutoPickup]: "Auto Pick-up",
 	[UiTranslation.OptionsAutoPickupTooltip]: "If checked, you will automatically pick-up items as you move on top of them.",
-	[UiTranslation.OptionsBindDefault]: "Default",
-	[UiTranslation.OptionsBinds]: "Binds",
-	[UiTranslation.OptionsDeveloper]: "Developer",
-	[UiTranslation.OptionsDeveloperLogging]: "Enable Developer Logging",
-	[UiTranslation.OptionsDeveloperLoggingTooltip]: "Enable verbose logging for language and mod debugging.",
-	[UiTranslation.OptionsDialogOpacity]: "Dialog Opacity",
-	[UiTranslation.OptionsDirectionTurnDelay]: "Direction Turn Delay",
-	[UiTranslation.OptionsDirectionTurnDelayTooltip]: "The amount of movement delay that occurs after switching a direction or turning.",
-	[UiTranslation.OptionsDropOnGather]: "Drop on Gather",
-	[UiTranslation.OptionsDropOnGatherTooltip]: "If checked, you will automatically drop items under your character as you gather them.",
-	[UiTranslation.OptionsDropItemsOnFacingTile]: "Drop on Facing Tile",
-	[UiTranslation.OptionsDropItemsOnFacingTileTooltip]: "If checked, dropping items will place them on the tile you are facing.",
 	[UiTranslation.OptionsDropItemsAtFeet]: "Drop at Feet",
 	[UiTranslation.OptionsDropItemsAtFeetTooltip]: "If checked, dropping items will place them at your feet.",
 	[UiTranslation.OptionsDropItemsAtFeetWhenFacingTileBlocked]: "Drop at Feet When Blocked",
 	[UiTranslation.OptionsDropItemsAtFeetWhenFacingTileBlockedTooltip]: "If checked, dropping items will place them on the tile you are facing, unless the tile is blocked, in which case they will be placed at your feet.",
-	[UiTranslation.OptionsEffects]: "Effects",
-	[UiTranslation.OptionsEnableHints]: "Enable Hints",
-	[UiTranslation.OptionsEnableHintsTooltip]: "If checked, the game will display unseen hints when triggered.",
-	[UiTranslation.OptionsFullscreenMode]: "Fullscreen Mode",
-	[UiTranslation.OptionsGame]: "Game",
-	[UiTranslation.OptionsGraphics]: "Graphics",
+	[UiTranslation.OptionsDropItemsOnFacingTile]: "Drop on Facing Tile",
+	[UiTranslation.OptionsDropItemsOnFacingTileTooltip]: "If checked, dropping items will place them on the tile you are facing.",
+	[UiTranslation.OptionsDropOnGather]: "Drop on Gather",
+	[UiTranslation.OptionsDropOnGatherTooltip]: "If checked, you will automatically drop items under your character as you gather them.",
 	[UiTranslation.OptionsKeepSortActive]: "Keep Sort Active",
 	[UiTranslation.OptionsKeepSortActiveTooltip]: "If checked, your inventory will keep sorting automatically as you get items.",
-	[UiTranslation.OptionsKeyBindRebinding]: "Press any key...",
-	[UiTranslation.OptionsLanguage]: "Language",
-	[UiTranslation.OptionsMusic]: "Music",
-	[UiTranslation.OptionsMute]: "Mute",
-	[UiTranslation.OptionsNextSong]: "Next",
-	[UiTranslation.OptionsPixelFont]: "Pixel Font",
 	[UiTranslation.OptionsProtectedCraftingItems]: "Protected Crafting Items",
 	[UiTranslation.OptionsProtectedCraftingItemsTooltip]: "If checked, equipped and quickslotted items won't be used in crafting.",
-	[UiTranslation.OptionsRightClickInspect]: "Right Click Inspect",
-	[UiTranslation.OptionsRightClickInspectTooltip]: "If checked, right clicking the game screen will automatically inspect the tile instead of bringing up the actions menu (instead of having to use shift + right click).",
-	[UiTranslation.OptionsSaveData]: "Save Data",
-	[UiTranslation.OptionsScaleDefault]: "Default",
-	[UiTranslation.OptionsScaleIn]: "Scale In +",
-	[UiTranslation.OptionsScaleOut]: "Scale Out -",
-	[UiTranslation.OptionsScreenshotMode]: "Screenshot Mode",
-	[UiTranslation.OptionsScreenshotModeTooltip]: "If checked, all user interface items will be hidden.",
-	[UiTranslation.OptionsSkipIntro]: "Skip Intro",
-	[UiTranslation.OptionsSkipIntroTooltip]: "If checked, the game will skip the Unlok logo screen.",
-	[UiTranslation.OptionsVisionDither]: "Dither Vision",
-	[UiTranslation.OptionsVisionFade]: "Fade Vision",
 	[UiTranslation.OptionsWarnOnDangerousActions]: "Warn On Dangerous Actions",
 	[UiTranslation.OptionsWarnOnDangerousActionsTooltip]: "If checked, a confirmation screen will display when stepping over doodads or objects that could injure you.",
 	[UiTranslation.OptionsWarnWhenBreakingItems]: "Warn When Breaking Items",
 	[UiTranslation.OptionsWarnWhenBreakingItemsOnCraft]: "Warn When Breaking Items On Craft",
 	[UiTranslation.OptionsWarnWhenBreakingItemsOnCraftTooltip]: "If checked, a confirmation screen will display when trying to craft using items that will break on failure.",
 	[UiTranslation.OptionsWarnWhenBreakingItemsTooltip]: "If checked, a confirmation screen will display when trying to use damaged items that may break on use.",
-	[UiTranslation.OptionsWindowedMode]: "Windowed Mode",
-	[UiTranslation.OptionsWorldTooltips]: "World Tooltips",
-	[UiTranslation.OptionsWorldTooltipsTooltip]: "If checked, hovering over non-empty tiles will reveal information in a tooltip so you don't have to inspect.",
 	[UiTranslation.Poisoned]: "Poisoned",
 	[UiTranslation.PreviousHint]: "Previous Hint",
 	[UiTranslation.QuickSlot1]: "1",
@@ -2589,8 +2539,6 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.QuickSlot7]: "7",
 	[UiTranslation.QuickSlot8]: "8",
 	[UiTranslation.QuickSlot9]: "9",
-	[UiTranslation.Reputation]: "Reputation (Malignity/Benignity)",
-	[UiTranslation.ReturnToTitleScreen]: "Return to Title Screen",
 	[UiTranslation.Stamina]: "Stamina (Dexterity)",
 	[UiTranslation.TabCrafting]: "Crafting",
 	[UiTranslation.TabDismantle]: "Dismantle",
@@ -2600,7 +2548,6 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.WindowTitleContainer]: "Container",
 	[UiTranslation.WindowTitleCrafting]: "Crafting",
 	[UiTranslation.WindowTitleEquipment]: "Equipment",
-	[UiTranslation.WindowTitleHighscores]: "Highscores",
 	[UiTranslation.WindowTitleInventory]: "Inventory",
 	[UiTranslation.WindowTitleMap]: "Map",
 	[UiTranslation.WindowTitleMessages]: "Messages",
