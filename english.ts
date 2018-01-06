@@ -340,8 +340,10 @@ english.setDictionary(Dictionary.Corpse, {
 english.setDictionary(Dictionary.Doodad, {
 	// autosort
 	[Doodad.Acid]: ["", "acid", "A neon-green ooze; boiling and bubbling into the ground."],
+	[Doodad.AnimalFatTorchStand]: ["an", "animal fat torch stand", "An animal fat torch planted in the ground. Can be lit on fire for illumination."],
 	[Doodad.AppleTree]: ["an", "apple tree", "A deciduous tree known for its sweet, pomaceous fruit; the apple."],
 	[Doodad.Badderlocks]: ["", "badderlocks", "A gathering of long seaweed, useful for eating or cordage."],
+	[Doodad.BarkTorchStand]: ["a", "bark torch stand", "A bark torch placed in the ground, ready to be lit on fire when needed."],
 	[Doodad.Beggarticks]: ["", "beggarticks", "A grouping of bright yellow medicinal flowers."],
 	[Doodad.ButtonMushrooms]: ["", "button mushrooms", "A few possibly edible common-looking white mushrooms."],
 	[Doodad.Carrots]: ["", "carrots", "A grouping of green stalky leaves poking out of the ground, revealing just the tips of their root vegetable below ground."],
@@ -367,10 +369,13 @@ english.setDictionary(Dictionary.Doodad, {
 	[Doodad.IronAnvil]: ["an", "iron anvil", "An iron anvil used for metalworking. Used in addition with a fire source."],
 	[Doodad.IronChest]: ["an", "iron chest", "An iron container for storing items and reducing food decay."],
 	[Doodad.Lettuce]: ["", "lettuce", "An edible leafy plant that could almost be mistaken for a weed when growing."],
+	[Doodad.LitAnimalFatTorchStand]: ["a", "lit animal fat torch stand", "A lit animal fat torch lodged in the ground, providing light and heat."],
+	[Doodad.LitBarkTorchStand]: ["a", "lit bark torch stand", "A bark torch stuck in the ground and lit on fire, providing illumination."],
 	[Doodad.LitClayCampfire]: ["a", "lit clay campfire", "A lit fire inside an enclosure of clay bricks."],
 	[Doodad.LitClayFurnace]: ["a", "lit clay furnace", "A lit clay furnance, ready to be used in production."],
 	[Doodad.LitClayKiln]: ["a", "lit clay kiln", "A lit clay kiln, ready for firing items."],
 	[Doodad.LitClayWaterStill]: ["a", "lit clay water still", "A lit clay water still, desalinating water through evaporation."],
+	[Doodad.LitPoleTorchStand]: ["a", "lit pole torch stand", "A wooden pole stuck in the ground and lit on fire."],
 	[Doodad.LitSandstoneCampfire]: ["a", "lit sandstone campfire", "A lit fire inside an enclosure of sandstone."],
 	[Doodad.LitSandstoneFurnace]: ["a", "lit sandstone furnace", "A lit sandstone furnance, ready to be used in production."],
 	[Doodad.LitSandstoneKiln]: ["a", "lit sandstone kiln", "A lit sandstone kiln, ready for firing items."],
@@ -379,7 +384,6 @@ english.setDictionary(Dictionary.Doodad, {
 	[Doodad.LitStoneFurnace]: ["a", "lit stone furnace", "A lit stone furnance, ready to be used in production."],
 	[Doodad.LitStoneKiln]: ["a", "lit stone kiln", "A lit stone kiln, ready for firing items."],
 	[Doodad.LitStoneWaterStill]: ["a", "lit stone water still", "A lit stone water still, desalinating water through evaporation."],
-	[Doodad.LitTorchStand]: ["a", "lit torch stand", "A torch stuck in the ground and lit on fire."],
 	[Doodad.LockedWoodenChest]: ["a", "locked wooden chest", "A locked chest, too heavy to move. Able to be broken or lockpicked."],
 	[Doodad.MapleTree]: ["a", "maple tree", "A common maple tree, known for its distinctive leaf and seed shape."],
 	[Doodad.MilkThistles]: ["", "milk thistles", "A couple milk thistles, known for their medicinal properties."],
@@ -387,6 +391,7 @@ english.setDictionary(Dictionary.Doodad, {
 	[Doodad.PileOfRocks]: ["a", "pile of rocks", "A mass of rocks, stuck into the ground."],
 	[Doodad.Pineapple]: ["a", "pineapple", "A large spikey plant, with a ripened pineapple fruit contained inside when mature."],
 	[Doodad.PoisonIvy]: ["", "poison ivy", "A creeping plant with leaves of three."],
+	[Doodad.PoleTorchStand]: ["a", "pole torch stand", "A wooden pole stuck in the ground, ready for being lit to provide illumination."],
 	[Doodad.PotatoPlant]: ["a", "potato plant", "Unassuming leaves poking out of the ground, revealing just the tips of edible tubers underneath."],
 	[Doodad.PricklyPears]: ["", "prickly pears", "Spined cacti, known for its edible fruit and pads with their pointy needles."],
 	[Doodad.Pumpkin]: ["a", "pumpkin", "A heavy orange squash, filled with edible fibrous pulp and seeds."],
@@ -412,7 +417,6 @@ english.setDictionary(Dictionary.Doodad, {
 	[Doodad.SugarCaneStalks]: ["", "sugar cane stalks", "Tall, hardy stalks of sugar cane. Can be harvested for chewing or refining into sugar."],
 	[Doodad.Switchgrass]: ["", "switchgrass", "A collection of long grass, suitable for cordage."],
 	[Doodad.TomatoPlant]: ["a", "tomato plant", "Nightshade plants that produce large, edible fruit that turn red when ripe."],
-	[Doodad.TorchStand]: ["a", "torch stand", "A torch stuck in the ground, ready for being lit to provide illumination."],
 	[Doodad.Wheat]: ["", "wheat", "A long grass, cultivated for its protein-rich cereal grain when dried."],
 	[Doodad.WoodenChest]: ["a", "wooden chest", "A chest used for stockpiling items and preserving food."],
 	[Doodad.WoodenDoor]: ["a", "wooden door", "A sturdy door, used to keep unwanted creatures out."],
@@ -570,7 +574,7 @@ english.setDictionary(Dictionary.Hint, {
 	
 	If you are mining or lumberjacking, your weapon(s) attack value will also help gather items faster. Blunt attack weapon will help you gather faster while mining, while slashing weapons will help you gather faster while lumberjacking.`],
 
-	[Hint.Durability]: ["Durability", "If you find one of your tools, weapons or armor is close to breaking from overuse (highlighted with a red border), you will need to repair it using a hammer item or a grindstone. If you can't find or craft an item to repair it, it will soon break completely upon use."],
+	[Hint.Durability]: ["Durability", "If you find your armor, tools or weapons are close to breaking from overuse (highlighted with a red border), you will need to repair it using a hammer item or a grindstone. If you can't find or craft an item to repair it, it will soon break completely upon use."],
 
 	[Hint.Death]: ["Death", "Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your milestones will also carry over, providing you multiple starting benefits."],
 
@@ -1526,7 +1530,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.NeedFreeHandToShoot]: "You need a free hand to shoot _0_!",
 	[Message.NeedToEquipToShoot]: "You need to equip _0_ to shoot from it!",
 	[Message.NeedToStartTravelsOutside]: "You need to start your travels outside.",
-	[Message.NeedWaterForRaft]: "You need to be in water to use a raft.",
+	[Message.NeedWaterForRaft]: "You need to be facing or in water to use a raft.",
 	[Message.NightQuarter1]: "It is currently in the first quarter of the night.",
 	[Message.NightQuarter2]: "It is currently in the second quarter of the night.",
 	[Message.NightQuarter3]: "It is currently in the third quarter of the night.",
@@ -1535,7 +1539,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.NoAmmunitionForThatWeapon]: "You do not have any ammunition for _0_ in your inventory!",
 	[Message.NoBlackPowderToFireWeapon]: "You do not have any black powder to fire _0_.",
 	[Message.NoFireToStokeWith]: "There is no fire to stoke with _0_ here!",
-	[Message.NoFishAtLocation]: "There is no fish at this location!",
+	[Message.NoFishAtLocation]: "There are no fish at this location!",
 	[Message.NoInkToDrawMap]: "You do not have any ink to draw a map with!",
 	[Message.NoKindlingOrFuelItemsToStartFire]: "You do not have any kindling or fuel to start the fire with.",
 	[Message.NoKindlingToStartFire]: "You do not have any kindling to start the fire.",
@@ -1558,7 +1562,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.NothingUsefulToHarvestYet]: "There is nothing useful to harvest from _0_ yet!",
 	[Message.NoTinderToStartFire]: "You do not have any tinder to start the fire.",
 	[Message.NotInRangeOfTreasure]: "You are not in the range of any buried treasure!",
-	[Message.NotSuitableToPlant]: "_0_ is not suitable to plant _1_!",
+	[Message.NotSuitableToPlant]: "_0_ are not suitable to plant in _1_.",
 	[Message.NoWaterInStill]: "There is no water in this still.",
 	[Message.NoWhereNearTreasure]: "You are no where near the treasure.",
 	[Message.NumberEight]: "eight",
@@ -1726,7 +1730,7 @@ english.setDictionary(Dictionary.Message, {
 	[Message.True]: "True",
 	[Message.UnEquip]: "Unequip",
 	[Message.UnEquipAll]: "Unequip All",
-	[Message.Unknown]: "Unknown",
+	[Message.Unknown]: "unknown",
 	[Message.UnknownItem]: "Unknown Item",
 	[Message.UnlockedChest]: "You unlocked the wooden chest and viewed its contents.",
 	[Message.UnlockedTime]: "Discovered Time",
@@ -1968,9 +1972,9 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.GameInterruptSailAwayEnd]: "Are you sure you want\nto sail to civilization?",
 	[UiTranslation.GameInterruptSailAwayEndDescription]: "Your journey will be over.",
 	[UiTranslation.GameInterruptSailAwayReturnable]: "Are you sure you want\nto sail to civilization?",
-	[UiTranslation.GameInterruptSailAwayReturnableDescription]: "Your journey will be over, but you can always return back to these lands.\nFood and water is recommended.",
+	[UiTranslation.GameInterruptSailAwayReturnableDescription]: "Your journey will be over, but you can always return back to these lands.\nFood and water are recommended.",
 	[UiTranslation.GameInterruptTravelAway]: "Are you sure you want to\ntravel away from these lands?",
-	[UiTranslation.GameInterruptTravelAwayDescription]: "You can never return. Make sure to grab all you need!\nFood and water is recommended.",
+	[UiTranslation.GameInterruptTravelAwayDescription]: "You can never return. Make sure to grab all you need!\nFood and water are recommended.",
 	[UiTranslation.GameInterruptLoadingResting]: "Resting",
 	[UiTranslation.GameInterruptLoadingRestingDescription]: "",
 	[UiTranslation.GameInterruptLoadingSleeping]: "Sleeping",
@@ -2000,7 +2004,7 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.GameInterruptLoadingSprites]: "Loading Sprites",
 	[UiTranslation.GameInterruptLoadingSpritesDescription]: "",
 	[UiTranslation.GameInterruptMultiplayerSynchronizing]: "Synchronizing",
-	[UiTranslation.GameInterruptMultiplayerSynchronizingDescription]: "Synchronizing game state with the server",
+	[UiTranslation.GameInterruptMultiplayerSynchronizingDescription]: "Synchronizing game state with the server.",
 
 	[UiTranslation.GameMultiplayerInterruptBanned]: "You have been banned from the server.",
 	[UiTranslation.GameMultiplayerInterruptConnecting]: "Connecting",
@@ -2013,11 +2017,11 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.GameMultiplayerInterruptSynchronizationError]: "Your game became\nout of sync with the server.",
 	[UiTranslation.GameMultiplayerInterruptSynchronizationErrorDescription]: "Would you like to rejoin?",
 	[UiTranslation.GameMultiplayerInterruptUnableToJoinGame]: "Unable to join the game",
-	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameBuildMismatch]: "The server build (_0_) is different than your build (_1_)",
+	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameBuildMismatch]: "The server build (_0_) is different than your build (_1_).",
 	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameDuplicateIdentifier]: "A player with your id is already playing on this server.\nTry to rejoin in a minute.",
 	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameServerFull]: "The server is full.",
 	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameUnknownError]: "Error code _0_.",
-	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameVersionMismatch]: "The server version (_0_) is different than your version (_1_)",
+	[UiTranslation.GameMultiplayerInterruptUnableToJoinGameVersionMismatch]: "The server version (_0_) is different than your version (_1_).",
 
 	// main menu
 	[UiTranslation.MenuAboutTitle]: "About",
@@ -2303,6 +2307,7 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuOptionsButtonTooltipsDoodads]: "Doodads",
 	[UiTranslation.MenuOptionsButtonTooltipsItems]: "Items",
 	[UiTranslation.MenuOptionsButtonTooltipsTerrain]: "Terrain",
+	[UiTranslation.MenuOptionsButtonOpenLogsFolder]: "Open Logs Folder",
 	[UiTranslation.MenuOptionsDescription]: "Change your game settings.",
 	[UiTranslation.MenuOptionsHeadingAudio]: "Audio",
 	[UiTranslation.MenuOptionsHeadingDeveloper]: "Developer Options",
@@ -2498,7 +2503,6 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.MenuJoinGameMessage]: "Join Another Player's World", // Dynamic
 	[UiTranslation.MenuJoinGameName]: "Name", // Dynamic
 	[UiTranslation.MenuJoinGameServer]: "Server", // Dynamic
-	[UiTranslation.MenuOpenLogsFolder]: "Open Logs Folder", // Dynamic
 	[UiTranslation.MenuOptionsMessage]: "Change Your Game Settings", // Dynamic
 	[UiTranslation.MenuQuitGame]: "Quit Game", // Dynamic
 	[UiTranslation.MenuReloadGame]: "Reload Game", // Dynamic
@@ -2556,7 +2560,7 @@ english.setDictionary(Dictionary.Ui, {
 	[UiTranslation.WindowTitleSkills]: "Skills"
 });
 
-english.setDictionary(Dictionary.UiChoice, {
+english.setDictionary(Dictionary.InterruptChoice, {
 	// autosort
 	[InterruptChoice.Cancel]: "Cancel",
 	[InterruptChoice.No]: "No",
