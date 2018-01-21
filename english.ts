@@ -37,6 +37,7 @@ english.setDictionary(Dictionary.Action, {
 	[Action.Extinguish]: ["Extinguish", "Douse the torch, extinguishing the flame."],
 	[Action.Fire]: ["Fire", "Using a mixture of black powder along with a bullet, you may fire this weapon."],
 	[Action.Gather]: ["Gather", "Can be used directly to gather from an adjacent resource tile/object. Gathering will attempt to gather everything, destroying the plant or mushroom in the process."],
+	[Action.GatherMilk]: ["Gather Milk", "Attempt to gather milk from a creature you are facing."],
 	[Action.GatherTreasure]: ["Gather Treasure", "Attempt to gather a treasure in the vicinity of use based on a decoded treasure map. Range of gather is dependent on your mining skill."],
 	[Action.GatherWater]: ["Gather Water", "Used to gather water into the item."],
 	[Action.Grasp]: ["Grasp", "Used to pick-up items using another item for safety reasons such as grasping items in a fire."],
@@ -48,7 +49,6 @@ english.setDictionary(Dictionary.Action, {
 	[Action.Jump]: ["Jump", ""],
 	[Action.Learn]: ["Learn", "Consumed on use. Reading usually provides useful crafting knowledge."],
 	[Action.LockPick]: ["Lock Pick", "Used to unlock locked objects."],
-	[Action.Milk]: ["Milk", "Attempt to gather milk from a creature you are facing."],
 	[Action.Move]: ["Move", ""],
 	[Action.MoveItem]: ["Move Item", ""],
 	[Action.MoveTo]: ["Move To", ""],
@@ -140,6 +140,17 @@ english.setDictionary(Dictionary.Bindable, {
 	[Bindable.GameContextMenu11]: "Context Menu Item 11",
 	[Bindable.GameContextMenu12]: "Context Menu Item 12",
 	[Bindable.GameContextMenu13]: "Context Menu Item 13",
+	[Bindable.GameContextMenu14]: "Context Menu Item 14",
+	[Bindable.GameContextMenu15]: "Context Menu Item 15",
+	[Bindable.GameContextMenu16]: "Context Menu Item 16",
+	[Bindable.GameContextMenu17]: "Context Menu Item 17",
+	[Bindable.GameContextMenu18]: "Context Menu Item 18",
+	[Bindable.GameContextMenu19]: "Context Menu Item 19",
+	[Bindable.GameContextMenu20]: "Context Menu Item 20",
+	[Bindable.GameContextMenu21]: "Context Menu Item 21",
+	[Bindable.GameContextMenu22]: "Context Menu Item 22",
+	[Bindable.GameContextMenu23]: "Context Menu Item 23",
+	[Bindable.GameContextMenu24]: "Context Menu Item 24",
 	[Bindable.GameActions]: "Actions",
 	[Bindable.GameZoomIn]: "Zoom In",
 	[Bindable.GameZoomOut]: "Zoom Out",
@@ -148,7 +159,7 @@ english.setDictionary(Dictionary.Bindable, {
 	[Bindable.GameItemQuickMoveAll]: "Quick-move Similar Items",
 	[Bindable.GameItemMenu]: "Hovered Item Menu",
 	[Bindable.GameItemDrop]: "Drop Hovered Item",
-	[Bindable.GameItemDropAll]: "Drop all Similar Items",
+	[Bindable.GameItemDropAll]: "Drop All Similar Items",
 	[Bindable.GameItemEquipToggle]: "Toggle Item Equipped",
 	[Bindable.GameInspect]: "Inspect",
 	[Bindable.GameMoreInformation]: "Show More Information",
@@ -510,7 +521,7 @@ english.setDictionary(Dictionary.Hint, {
 	<h3>Window Shortcuts</h3><br>
 	
 	{Bindable.GamePause}: Pause Menu<br>
-	{Bindable.DialogCloseAll}: Close all Dialogs<br>
+	{Bindable.DialogCloseAll}: Close All Dialogs<br>
 	{Bindable.DialogInventory}: Inventory<br>
 	{Bindable.DialogEquipment}: Equipment<br>
 	{Bindable.DialogCrafting}: Crafting<br>
@@ -580,7 +591,7 @@ english.setDictionary(Dictionary.Hint, {
 
 	[Hint.ConsumingBadThings]: ["Consuming Bad Things", "Ow! Not all edible/drinkable objects should be consumed, at least not without facing the consequences. On the other hand, sometimes it's worth the risk to gain its other effects. Consuming bad things can sometimes result in poisoning."],
 
-	[Hint.FastPickup]: ["Fast Pick-up", "You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving."],
+	[Hint.FastPickup]: ["Fast Pick-up", `You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving. Alternatively, you can pick-up all items on a tile by facing the stack, opening the actions menu with {Bindable.GameActions}, and selecting "Pick-up All Items".`],
 
 	[Hint.Bugs]: ["BUGS!", 'Did you find an error? Would you kindly let us know about what happened, so that we may seek to stop this from happening to other players? You can do so by posting the issue in the <a target="_blank" href="http://steamcommunity.com/app/379210/discussions/1/">Steam Discussions Bug Reports forum</a>.'],
 
@@ -1503,13 +1514,16 @@ english.setDictionary(Dictionary.Message, {
 	[Message.MissedWith]: "You missed _0_ with _1_!",
 	[Message.MissedYouWith]: "_0_ missed you with _1_!",
 	[Message.MoreInformation]: "Press _0_ to display more information.",
+	[Message.MoveAllOfSameQualityToFacingContainer]: "Move All of Same Quality to Facing Container",
 	[Message.MoveAllOfSameQualityToInventory]: "Move All of Same Quality to Inventory",
 	[Message.MoveAllOfSameQualityToLastOpenedContainer]: "Move All of Same Quality to Last Opened Container",
 	[Message.MoveAllOfSameQualityToOpenedContainer]: "Move All of Same Quality to Opened Container",
+	[Message.MoveAllToFacingContainer]: "Move All to Facing Container",
 	[Message.MoveAllToInventory]: "Move All to Inventory",
 	[Message.MoveAllToLastOpenedContainer]: "Move All to Last Opened Container",
 	[Message.MoveAllToOpenedContainer]: "Move All to Opened Container",
 	[Message.MoveOverTrapButDoNotSetOff]: "You move over the trap, but do not set it off.",
+	[Message.MoveToFacingContainer]: "Move to Facing Container",
 	[Message.MoveToInventory]: "Move to Inventory",
 	[Message.MoveToLastOpenedContainer]: "Move to Last Opened Container",
 	[Message.MoveToOpenedContainer]: "Move to Opened Container",
