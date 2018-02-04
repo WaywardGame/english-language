@@ -1,3 +1,16 @@
+/*
+ * Copyright Unlok, Vaughn Royko 2011-2018
+ * http://www.unlok.ca
+ * 
+ * Credits & Thanks:
+ * http://www.unlok.ca/credits-thanks/
+ * 
+ * Wayward is a copyrighted and licensed work. Modification and/or distribution of any source files is prohibited. If you wish to modify the game in any way, please refer to the modding guide:
+ * https://waywardgame.github.io/
+ * 
+ * 
+ */
+
 import { ActionType as Action, Bindable, BookType as Book, CreatureType as Creature, DoodadType as Doodad, DoodadTypeGroup as DoodadGroup, ItemType as Item, ItemTypeGroup as ItemGroup, OnEquipType as OnEquip, SkillType as Skill, TerrainType as Terrain } from "Enums";
 import { Dictionary, GrowthStageTranslation as GrowingStage, InterruptChoice, UiTranslation } from "language/ILanguage";
 import Language from "language/Language";
@@ -177,6 +190,7 @@ english.setDictionary(Dictionary.Bindable, {
 	[Bindable.DialogDismantle]: "Toggle Dismantle",
 	[Bindable.DialogMilestones]: "Toggle Milestones",
 	[Bindable.DialogMessagesChatFocus]: "Focus the Chat Input",
+	[Bindable.DialogMessagesChatUnfocus]: "Unfocus the Chat Input",
 	[Bindable.MenuEnter]: "Choose Selected",
 	[Bindable.MenuCancel]: "Cancel",
 	[Bindable.MenuNext]: "Selection Next",
@@ -591,7 +605,7 @@ english.setDictionary(Dictionary.Hint, {
 
 	[Hint.ConsumingBadThings]: ["Consuming Bad Things", "Ow! Not all edible/drinkable objects should be consumed, at least not without facing the consequences. On the other hand, sometimes it's worth the risk to gain its other effects. Consuming bad things can sometimes result in poisoning."],
 
-	[Hint.FastPickup]: ["Fast Pick-up", `You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving. Alternatively, you can pick-up all items on a tile by facing the stack, opening the actions menu with {Bindable.GameActions}, and selecting "Pick-up All Items".`],
+	[Hint.FastPickup]: ["Fast Pick-up", 'You have just picked up an item from the ground. Sometimes there are multiple items on a tile. Pressing the spacebar or clicking on your character will gather items underneath you without moving. Alternatively, you can pick-up all items on a tile by facing the stack, opening the actions menu with {Bindable.GameActions}, and selecting "Pick-up All Items".'],
 
 	[Hint.Bugs]: ["BUGS!", 'Did you find an error? Would you kindly let us know about what happened, so that we may seek to stop this from happening to other players? You can do so by posting the issue in the <a target="_blank" href="http://steamcommunity.com/app/379210/discussions/1/">Steam Discussions Bug Reports forum</a>.'],
 
@@ -923,7 +937,7 @@ english.setDictionary(Dictionary.Item, {
 	[Item.Pemmican]: ["", "pemmican", "A ball of dried ground meat. With a long shelf life, this is the ultimate survival food. For the best benefits, prepare it with animal fat."],
 	[Item.PileOfAsh]: ["a", "pile of ash", "The powdery remains of burned matter.", "piles of ash"],
 	[Item.PileOfCompost]: ["a", "pile of compost", "A mix of decaying organic matter, full of chemical nutrients and great for growing plants with when combined with soil.", "piles of compost"],
-	[Item.PileOfGravel]: ["a", "pile of gravel", "A large pile of damp stone and sand.", "piles of compost"],
+	[Item.PileOfGravel]: ["a", "pile of gravel", "A large pile of damp stone and sand.", "piles of gravel"],
 	[Item.PileOfSand]: ["a", "pile of sand", "A large pile of moist sand, useful for making glass when refined.", "piles of sand"],
 	[Item.PileOfSnow]: ["a", "pile of snow", "A melting snow pile. Useful to drink in desperate need, but be quick!", "piles of snow"],
 	[Item.Pineapple]: ["a", "pineapple", "A juicy, ripe pineapple, loaded with vitamins and thirst-quenching attributes."],
@@ -1873,7 +1887,7 @@ english.setDictionary(Dictionary.Skill, {
 	[Skill.Anatomy]: ["Anatomy", "<li>Increases accuracy of creature health, resistance, and vulnerability descriptions.</li><li>Decreases chance of bleeding, poisoning, and burning pain from creatures.</li><li>Increases effectiveness of healing consumables.</li><li>Increases success chance when healing.</li><li>Decreases chance of bleeding when using bare hands during combat/gathering.</li>"],
 	[Skill.Archery]: ["Archery & Firearms", "<li>Increases attack damage, accuracy and maximum range when using bows and firearms.</li>"],
 	[Skill.Blacksmithing]: ["Blacksmithing", "<li>Influences quality, repair, and success rate of crafted items using metal.</li>"],
-	[Skill.Botany]: ["Botany", "<li>Increases chance of successfully planting a plant.</li><li>Increases effectiveness of eating plant-based consumables.</li><li>Decreases chance of trampling plants when stepping on them.</li><li>Increases chance of gathering resources on plants.</li><li>Decreases chance of stamina reduction while gathering from plants.</li>"],
+	[Skill.Botany]: ["Botany", "<li>Increases chance of successfully planting a plant.</li><li>Increases effectiveness of eating plant-based consumables.</li><li>Decreases chance of trampling plants when stepping on them.</li><li>Increases chance of gathering resources on plants.</li><li>Decreases chance of stamina reduction while gathering from plants.</li><li>Decreases seed germination time.</li>"],
 	[Skill.Camping]: ["Camping", "<li>Increases the amount of turns slept when using a bedroll.</li><li>Increases chance of starting a fire.</li><li>Increases the accuracy of telling the time with a sundial.</li>"],
 	[Skill.Cartography]: ["Cartography", "<li>Increases chance to successfully read tattered maps.</li><li>Decreases obscurity when reading tattered maps.</li>"],
 	[Skill.Chemistry]: ["Chemistry", "<li>Influences quality and success rate of crafted items using chemical mixtures.</li>"],
@@ -1887,7 +1901,7 @@ english.setDictionary(Dictionary.Skill, {
 	[Skill.LockPicking]: ["Lock Picking", "<li>Increases chance to successfully unlock a chest.</li>"],
 	[Skill.Lumberjacking]: ["Lumberjacking", "<li>Increases chance of gathering resources on trees.</li><li>Decreases chance of stamina reduction while lumberjacking.</li>"],
 	[Skill.Mining]: ["Mining", "<li>Increases chance of gathering resources while hitting rock/sandstone or digging.</li><li>Decreases chance of stamina reduction while mining and digging.</li><li>Increases the range in which you can gather treasure from.</li>"],
-	[Skill.Mycology]: ["Mycology", "<li>Increases chance of planting a mushroom.</li><li>Increases effectiveness of eating mushroom consumables.</li><li>Decreases chance of trampling mushrooms when stepping on them.</li><li>Increases chance of gathering resources on mushrooms.</li><li>Decreases chance of stamina reduction while gathering from mushrooms.</li>"],
+	[Skill.Mycology]: ["Mycology", "<li>Increases chance of planting a mushroom.</li><li>Increases effectiveness of eating mushroom consumables.</li><li>Decreases chance of trampling mushrooms when stepping on them.</li><li>Increases chance of gathering resources on mushrooms.</li><li>Decreases chance of stamina reduction while gathering from mushrooms.</li><li>Decreases spore germination time.</li>"],
 	[Skill.Parrying]: ["Parrying", "<li>Increases your base defense value when holding an item in each hand.</li><li>Increases chance to take less damage in combat.</li><li>Decreases chance of stamina reduction from being attacked.</li>"],
 	[Skill.Stonecrafting]: ["Stonecrafting", "<li>Influences quality, repair, and success rate of crafted items using stones and rocks.</li>"],
 	[Skill.Swimming]: ["Swimming", "<li>Increases speed in water travel.</li><li>Decreases chance of stamina reduction in water.</li>"],
