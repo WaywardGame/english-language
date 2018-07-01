@@ -651,6 +651,7 @@ export default uiTranslations = {
 	[Ui.MenuSharedValuePercentage]: "{0}%",
 
 	[Ui.MiscPlayerNameDefault]: "Player",
+	[Ui.MiscPlayerNameServer]: "Server",
 	[Ui.MiscSaveNameDefault]: "Untitled Save {0}",
 	[Ui.MiscSaveVersionUnknown]: "Unknown",
 	[Ui.MiscDailyChallengeName]: "Daily Challenge {0}",
@@ -723,6 +724,5 @@ export default uiTranslations = {
 	[Ui.WindowTitleInventory]: "Inventory",
 	[Ui.WindowTitleMap]: "Map",
 	[Ui.WindowTitleMilestones]: "Milestones",
-	[Ui.WindowTitleOptions]: "Quick Settings",
 	[Ui.WindowTitleSkills]: "Skills"
 };

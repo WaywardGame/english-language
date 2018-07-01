@@ -110,6 +110,7 @@ export default messages = {
 	[Message.ChatCommandsCommand]: "Chat commands: _0_",
 	[Message.ChatPingCommand]: "Your ping is _0_ms.",
 	[Message.ChatPlayerMessage]: "{#--text-color-player:{0}}: {1}",
+	[Message.ChatServerMessage]: "{#--text-color-server:Server}: {1}",
 	[Message.ChatPlayersCommand]: "_0_ players connected: _1_",
 	[Message.ChatUnbanCommand]: "'_0_' has been unbanned.",
 	[Message.ChatUnknownCommand]: '"_0_" is an unknown command.',
