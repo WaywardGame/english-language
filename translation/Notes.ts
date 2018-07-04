@@ -19,11 +19,11 @@ export default notes = {
 
 	[Note.Caving]: ["Caving", `When outside, I hear the chirps and calls of birds and small animals, and I hear the strong winds from the ocean rustle the leaves of trees and other fauna. Every once in a while, in the distance, I hear a loud growl or the sounds of a fevered chase through the underbrush, of a predator and its prey. 
 	
-	Down here, however, is different story. It is eerily quiet in the depths of the island. And unlike above, the infrequent sounds that I /do/ hear send shivers down my spine. A faint tip, tap, as water drips in the distance, a thin whistle as air passes through cracks in the rough stone. An intermittent clicking noise, of what I can only imagine must be the claws of a large arthropod.
+	Down here, however, is different story. It is eerily quiet in the depths of the island. And unlike above, the infrequent sounds that I  /do/  hear send shivers down my spine. A faint tip, tap, as water drips in the distance, a thin whistle as air passes through cracks in the rough stone. An intermittent clicking noise, of what I can only imagine must be the claws of a large arthropod.
 	
-	It would be surprising if these caves didn't have /something/ within them. There are other signs of human activity on this island, the caves should be no different. Maybe treasure or other riches. However, I would be lying to myself if I said I wasn't horrified at the thought of continuing deeper.`],
+	It would be surprising if these caves didn't have  /something/  within them. There are other signs of human activity on this island, the caves should be no different. Maybe treasure or other riches. However, I would be lying to myself if I said I wasn't horrified at the thought of continuing deeper.`],
 
-	[Note.Combat]: ["Combat", `As I engage in combat with {0}, I acknowledge it may not be the best course of actions, given my current situation. The concept of "fight or flight" remains lingering in my mind. Perhaps running from {0} could be a consideration in the future. Attempting to tame or offer food to the creature has also crossed my mind.
+	[Note.Combat]: ["Combat", `As I engage in combat with {0}, I acknowledge it may not be the best course of actions, given my current situation. The concept of  /"fight or flight"/  remains lingering in my mind. Perhaps running from {0} could be a consideration in the future. Attempting to tame or offer food to the creature has also crossed my mind.
 	
 	If all else fails, I must protect my life through mortal conflict and dispatch of the creature. I will endeavor to record my findings on the effectiveness of my weapons against certain types of creatures. I note for example, that {0} is seemingly resistant to {1} damage types, and vulnerable to {2} damage types. This also applies to the potential damage the creature inflicts on me against my own armor.
 	
@@ -31,11 +31,11 @@ export default notes = {
 
 	[Note.Corpse]: ["Corpse", "{0} lays there, lifeless. In order to maintain my own life, perhaps it would be beneficial to use a sharp tool or material to carve this corpse and gather the usable remains."],
 
-	[Note.CreatureTaming]: ["Creature Taming", `I recall a more innocent time in my life as I witness the deceased {0}. The adage, "violence is not the answer" floods my mind as I ponder practicing benevolence against the creatures here.
+	[Note.CreatureTaming]: ["Creature Taming", `I recall a more innocent time in my life as I witness the deceased {0}. The adage,  /"violence is not the answer"/  floods my mind as I ponder practicing benevolence against the creatures here.
 	
 	I could attempt to tame creatures using my skills; however, perhaps an even better idea would be to offer the creature food it would like to consume. Both options involve getting close to the creature. Perhaps I can simply leave the items on the ground and see if they will act in kindness towards me after accepting my offering as they move towards it. I know I will become more successful with any of these options as my skills grow.`],
 
-	[Note.Dehydration]: ["Dehydration", `The rhyme echoes in my head, "water, water, everywhere, nor any drop to drink". My mind runs cloudy; my mouth bone-dry. I'll require water if I am to last any longer.
+	[Note.Dehydration]: ["Dehydration", `The rhyme echoes in my head,  /"water, water, everywhere, nor any drop to drink"/ . My mind runs cloudy; my mouth bone-dry. I'll require water if I am to last any longer.
 	
 	Unfortunately, the largest body of water in my vision is nearly undrinkable in its natural form. I'll need to construct a water still if I am to convert the salinated sea water to potable water. It is quite the endeavor indeed.
 	
@@ -85,7 +85,7 @@ export default notes = {
 	
 	Treasure... The thought is vague and fleeting, but... I remember something about treasure.`],
 
-	[Note.ToolUse]: ["Tool Use", `I'm reminded of the proverb, "the right tool for the right job" as I attempt to {0} using my bare hands. I know that using a tool for {1} would reduce my change of injury as well as provide much needed efficiency.
+	[Note.ToolUse]: ["Tool Use", `I'm reminded of the proverb,  /"the right tool for the right job"/  as I attempt to {0} using my bare hands. I know that using a tool for {1} would reduce my change of injury as well as provide much needed efficiency.
 	
 	Furthermore, I've observed the increased efficiency of using a bladed tool while lumberjacking and using a blunt tool while mining. The proverb proves its innate truth.`]
 };

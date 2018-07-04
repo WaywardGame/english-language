@@ -88,7 +88,7 @@ export default doodads = {
 	[Doodad.StoneKiln]: ["a", "stone kiln", "A high-temperature fire enclosure made from stone."],
 	[Doodad.StoneWall]: ["a", "stone wall", "A hardy wall built from rocks."],
 	[Doodad.StoneWaterStill]: ["a", "stone water still", "A stone water still, ready to be lit to desalinate water."],
-	[Doodad.SugarCaneStalks]: ["", "sugar cane stalks", "Tall, hardy stalks of sugar cane. Can be harvested for chewing or refining into sugar."],
+	[Doodad.SugarCaneStalks]: ["", "sugar cane stalks", "Tall, hardy stalks of sugar cane. Can be gathered for chewing or refining into sugar."],
 	[Doodad.Switchgrass]: ["", "switchgrass", "A collection of long grass, suitable for cordage."],
 	[Doodad.TomatoPlant]: ["a", "tomato plant", "Nightshade plants that produce large, edible fruit that turn red when ripe."],
 	[Doodad.Tumbleweed]: ["a", "tumbleweed", "A common weed, notorious for becoming dry and brittle after its maturity, breaking free from its roots and traveling in high winds, spreading its seeds."],
