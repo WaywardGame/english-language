@@ -15,11 +15,11 @@ let interruptChoices: any;
 export default interruptChoices = {
 	// autosort
 	[Choice.Cancel]: "Cancel",
-	[Choice.ContinueAnyway]: "Continue anyway",
+	[Choice.ContinueAnyway]: "Continue Anyway",
 	[Choice.LocalFile]: "Local File",
 	[Choice.No]: "No",
 	[Choice.Ok]: "OK",
-	[Choice.OpenSaveFolderAndQuit]: "Open save folder and quit",
+	[Choice.OpenSaveFolderAndQuit]: "Open Save Folder and Quit",
 	[Choice.Rejoin]: "Rejoin",
 	[Choice.Rename]: "Rename",
 	[Choice.Retry]: "Retry",

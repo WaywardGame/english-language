@@ -48,7 +48,9 @@ export default articles = {
 		{#--text-color-faded:Skills:} {Bindable.DialogSkills}
 		{#--text-color-faded:Close All Dialogs:} {Bindable.DialogCloseAll}
 		
-		Keybindings can be changed in the {link(Menu.Options.5):Options Menu}. For more binds, see the {link(Menu.Options.5):Options Menu}.
+		Keybindings can be changed in the {link(Menu.Options.5):Options Menu}. 
+		
+		For more binds, see the {link(Menu.Options.5):Options Menu}.
 		
 		{heading:Movement}
 		
@@ -66,7 +68,7 @@ export default articles = {
 		
 		{heading:Actions}
 		
-		Interacting through the world is done mostly through the {link(Menu.HelpArticle.Actions):Actions} menu, opened using {Bindable.GameActions}.
+		Interacting through the world is done mostly through the {link(Menu.HelpArticle.Actions):actions} menu, opened using {Bindable.GameActions}.
 		
 		{heading:Using Items}
 		
@@ -76,9 +78,9 @@ export default articles = {
 		
 		 _Dropping items_ 
 		
-		{#--text-color-faded:Drop an item:} {Bindable.GameItemDrop} (when the mouse is over the item), or use the {link(Menu.HelpArticle.Actions):"Drop" Action} on the item. 
+		{#--text-color-faded:Drop an item:} {Bindable.GameItemDrop} (when the mouse is over the item), or use the {link(Menu.HelpArticle.Actions):"Drop" action} on the item. 
 		
-		{#--text-color-faded:Drop all of a type of item:} {Bindable.GameItemDropAll} (when the mouse is over the type of item to drop), or use the {link(Menu.HelpArticle.Actions):"Drop All" Action}
+		{#--text-color-faded:Drop all of a type of item:} {Bindable.GameItemDropAll} (when the mouse is over the type of item to drop), or use the {link(Menu.HelpArticle.Actions):"Drop All" action}.
 		
 		If there is a tile in the way of dropping an item, by default nothing will happen. You may change this functionality in the "Drop Location" setting, available in the {link(Menu.Options.3):Options Menu} and the Quick Settings dialog.
 		
@@ -163,7 +165,7 @@ export default articles = {
 		
 		All items also have actions that can be performed on them. The item actions menu is opened by pressing {Bindable.GameItemMenu}. Tools will usually have actions that can be used on the facing tile, while other items will have actions that affect the tile you're standing on, or just you, such as consuming a food with the "Eat" action.
 		
-		Since finding an item in your inventory and using the item action menu on it can be a pain, you can use {link(Menu.HelpArticle.Quickslots):Quickslots} to speed up the process.`
+		Since finding an item in your inventory and using the item action menu on it can be a pain, you can use {link(Menu.HelpArticle.Quickslots):quickslots} to speed up the process.`
 	],
 
 	[HelpArticle.Stats]: [
@@ -182,12 +184,17 @@ export default articles = {
 		
 		{heading:Replenishing Stats}
 		 
-		{#--stat-color-stamina:Stamina} replenishes slowly over time, but can also be replenished by resting or sleeping.
+		{#--stat-color-stamina:Stamina} replenishes slowly over time, but can also be replenished by resting, sleeping, and most food items.
 		 
-		{#--stat-color-hunger:Hunger} and {#--stat-color-thirst:Thirst} can be replenished by foods and fresh water.
+		{#--stat-color-hunger:Hunger} and {#--stat-color-thirst:thirst} can be replenished by food and water.
 		 
-		{#--stat-color-health:Health} recovers slowly over time, but can be restored with bandages and other health items.`
-		// TODO "Other Stats"
+		{#--stat-color-health:Health} recovers slowly over time, but can be restored with bandages, other health items, and some types of food.
+		
+		{heading:Maximum Stats}
+		
+		Using skills have the chance to increase the maximum values of your stats. An increase in strength will increase the maximum value of your {#--stat-color-health:health} as well as your {link(Menu.HelpArticle.Overweight):weight limit}. An increase in dexterity will increase your maximum {#--stat-color-stamina:stamina}. An increase in metabolism will increase both {#--stat-color-hunger:hunger} and {#--stat-color-thirst:thirst}.
+		
+		There are also legendary items that can be {link(Menu.HelpArticle.Crafting):crafted} or found that will increase your stats when equipped.`
 	],
 
 	[HelpArticle.Doodads]: [
@@ -204,7 +211,7 @@ export default articles = {
 		4. Use an item with a "Gather" use, such as a wooden pole.
 		5. Use an item with a "Harvest" use, such as a stone knife.
 		
-		Using your bare hands (the first of the above options) can sometimes harm you. The other options are safe, as they use tools, but they will decrease the durability of that tool. `
+		Using your bare hands (the first of the above options) can sometimes harm you. The other options are safe, as they use tools, but they will decrease the durability of that tool.`
 	],
 
 	[HelpArticle.ResourceGathering]: [
@@ -280,7 +287,7 @@ export default articles = {
 		"Death",
 		"It will happen to us all eventually. This contains information about what carries over between lives.",
 		"What carries over between lives.",
-		"Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your {link(Menu.HelpArticle.Milestones):Milestones} will also carry over, providing you multiple starting benefits."
+		"Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your {link(Menu.HelpArticle.Milestones):milestones} will also carry over, providing you multiple starting benefits."
 		// TODO include some insights on how to avoid death maybe?
 	],
 
