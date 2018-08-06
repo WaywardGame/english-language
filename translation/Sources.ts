@@ -11,7 +11,7 @@
 
 import { Source } from "player/IMessageManager";
 
-const sources: Description2<Source, string> = {
+const sources: Descriptions<Source, string> = {
 	[Source.All]: "All",
 	[Source.Action]: "Action",
 	[Source.Allies]: "Humans and Pets",

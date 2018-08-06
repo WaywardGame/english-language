@@ -13,7 +13,7 @@
 
 import { HelpArticle } from "newui/screen/screens/menu/menus/help/HelpArticleDescriptions";
 
-let articles: Description2<HelpArticle, [string, string, string, string]>;
+let articles: Descriptions<HelpArticle, [string, string, string, string]>;
 export default articles = {
 	[HelpArticle.Welcome]: [
 		"Welcome to Wayward",
@@ -113,7 +113,7 @@ export default articles = {
 	],
 
 	[HelpArticle.InventoryManagement]: [
-		"Inventory Management",
+		"Inventory\nManagement",
 		"Learn ways of organizing, moving, and dropping items.",
 		"Organizing, moving, and dropping items.",
 		`There are many ways to organize and move items in Wayward.
@@ -215,7 +215,7 @@ export default articles = {
 	],
 
 	[HelpArticle.ResourceGathering]: [
-		"Resource Gathering",
+		"Resource\nGathering",
 		"A guide on collecting items from the environment or creatures.",
 		"Collecting items from the environment.",
 		`To gather resources from trees or rocks, you must use the "Gather" action from an item's menu. It is also recommended you quickslot it for quick usage. You may have to default its usage as "Gather" if it is not the default action. See {link(Menu.HelpArticle.Quickslots):Quickslots} for more information on this functionality. You may not always succeed in gathering materials (the chances are based on your skill and tool).
@@ -291,7 +291,7 @@ export default articles = {
 		// TODO include some insights on how to avoid death maybe?
 	],
 
-	[HelpArticle.CreatureTaming]: [
+	[HelpArticle.Taming]: [
 		"Creature Taming",
 		"A small guide on how to tame creatures using a variety of methods.",
 		"Learn about all the options for taming creatures.",

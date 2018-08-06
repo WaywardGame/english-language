@@ -24,7 +24,7 @@ export default milestones = {
 	[Milestone.Doctor]: ["Doctor", "Cured each status effect."],
 	[Milestone.DragonSlayer]: ["Dragon Slayer", "Slayed a drake."],
 	[Milestone.Explorer]: ["Explorer", "Stepped on or gathered from every type of tile."],
-	[Milestone.Extincteur]: ["Extincteur", "Killed 1000 creatures."],
+	[Milestone.Exterminator]: ["Exterminator", "Killed 1000 creatures."],
 	[Milestone.Friendly]: ["Friendly", "Tamed 25 creatures."],
 	[Milestone.Gardener]: ["Gardener", "Planted 50 plants or mushrooms."],
 	[Milestone.Gatherer]: ["Gatherer", "Gathered 1000 times."],

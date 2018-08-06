@@ -63,7 +63,7 @@ export default notes = {
 
 	[Note.Inedible]: ["Inedible", "Consuming {item} may not have been the best of ideas. I {poisoned?think I may:am probably lucky not to} have been poisoned by it... It would be prudent to pay better attention to what I ingest. Something like that should only be consumed when I am in dire straits."],
 
-	[Note.Merchantile]: ["Merchantile", `I meet {0} today, a person in a similar state as myself; surviving on this island and living off the land. They seemed friendly enough and offered to trade items they had found with me.
+	[Note.Mercantile]: ["Mercantile", `I meet {0} today, a person in a similar state as myself; surviving on this island and living off the land. They seemed friendly enough and offered to trade items they had found with me.
 	
 	My skill in bartering may pay off when deciding on a trade value, which we have signified with a credit system. {0} gives me credit when I give items to them, and reversely, removes credits when I find an item in their inventory worth taking for myself.
 	

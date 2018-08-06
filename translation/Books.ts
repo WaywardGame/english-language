@@ -29,7 +29,7 @@ export default books = {
 	
 	"We have failed. Many have perished. We are missing the final piece. I do not think we can make it much further. We seem to have angered nature itself."`],
 
-	[Book.Deities]: ["Dieties", `The book has the inscription, "Deities" on the spine.<br><br>
+	[Book.Deities]: ["Deities", `The book has the inscription, "Deities" on the spine.<br><br>
 	
 	"The same three strange symbols seem to appear again and again on artifacts, cave walls, and even old long-ago abandoned buildings. Cross referencing other resources and even some older journals we have found references to deities, spirits, and even Gods. Most likely worshiped by the heathens that used to inhabit these lands. They seem connected to these islands somehow."<br><br>
 	
