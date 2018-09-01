@@ -311,7 +311,9 @@ export default articles = {
 		"Tips on gardening and information on growth cycles.",
 		`The full plant life cycle is represented within Wayward. In order, these are: germinating, seedling, vegetative, budding, flowering, ripening, and dead. Fungus follows the same steps, but are named: germinating, spreading, forming, young, fruiting, and full. Each of these stages provide different {link(Menu.HelpArticle.ResourceGathering):resources when gathering or harvesting}.
 		
-		You can attempt to water plants (by using the "Pour" action on water containers) or plant them on fertile soil to reduce their growth time and increase their fertility for spreading when mature enough to spread.`
+		You can attempt to water plants (by using the "Pour" action on water containers) or plant them on fertile soil to reduce their growth time and increase their fertility for spreading when mature enough to spread.
+		
+		Through the use of fertilization, you can promote the fertility of plants (spreading and propagation) and decrease growing time. By combining compostable items to produce compost, and making bone meal through the grinding of bones, you can craft fertilizer. Combine it with soil (produced when digging dirt) to create fertile soil. Fertile soil can be placed down, tilled, then used as the target for planting seeds and mushrooms.`
 	],
 
 	[HelpArticle.Overweight]: [

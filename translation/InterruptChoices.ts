@@ -11,8 +11,7 @@
 
 import { InterruptChoice as Choice } from "language/ILanguage";
 
-let interruptChoices: any;
-export default interruptChoices = {
+const interruptChoices: Descriptions<Choice, string> = {
 	// autosort
 	[Choice.Cancel]: "Cancel",
 	[Choice.ContinueAnyway]: "Continue Anyway",
@@ -24,5 +23,8 @@ export default interruptChoices = {
 	[Choice.Rename]: "Rename",
 	[Choice.Retry]: "Retry",
 	[Choice.SteamWorkshop]: "Steam Workshop",
-	[Choice.Yes]: "Yes"
+	[Choice.Yes]: "Yes",
+	[Choice.Quit]: "Quit"
 };
+
+export default interruptChoices;

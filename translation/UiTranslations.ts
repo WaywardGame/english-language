@@ -11,8 +11,7 @@
 
 import { UiTranslation as Ui } from "language/ILanguage";
 
-let uiTranslations: any;
-export default uiTranslations = {
+const uiTranslations: { [key in Ui]: string } = {
 
 	// ui rewrite
 	// in game
@@ -235,6 +234,11 @@ export default uiTranslations = {
 	[Ui.GameMultiplayerInterruptUnableToJoinGameServerFull]: "The server is full.",
 	[Ui.GameMultiplayerInterruptUnableToJoinGameUnknownError]: "Error code {0}.",
 	[Ui.GameMultiplayerInterruptUnableToJoinGameVersionMismatch]: "The server version ({0}) is different than your version ({1}).",
+	[Ui.GameMultiplayerInterruptRequiredModIsDisabled]: "{name}@{version} is disabled",
+	[Ui.GameMultiplayerInterruptRequiredModNotInstalled]: "{name}@{version} is not installed",
+	[Ui.GameMultiplayerInterruptRequiredModVersionMismatch]: "Required {name}@{version}. Currently running version {1}",
+	[Ui.GameMultiplayerInterruptRequiredModNotMultiplayerCompatible]: "{name}@{version} is not a multiplayer-compatible mod.",
+	[Ui.GameMultiplayerInterruptRequiredModUnableToLoad]: "Unable to load {name}@{version}",
 
 	// main menu
 	[Ui.MenuAboutTitle]: "About",
@@ -454,6 +458,7 @@ export default uiTranslations = {
 	[Ui.MenuModsTooltipLabelInstallDate]: "{#--text-color-faded:Install Date:} {0}",
 	[Ui.MenuModsTooltipLabelCreatedDate]: "{#--text-color-faded:Created Date:} {0}",
 	[Ui.MenuModsTooltipLabelLastUpdatedDate]: "{#--text-color-faded:Last Updated Date:} {0}",
+	[Ui.MenuModsTooltipMultiplayerCompatibility]: "{0?Clientside:{1?Multiplayer Compatible:Singleplayer Only}}",
 	[Ui.MenuModsTooltipModOptions]: "Mod Options",
 	[Ui.MenuModsTooltipProvidesCustomizations]: "Customizations",
 	[Ui.MenuModsTooltipProvidesImageOverrides]: "Retextures",
@@ -523,6 +528,7 @@ export default uiTranslations = {
 	[Ui.MenuOptionsButtonDitherFogOfWar]: "Dither Style Fog of War",
 	[Ui.MenuOptionsButtonFullscreen]: "Fullscreen",
 	[Ui.MenuOptionsButtonPixelFont]: "Pixel Font",
+	[Ui.MenuOptionsButtonDisableCustomCursor]: "Disable Custom Cursor",
 	[Ui.MenuOptionsButtonDeveloperMode]: "Developer Mode",
 	[Ui.MenuOptionsButtonDeveloperModeContextMenu]: "Context Menu",
 	[Ui.MenuOptionsButtonReloadGame]: "Reload Game",
@@ -745,3 +751,5 @@ export default uiTranslations = {
 	[Ui.WindowTitleMilestones]: "Milestones",
 	[Ui.WindowTitleSkills]: "Skills"
 };
+
+export default uiTranslations;
