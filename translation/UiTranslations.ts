@@ -486,6 +486,13 @@ const uiTranslations: { [key in Ui]: string } = {
 	[Ui.MenuModsTooltipCanLoadStateReqiredModNotLoaded]: "Required mod is not loaded.", // Dynamic
 	[Ui.MenuModsTooltipCanLoadStateLocalModPrecedence]: "Installed locally; local mods have precedence.", // Dynamic
 	[Ui.MenuModsTooltipCanLoadStateIncompatibleVersion]: "Incompatible with this version.", // Dynamic
+	[Ui.MenuModsButtonEditInternalMods]: "Edit Internal Mods",
+
+	[Ui.MenuModsSubmenuEditInternalModsTitle]: "Edit Internal Mods",
+	[Ui.MenuModsSubmenuEditInternalModsDescription]: "Edit the list of internal mods.",
+	[Ui.MenuModsSubmenuEditInternalModsInterruptModsListChangeReload]: "Reload the game?",
+	[Ui.MenuModsSubmenuEditInternalModsInterruptModsListChangeReloadDescription]: "Changing the internal mods list requires a reload.",
+	[Ui.MenuModsSubmenuEditInternalModsPlaceholderAddNewInternalMod]: "Add New Internal Mod",
 
 	[Ui.MenuNewGameButtonNext]: "Next",
 	[Ui.MenuNewGameButtonStartServer]: "Start Server",

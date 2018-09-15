@@ -19,12 +19,12 @@ const interruptChoices: Descriptions<Choice, string> = {
 	[Choice.No]: "No",
 	[Choice.Ok]: "OK",
 	[Choice.OpenSaveFolderAndQuit]: "Open Save Folder and Quit",
+	[Choice.Quit]: "Quit",
 	[Choice.Rejoin]: "Rejoin",
 	[Choice.Rename]: "Rename",
 	[Choice.Retry]: "Retry",
 	[Choice.SteamWorkshop]: "Steam Workshop",
-	[Choice.Yes]: "Yes",
-	[Choice.Quit]: "Quit"
+	[Choice.Yes]: "Yes"
 };
 
 export default interruptChoices;
