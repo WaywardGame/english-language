@@ -1323,6 +1323,8 @@
 			"deathByBleeding": "by bleeding out",
 			"deathByBurning": "of burn injuries",
 			"deathByChallengeWinner": "by natural selection",
+			"playerHasWonChallenge": "The challenge has been won by {0}. Better luck next time!",
+			"playerHasCompletedChallengeRequirement": "{0?{0} has:You have} completed the requirement \"{1}\". Only {num(as words):{2}} {reformat({2}, false):requirement} left!",
 			"deathByConsumption": "by consuming {0}",
 			"deathByDrowning": "of drowning",
 			"deathByExhaustion": "of exhaustion",
@@ -2006,6 +2008,7 @@
 			"dependencyIssue": "Issues found with dependencies.",
 			"modRequiresItself": "Mod requires itself.",
 			"missingRequiredMod": "Missing a required mod.",
+			"cannotLoadRequiredMod": "Can't load required mod.",
 			"reqiredModNotLoaded": "Required mod is not loaded.",
 			"localModPrecedence": "Installed locally; local mods have precedence.",
 			"incompatibleVersion": "Incompatible with this version."
@@ -2174,7 +2177,8 @@
 			"multiplayer": "Multiplayer",
 			"resource": "Resource Collection",
 			"skill": "Skill",
-			"wellbeing": "Well-Being"
+			"wellbeing": "Well-Being",
+			"stat": "Stat"
 		},
 		"stat": {
 			"health": "health",
@@ -2291,6 +2295,7 @@
 			"gameDialogQuestsName": "Quests",
 			"gameDialogQuestsLink": "{0}: {1}/{2}",
 			"gameDialogQuestsChildQuests": "Unlocked Quests",
+			"gameDialogQuestsRequirements": "Requirements",
 			"gameDialogQuestsActiveQuests": "Active Quests",
 			"gameDialogQuestsCompletedQuests": "Completed Quests",
 			"gameDialogQuestsCompleteQuest": "Complete Quest",
@@ -2636,6 +2641,7 @@
 			"menuModsInterruptUnloadableSaveGameModDescription": "The save game '{0}' cannot be loaded due to being too old or incompatible with this version of Wayward.",
 			"menuModsTitle": "Mods",
 			"menuModsTooltipLabelAuthor": "{#--text-color-faded:Author:} {0}",
+			"menuModsTooltipLabelTags": "{#--text-color-faded:Tags:} {0}",
 			"menuModsTooltipLabelDependencies": "{#--text-color-faded:Dependencies:} {0}",
 			"menuModsTooltipLabelProvides": "{#--text-color-faded:Provides:} {0}",
 			"menuModsTooltipLabelVersion": "{#--text-color-faded:Version:} {0}",
@@ -2648,6 +2654,7 @@
 			"menuModsTooltipProvidesCustomizations": "Customizations",
 			"menuModsTooltipProvidesImageOverrides": "Retextures",
 			"menuModsTooltipProvidesLanguage": "Language",
+			"menuModsTooltipProvidesLanguageExtensions": "Language Extensions",
 			"menuModsTooltipProvidesScript": "Scripts",
 			"menuModsTooltipProvidesStylesheet": "Restyles",
 			"menuModsTooltipPublishMod": "Publish Mod",
