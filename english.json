@@ -646,6 +646,7 @@
 			"full": "{HumanName:First:random}{HumanName:Last? {HumanName:Last:random}}"
 		},
 		"inspectType": {
+			"self": "Self",
 			"player": "Players",
 			"nPC": "NPCs",
 			"creature": "Creatures",
@@ -1283,7 +1284,10 @@
 			"litTallowCandle": ["lit tallow candle", "Burning long and bright, this delicious smelling tallow candle lights your way."],
 			"wispDust": ["wisp dust", "A magical glowing pile of dust, extracted from a wisp. It inexplicably feels weightless, yet burdensome in your hands."],
 			"magicalAspect": ["magical aspect", "A magical compound that is warm to the touch and ready to apply on to items, enchanting them with new characteristics."],
-			"goldenSextant": ["golden sextant", "A metallic brass-coated navigational tool. Used for measuring the horizon and sun to judge distances."]
+			"goldenSextant": ["golden sextant", "A metallic brass-coated navigational tool. Used for measuring the horizon and sun to judge distances."],
+			"rawChoppedFish": ["raw chopped fish", "A roughly chopped assortment of fish meat and viscera to be used as bait or cooked for consumption in several manners."],
+			"cookedChoppedFish": ["cooked chopped fish", "A sizable helping of chopped fish cooked and ready to ingest."],
+			"cookedFishKebab": ["cooked fish kebab", "A skewered mass of fish chunks cooked delicately over flame to be consumed off the spear for an added flare."]
 		},
 		"itemGroup": {
 			"invalid": "",
@@ -1402,7 +1406,12 @@
 			"actionAttachContainerAttachedContainer": "You attached {0} to {1}",
 			"actionAttachContainerAttachingContainer": "attaching container",
 			"actionAttachContainerNothingToAttachContainerTo": "There is nothing to attach {0} to here.",
+			"actionCraft": "Craft",
+			"actionCraftYouLackTheRequirements": "You lack the requirements for this craft.",
 			"actionDetachContainerDetachContainer": "You detached {0} from {1}",
+			"actionFishingNothingBiting": "Nothing seems to be biting here.",
+			"actionFishingSlipped": "You felt something slip away from your line.",
+			"actionFishingTooShallow": "This location appears to be to be too shallow to catch anything.",
 			"actionMeleeHasToBeEquipped": "{0} has to be equipped to attack with it.",
 			"actionMeleeNothingToAttack": "There is nothing to attack here.",
 			"actionNavigateMoon": "moon",
@@ -1430,6 +1439,7 @@
 			"attack": "Attack",
 			"attemptedToDropAllIntoFire": "You attempted to drop {0} into the fire.",
 			"attemptedToPlaceAllOnGround": "You attempted to place {0} on the ground.",
+			"attemptToSoothBurnInWater": "You move around in {0} attempting to soothe your burn injuries but do not succeed yet.",
 			"attemptToTill": "You attempt to {0} the {1}, but do not produce any results yet.",
 			"back": "Back",
 			"badlyBurnedLostHealth": "You have been badly burned! You have lost {0} health!",
@@ -1512,7 +1522,7 @@
 			"chatCommandsCommand": "Chat commands: {0}",
 			"chatCommandsCommandCommand": "{#--text-color-command:/{0}}{1? OR {#--text-color-command:/{1}}}",
 			"chatPingCommand": "Your ping is {0}ms.",
-			"chatPlayerMessage": "{#--text-color-player:{0}}: {1}",
+			"chatPlayerMessage": "{#--text-color-player:{0}}{#--text-color-faded::} {1}",
 			"chatPlayersCommand": "{0} players connected: {1}",
 			"chatServerMessage": "{#--text-color-server:Server}: {1}",
 			"chatUnbanCommand": "'{0}' has been unbanned.",
@@ -1725,6 +1735,7 @@
 			"itAlsoReveals": "it also reveals",
 			"itAlsoSeems": "it also seems",
 			"itContains": "It contains {0}.",
+			"itemFromWater": "You pulled out {0} up out of the water!",
 			"itsWeightCapacity": "Its weight capacity is {0} / {1}{2? +{2}}.",
 			"joinedAServer": "You have joined a server with {0} other {reformat({0},false):player} connected.",
 			"jump": "Jump",
@@ -1787,6 +1798,7 @@
 			"lostThirst": "You have quenched {0} thirst.",
 			"mapNotOfThisArea": "This map is not of this area.",
 			"materialsDestroyed": "{0} materials have been destroyed from {1}.",
+			"merchantAlreadyTradedItem": "What do you take me for? I already traded you that!",
 			"messageOfTheDay": "MOTD: {0}",
 			"metabolism": "Metabolism (Hunger/Thirst)",
 			"metabolismSlowed": "Your metabolism has slowed. You will require less food and water.",
@@ -1816,7 +1828,6 @@
 			"multiplayerPlayerDisconnected": "{0} has disconnected.",
 			"multiplayerPlayerJoined": "{0} has joined.",
 			"mustBeEquippedToIgnite": "{0} must be equipped to ignite it.",
-			"mustCastIntoWater": "You must cast into water to catch anything.",
 			"mysteriously": "mysteriously",
 			"name": "Name",
 			"nearlyBurnedEquipmentProtectedYou": "You were nearly burned, but your equipment protected you.",
@@ -1836,7 +1847,7 @@
 			"noAmmunitionForThatWeapon": "You do not have any ammunition for {0} in your inventory!",
 			"noBlackPowderToFireWeapon": "You do not have any black powder to fire {0}.",
 			"noFireToStokeWith": "There is no fire to stoke with {0} here!",
-			"noFishAtLocation": "There are no fish at this location!",
+			"noFishAtLocation": "There are no fish or resources at this location!",
 			"noGroundWater": "The well is constructed in a location that does not contain any groundwater.",
 			"noInkToDrawMap": "You do not have any ink to draw a map with!",
 			"noKindlingOrFuelItemsToStartFire": "You do not have any kindling or fuel to start the fire with.",
@@ -2000,7 +2011,6 @@
 			"scrollMaster": "You are truly a master of all {0}.",
 			"scrollProvidedNoUsefulInsight": "The scroll provided no useful insight for you.",
 			"seawater": "seawater",
-			"seaweedFromWater": "You dragged a slimy mass of seaweed up out of the water!",
 			"seemsToHaveDrawnEnergy": "{0} seems to have drawn energy from {1}!",
 			"setTrapOffButNoDamage": "You set the trap off, but it does no damage to you.",
 			"setUp": "You have set up {0}.",
@@ -2302,7 +2312,8 @@
 			"humanName": "{#--text-color-player:{0}}",
 			"itemQualityColor": "{0?{#--item-quality-{0}:{1}}:{1}}",
 			"aberrant": "{#--message-type-bad:{0}}",
-			"itemLegendary": "{1} of {0}"
+			"itemLegendary": "{1} of {0}",
+			"ownName": "{#--text-color-self:{0}}"
 		},
 		"modLoadError": {
 			"modLoadError": "Error loading mod.",
@@ -2687,12 +2698,6 @@
 			"gameStatsStatDefenseTooltipFire": "Fire Resist: {#--stat-color:{0}}",
 			"gameStatsStatDefenseTooltipPiercing": "Piercing Resist: {#--stat-color:{0}}",
 			"gameStatsStatDefenseTooltipSlashing": "Slashing Resist: {#--stat-color:{0}}",
-			"gameQuadrantElementStats": "Stats",
-			"gameQuadrantElementMenuBar": "Menu Bar",
-			"gameQuadrantElementQuickslots": "Quickslots",
-			"gameQuadrantElementMessages": "Messages",
-			"gameQuadrantElementContextMenuMoveTo": "Move {0} To",
-			"gameQuadrantElementContextMenuSwitchWith": "Switch With",
 			"gameItemBarterCredit": "Barter Credit: ",
 			"gameItemBarterCreditTrade": "Barter Credit Trade: ",
 			"gameMenuBarButtonTooltipBindable": " {#--text-color-faded:({Bindings:{0}})}",
@@ -3041,8 +3046,8 @@
 			"menuOptionsButtonAlwaysShowMoreInformationTooltip": "If checked, you will never have to hold down a key to show more information in tooltips.",
 			"menuOptionsButtonAutoGatherHarvest": "Auto Gather/Harvest",
 			"menuOptionsButtonAutoGatherHarvestTooltip": "If checked, you will automatically gather/harvest when moving into resource tiles (with whichever hand(s) you have selected).",
-			"menuOptionsButtonDisableUIAnimations": "Disable UI Animations",
-			"menuOptionsButtonDisableUIAnimationsTooltip": "If checked, animations and transitional effects on UI will be disable, possibly reducing GPU and CPU load on some devices.",
+			"menuOptionsButtonDisableUIEffects": "Disable UI Effects",
+			"menuOptionsButtonDisableUIEffectsTooltip": "If checked, animations and other effects on the UI will be disable, possibly reducing GPU and CPU load on some devices.",
 			"menuOptionsButtonAutoAttack": "Auto Attack",
 			"menuOptionsButtonAutoAttackTooltip": "If checked, you will automatically attack when moving into a creature or player (with PVP enabled) with whichever hand(s) you have selected.",
 			"menuOptionsButtonAutoPickup": "Auto Pick-up",
@@ -3235,6 +3240,17 @@
 			"startWithNone": "Start With None",
 			"useUnlocks": "Use Unlocks",
 			"allUnlocked": "All Unlocked"
+		},
+		"quadrantComponent": {
+			"messages": "Messages",
+			"stats": "Stats",
+			"quickslots": "Quickslots",
+			"menuBar": "Menu Bar"
+		},
+		"quadrantComponentContextMenuAction": {
+			"switchWith": "Switch With",
+			"moveTo": "Move {0} To",
+			"hide": "Hide"
 		}
 	},
 	"pluralizationRules": {
