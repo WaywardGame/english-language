@@ -91,8 +91,13 @@
 			"pickupExcrement": ["Pickup Excrement", ""],
 			"testDepth": ["Test Depth", "Used when facing a well to test the depth and water type of a well by lowering the rope down."],
 			"enchant": ["Enchant", "Used to enhance an item, increasing its quality or modifying its magical properties."],
-			"navigate": ["Navigate", "Used to find your coordinates by looking into the horizon and measuring  distances."],
+			"navigate": ["Navigate", "Used to find your coordinates by looking into the horizon and measuring distances."],
 			"melee": ["Melee", "Attempt to melee attack a creature you are facing."]
+		},
+		"autoSave": {
+			"off": "Off",
+			"turns": "Turns",
+			"time": "Time"
 		},
 		"bindable": {
 			"none": "none",
@@ -395,6 +400,13 @@
 		"corpse": {
 			"fireElemental": "pile of embers"
 		},
+		"craftEfficacy": {
+			"lowest": "poor",
+			"low": "decent",
+			"medium": "good",
+			"high": "great",
+			"highest": "maximum"
+		},
 		"creature": {
 			"slime": ["slime", "A bouncing globule of animated gelatin. It is not aware of your stirring."],
 			"jellyCube": ["jelly cube", "An animated cube of gelatin. Its body jiggles to-and-fro as it moves towards you with hostile intent."],
@@ -633,7 +645,7 @@
 			"overweight": ["Overweight", "Learn the impacts of being overweight.", "Understanding being encumbered and overburdened.", "If you are carrying too much weight, you will be \"Encumbered\". The first level of encumbrance will slow down your movement and reduce {link(Menu.HelpArticle.Stats):stamina regeneration}. If it progresses to the second level, \"Overburdened\", you will take damage as you move. \n\nYou can drop items from your inventory with {Bindings:GameItemDrop}, {Bindings:GameItemDropAll} (to drop all of one type of item), you can use the {link(Menu.HelpArticle.Actions):\"Drop\" action on the item}, or you can drag and drop them on to the game screen."],
 			"merchants": ["Merchants", "Learn how to trade and interact with wandering merchants.", "Interacting with non-playable characters.", "You can drag items into the wandering merchant's inventory to receive barter credit. Alternatively, you can also use the item's menu to trade as well. You can use this barter credit to trade for other items that you wish to receive in return. You can come back at any time to trade with the merchant, but be careful, they may \"wander\" away for good eventually.\n\nYour bartering skill influences the amount of barter credit received when trading items; however, merchants will always trade items back at a higher value.\n\nIf you do not wish to trade with the merchant, you can also choose to instigate an attack towards the wanderer using the {link(Menu.HelpArticle.Actions):\"Attack\" option in the action menu}. But, be careful; they won't take kindly to such hostile actions."],
 			"gardening": ["Gardening", "Learn about the cycles of growth for plant-life and tips on gardening.", "Tips on gardening and information on growth cycles.", "The full plant life cycle is represented within Wayward. In order, these are: germinating, seedling, vegetative, budding, flowering, ripening, and dead. Fungus follows the same steps, but are named: germinating, spreading, forming, young, fruiting, and full. Each of these stages provide different {link(Menu.HelpArticle.ResourceGathering):resources when gathering or harvesting}.\n\nYou can attempt to water plants (by using the \"Pour\" action on water containers) or plant them on fertile soil to reduce their growth time. Watering plants will also heal them if they became damaged through harvesting or trampling.\n\nThrough the use of fertilization, you can promote the fertility of plants (spreading and propagation) and decrease growing time. By combining compostable items to produce compost, and making bone meal through the grinding of bones, you can craft fertilizer. Combine it with soil (produced when digging dirt) to create fertile soil. Fertile soil can be placed down, tilled, then used as the target for planting seeds and mushrooms."],
-			"gameModes": ["Game Modes & Difficulty", "Exploring the different ways to play Wayward and modifying the difficulty.", "Explanation of the different game and turn modes and difficulty in Wayward.", "{heading:Game Modes}\n\n__Hardcore__\n\n{#--text-color-faded:Difficulty:} Medium to High\n\nThe default and definitive way to play. \n- Death is permanent. \n- {link(Menu.HelpArticle.Reputation):Reputation} can be altered via in-game actions to dynamically modify the game's difficulty.\n\n\n__Casual__\n\n{#--text-color-faded:Difficulty:} Low\n\n- Dying will respawn you in the last place you rested or slept, with your items dropped at the location of your demise. \n- Most creatures are neutral/peaceful unless attacked. \n- Reputation will still impact creature spawn types and frequency, but you can engage with them at your choosing. \n- {link(Menu.HelpArticle.Milestones):Milestones} are disabled in this mode.\n\n\n__Challenge__\n\n{#--text-color-faded:Difficulty:} High\n\n- Randomized difficulty modifiers and a unique set of quests, intended for quick play sessions. \n- Saving is disabled in this mode. \n- Choose the \"Daily\" option to compete with others or yourself for highscores. \n- Due to the modifiers and set of quests that must be performed difficulty in this most will always be high regardless of reputation.\n- Score is gained by raising stats and skills as per normal, but also when completing quests. Score decays as turns pass, so it's best to complete quests and the challege as quickly as possible.\n- Only \"Challenge Mode\" {link(Menu.HelpArticle.Milestones):milestones} are obtainable in this mode.\n\n\n__Custom__\n\n- Allows you to customize your game to your liking, choosing from a large set of difficulty modifiers.\n- Some of the customizable aspects are features of the above modes (peaceful creatures, respawning, etc.).\n- {link(Menu.HelpArticle.Milestones):Milestones} are disabled in this mode.\n\n\n{#--text-color-faded://Whether in Challenge Mode or Custom Mode, you can see which modifiers are enabled with the pause menu ({Bindings:GamePause})//}\n\n\n{heading:Turn Modes}\nDepending on if you are playing a single player or multiplayer game, you can choose from the following turn modes:\n\n\n__Manual Turns__\n\n{#--text-color-faded:Difficulty:} Low\n\nTurns only pass as players perform actions (also known as \"turn-based\"). This mode is only available in single player mode.\n\n\n__Simulated Turns__\n\n{#--text-color-faded:Difficulty:} Medium\n\nTurns happen automatically as long as player(s) are performing actions. This mode is only available in multiplayer mode.\n\n\n__Real-time Turns__\n\n{#--text-color-faded:Difficulty:} High\n\nTurns happen automatically as time passes. You can modify the time between turns with the \"Tick Time\" setting.\n\n\n{#--text-color-faded://Turn modes and other settings can be modified at any time within the \"Modes\" menu ({Bindings:GamePause})//}"],
+			"gameModes": ["Game Modes & Difficulty", "Exploring the different ways to play Wayward and modifying the difficulty.", "Explanation of the different game and turn modes and difficulty in Wayward.", "{heading:Game Modes}\n\n__Hardcore__\n\n{#--text-color-faded:Difficulty:} Medium to High\n\nThe default and definitive way to play. \n- Death is permanent. \n- {link(Menu.HelpArticle.Reputation):Reputation} can be altered via in-game actions to dynamically modify the game's difficulty.\n\n\n__Casual__\n\n{#--text-color-faded:Difficulty:} Low\n\n- Dying will respawn you in the last place you rested or slept, with your items dropped at the location of your demise. \n- Most creatures are neutral/peaceful unless attacked. \n- Reputation will still impact creature spawn types and frequency, but you can engage with them at your choosing. \n- {link(Menu.HelpArticle.Milestones):Milestones} are disabled in this mode.\n\n\n__Challenge__\n\n{#--text-color-faded:Difficulty:} High\n\n- Randomized difficulty modifiers and a unique set of quests, intended for quick play sessions. \n- Saving is disabled in this mode. \n- Choose the \"Daily\" option to compete with others or yourself for highscores. \n- Due to the modifiers and set of quests that must be performed difficulty in this mode will always be high regardless of reputation.\n- Score is gained by raising stats and skills as per normal, but also when completing quests. Score decays as turns pass, so it's best to complete quests and the challege as quickly as possible.\n- Only \"Challenge Mode\" {link(Menu.HelpArticle.Milestones):milestones} are obtainable in this mode.\n\n\n__Custom__\n\n- Allows you to customize your game to your liking, choosing from a large set of difficulty modifiers.\n- Some of the customizable aspects are features of the above modes (peaceful creatures, respawning, etc.).\n- {link(Menu.HelpArticle.Milestones):Milestones} are disabled in this mode.\n\n\n{#--text-color-faded://Whether in Challenge Mode or Custom Mode, you can see which modifiers are enabled with the pause menu ({Bindings:GamePause})//}\n\n\n{heading:Turn Modes}\nDepending on if you are playing a single player or multiplayer game, you can choose from the following turn modes:\n\n\n__Manual Turns__\n\n{#--text-color-faded:Difficulty:} Low\n\nTurns only pass as players perform actions (also known as \"turn-based\"). This mode is only available in single player mode.\n\n\n__Simulated Turns__\n\n{#--text-color-faded:Difficulty:} Medium\n\nTurns happen automatically as long as player(s) are performing actions. This mode is only available in multiplayer mode.\n\n\n__Real-time Turns__\n\n{#--text-color-faded:Difficulty:} High\n\nTurns happen automatically as time passes. You can modify the time between turns with the \"Tick Time\" setting.\n\n\n{#--text-color-faded://Turn modes and other settings can be modified at any time within the \"Modes\" menu ({Bindings:GamePause})//}"],
 			"multiplayer": ["Multiplayer", "Information on the multiplayer system in Wayward.", "Survival is easier with company!", "Multiplayer in Wayward is enabled for up to 32 players. Multiplayer works on a simulated real-time mode where each turn happens on a fixed interval. \"Casual\" and \"Hardcore\" modes work a bit differently than in single player. Casual mode allows players to respawn as per normal, but in hardcore mode, when you die you will continue to play in ghost form, allowing you to spectate but not interact normally. Multiplayer also allows for a special PVP flag to be set to allow players to hurt and kill other players. Multiplayer options can be set in the multiplayer menu via the pause menu accessed with {Bindings:GamePause}.\n\nCreature spawn rates, creature difficulty, and {link(Menu.HelpArticle.Reputation):reputation} are all based on how many connected players there are and will scale and average based on each individual player.\n\n{heading:Commands}\nYou can use several special commands while playing multiplayer. To see a list of all possible commands, type \"/commands\" in the chat bar and hit enter. The following commands are also available for use:\n\n{#--text-color-faded:/players} — Shows a list of all connected players.\n{#--text-color-faded:/ping} — Shows your latency to the host player.\n{#--text-color-faded:/kick} — Allows the host to kick a player.\n{#--text-color-faded:/banned} — Shows a list of all banned players.\n{#--text-color-faded:/ban} — Allows the host to ban a player.\n{#--text-color-faded:/unban} — Allows the host to unban a player."],
 			"bugs": ["Bugs and Errors", "Did you get an error? Please report it!", "Learn how to report bugs and debug Wayward.", "Please report all the issues you spot! While we try to ensure Wayward is very stable, some things fall through the cracks. Wayward is still in beta status and our development team is very small. Therefore, without players reporting issues, they may stay unresolved. If you do report your bugs, we cannot express just how much we appreciate them! \n\nWith that being said, {link(https://steamcommunity.com/sharedfiles/filedetails/?id=798938225):here is a guide on how to report and debug issues you have with Wayward}.\n\nReport bugs and issues at:\n1. {link(http://steamcommunity.com/app/379210/discussions/1/):Steam Discussions Bug Reports forum} OR\n2. {link(https://discord.gg/wayward):Discord}"]
 		},
@@ -663,7 +675,8 @@
 			"gameDialogMessagesEditFiltersSaveOverExisting": ["There is already a filter with this name.", "Would you like to save over it?"],
 			"gameDialogMessagesEditFiltersResetConfirm": ["Are you sure you want\nto reset your filters?", "There is no undo."],
 			"gameMessagesContextMenuClear": ["Are you sure you want to clear\nyour //entire// message history?", "There is no undo."],
-			"gameItemMayBeDestroyedInCraft": ["Items in the craft may be destroyed on failure or use.", "Do you wish to continue?"],
+			"gameItemMayBeDestroyedInCraft": ["{0} may be destroyed on failure or use.", "Do you wish to continue?"],
+			"gameItemMayCauseBurns": ["Items used in this craft may cause burns due to them being in or on fire.", "Do you wish to continue?"],
 			"gameItemMayBeDestroyedOnUse": ["Item may be destroyed on use.", "Do you wish to continue?"],
 			"gameLoadingQuitting": "Quitting Game",
 			"gameLoadingSaving": "Saving Game",
@@ -692,6 +705,8 @@
 			"gameSaveFailure": ["Failed to Save the Game", "Please create a topic and send us your logs on the {link(https://steamcommunity.com/app/379210/discussions/1/):Bug Reports Forum}."],
 			"gameLoadFailure": ["Failed to Load the Game", "Please create a topic and send us your logs on the {link(https://steamcommunity.com/app/379210/discussions/1/):Bug Reports Forum}."],
 			"gameDesalinationNoNeed": ["This water does not need to undergo the desalination process.", "Do you want to pour it in the still to purify?"],
+			"gamePickUpWaterStillWithWater": ["This water still contains water.", "Do you want to pick it up, and empty the water out?"],
+			"gameExtinguishWaterStill": ["This water still already contains water.", "Do you want to extinguish the fire?"],
 			"gameWellConvert": ["Pouring this water will convert the water in the well to seawater.", "Do you want to convert the water in the well?"],
 			"gameNoHealingRequired": ["Your target for healing is not damaged or bleeding.", "Are you sure you want to heal anyways?"],
 			"gameContainerNotFull": ["The desalination process is not complete.", "Are you sure you want to detach the empty container?"],
@@ -1405,7 +1420,8 @@
 			"containerWeight": "storing",
 			"preservationRate": "preservation",
 			"maxDecay": "hoarding",
-			"itemDamage": "endurance"
+			"itemDamage": "endurance",
+			"stokeValue": "stoking"
 		},
 		"message": {
 			"none": "",
@@ -1449,7 +1465,6 @@
 			"alreadyFullyRefined": "{0} is already fully refined.",
 			"alreadyFullyRepaired": "{0} is already fully repaired.",
 			"alreadyPreserved": "{0} is already well preserved.",
-			"alreadyWaterInStill": "There is already water in this still!",
 			"anUnknownItem": "an unknown item",
 			"appearedNotEffectiveForGathering": "{0} did not appear to be the most effective for gathering this resource.",
 			"appearsToBeAberrant": "{0} seems abnormally territorial and aggressive. It may be particularly vicious.",
@@ -1493,6 +1508,7 @@
 			"cannotBePerformedOverWater": "This action cannot be performed over water.",
 			"cannotBePreserved": "{0} cannot be preserved.",
 			"cannotBeRefined": "{0} cannot be refined.",
+			"cannotBeRefinedReinforcementNeeded": "{0} cannot be refined with so little durability and must be reinforced first.",
 			"cannotBeReinforced": "{0} cannot be reinforced.",
 			"cannotBeRepaired": "{0} cannot be repaired.",
 			"cannotBeTamed": "{0} cannot be tamed.",
@@ -1504,7 +1520,6 @@
 			"cannotHere": "You cannot {0} anything here.",
 			"cannotInWater": "You cannot {0} items in water.",
 			"cannotLeave": "You cannot leave your friends and foes behind.",
-			"cannotPickupWhenFull": "You cannot pick {0} up while it is full of water.",
 			"cannotPickUpWhileLit": "You cannot pick {0} up while it is lit.",
 			"cannotPickUpWithItemsInside": "You cannot pick {0} up with items inside!",
 			"cannotPlaceContainerInItself": "You cannot place a container inside itself.",
@@ -1686,6 +1701,7 @@
 			"fireIsHealthy": "The fire is very healthy.",
 			"fireIsRaging": "The fire is raging!",
 			"fireIsStruggling": "The fire is struggling.",
+			"fireIsThriving": "The fire is thriving.",
 			"fireOverflowed": "The fire has overflowed and spread unexpectedly.",
 			"fireOverflowedFireElemental": "A fire elemental has risen from the flames.",
 			"fireReducedToEmbers": "The fire has reduced to embers.",
@@ -1873,7 +1889,6 @@
 			"noLongerFeelPainOfBeingBurned": "You no longer feel the pain of being burned!",
 			"noLongerHostile": "{0} is no longer hostile towards you.",
 			"noMoreRoomInContainer": "There is no more room in this container for {0}.",
-			"noNeedToStokeFire": "There is no need to stoke this fire.",
 			"noReturnWithoutCompletingChallenges": "An unknown force prevents you from leaving without completing your challenges.",
 			"noRoomForImprovement": "{0} has no room for improvement!",
 			"noRoomToDrop": "There is no room to drop {0} here!",
@@ -2222,8 +2237,11 @@
 			"yourRubbingNoEffect": "Your rubbing appears to have no effect.",
 			"youRub": "You rub {0} {1} as it quickly disintegrates in your grasp. These lands will now act more {2} to your presence.",
 			"youSee": "You see {0}.",
+			"youSeeALivingMushroomSpore": "You see a living mushroom release its spores.",
 			"youSeeAnAberrant": "You see an aberrant {0}.",
+			"youSeeASkeletonCollapse": "You see a skeleton collapse to the ground.",
 			"youSeeASlimeCombine": "You see two slimes combine into a jelly cube!",
+			"youSeeAZombieBleeding": "You see a zombie bleeding out.",
 			"youSeeDrop": "You see {0} drop from {1}.",
 			"youSeeEngulfFire": "You see {0} engulf its surroundings with fire.",
 			"youSeeHelpingPlant": "You see {0} tending to {1}.",
@@ -2893,7 +2911,7 @@
 			"menuModsTooltipMultiplayerCompatibility": "{0?Clientside:{2?Serverside:{1?Multiplayer Compatible:Singleplayer Only}}}",
 			"menuModsTooltipPreventsMilestoneUnlocks": "Prevents Milestone Unlocks",
 			"menuModsTooltipModOptions": "Mod Options",
-			"menuModsTooltipPublishMod": "Publish Mod",
+			"menuModsTooltipPublishMod": "Publish Mod{0? Update}",
 			"menuModsTooltipUninstallMod": "Uninstall Mod",
 			"menuModsTooltipViewInSteamWorkshop": "View Steam Workshop Page",
 			"menuModsButtonEditInternalMods": "Edit Internal Mods",
@@ -2952,6 +2970,8 @@
 			"menuCustomGameOptionsCreaturesHeadingIndividualConfigurations": "Specific Creature Modifiers",
 			"menuCustomGameOptionsCreaturesAllowAberrantSpawns": "Aberrant Spawns",
 			"menuCustomGameOptionsCreaturesAllowSpawning": "Allow Spawning",
+			"menuCustomGameOptionsCreaturesSpawnLimit": "Spawn Limit",
+			"menuCustomGameOptionsCreaturesSpawnLimitDescription": "Limit the amount of creatures that can spawn on map generation or randomly.",
 			"menuCustomGameOptionsCreatureNone": "None",
 			"menuCustomGameOptionsCreatureConfigure": "Add",
 			"menuCustomGameOptionsBenignityInitial": "Initial Benignity",
@@ -3175,6 +3195,7 @@
 			"menuSharedMultiplayerChoiceLobbyTypePrivateDescription": "The only way for players to join the game is to be invited.",
 			"menuSharedMultiplayerChoicePVP": "PVP",
 			"menuSharedMultiplayerChoicePVPDescription": "Allow players to attack each other.",
+			"menuSharedMultiplayerDescription": "Description",
 			"menuSharedMultiplayerMaxPlayers": "Max Players",
 			"menuSharedRealTimeTickSpeedTooltip": "The time it takes for a tick to occur in real-time mode.",
 			"menuSharedRealTimeTickSpeedLabel": "Tick Time",
@@ -3208,6 +3229,7 @@
 			"difficultyOptionsCreatureSpawnsDefault": "Default {0} Spawns (Normal & Aberrant)",
 			"difficultyOptionsCreatureSpawnsAberrantOnly": "{0} Spawns Aberrant Only",
 			"difficultyOptionsCreatureSpawnsNoAberrants": "No Aberrant {0} Spawns",
+			"difficultyOptionsSpawnLimit": "{#--text-color-faded:Spawn Limit:} {0}",
 			"difficultyOptionsRespawn": "Respawn on Death",
 			"difficultyOptionsEternalNight": "Eternal Night",
 			"difficultyOptionsEternalDay": "Eternal Day",
@@ -3289,11 +3311,6 @@
 			"startWithNone": "Start With None",
 			"useUnlocks": "Use Unlocks",
 			"allUnlocked": "All Unlocked"
-		},
-		"autoSave": {
-			"off": "Off",
-			"turns": "Turns",
-			"time": "Time"
 		}
 	},
 	"pluralizationRules": {
