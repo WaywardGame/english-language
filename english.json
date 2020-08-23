@@ -93,7 +93,9 @@
 			"navigate": ["Navigate", "Used to find your coordinates by looking into the horizon and measuring distances."],
 			"melee": ["Melee", "Attempt to melee attack a creature you are facing."],
 			"grabAll": ["Grab All", ""],
-			"respawn": ["Respawn", ""]
+			"respawn": ["Respawn", ""],
+			"protectItem": ["Protect", ""],
+			"unProtectItem": ["Unprotect", ""]
 		},
 		"autoSave": {
 			"off": "Off",
@@ -125,6 +127,7 @@
 			"gameItemDrop": "Drop Hovered Item",
 			"gameItemDropAll": "Drop All Similar Items",
 			"gameItemEquipToggle": "Toggle Item Equipped",
+			"gameItemProtectToggle": "Toggle Item Protected",
 			"gameHandToggleLeft": "Toggle Using Left Hand",
 			"gameHandToggleRight": "Toggle Using Right Hand",
 			"gameInspect": "Inspect",
@@ -846,7 +849,8 @@
 			"steamworksModImportSaveGameFailure": "Failed to import the save game from the mod '{0}'.",
 			"steamworksModImportedSaveGame": "The mod '{0}' has imported a saved game.",
 			"steamworksLoadingRefreshingMods": "Refreshing Mods",
-			"steamworksOpenFolderFailure": ["Failed to open the folder.", "Please navigate to the folder manually."]
+			"steamworksOpenFolderFailure": ["Failed to open the folder.", "Please navigate to the folder manually."],
+			"steamworksModPublishModJsonUpdateFailed": ["Mod published, but failed to update mod.json file.", "Please ensure your mod.json has the following metadata:\n{#--color-code:\"publishedFileId\": \"{1}\"}\n\nThe error when trying to update the mod.json:\n{#--color-error:{0}}"]
 		},
 		"interruptChoice": {
 			"cancel": "Cancel",
@@ -2074,7 +2078,7 @@
 			"preservedFood": "You preserved the food.",
 			"purifiedWaterInStill": "There is purified water in the still.",
 			"quality": "Quality",
-			"recent": "Recent",
+			"recent": "Recent (Default)",
 			"reduceLength": "{0} on {1} has reduced the length of your {2}.",
 			"refine": "refine",
 			"refusedToBeTamed": "{0} refuses to be tamed so quickly after being released.",
@@ -2244,7 +2248,7 @@
 			"unknownItem": "unknown item",
 			"unlimited": "unlimited",
 			"unlockedChest": "You unlocked {0} and viewed its contents.",
-			"unlockedTime": "Discovered Time",
+			"unlockedTime": "Discovered Time (Default)",
 			"unpurifiedFreshWater": "unpurified fresh water",
 			"unpurifiedWaterInStill": "There is unpurified water in the still.",
 			"usingBareHands": "using bare hands to {0}",
