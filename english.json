@@ -1039,7 +1039,7 @@
 			"bullBoat": ["bull boat", "A boat made with leather and framed with curved wooden poles. Used to traverse water and travel to new locations."],
 			"refinedSand": ["refined sand", "A finely ground sand, useful in making glass."],
 			"spyglass": ["spyglass", "An improvised, short-range telescope, which can be used to see slightly further away in any direction when equipped."],
-			"flask": ["flask", "A glass container which can be heated to use for desalination, a process used to make seawater drinkable."],
+			"retort": ["retort", "A glass container which can be heated for desalination, a process used to make seawater drinkable."],
 			"rawClay": ["raw clay", "A soft, formable mud. Suitable for building materials, tool-making, and more."],
 			"rawClayBlowpipe": ["raw clay blowpipe", "An unfired clay blowpipe used in glassblowing. Unusable until it has been fired."],
 			"clayBlowpipe": ["clay blowpipe", "A sturdy blowpipe used for glassblowing."],
