@@ -800,7 +800,6 @@
 			"gameDesalinationNoNeed": ["This water does not need to undergo the desalination process.", "Do you want to pour it in the still to purify?"],
 			"gameExtinguishWaterStill": ["This water still already contains water.", "Do you want to extinguish the fire?"],
 			"gameItemMayBeDestroyedInCraft": ["{0} may be destroyed on failure or use.", "Do you wish to continue?"],
-			"gameItemMayBeDestroyedOnUse": ["Item may be destroyed on use.", "Do you wish to continue?"],
 			"gameItemMayCauseBurns": ["Items used in this craft may cause burns due to them being in or on fire.", "Do you wish to continue?"],
 			"gameItemsMayBeDestroyedOnUse": ["Your {0} may be destroyed.", "Are you sure you want to do that?"],
 			"gameLoadFailure": ["Failed to Load the Game", "Please create a topic and send us your logs on the {(https://steamcommunity.com/app/379210/discussions/1/):Bug Reports Forum}."],
@@ -1535,7 +1534,8 @@
 			"whitePineNeedles": ["white pine needles", "Distinctively long pine needles from a white pine tree, emitting a pleasant aroma as you hold them."],
 			"furCoat": ["fur coat", "A balmy chest garment crafted from the furry hide of an animal."],
 			"furMittens": ["fur mittens", "A pair of fur mittens with one compartment for your fingers, and another one for your thumb for increased warmth."],
-			"furBoots": ["fur boots", "A set of boots designed for colder climates, made from animal pelts with extra fur added for protection and comfort."]
+			"furBoots": ["fur boots", "A set of boots designed for colder climates, made from animal pelts with extra fur added for protection and comfort."],
+			"birdDroppings": ["bird droppings", "Droppings produced by some type of winged creature. Can be used as an ingredient in compost."]
 		},
 		"itemGroup": {
 			"invalid": "",
@@ -1625,6 +1625,7 @@
 			"weaponThatFiresArrows": "weapon that fires arrows",
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"becomesFireSource": "becomes fire source",
+			"egg": "egg",
 			"all": "",
 			"last": ""
 		},
@@ -3025,6 +3026,7 @@
 			"honeyFungus": ["honey fungus", "A parasitic tree fungus that can grow and spread on living, decaying, and dead plant material."],
 			"tumblingTumbleweed": ["tumbling tumbleweed", "A dry and brittle tumbling weed, broken off from its roots and spreading seeds in its meandering path."],
 			"animalDroppings": ["animal droppings", "Droppings produced by a small mammal."],
+			"birdDroppings": ["bird droppings", "Droppings produced by some winged creature."],
 			"animalDung": ["animal dung", "A seemingly fresh pile of feces, excreted from an animal."],
 			"guano": ["guano", "The excrement of a bat, thought to be used as fertilizer."],
 			"wispDust": ["wisp dust", "A quickly vanishing pile of glowing dust, excreted from a ghostly wisp."],
