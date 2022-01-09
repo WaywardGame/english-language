@@ -605,6 +605,7 @@
 			"overexerting": "overexerting"
 		},
 		"fireStage": {
+			"extinguished": "The fire is extinguished!",
 			"embers": "The fire has reduced to embers.",
 			"almostExtinguished": "The fire is almost extinguished.",
 			"struggling": "The fire is struggling.",
@@ -2677,7 +2678,7 @@
 			"pacifier": ["Pacifier", "Tamed one of each tamable creature.", "Start with a tamed aberrant creature."],
 			"merchant": ["Merchant", "Bartered with 100 items.", "Merchants give slightly better deals, but start with less items in their inventory."],
 			"notekeeper": ["Notekeeper", "Jotted down a note for each situation.", "Start with a book, paper, and an inkstick."],
-			"operator": ["Operator", "Used every action available.", "All skills are buffed by 5%."],
+			"operator": ["Operator", "Used every action available.", "Start with all skills set to 5%."],
 			"huntsman": ["Huntsman", "Killed one of every creature.", "All creatures have a small chance of starting \"scared\""],
 			"contender": ["Contender", "Completed a challenge mode game with a positive score.", "Start with a sailboat and every status effect."],
 			"challenger": ["Challenger", "Completed 25 challenge mode quests.", "Start with a piece of treasure."],
