@@ -27,7 +27,7 @@
 			"gather": ["Gather", ""],
 			"stokeFire": ["Stoke Fire", "Used on a fire source to increase the strength of the flame."],
 			"pour": ["Pour", "Pour on fire to extinguish the flames, inside a water still to begin water filtration, on a suitable plant to increase its health, or just simply just empty it out."],
-			"plant": ["Plant", "Attempts to plant the item on the tile you are facing towards. Some plants may require certain ground types or conditions to be planted.", "Increases chance of success, skill gained, and reputation gained. Decreases stamina used."],
+			"plant": ["Plant", "Attempts to plant the item on the tile you are facing towards. Some plants may require certain ground types or conditions to be planted.", "Increases skill gained and reputation gained. Decreases stamina used."],
 			"copyMap": ["Copy Map", "Used to duplicate a tattered or drawn map. The quality of the produced map is dependent on your skill in cartography."],
 			"ignite": ["Ignite", "Use this item on a fire source to start it on fire."],
 			"build": ["Build", "Attempt to construct or assemble the item on the tile you are facing."],
