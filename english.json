@@ -353,7 +353,7 @@
 		"bleedLevel": {
 			"none": ["", "none", "", ""],
 			"minor": ["cut", "cut", "Your appendages are grazed and could start bleeding.", "- Reduces stamina every damage tick.\n- Adds a chance of bleeding when cut multiple times.\n"],
-			"major": ["bleeding", "bleed", "Your wounds are leaking like a seive.", "- Reduces stamina every damage tick.\n- Reduces hunger timer every damage tick.\n"]
+			"major": ["bleeding", "bleed", "Your wounds are leaking like a sieve.", "- Reduces stamina every damage tick.\n- Reduces hunger timer every damage tick.\n"]
 		},
 		"book": {
 			"randomEvent": ["", ""],
@@ -393,11 +393,11 @@
 		"changelogChangeType": {
 			"new": "New",
 			"improvement": "Improvements",
-			"bug": "Bug Fixes",
 			"balance": "Balance",
+			"bug": "Bug Fixes",
+			"technical": "Technical",
 			"modding": "Modding",
-			"mod": "Mods",
-			"technical": "Technical"
+			"mod": "Mods"
 		},
 		"characterSort": {
 			"lastUse": "Last Use",
@@ -487,6 +487,7 @@
 			"bogBody": ["bog body", "A slow-moving leathery undead figure, wandering aimlessly until threatened."]
 		},
 		"damageType": {
+			"none": "none",
 			"blunt": "blunt",
 			"slashing": "slashing",
 			"piercing": "piercing",
@@ -791,7 +792,7 @@
 			"heldItems": ["Held Items", "Using the main and off hand equipment slots.", "Understanding the use of both of your hands.", "Your main and off hand equipment slots have different functionalities; however, you can equip two weapons, two tools, two shields or any combination in between. By default, you will only attack with your main hand's weapon. Swapping items in your hands will not cause a turn to pass while all other equipment slots will.\n\nTo attack with both weapons in each hand, they are required to be dual-wieldable (shown in their item groupings). To receive a parrying defense bonus, you must be holding an item in each hand (one to parry with, one to fight with).\n\nReview the {(HELP/ATTACKING_DAMAGE):\"Attacking & Damage\" help entry} for more information on attacking."],
 			"crafting": ["Crafting", "A guide to the crafting system: What items to use, and affecting the output durability and quality.",
 			"The ins and outs of smashing materials together.", "You can open the crafting dialog with the \"Crafting\" menu bar button, or with {BINDINGS:DialogCrafting}.\n\nCrafting is simple to perform, but the system has a lot of depth.\n\n{_Which Items Are Used_}\n\nWhen hovering over a recipe (item) in the crafting dialog, the items that will be used to craft it will be highlighted with a white border.\n\nYou may notice that the recipe always uses the first instance of the item in your inventory. To change what items are used in a craft, you can simply change the order of the items in your inventory.\n\n{_Durability and Quality_}\n\nThe durability and {(HELP/ITEM_QUALITIES):quality} of crafting ingredients affects the durability and quality of the resulting item:\n- Ingredients that are damaged will cause the resulting item to be less durable.\n- Using superior, remarkable, exceptional, mastercrafted, or relic items and required {(HELP/DOODADS):doodads} increases your chances to craft a high-quality item. This counts for both consumed and required items, but more so for consumed ones.\n- The skill used in the craft will also factor into the quality of the resulting item. The higher your skills, the better chance at a higher quality items.\n- Decayable items (such as food) also gain decay bonuses from using higher quality items in the craft.\n\n{_Tiers_}\n\nUsing higher tiered items and doodads can produce higher quality crafted items. For example, using an iron hammer versus a stone hammer or an iron anvil versus a stone anvil. You are able to see which tier an item or doodad is based on its grouping within the tooltip of each item or doodad.\n\n{_Efficacy_}\n\nAfter reaching 20% in each crafting skill, you will unlock the ability to gauge how effectively you are crafting items. This will show you how close to the maximum bonus you are based on the item/doodad qualities and item/doodad tiers you are using in each craft. The higher this bonus is, the higher the odds of crafting a quality item is. After reaching 80% in the crafting skill, an exact efficacy percentage will be revealed.\n\n{_Unlocking New Recipes_}\n\nYou can find new crafting recipes by gathering the required items in your inventory and by finding old instructional scrolls."],
-			"itemQualities": ["Item Qualities", "Understanding the differences between normal items and those of quality.", "Superior, remarkable, exceptional, mastercrafted, and relic item qualities.", "There are three item qualities, each with differing properties.\n\n1. Superior: Outlined in a {#--COLOR-QUALITY-SUPERIOR:green} border, these items will have slightly higher durability than normal items.\n2. Remarkable: Outlined in a {#--COLOR-QUALITY-REMARKABLE:blue} border, these items will have higher durability than normal items.\n3. Exceptional: Outlined in a {#--COLOR-QUALITY-EXCEPTIONAL:purple} border, these items will have much higher durability than normal items.\n4. Mastercrafted: Outlined in a {#--COLOR-QUALITY-MASTERCRAFTED:tangerine} border, these items will have double the durability of exceptional items and will have guaranteed magical properties.\n4. Relic: Outlined in a {#--COLOR-QUALITY-RELIC:rose} border, these items will have very little durability and have many magical properties.\n\nAny item can have magical properties, but higher qualities will produce them more frequently. These magical properties include such things as increased skills or stats on equipping, reduced item weight, increased weight capacity, and many more depending on the item.\n\nBesides the bonuses to durability, item quality will also provide bonuses to item uses such as consumption potency, fuel values, and others depending on the type of item it is. Certain tools and items will also provide bonuses for specific actions. For example, when chopping or mining, the higher quality and tier your tool is, the higher chance of success, skill gain, items gained, quality of items gained, while decreasing stamina use, and chance of damaging plants. You can learn more about the effect of each item for each action by inspecting the item by pressing {BINDINGS:GameInspectItem} while hovering over an item. Additionally, the more items of quality used in a {(HELP/CRAFTING):craft}, the higher the chance of producing a higher quality item is."],
+			"itemQualities": ["Item Qualities", "Understanding the differences between normal items and those of quality.", "Superior, remarkable, exceptional, mastercrafted, and relic item qualities.", "There are five item qualities, each with differing properties and attributes.\n\n1. Superior: Outlined in a {#--COLOR-QUALITY-SUPERIOR:green} border, these items will have slightly higher durability than normal items.\n2. Remarkable: Outlined in a {#--COLOR-QUALITY-REMARKABLE:blue} border, these items will have higher durability than normal items.\n3. Exceptional: Outlined in a {#--COLOR-QUALITY-EXCEPTIONAL:purple} border, these items will have much higher durability than normal items.\n4. Mastercrafted: Outlined in a {#--COLOR-QUALITY-MASTERCRAFTED:tangerine} border, these items will have double the durability of exceptional items and will have guaranteed magical properties. This quality can only be crafted.\n5. Relic: Outlined in a {#--COLOR-QUALITY-RELIC:rose} border, these items will have very little durability and have many magical properties. This quality can only be found as loot.\n\nAny item can have magical properties, but higher qualities will produce them more frequently. These magical properties include such things as increased skills or stats on equipping, reduced item weight, increased weight capacity, and many more depending on the item.\n\nBesides the bonuses to durability, item quality will also provide bonuses to item uses such as consumption potency, fuel values, and others depending on the type of item it is. Certain tools and items will also provide bonuses for specific actions. For example, when chopping or mining, the higher quality and tier your tool is, the higher chance of success, skill gain, items gained, quality of items gained, while decreasing stamina use, and chance of damaging plants. You can learn more about the effect of each item for each action by inspecting the item by pressing {BINDINGS:GameInspectItem} while hovering over an item. Additionally, the more items of quality used in a {(HELP/CRAFTING):craft}, the higher the chance of producing a higher quality item is."],
 			"death": ["Death", "It will happen to us all eventually. This contains information about what carries over between lives.", "What carries over between lives.", "Death is permanent. Although you may have died, all of the crafting recipes you have discovered will be ready on your next playthrough. Your {(HELP/MILESTONES):milestones} will also carry over, providing you multiple starting benefits.\n\nIf you are finding the game too difficult, learn more on managing your {(HELP/REPUTATION):reputation} which can affect the game's difficulty. If you wish to permanently modify the game's difficulty, it is recommended that you play a {(HELP/GAME_MODES):\"custom mode\" game} with options set to your liking."],
 			"taming": ["Creature Taming", "A small guide on how to tame creatures using a variety of methods.", "Learn about all the options for taming creatures.", "There's a variety of methods for attempting to tame creatures in Wayward. These include:\n\n1. Using the {(HELP/ACTIONS): \"Tame\" action in the actions menu} when facing a creature. The chances of success of this method are quite low, especially at lower skill levels and varies depending on what the creature is and their difficulty.\n2. Using the \"Offer\" option on an item when facing a creature. If the creature wants the item, it will accept you as its owner.\n3. Dropping items on the ground and having creatures move over it will have them become tame towards you (or any player that is closest to the creature) if they accept the item.\n\nAberrant creatures are harder to tame and will sometimes reject you as its owner even when offering items. This chance is based on your taming skill.\n\nUsing the offer item action may be hard, especially in a multiplayer setting where creatures can move around as turns tick by. You can use {(HELP/ACTION_SLOTS):action slots} to more quickly offer items to creatures, using a single bind."],
 			"restingSleeping": ["Resting and Sleeping", "Tips on how to get the best regenerative effects while resting and sleeping.", "Learning the differences between resting and sleeping and additional bonuses that can be applied.", "Resting and sleeping are different actions and have their own set of pros and cons.\n\n{_Resting_}\n1. You are able to cancel out of resting.\n2. Reduces hunger and thirst rate, but not as much as sleeping.\n3. Increases stamina and health regeneration, but not as much as sleeping.\n4. You cannot rest while your stamina is full. Rest will automatically be cancelled once your stamina is full.\n5. Fire sources have no impact on regeneration or rest length.\n\n{_Sleeping_}\n1. You cannot cancel out of sleeping, potentially leading to oversleeping or other dangers.\n2. Reduces hunger and thirst rate more so than resting.\n3. Increases stamina and health regeneration more so than resting.\n4. You can sleep indefinitely regardless of stamina value.\n5. Fire sources (lit campfires, lit furnaces, cooling lava, etc.) will produce better stamina and health regeneration as well as increase the amount of turns you can sleep in one {(HELP/ACTIONS):action}.\n\n{_Items & Doodads_}\nBy using a bedding item or {(HELP/DOODADS):doodad} (like a placed bedroll) you will receive better stamina and health regeneration. Resting or sleeping on the ground will produce the worst regenerative effects. A message will appear warning you of this effect.\n\n{_Creatures_}\nYou will not be able to rest or sleep effectively while untamed creatures are nearby. If they are breaking doodads (like doors and walls) within a radius of up to 5 tiles away, you may wake up. If they are up to 3 tiles away, you may also wake up from hearing them stirring.\n\n{_Terrain_}\nResting or sleeping on certain terrain will decrease the maximum amount of turns you can rest or sleep in one action. This includes terrain like water, snow, etc. A message will appear warning you of this effect.\n\n{_Camping_}\nThe higher your camping skill, the higher the maximum amount of turns you can rest or sleep in one action.\n\n{_Darkness_}\nDarkness in the form of nighttime or caves will increase the amount of turns you can rest or sleep in one action.\n\n{_Multiplayer & Real-time_}\nResting and sleeping work differently when playing a multiplayer game or setting the mode to \"real-time\" turns, in that performing the rest/sleep actions will no longer progress time (or pass turns). Its use is shifted towards a regenerative role exclusively in these modes."],
@@ -1173,7 +1174,7 @@
 			"lockpick": ["lockpick", "An improvised needle and prong that should be strong enough to pick a lock or two."],
 			"boneNeedle": ["bone needle", "A thin, hard, sharp needle, carved from bone."],
 			"pineapple": ["pineapple", "A juicy, ripe pineapple, loaded with vitamins and thirst-quenching attributes."],
-			"tatteredMap": ["{COMPLETED?completed }{INDECIPHERABLE?indecipherable }tattered map", "An old torn map covered with drawings and scribbles, a bit hard to make sense of on first glance."],
+			"tatteredMap": ["tattered map", "An old torn map covered with drawings and scribbles, a bit hard to make sense of on first glance."],
 			"coal": ["coal", "A black and brittle mineral, staining anything it touches, but useful as fuel."],
 			"wroughtIron": ["wrought iron", "A heavily oxidized and unpurified form of iron, used in the forging of brittle tools, weapons, and armor."],
 			"limestonePowder": ["limestone powder", "A white, mineral-dense powder used in glass tempering and the purifying of metals."],
@@ -1776,6 +1777,11 @@
 			"mud": ["mud", "A loamy pile of wet soil. It smells of earth and is quite of a burden to carry around."],
 			"spikerushSheaths": ["spikerush sheaths", "Strong, woody sheaths from the spikerush plant, a type of grass primarily found in wetlands."],
 			"spikerushSeeds": ["spikerush seeds", "The seeds from the distinctive fibrous flowering bud of the spikerush plant."]
+		},
+		"itemExtra": {
+			"none": ["", ""],
+			"tatteredMapRolledUp": ["indecipherable tattered map", ""],
+			"tatteredMapCompleted": ["completed tattered map", ""]
 		},
 		"itemGroup": {
 			"invalid": "",
@@ -2469,6 +2475,7 @@
 			"mapDestroyed": "{0} has completely disintegrated in your hands.",
 			"mapNearlyDestroyed": "{0} is frayed and worn and could fall apart at any moment.",
 			"mapNotOfThisArea": "You cannot make heads or tails of the map. Is it a portrayal of a region in another land, perhaps?",
+			"mapCompletedNotOfThisArea": "All the treasures on this map seem to have been discovered, but you cannot make heads or tails of what it portrays. Is it a region in another land, perhaps?",
 			"materialsDestroyed": "Some materials have been destroyed from {0}.",
 			"merchantAlreadyTradedItem": "What do you take me for? I already traded you that!",
 			"messageOfTheDay": "MOTD: {0}",
@@ -2533,7 +2540,6 @@
 			"northNortheast": "north-northeast",
 			"northNorthwest": "north-northwest",
 			"northwest": "northwest",
-			"notAvailable": "N/A",
 			"notEnoughPurifiedWaterYet": "There is not enough purified water available in the still yet.",
 			"notEnoughTreasureToReturn": "An unknown force prevents you from leaving without all the pieces of treasure.",
 			"notFacingCreatureToOfferThisTo": "You are not facing a creature to offer this to.",
@@ -3052,7 +3058,6 @@
 			"expressionSeparator": " ",
 			"itemMagicalProperty": "{1} of {0}",
 			"listItemSeparator": ", ",
-			"macroInputSeparator": " + ",
 			"multiply": "x{0}",
 			"nPCName": "{#--COLOR-NPC-{1?HOSTILE:FRIENDLY}:{0}}",
 			"numberSingleDecimal": "{#1:{0}}",
@@ -3061,7 +3066,6 @@
 			"percentInteger": "{%0:{0}}",
 			"percentRaw": "{0}%",
 			"playerName": "{#--COLOR-PLAYER{1}:{0}}",
-			"quality": "{0} {1}",
 			"range": "{COMPLEX?({MIN} — {MAX}):{MIN}—{MAX}}",
 			"reformatSingularNoun": "{NOUN({0} {1}){2}}",
 			"renamed": "\"{0}\"",
@@ -3076,8 +3080,9 @@
 			"modRequiresItself": "Mod requires itself.",
 			"missingRequiredMod": "Missing a required mod.",
 			"cannotLoadRequiredMod": "Can't load required mod.",
-			"reqiredModNotLoaded": "Required mod is not loaded.",
-			"localModPrecedence": "Installed locally; local mods have precedence.",
+			"requiredModNotLoaded": "Required mod is not loaded.",
+			"localModPrecedence": "The local version of this mod is enabled.",
+			"workshopModPrecedence": "The workshop version of this mod is enabled.",
 			"incompatibleVersion": "Incompatible with this version.",
 			"serverSideOnNonDedicatedServer": "Server-side mods can only be enabled on dedicated servers."
 		},
@@ -3465,7 +3470,7 @@
 			"hunger": "hunger",
 			"thirst": "thirst",
 			"weight": "weight",
-			"attack": ["attack", "The damage you deal to your opponents."],
+			"attack": ["attack", "The damage you deal to your opponents; amounts, types, and the sources of that damage."],
 			"benignity": "benignity",
 			"malignity": "malignity",
 			"defense": ["defense", "The ways in which you are, or are not, protected from creatures and the elements."],
@@ -3636,6 +3641,11 @@
 			"puddleOfSwampWater": ["puddle of swamp water", ""],
 			"puddleOfFilteredWater": ["puddle of filtered water", ""]
 		},
+		"tooltipVisibilityOption": {
+			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:GameMoreInformation}",
+			"showMoreInformationWithBind": "Show More With {BINDINGS:GameMoreInformation}",
+			"alwaysShowMoreInformation": "Always Show More Information"
+		},
 		"ui": {
 			"sharedTooltipHint": "{0}:",
 			"gameSharedInspectionSectionSummary": "{0} ({1})",
@@ -3775,6 +3785,7 @@
 			"gameTooltipSharedLabelCivilizationScore": "Civilization Score",
 			"gameTooltipSharedLabelGrowingSpeed": "Growing Speed",
 			"gameTooltipSharedLabelInsulation": "{0?{^{0}} }Insulation",
+			"gameTooltipSharedLabelStoredInsulation": "Stored {0?{^{0}} }Insulation",
 			"gameTooltipSharedLabelPreservation": "Preservation",
 			"gameTooltipSharedLabelDurability": "Durability",
 			"gameTooltipSharedDurabilityMagicalDamageReduction": " ({0} reduced chance of durability loss)",
@@ -3812,6 +3823,10 @@
 			"gameTooltipActionUndiscovered": "Use this action to discover it.",
 			"gameTooltipEquipSlotOffHandDisabledTwoHandedOffHand": "This weapon is two-handed and must be equipped in your main hand.",
 			"gameTooltipEquipSlotOffHandDisabledTwoHandedMainHand": "This item is not currently equipped due to the two-handed weapon in your main hand.",
+			"gameTooltipStatAttackSectionMelee": "Melee Attack",
+			"gameTooltipStatAttackSectionRanged": "Ranged Attack",
+			"gameTooltipStatAttackRange": "(Range: {#--TEXT-PRIMARY:{0}})",
+			"gameTooltipStatAttackMultiplier": "Game Mode Multiplier",
 			"gameStatsPercentage": "{0}%",
 			"gameStatsStatAttack": "{0}",
 			"gameStatsStatGeneric": "{0}",
@@ -3895,6 +3910,7 @@
 			"gameActionBarConfigurationDrawerButtonUseByType": "Use Any {0}",
 			"gameActionBarConfigurationDrawerButtonUseAny": "Use Any Valid Item",
 			"gameActionBarConfigurationDrawerButtonDone": "{0?Done:{1?Skip Choosing an Action:Cancel}}",
+			"gameActionBarConfigurationDrawerButtonCraftType": "Craft {0}",
 			"gameActionBarSlotTooltipHintUse": "Use Slot: {0}",
 			"gameActionBarSlotTooltipHintConfigure": "Configure Slot: {0}",
 			"gameActionBarSlotTooltipHintUseOnMove": "{0?Don't }Use Slot When Moving: {1}",
@@ -4250,7 +4266,7 @@
 			"menuOptionsHeadingVideo": "Video",
 			"menuOptionsLabelInterfaceScale": "Interface Scale",
 			"menuOptionsLabelHudWidth": "HUD Width",
-			"menuOptionsLabelTooltipDelay": "Delay",
+			"menuOptionsLabelTooltipDelay": "Tooltip Delay",
 			"menuOptionsLabelDirectionTurnDelay": "Turn Delay",
 			"menuOptionsLabelMouseTurnDelay": "Mouse Turn Delay",
 			"menuOptionsLabelFontStyle": "Font Style",
@@ -4286,7 +4302,6 @@
 			"menuOptionsButtonUnlockAllCraftingRecipes": "Unlock All Crafting Recipes",
 			"menuOptionsButtonAlternatingDirectionMovement": "Alternating Direction Movement",
 			"menuOptionsButtonAllowAlternatingDirectionMovementTooltip": "If checked, you will move in alternating directions when two directions are pressed or diagonal angles are used with the mouse.",
-			"menuOptionsButtonAlwaysShowMoreInformation": "Always Show More Information",
 			"menuOptionsButtonAlwaysShowMoreInformationTooltip": "If checked, you will never have to hold down a key to show more information in tooltips.",
 			"menuOptionsButtonEnableLowPowerMode": "Enable Low Power Mode",
 			"menuOptionsButtonEnableLowPowerModeTooltip": "If checked, the game will try to use less system resources.",
@@ -4318,6 +4333,8 @@
 			"menuOptionsButtonUseAdjacentContainersTooltip": "If checked, items in adjacent containers or tiles can be used in crafting and other actions.",
 			"menuOptionsButtonHideEquippedHeadgear": "Hide Equipped Headgear",
 			"menuOptionsButtonHideEquippedHeadgearTooltip": "If checked, equipped headgear on your character will not be visible to you.",
+			"menuOptionsButtonLeftHanded": "Left-handed",
+			"menuOptionsButtonLeftHandedTooltip": "If checked, your main hand slot will display on your character's left hand.",
 			"menuOptionsButtonAutoSave": "Auto Save",
 			"menuOptionsButtonAutoSaveTooltip": "If enabled, your game will periodically be saved to help avoid data loss.",
 			"menuOptionsRangeAutoSaveTimerLabel": "Timer",
@@ -4406,6 +4423,7 @@
 			"menuSharedMaxTravelTimeLabel": "Max Travel Time",
 			"menuSharedMaxTravelTimeLabelTooltip": "The maximum amount of turns to pass when traveling to another island.",
 			"menuSharedButtonDefault": "Default",
+			"menuSharedValueSeconds": "{#1:{0}}s",
 			"menuSharedValueMillseconds": "{0}ms",
 			"menuSharedValueTurns": "{0} turns",
 			"menuSharedValuePercentage": "{0}%",
