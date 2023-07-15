@@ -2235,7 +2235,7 @@
 			"actionCastAreaOverfished": "This area appears to have been overfished.",
 			"actionConsumeItemTypeStats": "You have {0}.",
 			"actionCraft": "Craft",
-			"actionCraftEfficacy": " with {0} efficacy{1}",
+			"actionCraftEfficacy": " with {0} efficacy{1??}",
 			"actionCraftEfficacyHigh": "great",
 			"actionCraftEfficacyHighest": "maximum",
 			"actionCraftEfficacyLow": "decent",
