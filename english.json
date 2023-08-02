@@ -3609,6 +3609,11 @@
 				"{1?:{2?:- Actively dealing damage!}}",
 			"{0?- {0}% chance to pass each damage tick.}"]
 		},
+		"steamInputKeyboardPosition": {
+			"dynamic": ["Dynamic", "Attempt to dynamically position the keyboard based on where the input is located on screen."],
+			"top": ["Top", "Always position the keyboard along the top of the screen."],
+			"bottom": ["Bottom", "Always position the keyboard along the bottom of the screen."]
+		},
 		"teamMemberResponsibility": {
 			"programming": "Programming",
 			"design": "Design",
@@ -4401,6 +4406,7 @@
 			"menuOptionsButtonUnlockAllCraftingRecipes": "Unlock All Crafting Recipes",
 			"menuOptionsButtonAlternatingDirectionMovement": "Alternating Direction Movement",
 			"menuOptionsButtonAllowAlternatingDirectionMovementTooltip": "If checked, you will move in alternating directions when two directions are pressed or diagonal angles are used with the mouse.",
+			"menuOptionsButtonSteamInputKeyboardPosition": "Steam Keyboard Position",
 			"menuOptionsButtonAlwaysShowMoreInformationTooltip": "If checked, you will never have to hold down a key to show more information in tooltips.",
 			"menuOptionsButtonEnableLowPowerMode": "Enable Low Power Mode",
 			"menuOptionsButtonEnableLowPowerModeTooltip": "If checked, the game will try to use less system resources.",
