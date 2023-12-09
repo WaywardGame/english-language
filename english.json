@@ -3295,6 +3295,7 @@
 		"misc": {
 			"aAndB": "{0} and {1}",
 			"aberrant": "{#--COLOR-BAD:{0}}",
+			"add": "+{0}",
 			"aListAndB": "{0}, and {1}",
 			"aListOrB": "{0}, or {1}",
 			"aOrB": "{0} or {1}",
@@ -3326,7 +3327,6 @@
 			"mergeSpaced": "{.. }",
 			"multiply": "x{0}",
 			"negate": "-{0}",
-			"add": "+{0}",
 			"nPCName": "{#--COLOR-NPC-{1?HOSTILE:FRIENDLY}:{0}}",
 			"nPCNameUnmet": "{%Another Lost Soul:A Weary Traveler:A Fellow Wanderer}",
 			"numberSingleDecimal": "{#1:{0}}",
