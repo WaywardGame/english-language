@@ -3738,7 +3738,8 @@
 		},
 		"skillsSort": {
 			"name": "Name",
-			"level": "Level"
+			"level": "Level",
+			"recent": "Recent"
 		},
 		"source": {
 			"all": "All",
@@ -4003,10 +4004,10 @@
 			"gameDialogMilestonesMilestone": "{0}: {1}",
 			"gameDialogMilestonesTooltipMystery": "This milestone is a mystery.",
 			"gameDialogMilestonesTooltipInvisible": "This milestone is invisible.",
-			"gameDialogMilestonesHeadingNotUnlockableInMode": "Not Unlockable in {0}",
-			"gameDialogMilestonesHeadingAlreadyUnlocked": "Completed",
-			"gameDialogMilestonesParagraphNoMoreUnlockable": "You have completed all milestones available in {0} mode.",
-			"gameDialogMilestonesLabelPlusHidden": "{0} milestones are still hidden...",
+			"gameDialogUnlockablesHeadingNotUnlockableInMode": "Not Unlockable in {0}",
+			"gameDialogUnlockablesHeadingAlreadyUnlocked": "Completed",
+			"gameDialogUnlockablesParagraphNoMoreUnlockable": "You have completed all {PLURAL(){1}} available in {0} mode.",
+			"gameDialogUnlockablesLabelPlusHidden": "{0} {PLURAL({0}){1}} are still hidden...",
 			"gameDialogSkillsSkill": "{0}: {2?{#--COLOR-MAGICAL:{1}%}:{1}%}",
 			"gameDialogSkillsSkillHover": "{0}: {1}% {#--COLOR-MAGICAL:+{2}%}",
 			"gameDialogMapDurability": "{#--TEXT-SECONDARY:(Durability: {#--color-{3?bad:{2?warning:none}}:{0}}/{1})}",
