@@ -456,7 +456,14 @@
 			"noStartingItems": "No Starting Items",
 			"startingEvilAlignment": "{0} Starting Alignment to {$DEITY:EVIL}",
 			"goodAlignmentRate": "{0}x {$DEITY:GOOD} Alignment Multiplier",
-			"evilAlignmentRate": "{0}x {$DEITY:EVIL} Alignment Multiplier"
+			"evilAlignmentRate": "{0}x {$DEITY:EVIL} Alignment Multiplier",
+			"biomeWetlands": "Awake Upon Flooded Shores",
+			"biomeArid": "Awake Upon Sun-baked Shores",
+			"biomeIceCap": "Awake Upon Frigid Shores",
+			"biomeVolcanic": "Awake Upon Devilish Shores",
+			"cursed": "Cursed!",
+			"sunset": "Awake as the Sun Sets",
+			"slitherSucker": "Deities help me, what is that?!"
 		},
 		"changelogChangeType": {
 			"new": "New",
@@ -2970,6 +2977,8 @@
 			"sleeping": "Sleeping",
 			"sleepOnBoat": "Sleep on Boat",
 			"slept": "slept",
+			"slitherSuckerFailedToRemove": "You attempt to remove {0} from your head, but the squirming, slippery creature escapes your grasp!",
+			"slitherSuckerFailedToRemoveOuch": "You attempt to remove {0} from your head, but it only bites down harder!",
 			"slitherSuckerConstricts": "{0} constricts and moves on your head, causing its teeth to pierce you as it writhes.",
 			"slitherSuckerJumpedOnHead": "{0} jumps on top of you, suctioning and constricting itself on top of your head.",
 			"solarStill": "solar still",
