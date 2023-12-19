@@ -25,7 +25,7 @@
 			"readMap": ["Read Map", "Open a map and read the contents.\n- The durability of the map decreases for each turn it is opened."],
 			"learn": ["Learn", "Read a book to provide useful knowledge."],
 			"reinforce": ["Reinforce", "Consume a reinforcement item to repair an item and increase its maximum durability.", "- Increases chance of success.\n- Increases skill gained.\n- Increases amount of reinforcement.\n- Decreases stamina used."],
-			"gather": ["", ""],
+			"gather": ["Gather", "Gather from an adjacent resource/tile/doodad, destroying it in the process.\n- Will default to \"chopping\" or \"mining\" depending on the resource/tile/doodad.\n- Gathering with hands can lead to damaging your hands and/or bleeding."],
 			"stokeFire": ["Stoke Fire", "Stoke the fire to increase the strength of the flame."],
 			"pour": ["Pour", "Pour the liquid out of a container, useful in many circumstances.\n- Filling a water still to begin water filtration.\n- Increasing the health of a suitable plant.\n- Extinguishing a fire.\n- Or simply to replace the contents of the container with a different liquid."],
 			"plant": ["Plant", "Attempts to plant the item on the tile in front of you.\n- Some plants may require certain ground types or conditions to be planted.", "- Increases skill gained.\n- Decreases stamina used."],
