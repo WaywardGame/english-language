@@ -2649,6 +2649,7 @@
 			"cutWasBandaged": "Your cut was bandaged!",
 			"damageAppeared": "{0} damage appeared to be {1}.",
 			"damagedByPouring": "You damaged {0} by pouring out the {1}.",
+			"actionPourNoEffect": "You poured out the {0} on to {1} without any effect.",
 			"dangerousMove": "You barely caught yourself before moving into {0}!",
 			"dangerousOpen": "You barely caught yourself before opening {0} while on fire!",
 			"dayQuarter1": "It is currently in the first quarter of the day.",
