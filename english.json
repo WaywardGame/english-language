@@ -2071,6 +2071,10 @@
 			"aspic": ["aspic", "A bit of cooked meat encased in set gelatin; useful for preservation purposes."],
 			"fruitCocktail": ["fruit cocktail", "A tasty treat; this dessert contains fruit suspended in fruit-flavored gelatin."],
 			"vegetableTerrine": ["vegetable terrine", "A decadent melange of vegetables contained within vegetable-flavored gelatin."],
+			"tatteredClothBandana": ["tattered cloth bandana", "A simple piece of thin fabric shaped and knotted into a head garment. This one is looking the worse for wear."],
+			"clothBandana": ["cloth bandana", "A thin wooven piece of fabric knotted at the back and shaped to wear on top of your head. Just a little something to keep the sun off your head."],
+			"rustedScimitar": ["rusted scimitar", "A scimitar-style blade that appears to have been left out to the elements for what seems like decades."],
+			"tricorneHat": ["tricorne hat", "A cocked-style hat typically worn by the military or well-off folks, but this one was likely commandeered by a pirate at some point."],
 			"last": ["", ""]
 		},
 		"itemExtra": {
