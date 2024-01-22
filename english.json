@@ -2317,7 +2317,7 @@
 			"itemWeight": ["featherweight", "The same amount of material, but lighter weight. Curious."],
 			"stat": ["{0}", "Seems to increase your {0}."],
 			"skill": ["{0}", "Seems to increase your expertise in {0}."],
-			"invoking": ["{1=4?{$DEITY:GOOD}:{$DEITY:EVIL}} invocation",
+			"invoking": ["{1=4?{$DEITY:GOOD}:{1=1?{$DEITY:EVIL}:{$DEITY:NEUTRAL}}} invocation",
 			"An odd hum resonates through the item and into you upon touch."],
 			"unused": ["", ""],
 			"range": ["range", "Limber and robust, able to propel objects further than normal."],
