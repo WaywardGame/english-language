@@ -2437,6 +2437,8 @@
 			"actionFishingNothingBiting": "Nothing seems to be biting here.",
 			"actionFishingSlipped": "You felt something slip away from your line.",
 			"actionFishingTooShallow": "This location appears to be to be too shallow to catch anything.",
+			"actionInvoke": "You invoke {0}, and {1} disintegrates in your hands.",
+			"actionInvokeAltarHint": "It may be more effective to make an offering with some form of altar or shrine...",
 			"actionJumpCannotJump": "You cannot jump to there.",
 			"actionMeleeNothingToAttack": "There is nothing to attack here.",
 			"actionMoveItemCannotUseContainerTooFarAway": "You are too far away to move items to {0??this container}.",
