@@ -4282,6 +4282,8 @@
 			"gameTooltipStatFerocityCivilizationScore": "Civilization Score",
 			"gameTooltipStatFerocityTurn": "Turn",
 			"gameTooltipStatFerocityTicks": "Ticks",
+			"gameTooltipStatFerocityNights": "Nights",
+			"gameTooltipStatFerocityDays": "Days",
 			"gameTooltipSharedUndiscovered": "Something you have yet to discover...",
 			"gameStatsStatAttack": "{0}",
 			"gameStatsStatGeneric": "{0}",
