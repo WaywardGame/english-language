@@ -2150,6 +2150,7 @@
 			"equippableNeck": "equippable: neck",
 			"equippableOffHand": "equippable: off hand",
 			"equippableWaist": "equippable: waist",
+			"excludedFromRandom": "excluded from random item",
 			"exuding": "exuding item",
 			"fabric": "fabric",
 			"filler": "filler",
@@ -2236,8 +2237,7 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container",
-			"excludedFromRandom": "excluded from random item"
+			"wispContainer": "wisp container"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
