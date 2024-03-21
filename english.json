@@ -2237,7 +2237,8 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container"
+			"wispContainer": "wisp container",
+			"leaves": "leaves"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
