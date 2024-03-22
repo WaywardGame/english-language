@@ -2173,6 +2173,7 @@
 			"insect": "insect",
 			"kiln": "kiln",
 			"kindling": "kindling",
+			"leaves": "leaves",
 			"lightDevice": "light device",
 			"lighthouse": "lighthouse",
 			"liquid": "liquid",
@@ -2237,8 +2238,7 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container",
-			"leaves": "leaves"
+			"wispContainer": "wisp container"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
