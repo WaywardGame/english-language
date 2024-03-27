@@ -3315,7 +3315,7 @@
 			"multitasker": ["Multitasker", "Use each skill at least once.", "All skills are buffed by 10% at the start. Skills are gained at a slower rate."],
 			"apocryphal": ["Apocryphal", "Collected items with one of every magical property.", "Start with an item with up to three magical properties on it."],
 			"diverse": ["Diverse", "Played a game in every game mode.", "All starting stats reduced heavily. You receive two stats points for every gain."],
-			"traitor": ["Traitor", "Kill your own tamed creature.", "Creatures gain double the maximum health on re-tame, but un-tame twice as fast."],
+			"traitor": ["Traitor", "Kill your own tamed creature.", "Creatures gain more maximum health on re-taming/offering/petting, but un-tame faster."],
 			"masterOfAll": ["Master Of All", "Raised all skills to 100%.", "Start with one skill at 100%. It cannot be raised past 100% through bonuses."],
 			"rouseabout": ["Rouseabout", "Learn from 10 old instructional scrolls.", "Crafts are slighty less difficult. You can only learn crafting recipes via old instructional scrolls or from picking up items. You start with 10 old instructional scrolls and more can be dropped by any creature. Previously learned crafts are disabled."],
 			"murderer": ["Murderer", "Killed a merchant.", "Merchants will never spawn. Start with an iron knife."],
