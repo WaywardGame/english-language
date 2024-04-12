@@ -153,7 +153,8 @@
 			"dumpItems": ["Dump Contents{0? From {0}}", "dumped contents from {TARGET??a container}", "Dump out the contents of this container."],
 			"reshape": ["Reshape", "reshaped {TARGET??an item}{TOOL? with {TOOL}}", "Reshape an item, modifying its attack or defense bonuses.", "- Increases chance of success.\n- Increases skill gained.\n- Decreases stamina used."],
 			"stack": ["Stack", "stacked {TARGET}", ""],
-			"unstack": ["Unstack", "unstacked {TARGET}", ""]
+			"unstack": ["Unstack", "unstacked {TARGET}", ""],
+			"setCreatureAiAll": ["Command All Creatures", "commanded all creatures to {COMMAND}", ""]
 		},
 		"actionSlotItemMethod": {
 			"exactItem": "Using an exact item.",
@@ -404,7 +405,8 @@
 			"gameActionReshape": "Reshape",
 			"gameActionReshapeWithItem": "Reshape With Item",
 			"gameActionCreatureHeelAi": "Heel AI",
-			"gameActionOpenTileContainer": "View Items"
+			"gameActionOpenTileContainer": "View Items",
+			"gameActionCommandCreatureAll": "Command All"
 		},
 		"bindableType": {
 			"game": "Gameplay",
@@ -2078,6 +2080,7 @@
 			"tricorneHat": ["tricorne hat", "A cocked-style hat typically worn by the military or well-off folks, but this one was likely commandeered by a pirate at some point."],
 			"sandstoneArrowhead": ["sandstone arrowhead", "A sharpened piece of sandstone with a notched neck where string can be fastened to a shaft to create an arrow."],
 			"sandstoneArrow": ["sandstone arrow", "A fully fletched arrow crafted with a sandstone arrowhead, likely originating from an arid region."],
+			"reedFlute": ["reed flute", "An instrument made from a hollowed-out cattail reed with notches cut in for the notes. When blown into, it produces a sharp, somewhat shrill sound."],
 			"last": ["", ""]
 		},
 		"itemExtra": {
@@ -3193,6 +3196,7 @@
 			"youHaveBeenCut": "You have been cut!",
 			"youHaveCaged": "You have caged {0}!",
 			"youHaveCommanded": "You have commanded {0} to {1}.",
+			"youHaveNotCommanded": "Nothing around you followed your command to {0}.",
 			"youHaveDied": "You have died {0}!",
 			"youHaveHealedOther": "You have healed {0}.",
 			"youHaveKilled": "You have killed {0}!",
@@ -5044,7 +5048,14 @@
 			"moveContentsToFacingContainer": ["Move Contents to {0??Facing Container}", "", "Move the contents of this container to the container you are facing."],
 			"moveContentsOfActiveContainerMenu": "Move Contents of {0??Active Container}",
 			"moveContentsOfFacingContainerMenu": "Move Contents of {0??Facing Container}",
-			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."]
+			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."],
+			"commandMenuAll": "Command All",
+			"commandAllFollowClose": ["Command All to Follow (Close)", "", "Command tamed creatures to follow at the default distance."],
+			"commandAllFollowFar": ["Command All to All Follow (Far)", "", "Command tamed creatures to follow further back than normal."],
+			"commandAllStay": ["Command All to Stay", "", "Command tamed creatures to stay at this exact location."],
+			"commandAllDefend": ["Command All to Defend", "", "Command tamed creatures to defend this area."],
+			"commandAllAttack": ["Command All to Attack", "", "Command tamed creatures to attack everything in this area."],
+			"commandAllHeel": ["Command All to Heel", "", "Command tamed creatures to heel, always following you and never attacking."]
 		},
 		"website": {
 			"twitter": "Twitter",
