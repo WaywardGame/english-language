@@ -3110,6 +3110,7 @@
 			"timeIsSunset": "The sun is setting.",
 			"toFight": "fight",
 			"tooDamaged": "{0} is too damaged to attempt to {1}.",
+			"actionSetDownNotEnoughRoom": "There is not enough room to place {0}.",
 			"tooExhaustedToJump": "You are too exhausted and overburdened to make this jump.",
 			"touching": "Touching",
 			"trampledFire": "You trampled the fire, putting it out!",
