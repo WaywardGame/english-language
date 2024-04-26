@@ -3404,6 +3404,7 @@
 			"simplify": "{~{0}:{1}}",
 			"tile": "{0}{1? ({2},{3},{4})}",
 			"tilled": "tilled {0}",
+			"dug": "dug {0}",
 			"undiscovered": "?",
 			"unknown": "Unknown",
 			"unknownItem": "unknown item"
