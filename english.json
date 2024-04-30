@@ -344,6 +344,7 @@
 			"gameActionEnhance": "Enhance",
 			"gameActionAlter": "Alter",
 			"gameActionSummon": "Summon",
+			"gameActionInvoke": "Invoke",
 			"gameActionExudeWithItem": "Exude With Item",
 			"gameActionAbsorbWithItem": "Absorb With Item",
 			"gameActionIgniteWithItem": "Ignite With Item",
