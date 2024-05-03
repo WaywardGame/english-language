@@ -3228,7 +3228,8 @@
 			"youTilled": "You tilled the {0}.",
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"actionToggleTilledDug": "You cannot till ground that has been dug up."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -3373,7 +3374,8 @@
 			"tilled": "tilled {0}",
 			"undiscovered": "?",
 			"unknown": "Unknown",
-			"unknownItem": "unknown item"
+			"unknownItem": "unknown item",
+			"the": "the {0}"
 		},
 		"modLoadError": {
 			"modLoadError": "Error loading mod.",
