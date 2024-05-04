@@ -2519,6 +2519,7 @@
 			"actionToggleHitchNoHitch": "There is no hitching post to hitch a creature to here.",
 			"actionToggleTilledAlreadyPacked": "The ground is already packed here.",
 			"actionToggleTilledAlreadyTilled": "The ground is already tilled here.",
+			"actionToggleTilledDug": "You cannot till ground that has been dug up.",
 			"actionTradeCannotUseExceedsCarryWeight": "This trade exceeds {0}'s carry weight limit by {1}.",
 			"actionTradeCannotUseNotEnoughCredit": "You need {0} more barter credit for this trade.",
 			"actionTradeCannotUseNothingToTrade": "You have not indicated any items to trade.",
@@ -3228,8 +3229,7 @@
 			"youTilled": "You tilled the {0}.",
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"actionToggleTilledDug": "You cannot till ground that has been dug up."
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -3370,12 +3370,12 @@
 			"reformatSingularNoun": "{NOUN({0} {1}){2}}",
 			"renamed": "\"{0}\"",
 			"simplify": "{~{0}:{1}}",
+			"the": "the {0}",
 			"tile": "{0}{1? ({2},{3},{4})}",
 			"tilled": "tilled {0}",
 			"undiscovered": "?",
 			"unknown": "Unknown",
-			"unknownItem": "unknown item",
-			"the": "the {0}"
+			"unknownItem": "unknown item"
 		},
 		"modLoadError": {
 			"modLoadError": "Error loading mod.",
