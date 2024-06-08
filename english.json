@@ -592,7 +592,7 @@
 			"sandcat": ["sandcat", "A small, but ferocious feline that lives exclusively in desert areas."],
 			"lavaBeetle": ["lava beetle", "A horned beetle with a large abdomen, filled with liquid magma."],
 			"goat": ["goat", "A hardy ruminant animal that has horns. A frisky, lively creature, but dangerous when provoked, ramming at its target with much force."],
-			"slitherSucker": ["slither sucker", "A wriggling foreign-looking worm-like creature. Its mouth is wide and filled with suction modules and razor-sharp teeth."],
+			"slitherSucker": ["slither sucker", "A wriggling foreign-looking worm-like creature. Its mouth is wide and filled with suction nodules and razor-sharp teeth."],
 			"mudskipper": ["mudskipper", "A slippery fish that appears to come to land for feeding. Its bulgy eyes and large gaping mouth make it quite the sight."],
 			"scorpion": ["scorpion", "A predatory arachnid, known for its tall segmented tail and ominous stinger."],
 			"rattlesnake": ["rattlesnake", "A dangerous rattling predator of the desert. The rattlesnake warns you with its vibrating tail as you pass by it."],
@@ -622,6 +622,13 @@
 			"shadowCreature": ["shadow", "There and not there; skulking around into the shadows and merging with the darkness."],
 			"pirateSkeleton": ["pirate skeleton", "An animated pile of human, or human-like bones adorned with pirate garb."]
 		},
+		"curseComponent": {
+			"skill": "Skill (From current highest impact: {0})",
+			"highestAttack": "Attack (Highest Achieved)",
+			"highestDefense": "Defense (Highest Achieved)",
+			"cumulativeEvilCrafting": "Crafting (Cumulative)",
+			"equipment": "Combat Strength"
+		},
 		"damageType": {
 			"none": "none",
 			"blunt": "blunt",
@@ -632,9 +639,11 @@
 			"true": "true"
 		},
 		"deity": {
-			"evil": ["", "Simply thinking of it sends shivers down your spine."],
-			"neutral": ["", "Its attention seems hard fought and quickly lost."],
-			"good": ["", "Your heartbeat quickens as you gain its favor."]
+			"evil": ["", "Simply thinking of it sends shivers down your spine. The island seems more ferocious when you align yourself towards it."],
+			"neutral": ["", "Its attention seems hard fought and quickly lost. You believe it is neither associated with or against the island, nor the other forces. It revels in chaos."],
+			"good": ["", "You feel a calming breeze as you gain its favor. The island, and its inhabitants, seem less ferocious when you align yourself towards it."],
+			"all": ["deities", "Ancient, unknowable entities that seem to govern these islands. These entities appear to have been invoked by past inhabitants of the islands in strange, terrifying rituals."],
+			"single": ["deity", ""]
 		},
 		"deityAlignmentLevel": {
 			"neutral": "Neutral",
@@ -647,10 +656,19 @@
 			"consecratedBy": "Consecrated{0? by {0}}",
 			"facetOf": "Facet{0? of {0}}"
 		},
-		"deityUndiscovered": {
+		"deitySymbol": {
 			"evil": ["", "A symbol seen around this strange isle, resembling the top of a staff with curved horns."],
 			"neutral": ["", "A complex symbol you noticed carved into a stone cliff, but that never left your mind."],
-			"good": ["", "An odd symbol seen often around the island, resembling an eye with a line through it."]
+			"good": ["", "An odd symbol seen often around the island, resembling an eye with a line through it."],
+			"all": ["ancient symbols", "Glyphs from the past inhabitants of these islands. It is not known if their meanings have been preserved."],
+			"single": ["ancient symbol", ""]
+		},
+		"deityUnknownForce": {
+			"evil": ["", "An unknown force that you have associated with the feeling of shivers running down your spine."],
+			"neutral": ["", "A particularly inscrutable force that does not seem opposed or aligned with the others. You associate it with no feelings... or, perhaps, all of them."],
+			"good": ["", "An unknown force that you have associated with the feeling of a calming breeze."],
+			"all": ["unknown forces", "Ancient, unknown forces that seem to govern these islands."],
+			"single": ["unknown force", ""]
 		},
 		"dialog": {
 			"messages": "Messages",
@@ -2036,9 +2054,9 @@
 			"runeOfEvil": ["rune of {$DEITY:EVIL}",
 			"A runic symbol carved into an ancient shard of wood, likely meant as an offering for an unknown force. Inspecting the artifact too closely sends shivers down your spine."],
 			"runeOfNeutrality": ["rune of {$DEITY:NEUTRAL}",
-			"A runic symbol carved into an ancient wooden medallion, perhaps an offering for an unknown force or entity. The surface is worn and faded, the texture dulled."],
+			"A runic symbol carved into an ancient wooden medallion, perhaps an offering for an unknown force or entity. The symbol is worn and faded, the texture coarse and grating. You somehow feel nothing, and everything."],
 			"runeOfGood": ["rune of {$DEITY:GOOD}",
-			"A runic symbol carved into an ancient wooden tile, a likely offering for an unknown entity. As you thumb the symbol, your heartbeat quickens."],
+			"A runic symbol carved into an ancient wooden tile, a likely offering for an unknown entity. As you thumb the symbol, you feel a calming breeze."],
 			"graniteAltar": ["granite altar", "A granite table, carefully and precisely crafted with crude tools to be a place of reverence for inscrutable deities."],
 			"woodenWheelbarrow": ["wooden wheelbarrow", "A sturdy and reliable wheelbarrow made from solid wood, perfect for transporting light to medium loads with ease."],
 			"tinWheelbarrow": ["tin wheelbarrow", "A lightweight wheelbarrow with a rust-resistant tin coating, suitable for carrying small loads swiftly and efficiently."],
@@ -2082,6 +2100,15 @@
 			"sandstoneArrowhead": ["sandstone arrowhead", "A sharpened piece of sandstone with a notched neck where string can be fastened to a shaft to create an arrow."],
 			"sandstoneArrow": ["sandstone arrow", "A fully fletched arrow crafted with a sandstone arrowhead, likely originating from an arid region."],
 			"reedFlute": ["reed flute", "An instrument made from a hollowed-out cattail reed with notches cut in for the notes. When blown into, it produces a sharp, somewhat shrill sound."],
+			"woodenFlute": ["wooden flute", "A simple wooden flute, carved from a wooden pole. When played, it produces a soft, melodic sound."],
+			"rawClayFlute": ["raw clay flute", "An unfired clay flute, shaped and ready to be fired inside a kiln."],
+			"clayFlute": ["clay flute", "A flute made from fired clay. When used, it produces a hollow and somewhat deep melodic sound."],
+			"boneFlute": ["bone flute", "An instrument crafted from a hollowed and carved bone. It produces odd, but elluring notes when played."],
+			"tinFlute": ["tin flute", "A flute made from tin, a metal that is soft and malleable. It produces a high-pitched notes, definitely causing creatures around you to stir."],
+			"copperFlute": ["copper flute", "A cold worked copper flute. When played, it produces a clear, resonant sound."],
+			"wroughtIronFlute": ["wrought iron flute", "A simple, but sonorous instrument, forged from wrought iron."],
+			"ironFlute": ["iron flute", "A flute made from iron. When blown into, it produces solid, clear notes with clarity for someone with some skill atleast."],
+			"bronzeFlute": ["bronze flute", "An elegant flute crafted from bronze. When played, it produces a rich, deep sound causing any creatures around to stir with delight, or perhaps anger."],
 			"last": ["", ""]
 		},
 		"itemExtra": {
@@ -2162,6 +2189,7 @@
 			"firemaking": "firemaking item",
 			"fireSource": "fire source",
 			"fireStarter": "fire starter",
+			"flute": "flute",
 			"frozenWater": "frozen water",
 			"fruit": "fruit",
 			"fuel": "fuel",
@@ -2392,6 +2420,7 @@
 			"actionAttachAttachingItem": "attaching {0}",
 			"actionAttachCannotAttach": "You cannot attach {0} to {1}.",
 			"actionAttachNothingToAttachItemTo": "There is nothing to attach {0} to here.",
+			"actionBuildTooDeep": "{0} cannot be built over deep holes.",
 			"actionButcherReleasesLava": "{0} releases lava from its innards.",
 			"actionCageCreatureCannotBeCaged": "{0} cannot be caged.",
 			"actionCageCreatureNoCreature": "There is no creature to cage here.",
@@ -2418,6 +2447,7 @@
 			"actionDetachContainerDetachContainer": "You detached {0} from {1}",
 			"actionDetachContainerNoDetach": "There is nothing to detach here.",
 			"actionDigTooDeep": "This hole is too deep to dig any further.",
+			"actionDigWaterFilledHole": "The nearby water filled the deep hole as you dug.",
 			"actionDisassembleNoItemsSalvaged": "You were not able to salvage any items by disassembling {0}.",
 			"actionDisassembleSalvaged": "You salvaged {0} by disassembling {1}.",
 			"actionDismantleSeparated": "You separated {0} by dismantling {1}.",
@@ -2481,7 +2511,7 @@
 			"actionReshapeNotPossibleBonus": "This item cannot be reshaped due to not having attack or defense bonuses.",
 			"actionReshapeReshaped": "You reshape {0}. Its attack or defense bonuses have changed!",
 			"actionSacrifice": "You invoke {0}{1?, sacrificing {1} as an offering}.",
-			"actionSacrificeAlreadyDoneToday": "You invoke {1?and attempt to make an offering to }{0}, but there is only silence{1?; your offering untouched}.",
+			"actionSacrificeAlreadyDoneToday": "You attempt to invoke {1?and make an offering to }{0}, but there is only silence{1?; your offering untouched}. This will change in time.",
 			"actionSailToCivilizationNotInsideBoat": "You must be in the sailboat to sail to civilization.",
 			"actionSailToIsland": "You depart from {0}, traveling to {1}...",
 			"actionSailToIslandArrived": "You arrive at {0}.",
@@ -2543,9 +2573,9 @@
 			"actionUseItemWeaponNeeded": "You need a weapon that can fire this projectile!",
 			"addedFuelToFire": "You added {0} to {1}! The fire grows stronger.",
 			"addedFuelToTorch": "You added {0} to {1}.",
-			"alignmentUpdateCursed": "{0=1?You feel as though you are cursed.:You have felt cursed for {#WORDS:{0}} {NOUN({0})day}.}",
+			"alignmentUpdateAnguish": "{0=1?You feel anguish.:You have felt anguish for {#WORDS:{0}} {NOUN({0})day}.}",
 			"alignmentUpdateEvil": "a shiver runs down your spine",
-			"alignmentUpdateGood": "your heartbeat quickens",
+			"alignmentUpdateGood": "you feel a calming breeze",
 			"alignmentUpdateHighPiety": "Your alignment shifts by {1} towards {0}! {^{2}}.",
 			"alignmentUpdateLowPiety": "You become more aligned with {0} and {1}.",
 			"alignmentUpdateNoPiety": "You sense a change in unknown forces... {^{0}}.",
@@ -2700,7 +2730,7 @@
 			"dedicatedTitleAlreadySelected": "You have already selected your title while using the {#--COLOR-GOOD:'{0}'} milestone modifier.",
 			"dedicatedTitleMilestoneNotAllowed": "You cannot select a milestone as your title while using the {#--COLOR-GOOD:'{0}'} milestone modifier.",
 			"deityIntroductionEvil": "As you place the runic shard onto the altar, you hear a rumble of thunder far in the distance, and whispers all around. Shivers run down your spine.",
-			"deityIntroductionGood": "As you place the runic tile onto the altar, the sun breaks through the clouds to shine down upon you. Whispers are carried along in the breeze. Your heartbeat quickens.",
+			"deityIntroductionGood": "As you place the runic tile onto the altar, the sun breaks through the clouds to shine down upon you. Whispers are carried along in the calming breeze. Your heartbeat quickens.",
 			"deityIntroductionNeutral": "As you place the runic medallion onto the altar, there are indecipherable whispers in your ear and a flash of light before you. You fall away, startled.",
 			"deityIntroductionNoUnderstand": "You do not understand.",
 			"destroyedFromUse": "{0} has been destroyed from use.",
@@ -2712,8 +2742,11 @@
 			"disassemble": "disassemble",
 			"disassembling": "disassembling",
 			"discoveredCaveEntrance": "You have discovered a cave entrance!",
+			"discoveredColdInsulation": "It is bone-chatteringly cold here, and you find yourself without adequate protection. You have discovered Cold Insulation.",
+			"discoveredHeatInsulation": "It is blisteringly hot here, and you find yourself without adequate protection. You have discovered Heat Insulation.",
 			"discoveredInTheBottle": "You have discovered {0} in the bottle!",
 			"discoveredLavaPassage": "You have discovered a passage of lava!",
+			"discoveredQuality": "You have discovered an item of {0} quality!",
 			"dismantle": "dismantle",
 			"dismantling": "dismantling",
 			"dismantlingRequires": "Dismantling {0} requires {1}.",
@@ -3036,6 +3069,7 @@
 			"startTravelInWater": "You need to start your travels while in ocean water.",
 			"starvingToDeath": "You are starving to death!{0? You have lost {0} health!}",
 			"statAmount": "{0} {1}",
+			"statChangeUnknown": "affected {0} undiscovered stats",
 			"statGained": "gained {0} {1}",
 			"statIncreasing": "You felt your {0} increase from {1} to {2}!",
 			"statLost": "lost {0} {1}",
@@ -3300,7 +3334,8 @@
 			"serene": ["Serene", "Reach 75% of the creature spawn limit.", "Half the creature spawn rate. Decrease base defense."],
 			"curator": ["Curator", "Discover every item quality.", "Increase the chance of finding relic items. Decrease the chance of finding other item qualities."],
 			"thaumaturgic": ["Thaumaturgic", "Collected items with one of every magical property as well as their sub-properties.", "All items have the same chance at gaining 1-5 magical properties."],
-			"runekeeper": ["Runekeeper", "Discover every domain of each deity.", "Increase the chance of receiving a rune. Invoking has little effect."]
+			"runekeeper": ["Runekeeper", "Discover every domain of each deity.", "Increase the chance of receiving a rune. Invoking has little effect."],
+			"invoker": ["Invoker", "Shifted alignment to deities by a total of 1,000,000.", "The ferocity is changed to be based on Curse instead of Alignment."]
 		},
 		"milestoneModifierGroup": {
 			"creatures": "Creatures",
@@ -3359,6 +3394,7 @@
 			"nPCName": "{#--COLOR-NPC-{1?HOSTILE:FRIENDLY}:{0}}",
 			"nPCNameUnmet": "{%Another Lost Soul:A Weary Traveler:A Fellow Wanderer}",
 			"numberSingleDecimal": "{#1:{0}}",
+			"overfished": "overfished {0}",
 			"overline": "{‾{..}‾}",
 			"ownName": "{#--COLOR-SELF:{0}{2? {.CHAT-PLAYER-TITLE:{2}}}}",
 			"parenthesized": "({0})",
@@ -3836,7 +3872,7 @@
 			"metabolism": "metabolism",
 			"strength": "strength",
 			"luck": "luck",
-			"ferocity": ["ferocity", "The strength and intensity of the creatures sent after you, and the difficulty of your survival."],
+			"ferocity": ["ferocity", "The strength and intensity of the creatures sent after you, and the difficulty of your survival.\n\nFerocity appears to wax and wane with time of day, locale, and your alignment to the {$DEITY:ALL} governing this place."],
 			"insulationHeat": "heat insulation",
 			"insulationCold": "cold insulation",
 			"produce": "produce",
@@ -3844,7 +3880,11 @@
 			"tamed": "tamed",
 			"petting": "petting",
 			"waste": "waste",
-			"petted": "petted"
+			"petted": "petted",
+			"alignment": ["alignment", "The main component of the island's ferocity appears to be your alignment to its governing forces."],
+			"curse": ["curse", "You are afflicted with the island's curse, and will see your alignment ever drifting to darkness. The greater your hold on the island, the faster this drift."],
+			"genericStats": ["stats", ""],
+			"attackDefenseRow": ["attack & defense", ""]
 		},
 		"statusEffect": {
 			"bleeding": ["bleeding", "bleed", "{@3}{#--TEXT-PRIMARY:{@4..}}",
@@ -3887,8 +3927,9 @@
 				"{1?:{2?- Dealing around {#--COLOR-BAD:{2} damage}!}}",
 				"{1?:{2?:- Actively dealing damage!}}",
 			"{0?- {0}% chance to pass each damage tick.}"],
-			"cursed": ["cursed", "curse", "{@3}{#--TEXT-PRIMARY:{@4..}}",
-			"The air feels thick with tension. Something is wrong; something that cannot be ignored.", "- You have felt cursed for {#WORDS:{0}} {NOUN({0})day}."]
+			"anguish": ["anguish", "anguish", "{@3}{#--TEXT-PRIMARY:{@4..}}",
+			"The air feels thick with tension. As your hold on the island grows, your curse ever increasing... The island and its forces see you, but you have ignored them, or do not understand.", "- You have felt anguish for {#WORDS:{0}} {NOUN({0})day}.",
+			"- Even your own shadow seems to chase you."]
 		},
 		"steamInputKeyboardPosition": {
 			"dynamic": ["Dynamic", "Attempt to dynamically position the keyboard based on where the input is located on screen."],
@@ -4169,6 +4210,7 @@
 			"gameTooltipItemUseAttack": "{1?{1} }{0} attack",
 			"gameTooltipItemUseThrowDamage": "{1? }{0} attack",
 			"gameTooltipItemUseCrafting": " crafting effectiveness",
+			"gameTooltipSharedLabelDoodadCraftingBonus": "Crafting Effectiveness",
 			"gameTooltipItemUseOffering": " taming length",
 			"gameTooltipItemUseEquipDefense": "Defense: {0} base",
 			"gameTooltipItemUseEquipDefenseAttribute": "{1} {0}",
@@ -4248,6 +4290,7 @@
 			"gameTooltipStatAttackSectionRanged": "Ranged Attack",
 			"gameTooltipStatAttackRange": "(Range: {#--TEXT-PRIMARY:{0}})",
 			"gameTooltipStatAttackMultiplier": "Game Mode Multiplier",
+			"gameTooltipStatSharedLabelSkill": "{0} Skill",
 			"gameTooltipCreatureLabelTamed": "Tamed",
 			"gameTooltipCreatureLabelMood": "Mood",
 			"gameTooltipCreatureLabelCommand": "Command",
@@ -4260,10 +4303,8 @@
 			"gameTooltipCreatureAberrantDescriptionExtra": "This creature is particularly territorial and aggressive; it will likely hit harder and be more resilient than other creatures of its kind.",
 			"gameTooltipCreatureAberrantDescriptionVerbose": "Its {#--TEXT-PRIMARY:vulnerabilities} may be the only way to take it down.\nIt could potentially still be {#--TEXT-PRIMARY:tamed}... though it may not remain friendly for long.",
 			"gameTooltipCreatureProducingMilk": "Producing Milk",
-			"gameTooltipDeitySubtitleLowPiety": "Unknown Force",
-			"gameTooltipDeitySubtitleModeratePiety": "Deity",
 			"gameTooltipDeityLabelDomains": "Domains",
-			"gameTooltipStatFerocityHeadingAlignment": "Alignment to Deities",
+			"gameTooltipStatFerocityHeadingAlignmentOwn": "Own Alignment to Deities",
 			"gameTooltipStatFerocityHeadingAlignmentCommunal": "Communal Alignment to Deities",
 			"gameTooltipStatFerocityHeadingOtherStats": "Stats",
 			"gameTooltipStatFerocityAlignmentToDeity": "Alignment to {0}",
@@ -4274,6 +4315,8 @@
 			"gameTooltipStatFerocityNights": "Nights",
 			"gameTooltipStatFerocityDays": "Days",
 			"gameTooltipSharedUndiscovered": "Something you have yet to discover...",
+			"gameTooltipStatCurseFactors": "Factors",
+			"gameTooltipStatCurseAlignmentNightly": "At sunset, your curse will cause {1?you to gain{ 0??} alignment to {$DEITY:EVIL}.:your alignment to shift...}",
 			"gameStatsStatAttack": "{0}",
 			"gameStatsStatGeneric": "{0}",
 			"gameStatsStatGenericWithMax": "{0}​/{1}",
