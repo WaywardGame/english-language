@@ -1320,7 +1320,7 @@
 			"woodenDowels": ["wooden dowels", "A gathering of small wooden pegs. Used as hinges in woodworking or as kindling in firemaking."],
 			"granite": ["granite", "A rather large piece of granite, handy for crafting many tools and devices."],
 			"leafBedroll": ["leaf bedroll", "A provisional bed with poor insulation and scratchy half-dried leaves, used for sleeping or resting."],
-			"leatherHide": ["leather hide", "A fresh leather hide, stripped from an animal and de-furred."],
+			"hide": ["hide", "A fresh thick hide, cut from an animal and de-furred."],
 			"leaves": ["leaves", "A handful of foliage used as compost, to stoke a fire, or as tinder when dried."],
 			"limestone": ["limestone", "A mineral-rich rock that can be ground into a powder. Useful for metal and glass production."],
 			"log": ["log", "A sturdy piece of wood, useful for construction or as a fuel for a fire."],
@@ -1356,7 +1356,7 @@
 			"graniteWall": ["granite wall", "A series of interlaced stones and rocks, shaped into a vertical wall structure. Can be built to keep enemies out."],
 			"string": ["string", "Woven fabric; the cornerstone of all crafting materials, mainly used for binding."],
 			"strippedBark": ["stripped bark", "A strong, fibrous shaving from a branch, useful as cordage."],
-			"tannedLeather": ["tanned leather", "A durable, treated piece of leather. Used in crafting armor and other tools."],
+			"leather": ["leather", "A durable, tannin-treated piece of leather. Used in crafting armor and other tools."],
 			"tannin": ["tannin", "A natural treating agent. To be applied on hides to create tanned leather."],
 			"milkThistleSeeds": ["milk thistle seeds", "Small hard seeds, used for growing milk thistle plants."],
 			"treeBark": ["tree bark", "A tough, dense chunk of bark, broken off from a tree. Can be used for kindling or stripping into cordage."],
@@ -2109,6 +2109,7 @@
 			"wroughtIronFlute": ["wrought iron flute", "A simple, but sonorous instrument, forged from wrought iron."],
 			"ironFlute": ["iron flute", "A flute made from iron. When blown into, it produces solid, clear notes with clarity for someone with some skill atleast."],
 			"bronzeFlute": ["bronze flute", "An elegant flute crafted from bronze. When played, it produces a rich, deep sound causing any creatures around to stir with delight, or perhaps anger."],
+			"strippedLeather": ["stripped leather", "Tanned leather that has been cut into strips, useful for making heavy-duty strings and other forms of binding."],
 			"last": ["", ""]
 		},
 		"itemExtra": {
@@ -4995,7 +4996,8 @@
 			"unknownError": "Error code {0}.",
 			"versionMismatch": "The server version ({0}) is different than your version ({1}).",
 			"banned": "You have been banned from the server.",
-			"failedToLoadMods": "Required mod(s) have the following issues:\n{0}"
+			"failedToLoadMods": "Required mod(s) have the following issues:\n{0}",
+			"clientDataInvalid": "Your save data does not match the server's save data. Have you cleared your save data or are playing on a different device? You will need to contact the server administrator to rejoin."
 		},
 		"unlockedRecipesStrategy": {
 			"startWithNone": "Start With None",
