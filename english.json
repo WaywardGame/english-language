@@ -2291,6 +2291,15 @@
 			"unableToConnectToDedicatedMatchmakingServer": "Unable to connect to the dedicated server. The server owner should make sure they are forwarding port 38740.\n\nView the {(https://www.waywardgame.com/multiplayer):multiplayer page} for more information.",
 			"webRTCTimeout": "WebRTC timed out.\nThis could be caused by various networking issues. The server owner could try forwarding port 38740 to solve this issue.\n\nView the {(https://www.waywardgame.com/multiplayer): multiplayer page} for more information."
 		},
+		"label": {
+			"labelColonValue": "{0}: {[1]..}",
+			"labelParensValue": "{0} ({[1]..})",
+			"labelSpaceValue": "{0} {[1]..}",
+			"labelDashValue": "{0} \\- {[1]..}",
+			"valueSpaceLabel": "{[1]..} {0}",
+			"valueParensLabel": "{[1]..} ({0})",
+			"valueLabel": "{[1]..}{0}"
+		},
 		"level": {
 			"none": "no",
 			"veryLow": "very low",
@@ -2490,6 +2499,7 @@
 			"actionFishingTooShallow": "This location appears to be to be too shallow to catch anything.",
 			"actionInvoke": "You invoke {0}, and {1} disintegrates in your hands.",
 			"actionInvokeCannotUseSilence": "You cannot invoke {0}, you are met only with silence.",
+			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
 			"actionInvokeEvilCreaturesAttracted": "Chills run down your spine... and you hear the sound of rustling nearby, the area's denizens worked into a frenzy!",
 			"actionInvokeEvilCreaturesNoneSummoned": "Chills run down your spine... but no creatures have been summoned.",
 			"actionInvokeGoodCreaturesPacified": "You feel a gentle breeze... and {0} seem to have lost interest in hostilities, for now.",
@@ -2591,12 +2601,6 @@
 			"actionUpgradeNotPossible": "This item cannot be upgraded further.",
 			"actionUpgradeUpgraded": "You upgrade {0}. Its magical value has improved!",
 			"actionUseItemWeaponNeeded": "You need a weapon that can fire this projectile!",
-			"creatureZoneRerolled": "You feel a sudden shift... Nearby creatures go silent for a moment, then there is a cacophony of noise.",
-			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
-			"creatureZoneTierDecreased": "You feel a sudden shift... It seems quieter now.",
-			"creatureZoneTierIncreased": "You feel a sudden shift... The air feels thick with tension.",
-			"creatureZoneLayerChanged": "You feel a sudden shift... as though the world has turned on its head.",
-			"creatureZoneBiomeChanged": "You feel a sudden shift... In your gut you cannot help but feel that true chaos has occurred.",
 			"addedFuelToFire": "You added {0} to {1}! The fire grows stronger.",
 			"addedFuelToTorch": "You added {0} to {1}.",
 			"allEquipmentUnEquipped": "All equipment has been unequipped.",
@@ -2716,6 +2720,11 @@
 			"creatureRefusesToBeTamed": "{0} refuses to be tamed!",
 			"creatureRefusesYou": "{0} refuses to change its disposition towards you in this manner.",
 			"creatureUntamed": "{0} has become untamed.",
+			"creatureZoneBiomeChanged": "You feel a sudden shift... In your gut you cannot help but feel that true chaos has occurred.",
+			"creatureZoneLayerChanged": "You feel a sudden shift... as though the world has turned on its head.",
+			"creatureZoneRerolled": "You feel a sudden shift... Nearby creatures go silent for a moment, then there is a cacophony of noise.",
+			"creatureZoneTierDecreased": "You feel a sudden shift... It seems quieter now.",
+			"creatureZoneTierIncreased": "You feel a sudden shift... The air feels thick with tension.",
 			"curedYourPoison": "You have cured your poison!",
 			"curseUpdateSunset": "The sun begins to set.",
 			"cut": "cut",
@@ -3155,12 +3164,12 @@
 			"treasureIsBlocked": "You find the spot where the treasure is buried, but it is blocked.",
 			"uiActionCannotUseInaccessibleItem": "{0} is not accessible. {1?{1} to use the \"best\" {2} instead.}",
 			"uiActionCannotUseNoItemHovered": "You are not indicating an item to use for this action.",
+			"uiActionCannotUseNotInRange": "You are not in range of this spot.",
 			"uiActionCannotUseRequiresCreature": "This action requires {0??an applicable creature}.",
 			"uiActionCannotUseRequiresDoodad": "This action requires {0??an applicable doodad}.",
 			"uiActionCannotUseRequiresItem": "This action requires {0??an applicable item}.",
 			"uiActionCannotUseRequiresNPC": "This action requires {0??an applicable person}.",
 			"uiActionCannotUseRequiresVehicle": "This action requires {0??an applicable vehicle}.",
-			"uiActionCannotUseNotInRange": "You are not in range of this spot.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue1": "Did I not trade {0} to you earlier? I will take this off your hands, but won't offer much.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue2": "{0} again? This must not be worth as much as I thought.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue3": "We have already traded {0}. You're not using me as your own personal storage, are you?",
@@ -3987,6 +3996,7 @@
 		"term": {
 			"aberrant": "aberrant",
 			"action": "action",
+			"attack": "attack",
 			"damageTick": "damage tick",
 			"everyX": "every {0}",
 			"hostile": "hostile",
@@ -3999,8 +4009,7 @@
 			"usingX": "using {0}",
 			"xTick": "{0} tick",
 			"xtoYZ": "{0} to {1} {2}",
-			"xy": "{0} {1}",
-			"attack": "attack"
+			"xy": "{0} {1}"
 		},
 		"terrain": {
 			"deepSeawater": "deep seawater",
@@ -5155,15 +5164,6 @@
 		"worldLayer": {
 			"cave": "caves",
 			"surface": "surface"
-		},
-		"label": {
-			"labelColonValue": "{0}: {[1]..}",
-			"labelParensValue": "{0} ({[1]..})",
-			"labelSpaceValue": "{0} {[1]..}",
-			"labelDashValue": "{0} \\- {[1]..}",
-			"valueSpaceLabel": "{[1]..} {0}",
-			"valueParensLabel": "{[1]..} ({0})",
-			"valueLabel": "{[1]..}{0}"
 		}
 	},
 	"pluralizationRules": {
