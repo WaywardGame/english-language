@@ -231,6 +231,8 @@
 			"gameActionBarToggleUseHistory": "Toggle History",
 			"gameActions": "Actions",
 			"gameActionsItems": "Actions: Use Items",
+			"gameActionsInFront": "Actions in Front",
+			"gameActionsItemsInFront": "Actions in Front: Use Items",
 			"gameActionEquip": "Equip",
 			"gameActionEquipLeft": "Equip to Left Hand",
 			"gameActionEquipRight": "Equip to Right Hand",
@@ -3158,6 +3160,7 @@
 			"uiActionCannotUseRequiresItem": "This action requires {0??an applicable item}.",
 			"uiActionCannotUseRequiresNPC": "This action requires {0??an applicable person}.",
 			"uiActionCannotUseRequiresVehicle": "This action requires {0??an applicable vehicle}.",
+			"uiActionCannotUseNotInRange": "You are not in range of this spot.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue1": "Did I not trade {0} to you earlier? I will take this off your hands, but won't offer much.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue2": "{0} again? This must not be worth as much as I thought.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue3": "We have already traded {0}. You're not using me as your own personal storage, are you?",
@@ -3996,7 +3999,8 @@
 			"usingX": "using {0}",
 			"xTick": "{0} tick",
 			"xtoYZ": "{0} to {1} {2}",
-			"xy": "{0} {1}"
+			"xy": "{0} {1}",
+			"attack": "attack"
 		},
 		"terrain": {
 			"deepSeawater": "deep seawater",
@@ -5151,6 +5155,15 @@
 		"worldLayer": {
 			"cave": "caves",
 			"surface": "surface"
+		},
+		"label": {
+			"labelColonValue": "{0}: {[1]..}",
+			"labelParensValue": "{0} ({[1]..})",
+			"labelSpaceValue": "{0} {[1]..}",
+			"labelDashValue": "{0} \\- {[1]..}",
+			"valueSpaceLabel": "{[1]..} {0}",
+			"valueParensLabel": "{[1]..} ({0})",
+			"valueLabel": "{[1]..}{0}"
 		}
 	},
 	"pluralizationRules": {
