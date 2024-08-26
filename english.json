@@ -3942,7 +3942,8 @@
 			"curse": ["curse", "", "As night is struck, strange things begin to occur...\n- Your curse is determined by your hold over the island.\n- During the night, there may be one or more curse events. The greater your curse, the greater the chance of these events.\n- {#--TEXT-PRIMARY:Sleeping prevents curse events.}\n- As dawn breaks, any strangeness from events will fade.\n"],
 			"generic": ["other stats", "stats"],
 			"attackDefenseRow": "attack & defense",
-			"dexterity": ["dexterity", "dex", "Increases maximum {$STAT:STAMINA}."]
+			"dexterity": ["dexterity", "dex", "Increases maximum {$STAT:STAMINA}."],
+			"despawnProtection": "despawn protection"
 		},
 		"status": {
 			"bleeding": ["bleeding", "bleed"],
