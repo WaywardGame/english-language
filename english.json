@@ -400,7 +400,8 @@
 			"menuRight": "Focus Right",
 			"menuCancel": "Cancel",
 			"menuNextOption": "Next Option",
-			"menuMoreInformation": "Show More Information",
+			"tooltipMoreInformation": "Show More Information",
+			"tooltipToggle": "Toggle Tooltips Visible",
 			"menuPreviousOption": "Previous Option",
 			"menuContextMenu": "Context Menu",
 			"menuSelect": "Select",
@@ -425,6 +426,7 @@
 			"gameActionBar": "Gameplay: Action Bar",
 			"dialog": "Dialogs",
 			"hud": "HUD",
+			"tooltip": "Tooltips",
 			"menu": "Menus",
 			"developer": "Developer",
 			"mod": "Mods"
@@ -3170,6 +3172,8 @@
 			"uiActionCannotUseRequiresItem": "This action requires {0??an applicable item}.",
 			"uiActionCannotUseRequiresNPC": "This action requires {0??an applicable person}.",
 			"uiActionCannotUseRequiresVehicle": "This action requires {0??an applicable vehicle}.",
+			"uiActionCannotUseOnThisIsland": "This action cannot be used on this island.",
+			"uiActionCannotUseInThisSituation": "This action cannot be used in this situation.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue1": "Did I not trade {0} to you earlier? I will take this off your hands, but won't offer much.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue2": "{0} again? This must not be worth as much as I thought.",
 			"uiDialogTradeIndicateTradeAlreadyTradedBuyDialogue3": "We have already traded {0}. You're not using me as your own personal storage, are you?",
@@ -4121,8 +4125,8 @@
 			"puddleOfFilteredWater": ["puddle of filtered water", ""]
 		},
 		"tooltipVisibilityOption": {
-			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:MenuMoreInformation}",
-			"default": "Show More With {BINDINGS:MenuMoreInformation}",
+			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:TOOLTIP_MORE_INFORMATION}",
+			"default": "Show More With {BINDINGS:TOOLTIP_MORE_INFORMATION}",
 			"alwaysShowMoreInformation": "Always Show More Information"
 		},
 		"ui": {
@@ -4208,7 +4212,7 @@
 			"gameDialogIslandsNoPort": "No Port",
 			"gameDialogIslandsConstructLighthousesToBuildMorePorts": "Create more ports by constructing lighthouses...",
 			"gameTooltipInspect": "Inspect in Dialog: {BINDINGS:GameInspect}",
-			"gameTooltipShowMoreInformation": "Show More: {BINDINGS:MenuMoreInformation}",
+			"gameTooltipShowMoreInformation": "Show More: {BINDINGS:TOOLTIP_MORE_INFORMATION}",
 			"gameTooltipDefenseLabelBase": "Base",
 			"gameTooltipDefenseLabelVehicleBonus": " {0} vehicle bonus",
 			"gameTooltipDefenseLabelBaseDefenseMultiplier": " {0} from base defense multiplier",
