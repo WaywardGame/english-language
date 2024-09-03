@@ -190,7 +190,6 @@
 			"gameMoveDown": "Move Down",
 			"gameMoveRight": "Move Right",
 			"gameMoveToTile": "Path To Tile",
-			"gameMoveToTilePreview": "Path To Tile: Preview",
 			"gameMoveToTileCancel": "Path To Tile: Cancel",
 			"gameFaceDirection": "Face Towards Mouse",
 			"gameFaceUp": "Face Up",
