@@ -5,7 +5,7 @@
 		"action": {
 			"disassemble": ["Disassemble", "disassembled{ TARGET??}", "Break the item down back into the parts that were used to craft it."],
 			"pickUp": ["Pick Up {0??Doodad}", "picked up {TARGET??a doodad}", "Pick up a doodad, detaching it from the tile and placing it into your inventory."],
-			"throw": ["Throw", "threw {TOOL??an item}", "Toss an item in the direction in front of you. The damage, range, and stamina usage when throwing are based on multiple factors.\n- The item's weight.\n- Your throwing skill\n- Whether the item has the magical property of \"{MAGICAL_PROPERTY_TYPE:THROWING_BONUS}\"."],
+			"throw": ["Throw", "threw {TOOL??an item}", "Toss an item in the direction in front of you. The damage, range, and stamina usage when throwing are based on multiple factors.\n- The item's weight.\n- Your throwing skill\n- Whether the item has the magical property of \"{$MAGIC:HURLING__THROW_DAMAGE}\"."],
 			"attack": ["Attack", "attacked {TARGET??a creature}{TOOL? with {TOOL}}", "Attempt to melee attack a creature in front of you with your currently-equipped weapon, or your hands if nothing is equipped."],
 			"startFire": ["Start Fire", "lit {TARGET??a fire}{TOOL? with {TOOL}}", "Light a fire.\n- Use on campfires, furnaces, etc. to light them.\n- Using this action may require kindling, tinder, and a fuel item in your inventory depending on the circumstance.", "- Increases chance of success.\n- Increases skill gained.\n- Lengthens the time the fire lasts.\n- Decreases stamina used."],
 			"butcher": ["Butcher", "butchered{ TARGET??}{TOOL? with {TOOL}}", "Butcher creature corpses.", "- Increases chance of success.\n- Increases skill gained.\n- Increases quality and quantity of items gained.\n- Decreases stamina used."],
@@ -61,7 +61,7 @@
 			"grasp": ["Grasp", "grasped {TARGET??an item}{TOOL? with {TOOL}}", "Pick up items using another item for safety reasons, such as grasping items in a fire."],
 			"pickUpItem": ["Pick Up {0??Item}", "picked up {TARGET??an item}", "Pick up a single item from the tile in front of you."],
 			"pickUpAllItems": ["Pick Up All Items", "picked up all items", "Pick up all the items from the tile in front of you."],
-			"offer": ["Offer", "offered {TOOL??an item} to {TARGET??a creature}", "Offer an item to a creature in front of you. The success rate and tame duration are based on multiple factors.\n- Your taming skill.\n- Whether the creature is aberrant and abnormally aggressive.\n- Whether the offering has the magical property \"{MAGICAL_PROPERTY_TYPE:OFFERING}\"."],
+			"offer": ["Offer", "offered {TOOL??an item} to {TARGET??a creature}", "Offer an item to a creature in front of you. The success rate and tame duration are based on multiple factors.\n- Your taming skill.\n- Whether the creature is aberrant and abnormally aggressive.\n- Whether the offering has the magical property \"{$MAGIC:OFFERING}\"."],
 			"drop": ["Drop", "dropped{ TARGET??}", "Drop the item on the ground in front of you, or below you, or into a container (depending on the context and/or settings)."],
 			"jump": ["Jump", "jumped", "Jump over one tile, allowing you to bypass some creatures, doodads, or tiles. Stamina loss is based on your strength and weight."],
 			"move": ["Move", "moved", ""],
