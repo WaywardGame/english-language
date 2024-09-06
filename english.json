@@ -485,7 +485,6 @@
 			"biomeArid": "Awake Upon Sun-baked Shores",
 			"biomeIceCap": "Awake Upon Frigid Shores",
 			"biomeVolcanic": "Awake Upon Devilish Shores",
-			"cursed": "Cursed!",
 			"sunset": "Awake as the Sun Sets",
 			"slitherSucker": "Deities help me, what is that?!"
 		},
@@ -2490,7 +2489,6 @@
 			"actionDropCannotUseNoRoomMultipleItems": "There is no room to drop these items.",
 			"actionDumpItemsCannotUseBlocked": "You cannot dump out the contents of {0}, {1} is in the way.",
 			"actionDumpItemsCannotUseNothingToDumpOut": "There are no items to dump out of {0}.",
-			"actionDumpItemsCannotUseWrongDirection": "You cannot dump out the contents of {0} from this angle.",
 			"actionDumpItemsDumpedItems": "You dumped out the contents of {0}.",
 			"actionEnhance": "enhance",
 			"actionEnhanceEnhanced": "You enhanced {0}, increasing its quality!",
@@ -3399,6 +3397,7 @@
 			"aAndB": "{0} and {1}",
 			"aberrant": "{#--COLOR-BAD:{0}}",
 			"add": "+{0}",
+			"fraction": "{0}/{1}",
 			"additionalXs": "additional {PLURAL:{0}}",
 			"aListAndB": "{0}, and {1}",
 			"aListOrB": "{0}, or {1}",
@@ -5208,8 +5207,8 @@
 			"$1a"],
 			["/(apheli|hyperbat|periheli|asyndet|noumen|phenomen|criteri|organ|prolegomen|hedr|automat)(?:a|on)$/",
 			"$1a"],
-			["/(?:(kni|wi|li)fe|(ar|l|ea|eo|oa|hoo)f)$/",
-			"$1$2ves"],
+			["/(?:(kni|wi|li)fe|(ar|l|ea|eo|oa|hoo)f|(sta)ff)$/",
+			"$1$2$3ves"],
 			["/([^aeiouy]|qu)y$/", "$1ies"],
 			["/([^ch][ieo][ln])ey$/", "$1ies"],
 			["/(x|ch|ss|sh|zz)$/", "$1es"],
@@ -5260,7 +5259,7 @@
 			["/(eau)x?$/", "$1"],
 			["/men$/", "man"]
 		],
-		"uncountables": ["acid", "amber", "animal cartilage", "aspic", "bait", "bark", "basalt", "bedding", "blades of grass", "bleeding", "carbon", "cement", "charcoal", "clay", "coal", "cookware", "cordage", "cotton", "dough", "dung", "dust", "ectoplasm", "essence", "fabric", "fat", "fertilizer", "flooring", "flour", "fruit cocktail", "fruit", "fuel", "fungus", "fur", "gelatin", "glass", "glue", "granite", "guano", "hardtack", "heating", "housing", "iron", "ivy", "kindling", "lava", "leather", "lettuce", "limestone", "meal", "meat", "niter", "nopal", "obsidian", "offal", "ore", "palapalai", "pants", "peat", "pemmican", "pitch", "poison", "powder", "pulp", "resin", "saltpeter", "sandstone", "shale", "silk", "sinew", "soil", "storage", "string", "talc", "tallow", "tannin", "tinder", "tongs", "tufts of tanglehead", "vegetable terrine", "vegetation", "vera", "/^compost$/", "/^smelted(\\s+[a-z])?/", "/^([a-z]+\\s+)?[a-z]*grass$/", "/^([a-z]+\\s+)?equipment$/", "/^([a-z]+\\s+)?meat$/", "/^([a-z]+\\s+)?sand$/", "/^([a-z]+\\s+)?wheat$/", "/^blood($| in )?/", "adulthood", "advice", "agenda", "aid", "aircraft", "alcohol", "ammo", "analytics", "anime", "athletics", "audio", "bison", "blood", "bream", "buffalo", "butter", "carp", "cash", "chassis", "chess", "clothing", "cod", "commerce", "cooperation", "corps", "debris", "diabetes", "digestion", "elk", "energy", "equipment", "excretion", "expertise", "firmware", "flounder", "fun", "gallows", "garbage", "graffiti", "hardware", "headquarters", "health", "herpes", "highjinks", "homework", "housework", "information", "jeans", "justice", "kudos", "labour", "literature", "machinery", "mackerel", "mail", "media", "mews", "moose", "music", "mud", "manga", "news", "only", "personnel", "pike", "plankton", "pliers", "police", "pollution", "premises", "rain", "research", "rice", "salmon", "scissors", "series", "sewage", "shambles", "shrimp", "software", "staff", "swine", "tennis", "traffic", "transportation", "trout", "tuna", "wealth", "welfare", "whiting", "wildebeest", "wildlife", "you", "/pok[eé]mon$/", "/[^aeiou]ese$/", "/deer$/", "/fish$/", "/measles$/", "/o[iu]s$/", "/pox$/", "/sheep$/"],
+		"uncountables": ["acid", "amber", "animal cartilage", "aspic", "bait", "bark", "basalt", "bedding", "blades of grass", "bleeding", "carbon", "cement", "charcoal", "clay", "coal", "cookware", "cordage", "cotton", "dough", "dung", "dust", "ectoplasm", "essence", "fabric", "fat", "fertilizer", "flooring", "flour", "fruit cocktail", "fruit", "fuel", "fungus", "fur", "gelatin", "glass", "glue", "granite", "guano", "hardtack", "heating", "housing", "iron", "ivy", "kindling", "lava", "leather", "lettuce", "limestone", "meal", "meat", "niter", "nopal", "obsidian", "offal", "ore", "palapalai", "pants", "peat", "pemmican", "pitch", "poison", "powder", "pulp", "resin", "saltpeter", "sandstone", "shale", "silk", "sinew", "soil", "storage", "string", "talc", "tallow", "tannin", "tinder", "tongs", "tufts of tanglehead", "vegetable terrine", "vegetation", "vera", "/^compost$/", "/^smelted(\\s+[a-z])?/", "/^([a-z]+\\s+)?[a-z]*grass$/", "/^([a-z]+\\s+)?equipment$/", "/^([a-z]+\\s+)?meat$/", "/^([a-z]+\\s+)?sand$/", "/^([a-z]+\\s+)?wheat$/", "/^blood($| in )?/", "adulthood", "advice", "agenda", "aid", "aircraft", "alcohol", "ammo", "analytics", "anime", "athletics", "audio", "bison", "blood", "bream", "buffalo", "butter", "carp", "cash", "chassis", "chess", "clothing", "cod", "commerce", "cooperation", "corps", "debris", "diabetes", "digestion", "elk", "energy", "equipment", "excretion", "expertise", "firmware", "flounder", "fun", "gallows", "garbage", "graffiti", "hardware", "headquarters", "health", "herpes", "highjinks", "homework", "housework", "information", "jeans", "justice", "kudos", "labour", "literature", "machinery", "mackerel", "mail", "media", "mews", "moose", "music", "mud", "manga", "news", "only", "personnel", "pike", "plankton", "pliers", "police", "pollution", "premises", "rain", "research", "rice", "salmon", "scissors", "series", "sewage", "shambles", "shrimp", "software", "swine", "tennis", "traffic", "transportation", "trout", "tuna", "wealth", "welfare", "whiting", "wildebeest", "wildlife", "you", "/[^aeiou]ese$/", "/deer$/", "/fish$/", "/measles$/", "/o[iu]s$/", "/pox$/", "/sheep$/"],
 		"irregularRules": [
 			["macuahuitl", "macuahuimeh"],
 			["mortar and pestle", "mortars and pestles"],
