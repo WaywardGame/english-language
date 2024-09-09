@@ -2111,10 +2111,10 @@
 			"penguinEggshells": ["penguin eggshells", "The large remnants of a penguin eggshell. Can be used to improve soil quality in the form of compost and fertilizer."],
 			"last": ["", ""]
 		},
-		"itemAffix": {
-			"oldInstructionalScroll": "{1?:old }{0}{1? of {1}}",
+		"itemAffixPostReformat": {
+			"oldInstructionalScroll": "{0}{1? of {1}}",
 			"sailboat": "{1 ??}{0}",
-			"oldEducationalScroll": "{1?:old }{0}{1? of {1}}",
+			"oldEducationalScroll": "{0}{1? of {1}}",
 			"fullWoodenCage": "{0} containing {1??a creature}",
 			"fullTinCage": "{0} containing {1??a creature}",
 			"fullCopperCage": "{0} containing {1??a creature}",
@@ -2124,6 +2124,11 @@
 			"runeOfEvil": "{0} of {$DEITY:EVIL}",
 			"runeOfChaos": "{0} of {$DEITY:CHAOS}",
 			"runeOfGood": "{0} of {$DEITY:GOOD}"
+		},
+		"itemAffixPreReformat": {
+			"oldInstructionalScroll": "{1?:old }{0}",
+			"sailboat": "{1 ??}{0}",
+			"oldEducationalScroll": "{1?:old }{0}"
 		},
 		"itemExtra": {
 			"none": ["", ""],
@@ -3397,7 +3402,6 @@
 			"aAndB": "{0} and {1}",
 			"aberrant": "{#--COLOR-BAD:{0}}",
 			"add": "+{0}",
-			"fraction": "{0}/{1}",
 			"additionalXs": "additional {PLURAL:{0}}",
 			"aListAndB": "{0}, and {1}",
 			"aListOrB": "{0}, or {1}",
@@ -3428,6 +3432,7 @@
 			"dug": "dug {0}",
 			"equipSlotEquipToYour": "your {0}",
 			"expressionSeparator": " ",
+			"fraction": "{0}/{1}",
 			"listItemSeparator": ", ",
 			"merge": "{..}",
 			"mergeSlash": "{.. / }",
