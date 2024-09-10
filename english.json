@@ -2958,7 +2958,7 @@
 			"nothingToSmother": "There is nothing to smother here!",
 			"nothingUsefulToHarvestYet": "There is nothing useful to harvest from {0} yet!",
 			"noTinderToStartFire": "You do not have any tinder to start the fire.",
-			"notSuitableToPlant": "{0} are not suitable to plant in {1}.",
+			"notSuitableToPlant": "{1} is not suitable to plant {0}.",
 			"noWaterInStill": "There is no water in this {0}.",
 			"nPCMerchantNewInventoryDialogue1": "Hey over there! I got some new stock if you wanna give it a look-see.",
 			"nPCMerchantNewInventoryDialogue2": "Hail, traveler! I have some new items that may catch your eye.",
