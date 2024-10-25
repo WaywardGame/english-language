@@ -3366,7 +3366,7 @@
 			"Triple chance of {$DEITY:CHAOS} runes. The creatures that can spawn in an area sometimes change."],
 			"statistician": ["Statistician", "Discovered the associated core stat of every skill.", "Core stats raise faster, but you cannot raise the same stat twice in a row."],
 			"afflicted": ["Afflicted", "Discovered all statuses.", "Statuses apply stat bonuses based on how threatening they are."],
-			"exsanguinated": ["Exsanguinated", "Avoided bleeding out by the thinnest of margins.", "Enemy attacks no longer deal damage directly, instead applying equivalent bleed stacks."]
+			"exsanguinated": ["Exsanguinated", "Avoided bleeding out by the thinnest of margins.", "Enemy attacks no longer deal damage directly, instead applying half the damage on each subsequent turn as bleed stacks."]
 		},
 		"milestoneModifierGroup": {
 			"creatures": "Creatures",
