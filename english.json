@@ -119,7 +119,7 @@
 			"updateOption": ["Update Option", "updated option {TARGET}", ""],
 			"updateGameOption": ["Update Game Option", "updated game option", ""],
 			"updateWalkTo": ["Update Walk Path", "updated walk path", ""],
-			"sacrifice": ["Sacrifice", "sacrificed{ TARGET??}{DEITY? to {DEITY}}", "Offer runes to the the strange forces of the island, and hope to be rewarded."],
+			"consecrate": ["Consecrate", "consecrated{ TARGET??}{DEITY? with {DEITY}}", "Offer runes to the the strange forces of the island, and hope for them to become more."],
 			"absorb": ["Absorb", "absorbed the magic of {TARGET??an item}", "Absorb the magical properties from an item.", "- Increases chance of success.\n- Increases skill gained.\n- Decreases stamina used."],
 			"exude": ["Exude", "exuded the magic of {TARGET??an item}", "Exude the magical properties contained within onto another item.", "- Increases chance of success.\n- Increases skill gained.\n- Decreases stamina used."],
 			"packGround": ["Pack Ground", "packed {TARGET??ground}{TOOL? with {TOOL}}", ""],
@@ -237,7 +237,7 @@
 			"gameActionsItemsInFront": "Actions in Front: Use Items",
 			"gameActionAltarInvoke": "Invoke",
 			"gameActionAltarKneel": "Kneel",
-			"gameActionAltarSacrifice": "Sacrifice",
+			"gameActionAltarConsecrate": "Consecrate",
 			"gameActionArmorStandDisplayItem": "Display Item",
 			"gameActionArmorStandDisplayLeft": "Display on Left Hand",
 			"gameActionArmorStandDisplayRight": "Display on Right Hand",
@@ -685,7 +685,8 @@
 			"islandsShipping": "Ship to Port",
 			"inventory": "Inventory",
 			"container": "{0??Container}",
-			"trade": "{0?{0}'s Inventory:Trade}"
+			"trade": "{0?{0}'s Inventory:Trade}",
+			"altar": "{0??Altar}"
 		},
 		"direction": {
 			"east": "east",
@@ -2546,12 +2547,12 @@
 			"actionReshapeFailed": "You failed to reshape {0}!",
 			"actionReshapeNotPossibleBonus": "This item cannot be reshaped due to not having attack or defense bonuses.",
 			"actionReshapeReshaped": "You reshape {0}. Its attack or defense bonuses have changed!",
-			"actionSacrificeNoRunes": "You have not chosen runes to sacrifice.",
-			"actionSacrificeRunesSacrificed": "You sacrifice {0}.",
-			"actionSacrificeRunesSacrificedNothingUpgraded": "A sense of disappointment washes over you; your offering too meager, {0} displeased.",
-			"actionSacrificeRunesSacrificedUpgradedChaos": "From the silence, comes once more a cacophony of noise; your offering accepted, {$DEITY:CHAOS} pleased.",
-			"actionSacrificeRunesSacrificedUpgradedEvil": "Shivers run down your spine; your offering accepted, {$DEITY:EVIL} pleased.",
-			"actionSacrificeRunesSacrificedUpgradedGood": "A calming breeze surrounds you; your offering accepted, {$DEITY:GOOD} pleased.",
+			"actionConsecrateNoRunes": "You have not chosen runes to consecrate.",
+			"actionConsecrateRunesConsecrated": "You present {0}.",
+			"actionConsecrateRunesConsecratedNothingUpgraded": "A sense of disappointment washes over you; your offering too meager, {0} displeased.",
+			"actionConsecrateRunesConsecratedChaos": "From the silence, comes once more a cacophony of noise; your offering accepted, {$DEITY:CHAOS} pleased.",
+			"actionConsecrateRunesConsecratedEvil": "Shivers run down your spine; your offering accepted, {$DEITY:EVIL} pleased.",
+			"actionConsecrateRunesConsecratedGood": "A calming breeze surrounds you; your offering accepted, {$DEITY:GOOD} pleased.",
 			"actionSailToCivilizationNotInsideBoat": "You must be in the sailboat to sail to civilization.",
 			"actionSailToIsland": "You depart from {0}, traveling to {1}...",
 			"actionSailToIslandArrived": "You arrive at {0}.",
@@ -5163,7 +5164,9 @@
 			"commandAllStay": ["Command All to Stay", "", "Command tamed creatures to stay at this exact location."],
 			"commandAllDefend": ["Command All to Defend", "", "Command tamed creatures to defend this area."],
 			"commandAllAttack": ["Command All to Attack", "", "Command tamed creatures to attack everything in this area."],
-			"commandAllHeel": ["Command All to Heel", "", "Command tamed creatures to heel, always following you and never attacking."]
+			"commandAllHeel": ["Command All to Heel", "", "Command tamed creatures to heel, always following you and never attacking."],
+			"ascend": ["Ascend", "", "Climb the passageway to return to the surface."],
+			"descend": ["Descend", "", "Venture down the passageway into the caves below."]
 		},
 		"website": {
 			"twitter": "Twitter",
