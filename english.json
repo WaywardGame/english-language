@@ -505,6 +505,7 @@
 			"useCount": "Times Used"
 		},
 		"combatDangerLevel": {
+			"none": "",
 			"low": "Low",
 			"medium": "Moderate",
 			"high": "High",
@@ -4905,6 +4906,8 @@
 			"menuOptionsButtonUseAdjacentContainersTooltip": "If checked, items in adjacent containers or tiles can be used in crafting and other actions.",
 			"menuOptionsButtonHideEquippedHeadgear": "Hide Equipped Headgear",
 			"menuOptionsButtonHideEquippedHeadgearTooltip": "If checked, equipped headgear on your character will not be visible to you.",
+			"menuOptionsButtonDisableItemNotifiers": "Disable Item Notifiers",
+			"menuOptionsButtonDisableItemNotifiersTooltip": "If checked, item notifiers will not be displayed overhead when items are damaged, picked up, moved, etc.",
 			"menuOptionsButtonLeftHanded": "Left-handed",
 			"menuOptionsButtonLeftHandedTooltip": "If checked, your main hand slot will display on your character's left hand.",
 			"menuOptionsButtonAutoSave": "Auto Save",
