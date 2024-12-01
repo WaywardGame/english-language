@@ -107,7 +107,7 @@
 			"alter": ["Alter", "altered the magic of {TARGET??an item}", "Alter specific magical items, changing their properties within the same type.", "- Increases chance of success.\n- Increases skill gained.\n- Decreases stamina used."],
 			"sailToIsland": ["{0?Swim:Sail} to {1?Port:Island}",
 			"sailed{PORT? to {PORT}}{ISLAND? on {ISLAND}}", "{1?Navigate to a specific port in these lands.:Depart from these lands and {0?swim:sail} somewhere different.}"],
-			"kneel": ["Kneel{0? at {0}}", "kneeled{TARGET? at {TARGET}}", "Use at an altar to invoke or make an offering to a deity."],
+			"kneel": ["Kneel{0? at {0}}", "kneeled{TARGET? at {TARGET}}", "Use at an altar to make an offering to the strange forces of the island."],
 			"renameIsland": ["Rename Island", "renamed {TARGET??an island} to {NEW_NAME}", ""],
 			"chop": ["Chop", "chopped{ TARGET??}{TOOL? with {TOOL}}", "Gather from an adjacent resource tile/doodad, destroying the plant or mushroom in the process.", "- Increases chance of success.\n- Increases skill gained.\n- Increases quantity and quality of items gained.\n- Decreases stamina used.\n- Lowers chance of damaging plants."],
 			"mine": ["Mine", "mined{ TARGET??}{TOOL? with {TOOL}}", "Gather from an adjacent resource tile/doodad, destroying it in the process.", "- Increases chance of success.\n- Increases skill gained.\n- Increases quantity and quality of items gained."],
@@ -2303,13 +2303,13 @@
 			"webRTCTimeout": "WebRTC timed out.\nThis could be caused by various networking issues. The server owner could try forwarding port 38740 to solve this issue.\n\nView the {(https://www.waywardgame.com/multiplayer): multiplayer page} for more information."
 		},
 		"label": {
-			"labelColonValue": "{0}: {[1]..}",
-			"labelParensValue": "{0} ({[1]..})",
-			"labelSpaceValue": "{0} {[1]..}",
-			"labelDashValue": "{0} \\- {[1]..}",
-			"valueSpaceLabel": "{[1]..} {0}",
-			"valueParensLabel": "{[1]..} ({0})",
-			"valueLabel": "{[1]..}{0}"
+			"labelColonValue": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{0}}: {.TEXT-RESET-WRAP:{[1]..}}}",
+			"labelParensValue": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{0}} {.TEXT-RESET-WRAP:({[1]..})}}",
+			"labelSpaceValue": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{0}} {.TEXT-RESET-WRAP:{[1]..}}}",
+			"labelDashValue": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{0}} \\- {.TEXT-RESET-WRAP:{[1]..}}}",
+			"valueSpaceLabel": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{[1]..}} {.TEXT-RESET-WRAP:{0}}}",
+			"valueParensLabel": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{[1]..}} {.TEXT-RESET-WRAP:({0})}}",
+			"valueLabel": "{.TEXT-NO-WRAP:{.TEXT-RESET-WRAP:{[1]..}}{.TEXT-RESET-WRAP:{0}}}"
 		},
 		"level": {
 			"none": "no",
@@ -2386,7 +2386,7 @@
 			"featherweight": ["featherweight", "The same amount of material, but lighter weight. Curious."],
 			"stat": ["{0??inner power}", "Seems to increase your {0??stats}."],
 			"skill": ["{0??skill}", "Seems to increase your expertise in {0??a skill}."],
-			"fanaticismDeity": ["{0?{0}:deity }fanaticism",
+			"fanaticismDeity": ["{0?{.TEXT-NO-WRAP:{0}fanaticism}:deity fanaticism}",
 			"An odd hum resonates through the item and into you upon touch."],
 			"unused": ["", ""],
 			"range": ["range", "Limber and robust, able to propel objects further than normal."],
@@ -3419,8 +3419,8 @@
 			"colorizeStat": "{#--COLOR-STAT-{0}:{1}}",
 			"colorizeVulnerability": "{#--COLOR-VULNERABILITY:{0}}",
 			"corpseOf": "{Corpse:{0}?{Corpse:{0}}:{1?{Message:CorpseOfNamed:({1})}:{Message:CorpseOf:({2},{3})}}}",
-			"countThing": "{0} {PLURAL({0}):{1}}",
-			"countUnit": "{0} {1}",
+			"countThing": "{.TEXT-NO-WRAP:{0} {.TEXT-RESET-WRAP:{PLURAL({0}):{1}}}}",
+			"countUnit": "{.TEXT-NO-WRAP:{0} {.TEXT-RESET-WRAP:{1}}}",
 			"dependency": "{#--COLOR-DEPENDENCY-{0}:{1}}",
 			"difference": "{+{0}:{1?{1}:{0}}}",
 			"dug": "dug {0}",
@@ -3454,8 +3454,7 @@
 			"tilled": "tilled {0}",
 			"undiscovered": "?",
 			"unknown": "Unknown",
-			"unknownItem": "unknown item",
-			"xUndiscovered": "{0} undiscovered"
+			"unknownItem": "unknown item"
 		},
 		"modLoadError": {
 			"modLoadError": "Error loading mod.",
@@ -4007,6 +4006,7 @@
 			"action": "action",
 			"attack": "attack",
 			"damageTick": "damage tick",
+			"effect": "effect",
 			"everyX": "every {0}",
 			"hostile": "hostile",
 			"movement": "movement",
@@ -4015,9 +4015,12 @@
 			"tamed": "tamed",
 			"timeToX": "time to {0}",
 			"turn": "turn",
+			"undiscovered": "undiscovered",
+			"undiscoveredSymbol": "?",
 			"usingX": "using {0}",
 			"xTick": "{0} tick",
 			"xtoYZ": "{0} to {1} {2}",
+			"xUndiscovered": "{0} undiscovered",
 			"xy": "{0} {1}"
 		},
 		"terrain": {
@@ -4292,7 +4295,7 @@
 			"gameTooltipSharedLabelDoodadCraftingBonus": "Crafting Effectiveness",
 			"gameTooltipItemUseOffering": " taming length",
 			"gameTooltipItemUseEquipDefense": "Defense: {0} base",
-			"gameTooltipItemUseEquipDefenseAttribute": "{1} {0}",
+			"gameTooltipItemUseEquipDefenseAttribute": "{.TEXT-NO-WRAP:{1} {.TEXT-RESET-WRAP:{0}}}",
 			"gameTooltipItemUseMainHand": "{0} (main hand) ",
 			"gameTooltipItemUseOffhand": "{0} (off hand) ",
 			"gameTooltipItemLabelDamage": "Damage",
@@ -4926,6 +4929,7 @@
 			"menuOptionsButtonWarnWhenBreakingItemsOnUseTooltip": "If checked, a confirmation screen will display when trying to use damaged items that may break on use.",
 			"menuOptionsHeadingWarnWhenBreakingItems": "Warn when Breaking Items",
 			"menuOptionsButtonSaveDataClearBindings": "Reset All Bindings",
+			"menuOptionsButtonDisableMilestones": "Disable Milestone Progress",
 			"menuOptionsLabelSaveDataRemoval": "Save Data Removal",
 			"menuOptionsTooltipDialogOpacity": "Controls how opaque the in-game dialogs are.",
 			"menuOptionsLabelDialogOpacity": "Dialog Opacity",
