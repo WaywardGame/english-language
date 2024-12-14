@@ -2131,7 +2131,6 @@
 		},
 		"itemAffixPreReformat": {
 			"oldInstructionalScroll": "{1?:old }{0}",
-			"sailboat": "{1 ??}{0}",
 			"oldEducationalScroll": "{1?:old }{0}"
 		},
 		"itemExtra": {
