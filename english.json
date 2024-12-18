@@ -4415,7 +4415,6 @@
 			"gameActionBarConfigurationDrawerButtonUseOnMoveDescription": "When moving, this action will be used instead if it can be.",
 			"gameActionBarConfigurationDrawerButtonUseOnHoveredTile": "Target Hovered Tile",
 			"gameActionBarConfigurationDrawerButtonUseOnHoveredTileDescription": "This action will be used on the tile your mouse is over.",
-			"gameActionBarConfigurationDrawerHintDiscoverMore": "{0?Discover {0} more actions:Use this action} to unlock more options...",
 			"gameActionBarConfigurationDrawerModeUseExact": "Use Specific Item",
 			"gameActionBarConfigurationDrawerModeUseExactNoItemSelected": "Use an item by placing it here...",
 			"gameActionBarConfigurationDrawerModeUseBest": "Use \"Best\" Item",
@@ -5136,7 +5135,8 @@
 			"generic": "Website",
 			"steamStorePage": "Steam",
 			"unlok": "Unlok",
-			"wayward": "Wayward"
+			"wayward": "Wayward",
+			"bsky": "Bluesky"
 		},
 		"weightStatus": {
 			"encumbered": ["encumbered", "encumbrance"],
