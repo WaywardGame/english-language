@@ -159,8 +159,16 @@
 			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."]
 		},
 		"actionSlotItemMethod": {
-			"exactItem": "Using an exact item.",
-			"anyItem": "Using the best applicable item for this action."
+			"none": "",
+			"exact": "Using a specific item{ITEM?, {ITEM}}.",
+			"hovered": "Using the hovered item for this action, when applicable.",
+			"best": "Using the best applicable {QUALITY ??}{TYPE??item} for this action."
+		},
+		"actionSlotType": {
+			"none": "",
+			"history": "You previously used this action through a context menu.",
+			"targetHoveredTile": "This action will be used on the hovered tile.",
+			"autoUse": "When usable, this action replaces movement."
 		},
 		"actionSort": {
 			"default": "Default"
