@@ -159,8 +159,16 @@
 			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."]
 		},
 		"actionSlotItemMethod": {
-			"exactItem": "Using an exact item.",
-			"anyItem": "Using the best applicable item for this action."
+			"none": "",
+			"exact": "Using a specific item{ITEM?, {ITEM}}.",
+			"hovered": "Using the hovered item for this action, when applicable.",
+			"best": "Using the best applicable {QUALITY ??}{TYPE??item} for this action."
+		},
+		"actionSlotType": {
+			"none": "",
+			"history": "You previously used this action through a context menu.",
+			"targetHoveredTile": "This action will be used on the hovered tile.",
+			"autoUse": "When usable, this action replaces movement."
 		},
 		"actionSort": {
 			"default": "Default"
@@ -3651,7 +3659,7 @@
 			"menuLoadGameExportType": "How would you like to export this save?",
 			"menuLoadGameImportSaveFailure": ["Failed to import one or more saves.", "{#--TEXT-SECONDARY:{0?Succeeded\\: {0...}}\n{1...\n}}\n{2?Send us your file and your log!}"],
 			"menuLoadGameMissingMod": ["Are you sure you want to load this save?\nMod(s) are missing. This may cause bugs.", "{0?Missing Mods\\: {0...}}\n{1?Disabled Mods\\: {1...}}"],
-			"menuLoadGameOldBuildTime": ["Are you sure you want to load this save?\nYou are loading this save in an old version of the game. This may cause bugs.", "Save build time: {0}\nGame build time: {1}"],
+			"menuLoadGameOldBuildTime": ["Are you sure you want to load this save?\nYou are loading this save in an old version of the game. This may cause bugs.", "Save build: {0}\nGame build: {1}"],
 			"menuLoadGamePublishError": ["There was an error publishing the\nsave game mod to the workshop.", "{0}"],
 			"menuMainWelcomeToVersion": ["Welcome to Wayward {0}!", "Please visit the News menu to see what's new.\nAll mods have been disabled by default."],
 			"menuMainOldVersionWarning": ["You've loaded an older version\nof the game!", "You previously played {0}. You're now playing {1}.\nUnintended side effects may occur, such as losing all save data.\nIt is highly recommended you backup the Wayward save folder before continuing."],
