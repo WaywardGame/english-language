@@ -2214,6 +2214,7 @@
 			"equippableOffHand": "equippable: off hand",
 			"equippableWaist": "equippable: waist",
 			"excludedFromRandom": "excluded from random item",
+			"internalNoDropOnDoodadBreak": "does not drop on doodad break",
 			"exuding": "exuding item",
 			"fabric": "fabric",
 			"filler": "filler",
