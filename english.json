@@ -4712,7 +4712,6 @@
 			"menuChangelogFailedToLoadDescription": "Either something went wrong, or you're in no-man's land.",
 			"menuChangelogHeadingChangeCount": "{0} {1??{PLURAL({0}):change}}",
 			"menuChangelogButtonCopyChangelog": "Copy Changelog to Clipboard",
-			"menuChangelogButtonCopyAltChangelog": "Copy Alternate Changelog to Clipboard",
 			"menuCharacterCreationButtonRandomizeName": "Random",
 			"menuCharacterCreationButtonExportTooltip": "Export",
 			"menuCharacterCreationButtonImportTooltip": "Import",
