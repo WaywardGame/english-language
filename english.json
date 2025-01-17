@@ -2836,6 +2836,7 @@
 			"actionUncageCannotUncageHere": "You cannot uncage {0} here.",
 			"actionUpgradeFailed": "You failed to upgrade {0}!",
 			"actionUpgradeNotMagical": "This item is not magical and cannot be upgraded.",
+			"actionUpgradeMagicalInert": "The magical properties on this item cannot be upgraded.",
 			"actionUpgradeNotPossible": "This item cannot be upgraded further.",
 			"actionUpgradeUpgraded": "You upgrade {0}. Its magical value has improved!",
 			"actionUseItemWeaponNeeded": "You need a weapon that can fire this projectile!",
