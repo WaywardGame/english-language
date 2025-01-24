@@ -3510,7 +3510,8 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"actionRestAdjacentCreature": "You refuse to {0} next to a hostile creature!"
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -4611,6 +4612,7 @@
 			"gameTooltipStatFerocityScore": "Score",
 			"gameTooltipStatFerocityCivilizationScore": "Total Island Civilization Score",
 			"gameTooltipStatFerocityCivilizationScoreTerritory": "Territory Civilization Score",
+			"gameTooltipStatTerritoryTier": "Territory Tier",
 			"gameTooltipStatFerocityTurn": "Turn",
 			"gameTooltipStatFerocityTicks": "Ticks",
 			"gameTooltipStatFerocityNights": "Nights",
@@ -4764,7 +4766,7 @@
 			"menuMultiplayerHeadingPlayersOnline": "Players Online: {0}",
 			"menuMultiplayerServerModInfo": "{name}@{version}",
 			"menuMultiplayerServerModUnableToLoad": "Unable to load {name}@{version}",
-			"menuMultiplayerServerLabelTerritoryTier": "Territory Tier: {0}",
+			"menuMultiplayerServerLabelTerritoryTier": "Territory Tier: {0} ({1})",
 			"menuGameEndTitleDead": "You Died",
 			"menuGameEndTitleWon": "You Won",
 			"menuGameEndShareFacebook": "Share on Facebook",
