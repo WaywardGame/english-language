@@ -2781,6 +2781,7 @@
 			"actionReshapeFailed": "You failed to reshape {0}!",
 			"actionReshapeNotPossibleBonus": "This item cannot be reshaped due to not having attack or defense bonuses.",
 			"actionReshapeReshaped": "You reshape {0}. Its attack or defense bonuses have changed!",
+			"actionRestAdjacentCreature": "You refuse to {0} next to a hostile creature!",
 			"actionSailToCivilizationNotInsideBoat": "You must be in the sailboat to sail to civilization.",
 			"actionSailToIsland": "You depart from {0}, traveling to {1}...",
 			"actionSailToIslandArrived": "You arrive at {0}.",
@@ -3510,8 +3511,7 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"actionRestAdjacentCreature": "You refuse to {0} next to a hostile creature!"
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
