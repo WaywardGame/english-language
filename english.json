@@ -2497,7 +2497,7 @@
 			"5(7": ["{%metabolic:catalytic:efficient}",
 			"{%metabolism:sustenance:absorption}"],
 			"29(0": ["{%healing:rejuvenating:revitalizing:replenishing}",
-			"{%rejuvenation:revilization:replenishment}"],
+			"{%rejuvenation:revitalization:replenishment}"],
 			"29(1": ["{%energizing:invigorating:refreshing}",
 			"{%energy:invigoration:refreshment}"],
 			"29(2": ["{%nourishing:sustaining:filling}",
@@ -3511,7 +3511,8 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"butcher": "butcher"
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
