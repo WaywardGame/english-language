@@ -2879,6 +2879,7 @@
 			"brokenWhileFiring": "{0} has broken while firing at a range of {2?{#--COLOR-MAGICAL:{1}}:{1}}!",
 			"build": "build",
 			"burned": "burned",
+			"butcher": "butcher",
 			"cannotAddAnyMoreFuel": "You cannot add any more fuel to {0}.",
 			"cannotAnythingHere": "You cannot {0} anything here.",
 			"cannotBeCrafted": "You cannot think of a way to craft that.",
@@ -3511,8 +3512,7 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"butcher": "butcher"
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
