@@ -4978,7 +4978,7 @@
 			"menuCustomGameOptionsItemDurability": "Item Durability Multiplier",
 			"menuCustomGameOptionsItemDurabilityTooltip": "Scales item durability globally.",
 			"menuCustomGameOptionsItemDecay": "Item Decay Multiplier",
-			"menuCustomGameOptionsItemDecayTooltip": "Scales item decay (for example, how long food lasts) globally.",
+			"menuCustomGameOptionsItemDecayTooltip": "Scales item decay (for example, how long food lasts) globally. Higher values will make items have a higher lifespan.",
 			"menuCustomGameOptionsExport": "Export",
 			"menuCustomGameOptionsImport": "Import",
 			"menuCustomGameOptionsViewGroundItemsAsContainer": "Tile Container Dialogs",
