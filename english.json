@@ -1028,7 +1028,8 @@
 			"low": "low {0} skill",
 			"moderate": "moderate {0} skill",
 			"high": "high {0} skill",
-			"perfect": "very high {0} skill"
+			"perfect": "very high {0} skill",
+			"exact": "maximum {0} skill"
 		},
 		"helpArticle": {
 			"welcome": ["Welcome to Wayward", "A short summary of the help menu, and links to more resources on the game.", "Welcome to the Early Access version of Wayward!", "Disclaimer: Wayward is currently in beta status and many things will change and improve over time.\n\nThis is the help menu, which you can use to learn mechanics of the game. If you can't find the information you're looking for in this menu, you can also visit the {(https://steamcommunity.com/app/379210/discussions/):Steam Discussion forums}.\n\nIf you want to keep up with Wayward, please visit the {(https://www.waywardgame.com):Wayward Website}, {(https://www.reddit.com/r/Wayward):Subreddit}, or {(https://discord.gg/wayward):Discord}.\n\nWant to help Wayward? Spread the word, or follow us on one of the following sites: {(https://www.instagram.com/waywardgame/): Instagram}, {(https://www.facebook.com/waywardgame):Facebook}, {(https://twitter.com/Wayward_Game):Twitter}, or {(https://www.indiedb.com/games/wayward):IndieDB}."],
@@ -2684,6 +2685,7 @@
 			"actionAttachCannotAttach": "You cannot attach {0} to {1}.",
 			"actionAttachNothingToAttachItemTo": "There is nothing to attach {0} to here.",
 			"actionBuildTooDeep": "{0} cannot be built over deep holes.",
+			"actionBuildNotDeepEnough": "{0} must be constructed over a deeply dug hole.",
 			"actionButcherReleasesLava": "{0} releases lava from its innards.",
 			"actionCageCreatureCannotBeCaged": "{0} cannot be caged.",
 			"actionCageCreatureNoCreature": "There is no creature to cage here.",
@@ -4482,6 +4484,7 @@
 			"gameTooltipItemDecayRate": " ({0}x)",
 			"gameTooltipItemDecayRateTooltip": "Base decay rate: {#--TEXT-PRIMARY:{0}x}\nTemperature multiplier: {#--TEXT-PRIMARY:{1}x}\nContainer preservation multiplier: {#--TEXT-PRIMARY:{2}x}",
 			"gameTooltipItemWeight": "Weight",
+			"gameTooltipItemInvoke": "Can Invoke In",
 			"gameTooltipItemWeightBase": " base ",
 			"gameTooltipItemWeightStored": "stored ",
 			"gameTooltipItemWeightStoredReduction": "(reduced by {1} from {0})",
@@ -4610,6 +4613,7 @@
 			"gameTooltipCreatureAberrantDescriptionExtra": "This creature is particularly territorial and aggressive; it will likely hit harder and be more resilient than other creatures of its kind.",
 			"gameTooltipCreatureAberrantDescriptionVerbose": "Its {#--TEXT-PRIMARY:vulnerabilities} may be the only way to take it down.\nIt could potentially still be {#--TEXT-PRIMARY:tamed}... though it may not remain friendly for long.",
 			"gameTooltipCreatureProducingMilk": "Producing Milk",
+			"gameTooltipCreatureExactHealth": "{#--TEXT-PRIMARY:{0}%} ({1}/{2})",
 			"gameTooltipDeityLabelDomains": "Domains",
 			"gameTooltipStatFerocityScore": "Score",
 			"gameTooltipStatFerocityCivilizationScore": "Total Island Civilization Score",
