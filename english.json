@@ -2770,6 +2770,7 @@
 			"actionNavigateUseSextant": "You gaze into the sextant, lining up the horizon and {0}. You measure your coordinates to be {3?{2} {3}{5?, {4} {5}} from:at} the heart of {1}.",
 			"actionPetCreatureRefused": "You attempt to pet {0}, but it refuses your caress.",
 			"actionPetNoTamedCreature": "There is no tamed creature to pet here.",
+			"actionPetNotAccepted": "{0} does not seem to be interested in your petting.",
 			"actionPickUpAllItemsNoItems": "There are no items to pick up here.",
 			"actionPickUpDoodadCannotUseContainsItems": "You cannot pick up {DOODAD}, there are items placed {ON?on:in} it.",
 			"actionPickUpExcrementNoExcrement": "There is no excrement to pick up here.",
