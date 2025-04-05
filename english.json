@@ -2742,6 +2742,7 @@
 			"actionFishingNothingBiting": "Nothing seems to be biting here.",
 			"actionFishingSlipped": "You felt something slip away from your line.",
 			"actionFishingTooShallow": "This location appears to be to be too shallow to catch anything.",
+			"actionGatherNoResourceYet": "You hack away at the {0}, but due to the resource, gathering from it produces some difficulty for you.",
 			"actionInvokeCannotUseSilence": "You cannot invoke {0}, you are met only with silence.",
 			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
 			"actionInvokeEvilCreaturesAttracted": "Chills run down your spine... and you hear the sound of rustling nearby, the area's denizens worked into a frenzy!",
@@ -3515,8 +3516,7 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"actionGatherNoResourceYet": "You hack away at the {0}, but due to the resource, gathering from it produces some difficulty for you."
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
