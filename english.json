@@ -156,7 +156,8 @@
 			"setCreatureAiAll": ["Command All Creatures", "commanded all creatures to {COMMAND}", ""],
 			"craftingIngredient": ["Ingredient", "used {TARGET??an item} as a crafting ingredient", "This item can be used as a crafting ingredient."],
 			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."],
-			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."]
+			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."],
+			"discoverRecipe": ["Discover Recipe", "", ""]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
