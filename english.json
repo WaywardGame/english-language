@@ -2125,6 +2125,7 @@
 			"strippedLeather": ["stripped leather", "Tanned leather that has been cut into strips, useful for making heavy-duty strings and other forms of binding."],
 			"chickenEggshells": ["chicken eggshells", "Small, brittle chicken eggshells. They can be crushed and used for calcium-rich compost."],
 			"penguinEggshells": ["penguin eggshells", "The large remnants of a penguin eggshell. It can be used to improve soil quality in the form of compost and fertilizer."],
+			"magicalMote": ["magical mote", "A speck; a piece of dust; a very small thing - but uniquely, and magically so."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
@@ -2680,6 +2681,7 @@
 			"actionAlterAltered": "A magical property has been altered on {0}!",
 			"actionAlterFailed": "You failed to alter {0}.",
 			"actionAlterNotPossible": "Alteration is not possible on this item as it does not have a valid magical property to alter.",
+			"actionAlterNoEffect": "Alternation appears to have no effect on this item.",
 			"actionAscendDescendNotCaveEntrance": "You cannot ascend or descend anything there!",
 			"actionAttachAlreadyHasItem": "{0} already has {1} attached!",
 			"actionAttachAttachedItem": "You attached {0} to {1}.",
@@ -2845,6 +2847,7 @@
 			"actionUpgradeMagicalInert": "The magical properties on this item cannot be upgraded.",
 			"actionUpgradeNotMagical": "This item is not magical and cannot be upgraded.",
 			"actionUpgradeNotPossible": "This item cannot be upgraded further.",
+			"actionUpgradeNoEffect": "This item refuses to be upgraded.",
 			"actionUpgradeUpgraded": "You upgrade {0}. Its magical value has improved!",
 			"actionUseItemWeaponNeeded": "You need a weapon that can fire this projectile!",
 			"actionViewItemsCannotUseBlocked": "You cannot view items here, {0} is in the way.",
@@ -3381,6 +3384,7 @@
 			"trampleIntoGround": "You trampled {0} into the ground.",
 			"trampling": "You are trampling {0}.",
 			"transmogrificationNotPossible": "Transmogrification is not possible on items without magical properties.",
+			"transmogrificationNoEffect": "Transmogrification has no effect on this item.",
 			"transmogrified": "You transmogrified {0}! A magical property has mutated.",
 			"trapMissed": "{0} has narrowly missed the trap while moving over it.",
 			"trapStoppedYou": "The trap has stopped you in your tracks.",
