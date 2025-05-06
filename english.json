@@ -157,7 +157,8 @@
 			"craftingIngredient": ["Ingredient", "used {TARGET??an item} as a crafting ingredient", "This item can be used as a crafting ingredient."],
 			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."],
 			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."],
-			"discoverRecipe": ["Discover Recipe", "", ""]
+			"discoverRecipe": ["Discover Recipe", "", ""],
+			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
@@ -300,6 +301,7 @@
 			"gameActionGatherButcher": "Butcher",
 			"gameActionGatherChop": "Chop",
 			"gameActionGatherDig": "Dig",
+			"gameActionExcavateCollapse": "Excavate or Collapse",
 			"gameActionGatherDigWithHands": "Dig With Hands",
 			"gameActionGatherGatherWithHands": "Gather With Hands",
 			"gameActionGatherHarvest": "Harvest",
@@ -2901,6 +2903,8 @@
 			"cannotBeRepaired": "{0} cannot be repaired.",
 			"cannotBuildHere": "You cannot build {0} here!",
 			"cannotDigWithHands": "You cannot dig {0} with your bare hands! Try gathering or picking it up first.",
+			"actionExcavateCollapseCannotDoHere": "You are unable to crib a cave entrance here.",
+			"actionExcavateCollapseNotDeepEnough": "The ground is not deep enough to attempt an excavation, it must be dug down first.",
 			"cannotEquipThatThere": "You cannot equip {0} there!",
 			"cannotFishFor": "You cannot fish for {0}.",
 			"cannotFromHere": "You cannot {0} from here.",
@@ -3014,6 +3018,8 @@
 			"dig": "dig",
 			"digAway": "dig away",
 			"digging": "digging",
+			"excavating": "excavating",
+			"collapsing": "collapsing",
 			"disassemble": "disassemble",
 			"disassembling": "disassembling",
 			"discoveredCaveEntrance": "You have discovered a cave entrance!",
@@ -3208,6 +3214,8 @@
 			"offerAberrantFail": "{0} took your offering, but failed to accept you as its owner.",
 			"offerAberrantFailButTamed": "{0} took your offering, but failed to gain any favor with its owner.",
 			"open": "open",
+			"collapse": "collapse",
+			"actionExcavateCollapseOpenCollapse": "you {0} the cave entrance.",
 			"openClose": "open or close",
 			"overEatingLostStamina": "You are overeating! You have lost {0} stamina.",
 			"overHydratingLostStamina": "You suffering from overhydration! You have lost {0} stamina.",
@@ -3522,7 +3530,14 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"actionExcavateCollapseFail": "You failed to excavate into the cave.",
+			"actionExcavateCollapseExcavated": "You excavated into the cave.",
+			"actionExcavateCollapseExcavatedSurface": "You have dug to the surface.",
+			"actionExcavateCollapseNotPassable": "You cannot excavate over {0}.",
+			"tileMakeCaveEntranceVoid": "You discover a giant void beneath the hole and stop excavating.",
+			"tileMakeCaveEntranceNearby": "You cannot make another cave entrance so close to another in fear of a structural collapse.",
+			"tileMakeCaveEntrancePassable": "You cannot find a way to make a cave entrance at this location."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -5394,7 +5409,9 @@
 			"commandAllAttack": ["Command All to Attack", "", "Command tamed creatures to attack everything in this area."],
 			"commandAllHeel": ["Command All to Heel", "", "Command tamed creatures to heel, always following you and never attacking."],
 			"ascend": ["Ascend", "", "Climb the passageway to return to the surface."],
-			"descend": ["Descend", "", "Venture down the passageway into the caves below."]
+			"descend": ["Descend", "", "Venture down the passageway into the caves below."],
+			"excavate": ["Excavate", "", "Create a cave entrance or exit by excavating a tunnel."],
+			"collapse": ["Collapse", "", "Close up the cave entrance or exit by covering it."]
 		},
 		"website": {
 			"twitter": "Twitter",
