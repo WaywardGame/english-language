@@ -2751,7 +2751,7 @@
 			"actionExcavateCollapseFail": "You failed to excavate into the cave.",
 			"actionExcavateCollapseNotDeepEnough": "The ground is not deep enough to attempt an excavation, it must be dug down first.",
 			"actionExcavateCollapseNotPassable": "You cannot excavate over {0}.",
-			"actionExcavateCollapseOpenCollapse": "you {0} the cave entrance.",
+			"openCollapse": "you {0} the cave entrance.",
 			"actionFishingNothingBiting": "Nothing seems to be biting here.",
 			"actionFishingSlipped": "You felt something slip away from your line.",
 			"actionFishingTooShallow": "This location appears to be to be too shallow to catch anything.",
