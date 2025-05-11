@@ -2745,7 +2745,6 @@
 			"actionEnhanceFailed": "You failed to enhance {0}!",
 			"actionEnhanceNotPossible": "This item cannot be enhanced further.",
 			"actionEquipWillBreakOnDamage": "{0} cannot be equipped protected as it would be destroyed on damage.",
-			"actionExcavateCollapseCannotDoHere": "You are unable to crib a cave entrance here.",
 			"actionExcavateCollapseExcavated": "You excavated into the cave.",
 			"actionExcavateCollapseExcavatedSurface": "You have dug to the surface.",
 			"actionExcavateCollapseFail": "You failed to excavate into the cave.",
