@@ -208,7 +208,7 @@
 			"gameFaceLeft": "Face Left",
 			"gameFaceDown": "Face Down",
 			"gameFaceRight": "Face Right",
-			"gameIdle": ["Idle", "Passes a turn. Idling when on a stack of items picks up one item at a time."],
+			"gameIdle": ["Idle", "Passes a turn without moving."],
 			"gameAscendDescend": ["Ascend or Descend", "Ascends or descends cave entrances."],
 			"gameItemMove": ["Move Hovered Item", "Allows dragging the hovered item to a different part of the UI."],
 			"gameItemMoveAll": ["Move Items of Type", "Allows dragging the hovered item, and all other items of the same type, to a different inventory."],
