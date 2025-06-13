@@ -158,7 +158,9 @@
 			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."],
 			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."],
 			"discoverRecipe": ["Discover Recipe", "", ""],
-			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."]
+			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."],
+			"addItemDiscovered": ["Add Item Discovered", "", "", ""],
+			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
