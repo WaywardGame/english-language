@@ -2896,6 +2896,7 @@
 			"brokenOnImpact": "{0} has broken on impact at a range of {2?{#--COLOR-MAGICAL:{1}}:{1}}, costing {2?{#--COLOR-MAGICAL:{3}}:{3}} stamina!",
 			"brokenWhileFiring": "{0} has broken while firing at a range of {2?{#--COLOR-MAGICAL:{1}}:{1}}!",
 			"build": "build",
+			"ride": "ride",
 			"burned": "burned",
 			"butcher": "butcher",
 			"cannotAddAnyMoreFuel": "You cannot add any more fuel to {0}.",
