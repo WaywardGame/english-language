@@ -158,7 +158,9 @@
 			"viewItems": ["View Items", "", "Open a dialog to interact with the items here."],
 			"ascendDescend": ["Ascend or Descend", "ascended or descended", "Attempt to ascend or descend a cave entrance on the tile."],
 			"discoverRecipe": ["Discover Recipe", "", ""],
-			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."]
+			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."],
+			"addItemDiscovered": ["Add Item Discovered", "", "", ""],
+			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
@@ -208,7 +210,7 @@
 			"gameFaceLeft": "Face Left",
 			"gameFaceDown": "Face Down",
 			"gameFaceRight": "Face Right",
-			"gameIdle": ["Idle", "Passes a turn. Idling when on a stack of items picks up one item at a time."],
+			"gameIdle": ["Idle", "Passes a turn without moving."],
 			"gameAscendDescend": ["Ascend or Descend", "Ascends or descends cave entrances."],
 			"gameItemMove": ["Move Hovered Item", "Allows dragging the hovered item to a different part of the UI."],
 			"gameItemMoveAll": ["Move Items of Type", "Allows dragging the hovered item, and all other items of the same type, to a different inventory."],
@@ -1951,7 +1953,7 @@
 			"glassBottleOfFilteredWater": ["glass bottle of filtered water", "Clean, drinkable water in a glass bottle, decontaminated using a filtration technique."],
 			"clayJugOfFilteredWater": ["clay jug of filtered water", "Filtered water in a clay jug; free from any large particulates and other potentially harmful matter."],
 			"coconutContainerOfFilteredWater": ["coconut container of filtered water", "A coconut filled with purified water through the use of a water filter; slowly dripped into the makeshift container."],
-			"clayFilter": ["clay filter", "A three-part water filtration device made from fired clay."],
+			"clayFilter": ["clay filter", "A three-part water filtration device made from fired clay and used to filter particulate from murky swamp water."],
 			"sandstoneAxe": ["sandstone axe", "A seemingly well-constructed axe, the blade of which is made from sandstone and fastened with cordage."],
 			"sandstoneShovel": ["sandstone shovel", "Although not using the best material; due to sandstone's softness, this shovel may get at least a few holes dug."],
 			"sharpSandstone": ["sharp sandstone", "Through grinding and knapping two pieces of sandstone together, this sharp sandstone was produced."],
@@ -3299,6 +3301,7 @@
 			"returningToCivilizationSetOffAgain": "After returning the treasure back to civilization, you set off again...",
 			"returnsToLife": "{0} returns to life!",
 			"reverse": " reverse",
+			"ride": "ride",
 			"sailing": "Sailing",
 			"scrollMaster": "You are truly a master of all {0}.",
 			"scrollProvidedNoUsefulInsight": "The scroll provided no useful insight for you.",
