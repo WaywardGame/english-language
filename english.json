@@ -944,7 +944,8 @@
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow"
+			"wheelbarrow": "wheelbarrow",
+			"openFireSource": "open fire source"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
