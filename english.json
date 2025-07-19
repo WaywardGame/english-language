@@ -941,11 +941,11 @@
 			"litTorch": "lit torch",
 			"litWaterStill": "lit water still",
 			"lockedChest": "locked chest",
+			"openFireSource": "open fire source",
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow",
-			"openFireSource": "open fire source"
+			"wheelbarrow": "wheelbarrow"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
