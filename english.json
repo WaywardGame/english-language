@@ -3175,6 +3175,7 @@
 			"no": "no",
 			"noAmmunitionForThatWeapon": "You do not have any ammunition for {0} in your inventory!",
 			"noFireToStokeWith": "There is no fire to stoke with {0} here!",
+			"actionStokeFireMaximumStokeReached": "{0} is at its maximum capacity for stoking!",
 			"noFishAtLocation": "There are no fish or resources at this location!",
 			"noGroundWater": "The well is constructed in a location that does not contain any groundwater.",
 			"noInkToDrawMap": "You do not have any ink to draw a map with!",
