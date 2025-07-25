@@ -2429,7 +2429,7 @@
 			"{%storage:accumulation:amassment}"],
 			"preservationContainedItemsDecayRate": ["{%preserving:conserving}",
 			"{%preservation:conservation}"],
-			"hoardingMaxDecay": ["{%unwavering:everlasting:persisting}",
+			"hoardingMaxDecay": ["{%unwavering:persisting:unfading}",
 			"{%hoarding:resilience:permanence}"],
 			"enduranceDurabilityLossChance": ["{%enduring:resilient:unbroken:unbreakable}",
 			"{%endurance:resilience:unbreakability}"],
@@ -2458,7 +2458,9 @@
 			"statPotencyEquipmentImproveConsumableStats": ["{%effective:efficacious}",
 			"{%effectiveness:efficacy}"],
 			"persistenceMaxDurability": ["{%persistent:tenacious:unyielding:unrelenting}",
-			"{%persistence:tenacity}"]
+			"{%persistence:tenacity}"],
+			"perpetuityDecayLossChance": ["{%perpetual:everlasting:timeless}",
+			"{%perpetuity:everlastingness:timelessness}"]
 		},
 		"magicalPropertyType": {
 			"powerAttack": ["power", "Appears to hit harder than you would expect."],
@@ -2492,7 +2494,8 @@
 			"encirclingDoodadSkill": ["encircling {0??skill}", "The object emits a force that appears to increase your expertise in {0??a skill}."],
 			"elementalDamage": ["{0??elemental damage}", "The weapon inexplicably radiates {0??an element}, painful to the touch."],
 			"statPotencyEquipmentImproveConsumableStats": ["{0 ??}potency", "The quality of your consumables appears to increase."],
-			"persistenceMaxDurability": ["persistence", "An item that is unmatched in lastingness and durability."]
+			"persistenceMaxDurability": ["persistence", "An item that is unmatched in lastingness and durability."],
+			"perpetuityDecayLossChance": ["perpetuity", "Appears to be especially long-lasting and resistant to the element of time."]
 		},
 		"magicalSubPropertyAffix": {
 			"28(8": ["{%burning:scorching:blazing:fiery:flaming:searing:scalding:incendiary:combustible:pyroclastic}",
@@ -4560,6 +4563,7 @@
 			"gameTooltipSharedLabelPurification": "Purification",
 			"gameTooltipSharedLabelPurificationTurns": "{#--TEXT-PRIMARY:{0}}/{#--TEXT-PRIMARY:{1}} Turns",
 			"gameTooltipSharedDurabilityMagicalDamageReduction": " ({0} reduced chance of durability loss)",
+			"gameTooltipSharedDecayMagicalReduction": " ({0} reduced chance of decay loss)",
 			"gameTooltipSharedDurabilityMagicalDamageRegeneration": " ({0} chance of durability regeneration)",
 			"gameTooltipSharedLabelContents": "Contents",
 			"gameTooltipSkill": "Skill",
