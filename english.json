@@ -2805,7 +2805,7 @@
 			"actionRestAdjacentCreature": "You refuse to {0} next to a hostile creature!",
 			"actionSailToCivilizationNotInsideBoat": "You must be in the sailboat to sail to civilization.",
 			"actionSailToIsland": "You depart from {0}, traveling to {1}...",
-			"actionSailToIslandArrived": "You arrive at {0}.",
+			"actionSailToIslandArrived": "You arrive at {0} after {2?:a }{1}{2? {PLURAL({2})hour}}.",
 			"actionSailToIslandCannotUseCannotReachEdge": "You cannot reach the open sea.",
 			"actionSailToIslandCannotUseCannotReachPort": "You cannot reach the port.",
 			"actionSailToIslandCannotUseGhost": "You may not haunt other lands.",
