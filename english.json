@@ -160,7 +160,8 @@
 			"discoverRecipe": ["Discover Recipe", "", ""],
 			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."],
 			"addItemDiscovered": ["Add Item Discovered", "", "", ""],
-			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""]
+			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""],
+			"squish": ["Squish", "squished {TOOL??an item}", "Consumed on use. Squishes the item, causing it to lose its shape and become a puddle of liquid."]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
@@ -373,6 +374,7 @@
 			"gameActionRestSleep": "Sleep",
 			"gameActionRotate": "Rotate Doodad",
 			"gameActionSqueeze": "Squeeze",
+			"gameActionSquish": "Squish",
 			"gameActionStillAttachContainer": "Attach Container",
 			"gameActionStillDetachContainer": "Detach Container",
 			"gameActionSummon": "Summon",
@@ -3409,7 +3411,7 @@
 			"transmogrificationNotPossible": "Transmogrification is not possible on items without magical properties.",
 			"transmogrified": "You transmogrified {0}! A magical property has mutated.",
 			"trapMissed": "{0} has narrowly missed the trap while moving over it.",
-			"trapStoppedYou": "The trap has stopped you in your tracks.",
+			"trapStoppedYou": "You have been stopped in your tracks.",
 			"traveling": "Traveling",
 			"treasure": "treasure",
 			"treasureIsBlocked": "You find the spot where the treasure is buried, but it is blocked.",
@@ -3544,7 +3546,9 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"actionSquishCannotHere": "You cannot squish {0} over this surface.",
+			"actionSquishNoRoom": "There's no room to squish {0} here."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -4377,7 +4381,8 @@
 			"puddleOfGoatMilk": ["puddle of goat milk", ""],
 			"puddleOfCoconutWater": ["puddle of coconut water", ""],
 			"puddleOfSwampWater": ["puddle of swamp water", ""],
-			"puddleOfFilteredWater": ["puddle of filtered water", ""]
+			"puddleOfFilteredWater": ["puddle of filtered water", ""],
+			"slimePatch": ["slime patch", "A smear of gooey slime with an ungodly green hue."]
 		},
 		"tooltipVisibilityOption": {
 			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:TOOLTIP_MORE_INFORMATION}",
