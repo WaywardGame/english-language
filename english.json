@@ -2824,6 +2824,8 @@
 			"actionSetCreatureAiNotEnoughTames": "{0} has not been tamed or petted enough to understand or listen to this command yet.",
 			"actionSetDownNotEnoughRoom": "There is not enough room to place {0}.",
 			"actionShipToIslandNoDestination": "You have not chosen a port to ship your items to.",
+			"actionSquishCannotHere": "You cannot squish {0} over this surface.",
+			"actionSquishNoRoom": "There's no room to squish {0} here.",
 			"actionStokeFireMaximumStokeReached": "{0} is at its maximum capacity for stoking!",
 			"actionSwapEquipmentCannotUseNoEquipmentToSwap": "There is no equipment to swap with {0}.",
 			"actionTameCreatureTamed": "This creature is already tamed.",
@@ -3546,9 +3548,7 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"actionSquishCannotHere": "You cannot squish {0} over this surface.",
-			"actionSquishNoRoom": "There's no room to squish {0} here."
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
