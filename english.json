@@ -160,7 +160,8 @@
 			"discoverRecipe": ["Discover Recipe", "", ""],
 			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."],
 			"addItemDiscovered": ["Add Item Discovered", "", "", ""],
-			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""]
+			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""],
+			"squish": ["Squish", "squished {TOOL??an item}", "Consumed on use. Squishes the item, causing it to lose its shape and become a puddle of liquid."]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
@@ -373,6 +374,7 @@
 			"gameActionRestSleep": "Sleep",
 			"gameActionRotate": "Rotate Doodad",
 			"gameActionSqueeze": "Squeeze",
+			"gameActionSquish": "Squish",
 			"gameActionStillAttachContainer": "Attach Container",
 			"gameActionStillDetachContainer": "Detach Container",
 			"gameActionSummon": "Summon",
@@ -941,6 +943,7 @@
 			"litTorch": "lit torch",
 			"litWaterStill": "lit water still",
 			"lockedChest": "locked chest",
+			"openFireSource": "open fire source",
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
@@ -1460,7 +1463,7 @@
 			"clayFlakes": ["clay flakes", "Dried shavings of clay. Created by shaving clay and drying over a period of time."],
 			"greenSand": ["green sand", "A form of malleable sand made with clay, used to make molds for metal casting."],
 			"oldInstructionalScroll": ["instructional scroll", "A tattered sheet of paper with some roughly scribbled instructions and diagrams."],
-			"slimeGelatin": ["slime gelatin", "A lump of slime gelatin which jiggles upon your touch. Can be used to preserve food, or melted down and used as glue."],
+			"slimeBall": ["slime ball", "A lump of gooey slime which jiggles upon your touch. Can be used to preserve food, or melted down and used as glue."],
 			"slimeGlue": ["slime glue", "A glue consisting of boiled slime gelatin that can be used to bind and reinforce items."],
 			"cookedSpiderMeat": ["cooked spider meat", "Crispy spider meat. Not the best texture or flavor, but contains the more edible portions of the deceased arachnid."],
 			"spiderMeat": ["spider meat", "A spider's fleshy innards. It's hard to stomach, even when cooked. Try not to think about what you're eating."],
@@ -1852,7 +1855,7 @@
 			"tinHoe": ["tin hoe", "A tin hoe, to be used for tilling the ground to plant seeds. The tool's head will likely deteriorate quickly."],
 			"tinMortarAndPestle": ["tin mortar and pestle", "Used for mixing and grinding materials, this tin device feels much lighter than it looks."],
 			"tinBakingTray": ["tin baking tray", "This large sheet of molded tin can be used to cook food, although some care may be required to make sure it doesn't melt in application."],
-			"tinRefinementTools": ["tin refinement tools", "Delicate tin-based tools, used to refine and reduce the weight of other crafted items."],
+			"tinRefinementTools": ["tin refinement tools", "Delicate tin-based tools, used to refine and reduce the weight of other crafted items at the cost of their durability."],
 			"tinKnife": ["tin knife", "A tin forged knife with a fine edge and quality handle. Its edge will quickly become blunt in use."],
 			"smeltedBronze": ["smelted bronze", "A pristine chunk of bronze alloy to be melted down and cast into other forms."],
 			"bronzePickaxe": ["bronze pickaxe", "A bronze-cast tool for use in mining and breaking through rock-based terrain."],
@@ -1879,7 +1882,7 @@
 			"bronzeHoe": ["bronze hoe", "A fine bronzen gardening tool, used to form lined pathways in the dirt for planting seeds."],
 			"bronzeMortarAndPestle": ["bronze mortar and pestle", "Using a bronze alloy, this set of tools can be used to crush and grind materials used in other crafts."],
 			"bronzeBakingTray": ["bronze baking tray", "Excessive is one word used to describe this piece of cookware made from forged bronze."],
-			"bronzeRefinementTools": ["bronze refinement tools", "A set of small bronze tools used for filing, shaping, and general refinement of other items, reducing their weight in the process."],
+			"bronzeRefinementTools": ["bronze refinement tools", "A set of small bronze tools used for filing, shaping, and general refinement of other items, reducing their weight in the process, but also reducing their durability."],
 			"bronzeKnife": ["bronze knife", "An expertly crafted carving tool and an instrument of death if used in close quarters against an unwitting foe."],
 			"iceBrick": ["ice brick", "A solid block of ice, chipped and carved away from a glacier or ice wall."],
 			"snowBrick": ["snow brick", "A compressed block of snow. Dense and rigid enough to perhaps build a wall or flooring for a makeshift snow hut."],
@@ -2428,7 +2431,7 @@
 			"{%storage:accumulation:amassment}"],
 			"preservationContainedItemsDecayRate": ["{%preserving:conserving}",
 			"{%preservation:conservation}"],
-			"hoardingMaxDecay": ["{%unwavering:everlasting:persisting}",
+			"hoardingMaxDecay": ["{%unwavering:persisting:unfading}",
 			"{%hoarding:resilience:permanence}"],
 			"enduranceDurabilityLossChance": ["{%enduring:resilient:unbroken:unbreakable}",
 			"{%endurance:resilience:unbreakability}"],
@@ -2457,7 +2460,9 @@
 			"statPotencyEquipmentImproveConsumableStats": ["{%effective:efficacious}",
 			"{%effectiveness:efficacy}"],
 			"persistenceMaxDurability": ["{%persistent:tenacious:unyielding:unrelenting}",
-			"{%persistence:tenacity}"]
+			"{%persistence:tenacity}"],
+			"perpetuityDecayLossChance": ["{%perpetual:everlasting:timeless}",
+			"{%perpetuity:everlastingness:timelessness}"]
 		},
 		"magicalPropertyType": {
 			"powerAttack": ["power", "Appears to hit harder than you would expect."],
@@ -2491,7 +2496,8 @@
 			"encirclingDoodadSkill": ["encircling {0??skill}", "The object emits a force that appears to increase your expertise in {0??a skill}."],
 			"elementalDamage": ["{0??elemental damage}", "The weapon inexplicably radiates {0??an element}, painful to the touch."],
 			"statPotencyEquipmentImproveConsumableStats": ["{0 ??}potency", "The quality of your consumables appears to increase."],
-			"persistenceMaxDurability": ["persistence", "An item that is unmatched in lastingness and durability."]
+			"persistenceMaxDurability": ["persistence", "An item that is unmatched in lastingness and durability."],
+			"perpetuityDecayLossChance": ["perpetuity", "Appears to be especially long-lasting and resistant to the element of time."]
 		},
 		"magicalSubPropertyAffix": {
 			"28(8": ["{%burning:scorching:blazing:fiery:flaming:searing:scalding:incendiary:combustible:pyroclastic}",
@@ -2801,7 +2807,7 @@
 			"actionRestAdjacentCreature": "You refuse to {0} next to a hostile creature!",
 			"actionSailToCivilizationNotInsideBoat": "You must be in the sailboat to sail to civilization.",
 			"actionSailToIsland": "You depart from {0}, traveling to {1}...",
-			"actionSailToIslandArrived": "You arrive at {0}.",
+			"actionSailToIslandArrived": "You arrive at {0} after {2?:a }{1}{2? {PLURAL({2})hour}}.",
 			"actionSailToIslandCannotUseCannotReachEdge": "You cannot reach the open sea.",
 			"actionSailToIslandCannotUseCannotReachPort": "You cannot reach the port.",
 			"actionSailToIslandCannotUseGhost": "You may not haunt other lands.",
@@ -2818,6 +2824,9 @@
 			"actionSetCreatureAiNotEnoughTames": "{0} has not been tamed or petted enough to understand or listen to this command yet.",
 			"actionSetDownNotEnoughRoom": "There is not enough room to place {0}.",
 			"actionShipToIslandNoDestination": "You have not chosen a port to ship your items to.",
+			"actionSquishCannotHere": "You cannot squish {0} over this surface.",
+			"actionSquishNoRoom": "There's no room to squish {0} here.",
+			"actionStokeFireMaximumStokeReached": "{0} is at its maximum capacity for stoking!",
 			"actionSwapEquipmentCannotUseNoEquipmentToSwap": "There is no equipment to swap with {0}.",
 			"actionTameCreatureTamed": "This creature is already tamed.",
 			"actionTameNoCreature": "There is no creature to tame here.",
@@ -3404,7 +3413,7 @@
 			"transmogrificationNotPossible": "Transmogrification is not possible on items without magical properties.",
 			"transmogrified": "You transmogrified {0}! A magical property has mutated.",
 			"trapMissed": "{0} has narrowly missed the trap while moving over it.",
-			"trapStoppedYou": "The trap has stopped you in your tracks.",
+			"trapStoppedYou": "You have been stopped in your tracks.",
 			"traveling": "Traveling",
 			"treasure": "treasure",
 			"treasureIsBlocked": "You find the spot where the treasure is buried, but it is blocked.",
@@ -3574,7 +3583,7 @@
 			"returned": ["Returned", "Sailed to civilization and completed the game.", "Start with a golden sextant."],
 			"navigator": ["Navigator", "Traveled the seas in search of new islands.", "Start with a raft, at the cost of starting with {*{0}*} hunger and thirst."],
 			"dragonSlayer": ["Dragon Slayer", "Slayed a drake.", "Aberrant drakes never spawn. Drakes breathe fire {*x{0}*} more often."],
-			"treasurer": ["Treasurer", "Collected every one of the {*six*} types of treasure.", "Start with a remarkable piece of equipment. Increase the tier each territory by {*{#WORDS:{0}}*}."],
+			"treasurer": ["Treasurer", "Collected every one of the {*six*} types of treasure.", "Start with a rare piece of equipment. Increase the tier each territory by {*{#WORDS:{0}}*}."],
 			"pulchritudinous": ["Pulchritudinous", "Equipped a magical item in each equipment slot.", "Start with a magical piece of equipment."],
 			"friendly": ["Friendly", "Tamed {*25*} creatures.", "Start with a tamed creature."],
 			"malevolent": ["Malevolent", "Invoked {$DEITY:EVIL} 100 times.",
@@ -4372,7 +4381,8 @@
 			"puddleOfGoatMilk": ["puddle of goat milk", ""],
 			"puddleOfCoconutWater": ["puddle of coconut water", ""],
 			"puddleOfSwampWater": ["puddle of swamp water", ""],
-			"puddleOfFilteredWater": ["puddle of filtered water", ""]
+			"puddleOfFilteredWater": ["puddle of filtered water", ""],
+			"slimePatch": ["slime patch", "A smear of gooey slime with an ungodly green hue."]
 		},
 		"tooltipVisibilityOption": {
 			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:TOOLTIP_MORE_INFORMATION}",
@@ -4558,6 +4568,7 @@
 			"gameTooltipSharedLabelPurification": "Purification",
 			"gameTooltipSharedLabelPurificationTurns": "{#--TEXT-PRIMARY:{0}}/{#--TEXT-PRIMARY:{1}} Turns",
 			"gameTooltipSharedDurabilityMagicalDamageReduction": " ({0} reduced chance of durability loss)",
+			"gameTooltipSharedDecayMagicalReduction": " ({0} reduced chance of decay loss)",
 			"gameTooltipSharedDurabilityMagicalDamageRegeneration": " ({0} chance of durability regeneration)",
 			"gameTooltipSharedLabelContents": "Contents",
 			"gameTooltipSkill": "Skill",
