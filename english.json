@@ -2207,6 +2207,7 @@
 			"creatureContainment": "creature containment",
 			"creatureResource": "creature resource",
 			"crucible": "crucible",
+			"crushable": "crushable item",
 			"dripstone": "dripstone",
 			"dualWield": "can dual wield",
 			"egg": "egg",
@@ -2313,8 +2314,7 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container",
-			"crushable": "crushable item"
+			"wispContainer": "wisp container"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
@@ -2997,6 +2997,7 @@
 			"creatureZoneRerolled": "You feel a sudden shift... Nearby creatures go silent for a moment, then there is a cacophony of noise.",
 			"creatureZoneTierDecreased": "You feel a sudden shift... It seems quieter now.",
 			"creatureZoneTierIncreased": "You feel a sudden shift... The air feels thick with tension.",
+			"crushedItemsUnderfoot": "You crushed {0} underfoot.",
 			"curedYourPoison": "You have cured your poison!",
 			"cut": "cut",
 			"cutHasHealed": "Your cut has healed on its own!",
@@ -3549,8 +3550,7 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling.",
-			"crushedItemsUnderfoot": "You crushed {0} underfoot."
+			"youWhileTraveling": "You {0...} while traveling."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
@@ -4670,6 +4670,7 @@
 			"gameStatsStatGeneric": "{0}",
 			"gameStatsStatGenericWithMax": "{0}​/{1}",
 			"gameStatsStatbar": "{0} ({1}%)",
+			"gameStatsMoreToDiscover": "{0} undiscovered {PLURAL({0})stat}...",
 			"gameMenuBarButtonTooltipBindable": " {#--TEXT-SECONDARY:{BINDINGS:{0}}}",
 			"gameMenuBarButtonTooltipSaveSize": "{#--TEXT-SECONDARY:Using {0}MB}",
 			"gameMenuBarButtonTooltipSaveTurnsAgo": "{#--TEXT-SECONDARY:Saved {0} {PLURAL({0})turn} ago}",
