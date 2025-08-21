@@ -4205,7 +4205,7 @@
 			"curse": ["curse", "", "As night is struck, strange things begin to occur...\n- Your curse is determined by your hold over the island.\n- During the night, there may be one or more curse events. The greater your curse, the greater the chance of these events.\n- {#--TEXT-PRIMARY:Sleeping prevents curse events.}\n- As dawn breaks, any strangeness from events will fade.\n"],
 			"generic": ["other stats", "stats"],
 			"attackDefenseRow": "attack & defense",
-			"dexterity": ["dexterity", "dex", "Swift precision of movements to maximize your endurance.\n- Increases maximum {$STAT:STAMINA}"],
+			"dexterity": ["dexterity", "dex", "Swift precision of movements to maximize your endurance.\n- Increases maximum {$STAT:STAMINA}."],
 			"despawnProtection": "despawn protection"
 		},
 		"status": {
@@ -4220,18 +4220,22 @@
 			"freezing": ["freezing", "hypothermia", "The temperature is too cold; your extremities are going numb as your body struggles to stay warm."],
 			"frostbitten": ["frostbitten", "frostbite", "You feel the sharp, cold pain of frozen extremities."],
 			"pacified": ["pacified", "pacification", "Its hostility appears momentarily delayed."],
-			"frenzied": ["frenzied", "frenzied", "Its hostility is swift and relentless!"]
+			"frenzied": ["frenzied", "frenzied", "Its hostility is swift and relentless!"],
+			"statistician": ["statistician", "statistician", "You cannot improve the same core stat twice in a row."],
+			"runekeeper": ["runekeeper", "runekeeper", "You cannot be rewarded by the same deity twice in a row."]
 		},
 		"statusEffect": {
 			"addsAChanceOfXOnY": "Adds a chance of {0}{1? on {1}}",
 			"dealingAroundXDamageY": "Dealing around {$STAT:HEALTH:{0???} damage}{ 1??}",
 			"dealingXDamageY": "Dealing {$STAT:HEALTH:{0???} damage}{ 1??}",
 			"increasesXRate": "Increases {0} rate",
+			"increasesXRateByY": "Increases {0} rate by {1}x",
 			"losingXEveryY": "Losing {0} every {1}",
 			"movementSpeedSlowed": "Movement speed slowed",
 			"percentChanceToPassEveryX": "{0}% chance to pass every {1}",
 			"reducesXByYEveryZ": "Reduces {0}{1? by {1}} every {2}",
-			"xCannotBeRegained": "{0} cannot be regained"
+			"xCannotBeRegained": "{0} cannot be regained",
+			"cannotX": "Cannot {0}"
 		},
 		"statusThreatLevel": {
 			"good": "buff",
@@ -4276,7 +4280,11 @@
 			"xTick": "{0} tick",
 			"xtoYZ": "{0} to {1} {2}",
 			"xUndiscovered": "{0} undiscovered",
-			"xy": "{0} {1}"
+			"xy": "{0} {1}",
+			"xGain": "{0} gain",
+			"gainX": "gain {0}",
+			"xReward": "{0} reward",
+			"beRewardedByX": "be rewarded by {0}"
 		},
 		"terrain": {
 			"deepSeawater": "deep seawater",
