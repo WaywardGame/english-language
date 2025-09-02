@@ -2136,6 +2136,8 @@
 			"magicalMote": ["magical mote", "A speck; a piece of dust; a very small thing - but uniquely, and magically so."],
 			"unrefinedSugar": ["unrefined sugar", "A coarse, yet tacky substance that is the raw form of sugar, produced from sugar cane. It can be used in baking, but can also be processed further."],
 			"refinedSugar": ["refined sugar", "A fine, white crystalline substance that is the processed form of raw sugar, commonly used as a sweetener in various baked goods."],
+			"candiedFruit": ["candied fruit", "A sweet treat made by baking fruit in sugar, resulting in a crunchy and flavorful snack, with a juicy center."],
+			"candiedSugar": ["candied sugar", "Sugar that has been melted down and cooled into small, hard, yet brittle candies. Can be eaten as a sweet treat."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
