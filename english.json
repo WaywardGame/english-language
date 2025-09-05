@@ -2138,6 +2138,9 @@
 			"refinedSugar": ["refined sugar", "A fine, white crystalline substance that is the processed form of raw sugar, commonly used as a sweetener in various baked goods."],
 			"candiedFruit": ["candied fruit", "A sweet treat made by baking fruit in sugar, resulting in a crunchy and flavorful snack, with a juicy center."],
 			"candiedSugar": ["candied sugar", "Sugar that has been melted down and cooled into small, hard, yet brittle candies. Can be eaten as a sweet treat."],
+			"rawClayBakingTray": ["raw clay baking tray", "A flat baking tray made from molded raw clay. When fired in a kiln, it becomes a great surface for baking on."],
+			"clayBakingTray": ["clay baking tray", "A fired clay baking tray, perfect for cooking food over a fire or in a furnace."],
+			"glassBakingTray": ["glass baking tray", "A tempered glass baking tray, ideal for baking food inside a furnace."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
