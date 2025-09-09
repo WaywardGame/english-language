@@ -2141,6 +2141,14 @@
 			"rawClayBakingTray": ["raw clay baking tray", "A flat baking tray made from molded raw clay. When fired in a kiln, it becomes a great surface for baking on."],
 			"clayBakingTray": ["clay baking tray", "A fired clay baking tray, perfect for cooking food over a fire or in a furnace."],
 			"glassBakingTray": ["glass baking tray", "A tempered glass baking tray, ideal for baking food inside a furnace."],
+			"rawClayPan": ["raw clay pan", "A hollowed vessel of molded clay, shaped into a pan and ready to be hardened through fire."],
+			"clayPan": ["clay pan", "A hardened clay pan, ready to be used for baked pies and other goodies."],
+			"glassPan": ["glass pan", "A rather fragile pan, especially in a survival scenario. Still, glass is a great material for certain types of baking."],
+			"tinPan": ["tin pan", "A lightweight tin pan, useful for baking certain foods. Care should be taken to avoid melting it."],
+			"copperPan": ["copper pan", "A pan crafted from copper and cold-hammered into a cylindrical shape. The copper material makes for a great baking surface due to its heat conductivity."],
+			"wroughtIronPan": ["wrought iron pan", "A sturdy wrought iron pan. Excellent for baking and cooking due to its durability and heat retention."],
+			"ironPan": ["iron pan", "A pan forged out of solid iron. Can be used over fire for baking pies and cakes."],
+			"bronzePan": ["bronze pan", "A bronze pan, crafted with a durable alloy that is great for baking due to its heat retention and even cooking properties."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
@@ -2323,7 +2331,8 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container"
+			"wispContainer": "wisp container",
+			"pan": "pan"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
