@@ -2282,6 +2282,7 @@
 			"mushroom": "mushroom",
 			"needle": "needle",
 			"notStockedOnMerchants": "not stocked on merchants item",
+			"pan": "pan",
 			"pole": "pole",
 			"powder": "powder",
 			"preservative": "preservative",
@@ -2331,8 +2332,7 @@
 			"weaponThatFiresBullets": "weapon that fires bullets",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow",
-			"wispContainer": "wisp container",
-			"pan": "pan"
+			"wispContainer": "wisp container"
 		},
 		"joinServerRetryReason": {
 			"timeout": "Timed out while trying to connect to the server.",
