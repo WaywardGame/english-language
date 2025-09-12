@@ -2149,6 +2149,7 @@
 			"wroughtIronPan": ["wrought iron pan", "A sturdy wrought iron pan. Excellent for baking and cooking due to its durability and heat retention."],
 			"ironPan": ["iron pan", "A pan forged out of solid iron. Can be used over fire for baking pies and cakes."],
 			"bronzePan": ["bronze pan", "A bronze pan, crafted with a durable alloy that is great for baking due to its heat retention and even cooking properties."],
+			"pumpkinPie": ["pumpkin pie", "A delicious pie baked with sugar, milk, eggs, and the star of the show: pumpkin, all in a flakey flour dough crust."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
