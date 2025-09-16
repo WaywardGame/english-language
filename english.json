@@ -2150,6 +2150,7 @@
 			"ironPan": ["iron pan", "A pan forged out of solid iron. Can be used over fire for baking pies and cakes."],
 			"bronzePan": ["bronze pan", "A bronze pan, crafted with a durable alloy that is great for baking due to its heat retention and even cooking properties."],
 			"pumpkinPie": ["pumpkin pie", "A delicious pie baked with sugar, milk, eggs, and the star of the show: pumpkin, all in a flakey flour dough crust."],
+			"fruitPie": ["fruit pie", "A delicious pie filled with a mixture of fruit, baked to perfection with a golden crust."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
