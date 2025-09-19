@@ -3436,6 +3436,7 @@
 			"transmogrified": "You transmogrified {0}! A magical property has mutated.",
 			"trapMissed": "{0} has narrowly missed the trap while moving over it.",
 			"trapStoppedYou": "You have been stopped in your tracks.",
+			"actionGatherSlowed": "You hack away at the {0}, but get caught up in it.",
 			"traveling": "Traveling",
 			"treasure": "treasure",
 			"treasureIsBlocked": "You find the spot where the treasure is buried, but it is blocked.",
@@ -3552,6 +3553,7 @@
 			"youSeeCoolDown": "You see {0} cool down to {1}.",
 			"youSeeDrop": "You see {0} drop from {1}.",
 			"youSeeEngulfFire": "You see {0} engulf its surroundings with fire.",
+			"youSeeSpiderSpin": "You see {0} spin a web.",
 			"youSeeFireSpread": "You see a fire spread uncontrollably.",
 			"youSeeHelpingPlant": "You see {0} tending to {1}.",
 			"youSeeLay": "You see {0} lay {1}.",
@@ -4385,7 +4387,8 @@
 			"puddleOfCoconutWater": ["puddle of coconut water", ""],
 			"puddleOfSwampWater": ["puddle of swamp water", ""],
 			"puddleOfFilteredWater": ["puddle of filtered water", ""],
-			"slimePatch": ["slime patch", "A smear of gooey slime with an ungodly green hue."]
+			"slimePatch": ["slime patch", "A smear of gooey slime with an ungodly green hue."],
+			"cobweb": ["cobweb", "A sticky spider web, left behind to catch their prey."]
 		},
 		"tooltipVisibilityOption": {
 			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:TOOLTIP_MORE_INFORMATION}",
