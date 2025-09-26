@@ -2156,6 +2156,7 @@
 			"pumpkinPie": ["pumpkin pie", "A delicious pie baked with sugar, milk, eggs, and the star of the show: pumpkin, all in a flakey flour dough crust."],
 			"fruitPie": ["fruit pie", "A delicious pie filled with a mixture of fruit, baked to perfection with a golden crust."],
 			"jackOLantern": ["jack-o'-lantern", "A spooky-faced hollowed pumpkin. Can be used as a creepy light source when a candle is placed inside and lit."],
+			"driedLeaves": ["dried leaves", "A fistful of dried leaves, brittle to the touch, but useful for tinder or compost."],
 			"last": ["", ""]
 		},
 		"itemAffixPostReformat": {
@@ -4422,7 +4423,8 @@
 			"puddleOfSwampWater": ["puddle of swamp water", ""],
 			"puddleOfFilteredWater": ["puddle of filtered water", ""],
 			"slimePatch": ["slime patch", "A smear of gooey slime with an ungodly green hue."],
-			"cobweb": ["cobweb", "A sticky spider web, left behind to catch their prey."]
+			"cobweb": ["cobweb", "A sticky spider web, left behind to catch their prey."],
+			"pileOfLeaves": ["pile of leaves", "A huge pile of dry, crunchy leaves, fallen from a nearby tree."]
 		},
 		"tooltipVisibilityOption": {
 			"hiddenUnlessBind": "Hidden Unless Holding {BINDINGS:TOOLTIP_MORE_INFORMATION}",
