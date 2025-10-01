@@ -1019,6 +1019,7 @@
 			"budding": "budding",
 			"flowering": "flowering",
 			"ripening": "ripening",
+			"seeding": "seeding",
 			"bare": "bare"
 		},
 		"growthFungus": {
@@ -1028,6 +1029,7 @@
 			"budding": "fruiting",
 			"flowering": "maturing",
 			"ripening": "sporing",
+			"seeding": "decomposing",
 			"bare": "bare"
 		},
 		"health": {
@@ -3282,9 +3284,10 @@
 			"plantHasResourcesToHarvest": "{0} {#--TEXT-COLOR:has some fruit, seeds, or spores} left to harvest.{1? {1}}",
 			"plantHighlyFertile": "{0} is highly fertile and may spread in its vicinity.",
 			"planting": "planting",
-			"plantIsBare": "{0} is {#--TEXT-COLOR:{1}}.",
+			"plantIsBare": "{0} is {#--TEXT-COLOR:{1}}, but will regrow over time.",
 			"plantIsFertile": "{0} is fertile and may spread in its vicinity.",
 			"plantIsInStage": "{0} is in its {#--TEXT-COLOR:{1}} stage of growth.",
+			"plantIsSeeding": "{0} is {#--TEXT-COLOR:{1}} and is ending its growth cycle.",
 			"plantIsNotFertile": "{0} is not fertile and will not spread.",
 			"plantNotReadyToHarvest": "{0} does {#--TEXT-COLOR:not yet have fruit, seeds, or spores} to harvest.{1? {1}}",
 			"plantReadyToGather": "{0} is {#--TEXT-COLOR:ready to chop or gather from}.",
