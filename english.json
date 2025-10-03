@@ -651,12 +651,39 @@
 			"pirateSkeleton": ["pirate skeleton", "An animated pile of human, or human-like bones adorned with pirate garb."]
 		},
 		"curseComponent": {
-			"skill": "Skill (From current highest impact: {0})",
-			"highestAttack": "Attack (Highest Achieved)",
-			"highestDefense": "Defense (Highest Achieved)",
-			"cumulativeEvilCrafting": "Crafting (Cumulative)",
-			"equipment": "Combat Strength",
-			"modifier": "Modifier"
+			"skill": "{#--TEXT-PRIMARY:Highest Impact Skill} ({0})",
+			"highestAttack": "{#--TEXT-PRIMARY:Attack} (highest achieved)",
+			"highestDefense": "{#--TEXT-PRIMARY:Defense} (highest achieved)",
+			"cumulativeEvilCrafting": "{#--TEXT-PRIMARY:Crafting} (cumulative)",
+			"equipment": "{#--TEXT-PRIMARY:Current Combat Strength}",
+			"modifier": "{#--TEXT-PRIMARY:Modifier}"
+		},
+		"curseEvent": {
+			"none": ["", ""],
+			"horde": ["Undeath", "The boundary between life and death has blurred."],
+			"unwelcomeGuest": ["Scuffling Noises", "An unwelcome guest has come to visit."],
+			"shadows": ["The Shadows Move", "Light is precious."],
+			"wisp": ["A Light in the Distance", "You are beckoned."],
+			"swarm": ["Swarm", "The first of many."],
+			"faeVisitor": ["Otherworldly Visitor", "An inhuman entity has come to play."],
+			"brownies": ["Look Away", "They just want to help."],
+			"siren": ["A Distant Melody", "The ocean calls."],
+			"plantDeath": ["A Wave of Death", "It all feels gray."],
+			"newPlants": ["A Wave of Life", "It all feels vibrant."],
+			"craftingInspiration": ["Inspiration Strikes", "You feel as though you could make anything."],
+			"suffusedWithMagic": ["Suffused With Magic", "You feel as though the things you make will be special."],
+			"lovedByTheWilds": ["Nature's Embrace", "They all want your care."],
+			"hatedByTheWilds": ["Nature's Wrath", "They all want you dead."],
+			"runeEffects": ["An Unknowable Conflict", "The forces which govern this island appear to be at war."],
+			"lucky": ["Lucky", "Things feel like they might work out."],
+			"unlucky": ["Unlucky", "Nothing feels worth the risk."],
+			"frigidNight": ["Frigid Night", "The cold seeps into your bones."],
+			"heatWave": ["Brimstone", "The air has dried out entirely, the heat beginning to increase."]
+		},
+		"curseEventCategory": {
+			"lucky": "Lucky",
+			"neutral": "Neutral",
+			"unlucky": "Unlucky"
 		},
 		"damageType": {
 			"none": ["none", ""],
@@ -2714,6 +2741,8 @@
 		"message": {
 			"none": "",
 			"multiple": "{... }",
+			"curseUpdateSunset": "The sun begins to set.",
+			"curseUpdateSunrise": "The sun rises on a new day.",
 			"aberrant": "{0?aberrant }{1}",
 			"aboutHours": "It appears you have {0} for about {1} {2}.",
 			"absorbNotPossible": "You cannot absorb from an item that does not have magical properties.",
@@ -3334,6 +3363,10 @@
 			"restInterruptedPain": "your persisting pain",
 			"restInterruptedStirring": "something stirring around you",
 			"restInterruptedWaterPoured": "water being poured on you",
+			"restInterruptedTooCold": "the extreme cold",
+			"restInterruptedTooHot": "the extreme heat",
+			"restInterruptedUncomfortablyCold": "being uncomfortably cold",
+			"restInterruptedUncomfortablyHot": "being uncomfortably hot",
 			"restLongTime": "long time",
 			"restModerateTime": "moderate amount of time",
 			"restOnBoat": "Rest on Boat",
@@ -3476,6 +3509,7 @@
 			"unpurifiedFreshWater": "unpurified fresh water",
 			"unpurifiedWaterInStill": "There is unpurified water in the {0}.",
 			"unpurifiedWaterInTop": "There is unpurified water in the top of the {0}.",
+			"stillNoContainer": "There is no container attached to the {0} to catch any water!",
 			"use": "use{ 0??}",
 			"usingBareHands": "using bare hands to {0}",
 			"vehicleDefense": "Riding in {0} has prevented {1} damage.",
@@ -4234,7 +4268,7 @@
 			"petting": "petting",
 			"waste": "waste",
 			"petted": "petted",
-			"curse": ["curse", "", "As night is struck, strange things begin to occur...\n- Your curse is determined by your hold over the island.\n- During the night, there may be one or more curse events. The greater your curse, the greater the chance of these events.\n- {#--TEXT-PRIMARY:Sleeping prevents curse events.}\n- As dawn breaks, any strangeness from events will fade.\n"],
+			"curse": ["curse", "", "As night is struck, strange things begin to occur...\n- Your curse is determined by your hold over the island.\n- During the night, there may be one or more curse events. The greater your curse, the greater the chance of these events.\n- {#--TEXT-PRIMARY:Sleeping prevents curse events.}\n- As dawn breaks, the strangeness of events will fade... but any consequences will linger.\n"],
 			"generic": ["other stats", "stats"],
 			"attackDefenseRow": "attack & defense",
 			"dexterity": ["dexterity", "dex", "Swift precision of movements to maximize your endurance.\n- Increases maximum {$STAT:STAMINA}."],
@@ -4254,7 +4288,8 @@
 			"pacified": ["pacified", "pacification", "Its hostility appears momentarily delayed."],
 			"frenzied": ["frenzied", "frenzied", "Its hostility is swift and relentless!"],
 			"statistician": ["statistician", "statistician", "You cannot improve the same core stat twice in a row."],
-			"runekeeper": ["runekeeper", "runekeeper", "You cannot be rewarded by the same deity twice in a row."]
+			"runekeeper": ["runekeeper", "runekeeper", "You cannot be rewarded by the same deity twice in a row."],
+			"cursed": ["cursed", "curse event", ""]
 		},
 		"statusEffect": {
 			"addsAChanceOfXOnY": "Adds a chance of {0}{1? on {1}}",
@@ -4273,7 +4308,8 @@
 			"good": "buff",
 			"neutral": "status",
 			"issue": "issue",
-			"threat": "threat"
+			"threat": "threat",
+			"hidden": ""
 		},
 		"steamInputKeyboardPosition": {
 			"dynamic": ["Dynamic", "Attempt to dynamically position the keyboard based on where the input is located on screen."],
@@ -4708,6 +4744,7 @@
 			"gameTooltipStatFerocityDays": "Days",
 			"gameTooltipSharedUndiscovered": "Something you have yet to discover...",
 			"gameTooltipStatCurseFactors": "Factors",
+			"gameTooltipStatCurseFactor": "{0} from",
 			"gameStatsStatAttack": "{0}",
 			"gameStatsStatGeneric": "{0}",
 			"gameStatsStatGenericWithMax": "{0}​/{1}",
