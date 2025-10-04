@@ -659,7 +659,7 @@
 			"modifier": "{#--TEXT-PRIMARY:Modifier}"
 		},
 		"curseEvent": {
-			"none": ["", ""],
+			"none": ["Unknown Event", "Something is strange..."],
 			"horde": ["Undeath", "The boundary between life and death has blurred."],
 			"unwelcomeGuest": ["Scuffling Noises", "An unwelcome guest has come to visit."],
 			"shadows": ["The Shadows Move", "Light is precious."],
@@ -680,7 +680,7 @@
 			"frigidNight": ["Frigid Night", "The cold seeps into your bones."],
 			"heatWave": ["Brimstone", "The air has dried out entirely, the heat beginning to increase."]
 		},
-		"curseEventCategory": {
+		"curseEventGroup": {
 			"lucky": "Lucky",
 			"neutral": "Neutral",
 			"unlucky": "Unlucky"
@@ -2741,8 +2741,6 @@
 		"message": {
 			"none": "",
 			"multiple": "{... }",
-			"curseUpdateSunset": "The sun begins to set.",
-			"curseUpdateSunrise": "The sun rises on a new day.",
 			"aberrant": "{0?aberrant }{1}",
 			"aboutHours": "It appears you have {0} for about {1} {2}.",
 			"absorbNotPossible": "You cannot absorb from an item that does not have magical properties.",
@@ -3057,6 +3055,9 @@
 			"creatureZoneTierIncreased": "You feel a sudden shift... The air feels thick with tension.",
 			"crushedItemsUnderfoot": "You crushed {0} underfoot.",
 			"curedYourPoison": "You have cured your poison!",
+			"curseUpdateSunrise": "The sun rises on a new day.",
+			"curseUpdateSunset": "The sun begins to set.",
+			"curseUpdateWarning": "You feel as though something strange may happen tonight...",
 			"cut": "cut",
 			"cutHasHealed": "Your cut has healed on its own!",
 			"cutLostHealth": "Your cuts have caused you to lose {0} health!",
@@ -3362,11 +3363,11 @@
 			"restInterruptedLoudNoise": "a loud, crashing noise",
 			"restInterruptedPain": "your persisting pain",
 			"restInterruptedStirring": "something stirring around you",
-			"restInterruptedWaterPoured": "water being poured on you",
 			"restInterruptedTooCold": "the extreme cold",
 			"restInterruptedTooHot": "the extreme heat",
 			"restInterruptedUncomfortablyCold": "being uncomfortably cold",
 			"restInterruptedUncomfortablyHot": "being uncomfortably hot",
+			"restInterruptedWaterPoured": "water being poured on you",
 			"restLongTime": "long time",
 			"restModerateTime": "moderate amount of time",
 			"restOnBoat": "Rest on Boat",
@@ -3427,6 +3428,7 @@
 			"steppingOn": "Stepping on",
 			"still": "still",
 			"stillHasNoWaterToPurify": "This still has no water to purify!",
+			"stillNoContainer": "There is no container attached to the {0} to catch any water!",
 			"stirredUpClawWorm": "{0} stirred up a claw worm from underground!",
 			"stirredUpCreature": "You stirred up a creature from the depths!",
 			"stoppedYourBleeding": "You have stopped your bleeding!",
@@ -3509,7 +3511,6 @@
 			"unpurifiedFreshWater": "unpurified fresh water",
 			"unpurifiedWaterInStill": "There is unpurified water in the {0}.",
 			"unpurifiedWaterInTop": "There is unpurified water in the top of the {0}.",
-			"stillNoContainer": "There is no container attached to the {0} to catch any water!",
 			"use": "use{ 0??}",
 			"usingBareHands": "using bare hands to {0}",
 			"vehicleDefense": "Riding in {0} has prevented {1} damage.",
