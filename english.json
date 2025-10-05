@@ -656,7 +656,8 @@
 			"highestDefense": "{#--TEXT-PRIMARY:Defense} (highest achieved)",
 			"cumulativeEvilCrafting": "{#--TEXT-PRIMARY:Crafting} (cumulative)",
 			"equipment": "{#--TEXT-PRIMARY:Current Combat Strength}",
-			"modifier": "{#--TEXT-PRIMARY:Modifier}"
+			"modifier": "{#--TEXT-PRIMARY:Modifier}",
+			"cumulativeKilling": "{#--TEXT-PRIMARY:Kills} (cumulative)"
 		},
 		"curseEvent": {
 			"none": ["Unknown Event", "Something is strange..."],
