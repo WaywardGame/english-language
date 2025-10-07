@@ -2824,10 +2824,10 @@
 			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
 			"actionInvokeEvilCreaturesAttracted": "Chills run down your spine... and you hear the sound of rustling nearby, the area's denizens worked into a frenzy!",
 			"actionInvokeEvilCreaturesNoneSummoned": "Chills run down your spine... but no creatures have been summoned.",
+			"actionInvokeFanaticismPreservedRune": "Due to your fanaticism, {0} did not take the rune.",
 			"actionInvokeGoodCreaturesPacified": "You feel a gentle breeze... and {0} seem to have lost interest in hostilities, for now.",
 			"actionInvokeGoodCreaturesPacifiedAttacked": "Your attack has angered {0}, and it is no longer pacified!",
 			"actionInvokeGoodCreaturesPacifiedNone": "You feel a gentle breeze... but any creatures around you do not seem to have noticed.",
-			"actionInvokeFanaticismPreservedRune": "Due to your fanaticism, {0} did not take the rune.",
 			"actionJumpCannotJump": "You cannot jump to there.",
 			"actionMeleeNothingToAttack": "There is nothing to attack here.",
 			"actionMoveItemCannotUseContainerTooFarAway": "You are too far away to move items to {0??this container}.",
@@ -3695,7 +3695,9 @@
 			"Runes of {$DEITY:CHAOS} are {*x{0}*} as common. The creatures that can spawn in an area sometimes change."],
 			"statistician": ["Statistician", "Discovered the associated core stat of every skill.", "Core stats raise {*x{0}*} faster, but you cannot raise the same stat twice in a row."],
 			"afflicted": ["Afflicted", "Discovered all statuses.", "Statuses apply stat bonuses based on how threatening they are.{0?\n\n{0}}"],
-			"exsanguinated": ["Exsanguinated", "Avoided bleeding out by the thinnest of margins.", "Enemy attacks no longer deal damage directly, instead applying {*{0}*} damage on each subsequent turn as bleed stacks."]
+			"exsanguinated": ["Exsanguinated", "Avoided bleeding out by the thinnest of margins.", "Enemy attacks no longer deal damage directly, instead applying {*{0}*} damage on each subsequent turn as bleed stacks."],
+			"cursed": ["Cursed", "Reached 100% curse.", "1.1x luck, but start with 20% curse."],
+			"cursebreaker": ["Cursebreaker", "Discovered every curse event.", "Curse events will occur every single night."]
 		},
 		"milestoneModifierGroup": {
 			"creatures": "Creatures",
@@ -3709,7 +3711,8 @@
 			"turns": "Turns",
 			"challenge": "Challenge",
 			"merchants": "Merchants",
-			"statuses": "Statuses"
+			"statuses": "Statuses",
+			"curse": "Curse"
 		},
 		"milestoneSort": {
 			"name": "Name",
@@ -4721,6 +4724,7 @@
 			"gameTooltipStatSharedCoreStatSkillsListUndiscoveredSkills": "{$MILESTONE:STATISTICIAN:{0} undiscovered {PLURAL({0})skill}}...",
 			"gameTooltipStatusMoreInformationRevealedAtSkillThreshold": "More will be revealed at {0} {1} skill...",
 			"gameTooltipStatusLabelCures": "This status can be removed by",
+			"gameTooltipCurseEventCursebearer": "Cursebearer",
 			"gameTooltipCreatureSubtitle": "{0} Creature",
 			"gameTooltipCreatureColorContext": "{0} Danger",
 			"gameTooltipCreatureLabelTamed": "Tamed",
