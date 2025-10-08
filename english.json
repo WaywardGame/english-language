@@ -652,8 +652,8 @@
 		},
 		"curseComponent": {
 			"skill": "{#--TEXT-PRIMARY:Highest Impact Skill} ({0})",
-			"highestAttack": "{#--TEXT-PRIMARY:Attack} (highest achieved)",
-			"highestDefense": "{#--TEXT-PRIMARY:Defense} (highest achieved)",
+			"highestAttack": "{$STAT:ATTACK:Attack} (highest achieved)",
+			"highestDefense": "{$STAT:DEFENSE:Defense} (highest achieved)",
 			"cumulativeEvilCrafting": "{#--TEXT-PRIMARY:Crafting} (cumulative)",
 			"equipment": "{#--TEXT-PRIMARY:Current Combat Strength}",
 			"modifier": "{#--TEXT-PRIMARY:Modifier}",
