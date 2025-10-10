@@ -979,7 +979,8 @@
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow"
+			"wheelbarrow": "wheelbarrow",
+			"curseWard": "curse ward"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
