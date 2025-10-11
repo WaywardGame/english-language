@@ -959,6 +959,7 @@
 			"altar": "altar",
 			"anvil": "anvil",
 			"containsFuelSource": "contains fuel source",
+			"curseWard": "curse ward",
 			"dripstone": "dripstone",
 			"fireSource": "fire source",
 			"gatheredPlant": "gathered plant",
@@ -979,8 +980,7 @@
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow",
-			"curseWard": "curse ward"
+			"wheelbarrow": "wheelbarrow"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
