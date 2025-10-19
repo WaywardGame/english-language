@@ -3066,6 +3066,7 @@
 			"curseUpdateSunrise": "The sun rises on a new day.",
 			"curseUpdateSunset": "The sun begins to set.",
 			"curseUpdateWarning": "You feel as though something strange may happen tonight...",
+			"curseActionSailToIslandCannotUseCursebearer": "Strange energies hang around you like a shroud... You find that, for the moment, you cannot leave the island.",
 			"cut": "cut",
 			"cutHasHealed": "Your cut has healed on its own!",
 			"cutLostHealth": "Your cuts have caused you to lose {0} health!",
