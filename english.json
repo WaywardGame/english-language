@@ -505,7 +505,8 @@
 			"biomeIceCap": "Awake Upon Frigid Shores",
 			"biomeVolcanic": "Awake Upon Devilish Shores",
 			"sunset": "Awake as the Sun Sets",
-			"slitherSucker": "Deities help me, what is that?!"
+			"slitherSucker": "Deities help me, what is that?!",
+			"cursed": "Cursed!"
 		},
 		"changelogChangeType": {
 			"new": "New",
@@ -2160,7 +2161,7 @@
 			"woodenFlute": ["wooden flute", "A simple wooden flute, carved from a wooden pole. When played, it produces a soft, melodic sound."],
 			"rawClayFlute": ["raw clay flute", "An unfired clay flute, shaped and ready to be fired inside a kiln."],
 			"clayFlute": ["clay flute", "A flute made from fired clay. When used, it produces a hollow and somewhat deep melodic sound."],
-			"boneFlute": ["bone flute", "An instrument crafted from a hollowed and carved bone. It produces odd, but alluring notes when played."],
+			"boneFlute": ["bone flute", "An instrument crafted from a hollowed and carved bone with sharpened piece used for the reed. It produces odd, but alluring notes when played."],
 			"tinFlute": ["tin flute", "A flute made from tin, a metal that is soft and malleable. It produces a high-pitched note, definitely causing creatures around you to stir."],
 			"copperFlute": ["copper flute", "A cold-worked copper flute. When played, it produces a clear, resonant sound."],
 			"wroughtIronFlute": ["wrought iron flute", "A simple, but sonorous instrument, forged from wrought iron."],
@@ -3704,7 +3705,8 @@
 			"afflicted": ["Afflicted", "Discovered all statuses.", "Statuses apply stat bonuses based on how threatening they are.{0?\n\n{0}}"],
 			"exsanguinated": ["Exsanguinated", "Avoided bleeding out by the thinnest of margins.", "Enemy attacks no longer deal damage directly, instead applying {*{0}*} damage on each subsequent turn as bleed stacks."],
 			"cursed": ["Cursed", "Reached 100% curse.", "{*+10%*} luck, but start with {*20%*} curse."],
-			"cursebreaker": ["Cursebreaker", "Overcame every curse event.", "Curse events will occur every single night."]
+			"cursebreaker": ["Cursebreaker", "Overcame every curse event.", "Curse events will occur every single night."],
+			"oblivious": ["Oblivious", "Stayed awake for three nights of curse events in a row, each night bearing a curse, but never seeing any of the effects.", "\n- No {$STAT:CURSE}.\n- The time between curse events is more random, and you can go longer periods without seeing an event.\n- Curse events are {*fully*} random — you can receive curse events as if you were at 0% curse, or 100% curse, or anything in between.\n- More total curse events can occur per night.\n"]
 		},
 		"milestoneModifierGroup": {
 			"creatures": "Creatures",
@@ -4767,6 +4769,7 @@
 			"gameTooltipStatCurseFactor": "{0}{1?/{1}: {2??}} from",
 			"gameTooltipStatCurseTotalValues": "= {0}/{1}",
 			"gameTooltipStatCurseTotalLabel": "{0} {$STAT:CURSE:Curse}",
+			"gameTooltipStatCurseDisabled": "Your curse is... different. Less predictable. Less controllable. More {/chaotic/}. And you are {$MILESTONE:OBLIVIOUS:Oblivious} to it.",
 			"gameTooltipMagicCurseDescription": "This magical property is cursed! Its effect is inverted.",
 			"gameStatsStatAttack": "{0}",
 			"gameStatsStatGeneric": "{0}",
