@@ -2863,6 +2863,7 @@
 			"actionContextRested": "rested",
 			"actionContextSlept": "slept",
 			"actionContextTamedCreature": "tamed {0}",
+			"actionContextSurvivedCurseEvent": "survived {0} event",
 			"actionCraftEfficacy": " with {0} efficacy{1??}",
 			"actionCraftEfficacyHigh": "great",
 			"actionCraftEfficacyHighest": "maximum",
@@ -4258,7 +4259,8 @@
 			"event": "Other",
 			"craft": "Crafting",
 			"disassemble": "Disassembling",
-			"dismantle": "Dismantling"
+			"dismantle": "Dismantling",
+			"curseEvent": "Curse Events"
 		},
 		"runekeeperDomainEvent": {
 			"fireSpread": "Spread Fire",
@@ -4359,7 +4361,7 @@
 			"insulationHeat": "heat insulation",
 			"insulationCold": "cold insulation",
 			"luck": ["luck", "lck"],
-			"curse": ["curse", "crs", "As night is struck, strange things begin to occur...\n- Your curse is determined by your hold over the island.\n- During the night, there may be one or more curse events. The greater your curse, the greater the chance of these events.\n- {#--TEXT-PRIMARY:Sleeping can prevent many curse event consequences.}\n- As dawn breaks, the strangeness of events will fade... but any consequences will linger.\n"],
+			"curse": ["curse", "crs", "As night is struck, strange things begin to occur...\n- Your curse is determined by the threat you pose.\n- During the night, there may be one or more curse events. Your curse determines their frequency and intensity.\n- {#--TEXT-PRIMARY:Careful observation and planning will allow you to take advantage of these events, {/even/} unlucky ones.}\n- ...Or you can simply sleep through the strangeness, the consequences never appearing.\n- As dawn breaks, the strangeness of events will fade... but any consequences will linger.\n"],
 			"attackDefenseRow": "attack & defense",
 			"generic": ["other stats", "stats"],
 			"temperature": ["temperature", "tmp", "Your body temperature and its regulation.\n- The temperature is determined by the biome, time of day, whether you are underground, and nearby fire sources.\n- Use {#--TEXT-PRIMARY:Cold Insulation} and {#--TEXT-PRIMARY:Heat Insulation} to reduce the impact of temperature.\n- Uncomfortable temps impact {$STAT:THIRST} and {$STAT:HUNGER} rates.\n- Extreme temps, however, are dangerous. Once {#--COLOR-BAD:{$STATUS:OVERHEATING:hyperthermia}} or {#--COLOR-BAD:{$STATUS:FREEZING:hypothermia}} sets in, you have a chance of {$STATUS:BURNED:burns} or {$STATUS:FROSTBITTEN:frostbite}.\n- Temperature also impacts decay rates — {#--TEXT-PRIMARY:cold slows decay, heat speeds it up}.\n"],
