@@ -2285,7 +2285,10 @@
 			"fullBronzeCage": "{0} containing {1??a creature}",
 			"runeOfEvil": "{0} of {$DEITY:EVIL}",
 			"runeOfChaos": "{0} of {$DEITY:CHAOS}",
-			"runeOfGood": "{0} of {$DEITY:GOOD}"
+			"runeOfGood": "{0} of {$DEITY:GOOD}",
+			"runeOfEvilCursed": "{0} of {$DEITY:EVIL} (resonating)",
+			"runeOfGoodCursed": "{0} of {$DEITY:GOOD} (resonating)",
+			"runeOfChaosCursed": "{0} of {$DEITY:CHAOS} (resonating)"
 		},
 		"itemAffixPreReformat": {
 			"oldInstructionalScroll": "{1?:old }{0}",
@@ -2907,6 +2910,7 @@
 			"actionGatherSlowed": "You hack away at the {0}, but get caught up in it.",
 			"actionInvokeCannotUseSilence": "You cannot invoke {0}, you are met only with silence.",
 			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
+			"actionInvokeChaosCurseEventSpedUp": "Your heartbeat quickens... and you cannot help but think that the same is true for something else.",
 			"actionInvokeEvilCreaturesAttracted": "Chills run down your spine... and you hear the sound of rustling nearby, the area's denizens worked into a frenzy!",
 			"actionInvokeEvilCreaturesNoneSummoned": "Chills run down your spine... but no creatures have been summoned.",
 			"actionInvokeFanaticismPreservedRune": "Due to your fanaticism, {0} did not take the rune.",
@@ -4820,6 +4824,7 @@
 			"gameTooltipStatusMoreInformationRevealedAtSkillThreshold": "More will be revealed at {0} {1} skill...",
 			"gameTooltipStatusLabelCures": "This status can be removed by",
 			"gameTooltipCurseEventCursebearer": "Cursebearer",
+			"gameTooltipCurseEventAlignment": "{0} may bestow runes as this event fades.",
 			"gameTooltipCreatureSubtitle": "{0} Creature",
 			"gameTooltipCreatureColorContext": "{0} Danger",
 			"gameTooltipCreatureLabelTamed": "Tamed",
