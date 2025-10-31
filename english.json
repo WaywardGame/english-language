@@ -1036,11 +1036,11 @@
 			"litWaterStill": "lit water still",
 			"lockedChest": "locked chest",
 			"openFireSource": "open fire source",
-			"requiresCandleToLight": "requires candle to light",
 			"scarecrow": "scarecrow",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow"
+			"wheelbarrow": "wheelbarrow",
+			"unused": "unused"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
@@ -2269,7 +2269,7 @@
 			"bronzePan": ["bronze pan", "A bronze pan, crafted with a durable alloy that is great for baking due to its heat retention and even cooking properties."],
 			"pumpkinPie": ["pumpkin pie", "A delicious pie baked with sugar, milk, eggs, and the star of the show: pumpkin, all in a flakey flour dough crust."],
 			"fruitPie": ["fruit pie", "A delicious pie filled with a mixture of fruit, baked to perfection with a golden crust."],
-			"jackOLantern": ["jack-o'-lantern", "A hollowed, spooky-faced pumpkin. Can be used as a light source when a candle is placed inside and lit. Some believe these carved pumpkins to be capable of warding off evil spirits."],
+			"jackOLantern": ["jack-o'-lantern", "A hollowed, spooky-faced pumpkin. Can be used as a light source when placed on the ground and lit. Some believe these carved pumpkins to be capable of warding off evil spirits."],
 			"driedLeaves": ["dried leaves", "A fistful of dried leaves, brittle to the touch, but useful for tinder or compost."],
 			"last": ["", ""]
 		},
@@ -2909,8 +2909,8 @@
 			"actionGatherNoResourceYet": "You hack away at the {0}, struggling due to your tool and current skill level.",
 			"actionGatherSlowed": "You hack away at the {0}, but get caught up in it.",
 			"actionInvokeCannotUseSilence": "You cannot invoke {0}, you are met only with silence.",
-			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
 			"actionInvokeChaosCurseEventSpedUp": "Your heartbeat quickens... and you cannot help but think that the same is true for something else.",
+			"actionInvokeChaosNoEffect": "You invoke {$DEITY:CHAOS}, but do not notice any effect.",
 			"actionInvokeEvilCreaturesAttracted": "Chills run down your spine... and you hear the sound of rustling nearby, the area's denizens worked into a frenzy!",
 			"actionInvokeEvilCreaturesNoneSummoned": "Chills run down your spine... but no creatures have been summoned.",
 			"actionInvokeFanaticismPreservedRune": "Due to your fanaticism, {0} did not take the rune.",
