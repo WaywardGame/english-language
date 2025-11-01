@@ -1037,10 +1037,10 @@
 			"lockedChest": "locked chest",
 			"openFireSource": "open fire source",
 			"scarecrow": "scarecrow",
+			"unused": "unused",
 			"waterStill": "water still",
 			"well": "well",
-			"wheelbarrow": "wheelbarrow",
-			"unused": "unused"
+			"wheelbarrow": "wheelbarrow"
 		},
 		"drawnMapTheme": {
 			"paper": "Paper",
