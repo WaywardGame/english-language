@@ -5241,6 +5241,7 @@
 			"menuOptionsButtonFullscreen": "Fullscreen",
 			"menuOptionsButtonCustomTitleBar": "Custom Title Bar",
 			"menuOptionsButtonDeveloperMode": "Developer Mode",
+			"menuOptionsButtonDeveloperModeDescription": "{*This can brick saves!*} It's not intended for players or even modders. I hope you know what you're doing!",
 			"menuOptionsButtonReloadGame": "Reload Game",
 			"menuOptionsButtonReloadStylesheets": "Reload Stylesheets",
 			"menuOptionsButtonReloadTextures": "Reload Textures",
