@@ -3709,7 +3709,8 @@
 			"youUnequip": "You unequip {0}.",
 			"youUsed": "You have used {0}!",
 			"youViewTheItemsOn": "You view the items on {0}.",
-			"youWhileTraveling": "You {0...} while traveling."
+			"youWhileTraveling": "You {0...} while traveling.",
+			"actionCraftNoUnderstanding": "You have no understanding on how to craft {0}."
 		},
 		"messagesDefaultFilter": {
 			"all": "All",
