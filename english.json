@@ -161,7 +161,8 @@
 			"excavateCollapse": ["Excavate or Collapse", "excavated or collapsed", "Attempt the excavate or collapse a cave entrance or exit."],
 			"addItemDiscovered": ["Add Item Discovered", "", "", ""],
 			"resetItemDiscovered": ["Reset Item Discovered", "", "", ""],
-			"squish": ["Squish", "squished {TOOL??an item}", "Consumed on use. Squishes the item, causing it to lose its shape and become a puddle of liquid."]
+			"squish": ["Squish", "squished {TOOL??an item}", "Consumed on use. Squishes the item, causing it to lose its shape and become a puddle of liquid."],
+			"removePlayer": ["Remove Player", "removed{TARGET? {TARGET},} a player from the server", ""]
 		},
 		"actionSlotItemMethod": {
 			"none": "",
@@ -4092,6 +4093,8 @@
 			"menuLoadGameDeleteSaves": ["Are you sure you want\nto delete {0} saves?", "{#--COLOR-BAD:There is no undo!}"],
 			"menuLoadGameExportType": "How would you like to export this save?",
 			"menuLoadGameImportSaveFailure": ["Failed to import one or more saves.", "{#--TEXT-SECONDARY:{0?Succeeded\\: {0...}}\n{1...\n}}\n{2?Send us your file and your log!}"],
+			"menuMultiplayerOptionsDeletePlayer": "Are you sure you want to\ndelete '{0}' from the server?\n\n{#--COLOR-BAD:This cannot be undone!}",
+			"menuMultiplayerOptionsDeleteConnectedPlayer": "'{0}' is currently connected.\nThey will be kicked and then deleted.\n\n{#--COLOR-BAD:This cannot be undone!}",
 			"menuLoadGameMissingMod": ["Are you sure you want to load this save?\nMod(s) are missing. This may cause bugs.", "{0?Missing Mods\\: {0...}}\n{1?Disabled Mods\\: {1...}}"],
 			"menuLoadGameOldBuildTime": ["Are you sure you want to load this save?\nYou are loading this save in an old version of the game. This may cause bugs.", "Save build: {0}\nGame build: {1}"],
 			"menuLoadGamePublishError": ["There was an error publishing the\nsave game mod to the workshop.", "{0}"],
@@ -5430,6 +5433,10 @@
 			"menuMultiplayerOptionsCheckConnectionResultWebSocketFail": "{#--COLOR-BAD:Unable to verify connection to port {0}}.",
 			"menuMultiplayerOptionsCheckConnectionResultWebSocketUnavailable": "{#--COLOR-BAD:The WebSocket server is not running}.",
 			"menuMultiplayerOptionsCheckConnectionResultSuccess": "{#--COLOR-GOOD:Good}.",
+			"menuMultiplayerOptionsPlayerManagementHeading": "Player Management",
+			"menuMultiplayerOptionsConnectedPlayersHeading": "Connected Players",
+			"menuMultiplayerOptionsAbsentPlayersHeading": "Absent Players",
+			"menuMultiplayerOptionsDeletePlayerTooltip": "Delete",
 			"menuJoinServerTitle": "Join a Server",
 			"menuJoinServerDescription": "Join a multiplayer server.",
 			"menuJoinServerInputPlaceholder": "Game Code, IP Address, or Hostname",
