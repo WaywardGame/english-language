@@ -4259,7 +4259,9 @@
 				"{ROCK_DISTANCE?{^{#WORDS:{ROCK_DISTANCE}}} {NOUN({ROCK_DISTANCE}):pace} {ROCK_DIRECTION} from {CAVE?rough stone wall:cliffs}}",
 				"{GLACIER_DISTANCE?{^{#WORDS:{GLACIER_DISTANCE}}} {NOUN({GLACIER_DISTANCE}):pace} {GLACIER_DIRECTION} from {CAVE?a sheer ice wall:an icecap}}",
 				"{TREE_DISTANCE?{^{#WORDS:{TREE_DISTANCE}}} {NOUN({TREE_DISTANCE}):pace} {TREE_DIRECTION} from a gnarled trunk}",
-			"{POND_DISTANCE?{^{#WORDS:{POND_DISTANCE}}} {NOUN({POND_DISTANCE}):pace} {POND_DIRECTION} from a pond}"]
+			"{POND_DISTANCE?{^{#WORDS:{POND_DISTANCE}}} {NOUN({POND_DISTANCE}):pace} {POND_DIRECTION} from a pond}"],
+			"drawnMap": ["{@..%\n}", "{CAVE?This map portrays terrain indicative of subterranean caves.}", "{CENTER?It appears to be towards the center of the island.:It appears to be towards the {REGION} of the island.}",
+			"{PLAYER_DISTANCE?It is roughly {#WORDS:{PLAYER_DISTANCE}} {PLURAL({PLAYER_DISTANCE})step} away from your current location.:You are standing on the exact center of the map.}"]
 		},
 		"runekeeperDomain": {
 			"action": "Actions",
