@@ -5009,6 +5009,8 @@
 			"menuMultiplayerButtonNewGame": "New Game",
 			"menuMultiplayerButtonLoadGame": "Load Game",
 			"menuMultiplayerServerTooltipPVP": "PVP",
+			"menuMultiplayerServerTooltipMilestoneModifiersCustom": "Milestone Modifiers: Custom Per Client",
+			"menuMultiplayerServerTooltipMilestoneModifiersInherit": "Milestone Modifiers: Inherit From Host",
 			"menuMultiplayerServerTooltipModsLabel": "Mods: {0}",
 			"menuMultiplayerServerTooltipFriendsLabel": "Friends: {0}",
 			"menuMultiplayerServerPlayers": "Players: {0}/{1}",
