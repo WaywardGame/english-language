@@ -1009,7 +1009,7 @@
 			"clayAltar": ["clay altar", "Shaped from clay bricks, this altar is used to seek deity favor through placed runes."],
 			"skeletalPirateRemains": ["skeletal pirate remains", "A pile of bones that appear to be stirring."],
 			"jackOLantern": ["jack-o'-lantern", "A spooky-faced, hollowed pumpkin, known for warding off evil creatures and curses when lit."],
-			"litJackOLantern": ["lit jack-o'-lantern", "A hollowed-out pumpkin with a candle inside, it's haunting face casting silhouettes on to its surroundings."],
+			"litJackOLantern": ["lit jack-o'-lantern", "A hollowed-out pumpkin with a candle inside, its haunting face casting silhouettes on to its surroundings."],
 			"last": ["", ""]
 		},
 		"doodadExtra": {
@@ -5423,6 +5423,8 @@
 			"menuPauseLabelNotPaused": "Not Paused",
 			"menuModesTitle": "World Options",
 			"menuModesDescription": "Configure game options associated with this save.",
+			"menuGameSettingsCopyGameSeed": "Copy Game Seed",
+			"menuGameSettingsCopyGameSeedTooltip": "Copy the game seed to your clipboard.",
 			"menuMultiplayerOptionsTitle": "Multiplayer",
 			"menuMultiplayerOptionsDescription": "Configure multiplayer settings.",
 			"menuMultiplayerOptionsOpenServer": "Open Server",
