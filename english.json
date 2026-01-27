@@ -3144,7 +3144,7 @@
 			"creatureHappinessNormal": "{#--COLOR-GOOD:contented}",
 			"creatureIdolAttractedCreature": "The creature idol attracted another creature.",
 			"creatureRefusesToBeTamed": "{0} refuses to be tamed!",
-			"creatureRefusesYou": "{0} refuses to change its disposition towards you in this manner.",
+			"creatureRefusesYou": "{0} refuses to change its disposition towards you with words and touch alone.",
 			"creatureUntamed": "{0} has become untamed.",
 			"creatureZoneBiomeChanged": "You feel a sudden shift... In your gut you cannot help but feel that true chaos has occurred.",
 			"creatureZoneLayerChanged": "You feel a sudden shift... as though the world has turned on its head.",
