@@ -3404,7 +3404,7 @@
 			"pickUpTheItem": "pick up the {0?items:item}",
 			"place": "place",
 			"placedItem": "You placed {0} onto {1}.",
-			"placedItemFailed": "You were unable to move {0} into {1}.",
+			"placedItemFailed": "You were unable to place {0} into {1}.",
 			"placedOnGround": "You placed {0} on the ground.",
 			"plantedInGround": "You planted {0} in the ground.",
 			"plantGatheredPlant": "Its main resource must be chopped or gathered.",
