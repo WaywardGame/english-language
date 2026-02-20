@@ -2893,6 +2893,7 @@
 			"actionDisplayItemReturned": "You took {0} off of {1}.",
 			"actionDrinkInFrontNoDrink": "There is nothing to drink here.",
 			"actionDropCannotUseBlocked": "You cannot drop {0}, {1} is in the way.",
+			"actionDropNoRoomTile": "There is no room to drop {0} on to {1} here.",
 			"actionDropCannotUseItemEquipped": "You cannot drop {0}, it is equipped.",
 			"actionDropCannotUseItemProtected": "You cannot drop {0}, it is protected.",
 			"actionDropCannotUseItemProtectedDangerous": "You cannot drop {0}, it is protected and may be lost!",
