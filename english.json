@@ -4919,7 +4919,7 @@
 			"gameActionBarConfigurationDrawerModeUseHovered": "Use Hovered Item",
 			"gameActionBarConfigurationDrawerItemDropdownAny": "Of Any Type",
 			"gameActionBarConfigurationDrawerItemDropdownNoTypeSelected": "No type selected...",
-			"gameActionBarConfigurationDrawerButtonDone": "{0?Done:{1?Skip Choosing an Action:Cancel}}",
+			"gameActionBarConfigurationDrawerButtonDone": "{0?Done:{1?Cancel Configuration:Cancel}}",
 			"gameActionBarConfigurationDrawerButtonCraftType": "Craft Item Type",
 			"gameActionBarSlotTooltipHintUse": "Use Slot: {0}",
 			"gameActionBarSlotTooltipHintConfigure": "Configure Slot: {0}",
