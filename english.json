@@ -664,7 +664,8 @@
 			"cumulativeEvilCrafting": "{#--TEXT-PRIMARY:Crafting} (cumulative)",
 			"modifier": "{#--TEXT-PRIMARY:Gameplay Modifiers}",
 			"cumulativeKilling": "{#--TEXT-PRIMARY:Kills} (cumulative)",
-			"sleeplessness": "{#--TEXT-PRIMARY:Sleeplessness}"
+			"sleeplessness": "{#--TEXT-PRIMARY:Sleeplessness}",
+			"warding": "{#--TEXT-PRIMARY:Warding}"
 		},
 		"curseEvent": {
 			"none": ["Unknown Event", "Something is strange... but you do not yet know what."],
@@ -701,6 +702,7 @@
 			"all crafting recipes are unlocked"],
 			"noCurseEvents": ["{#--TEXT-PRIMARY:No Curse Events}",
 			"disable the {$STAT:CURSE} stat and its random events"],
+			"initialCurse": ["Starting curse", "{#--TEXT-PRIMARY:{+{0}}%}"],
 			"peaceful": "creatures will only ever attack you by random chance, they will never give chase",
 			"fearlessCreatures": ["{#--TEXT-PRIMARY:Fearless Creatures}",
 			"creatures will not run away from the player"],
@@ -998,7 +1000,7 @@
 			"litBronzeWaterStill": ["lit bronze water still", "A lit bronze water still; condensing steam from water, removing salt and other impurities."],
 			"armorStand": ["armor stand", "An erected armor stand for displaying and quickly changing gear."],
 			"graniteAltar": ["granite altar", "A precision-crafted granite table for venerating inscrutable deities."],
-			"woodenWheelbarrow": ["wooden wheelbarrow", "A robust wheelbarrow crafted from wood, making ight work of small cargo loads across varied terrain."],
+			"woodenWheelbarrow": ["wooden wheelbarrow", "A robust wheelbarrow crafted from wood, making light work of small cargo loads across varied terrain."],
 			"tinWheelbarrow": ["tin wheelbarrow", "Swift and nimble, this tin wheelbarrow ensures efficient transport of small loads."],
 			"copperWheelbarrow": ["copper wheelbarrow", "A wheelbarrow with a durable copper build, combining strength and elegance for your hauling needs."],
 			"wroughtIronWheelbarrow": ["wrought iron wheelbarrow", "Sturdy and unyielding, this wrought iron wheelbarrow can save lots of busywork, carrying medium loads with ease."],
@@ -2552,8 +2554,8 @@
 		"magicalPropertyAffix": {
 			"powerAttack": ["{%ferocious:raging:brutal:deadly:savage:vicious:powerful:furious:crushing:piercing:relentless:unstoppable:wrathful:merciless}",
 			"{%destruction:annihilation:obliteration:slaughter:ravaging:devastation:demolition:havoc:shattering:execution}"],
-			"guardingDefense": ["{%protective:defensive:shielding:warding:fortifying:sheltering:sentinel}",
-			"{%defense:protection:shielding:warding:fortification}"],
+			"guardingDefense": ["{%protective:defensive:shielding:fortifying:sheltering:sentinel}",
+			"{%defense:protection:shielding:fortification}"],
 			"illuminationLightItemLightBonus": ["{%illuminating:radiant:brilliant:luminous}",
 			"{%light:illumination:radiance:brilliance:luminance}"],
 			"magnitudeWeightCapacity": ["{%monumental:extensive:spacious:boundless}",
@@ -2613,7 +2615,11 @@
 			"persistenceMaxDurability": ["{%persistent:tenacious:unyielding:unrelenting}",
 			"{%persistence:tenacity}"],
 			"perpetuityDecayLossChance": ["{%perpetual:everlasting:timeless}",
-			"{%perpetuity:everlastingness:timelessness}"]
+			"{%perpetuity:everlastingness:timelessness}"],
+			"fortuneLuck": ["{%fortunate:lucky:blessed:favored}",
+			"{%fortune:luck:blessing:favor}"],
+			"wardingCurseReduction": ["{%warded:sanctified:hallowed}",
+			"{%ward:sanctity:hallowing}"]
 		},
 		"magicalPropertyType": {
 			"powerAttack": ["power", "weakness", "Appears to hit harder than you would expect."],
@@ -2649,7 +2655,9 @@
 			"elementalDamage": ["{0??elemental damage}", "", "The weapon inexplicably radiates {0??an element}, painful to the touch."],
 			"statPotencyEquipmentImproveConsumableStats": ["{0 ??}potency", "{0 ??}dilution", "The quality of your consumables appears to increase."],
 			"persistenceMaxDurability": ["persistence", "impersistence", "An item that is unmatched in lastingness and durability."],
-			"perpetuityDecayLossChance": ["perpetuity", "transience", "Appears to be especially long-lasting and resistant to the element of time."]
+			"perpetuityDecayLossChance": ["perpetuity", "transience", "Appears to be especially long-lasting and resistant to the element of time."],
+			"fortuneLuck": ["fortune", "misfortune", "Fortune seems to favor you while this item is equipped."],
+			"wardingCurseReduction": ["warding", "hexing", "The curse that clings to you is diminished."]
 		},
 		"magicalSubPropertyAffix": {
 			"28(8": ["{%burning:scorching:blazing:fiery:flaming:searing:scalding:incendiary:combustible:pyroclastic}",
