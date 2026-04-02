@@ -3033,6 +3033,7 @@
 			"actionUpgradeUpgraded": "You upgrade {0}. Its magical value has improved!",
 			"actionUseItemWeaponNeeded": "You need a weapon that can fire this projectile!",
 			"actionViewItemsCannotUseBlocked": "You cannot view items here, {0} is in the way.",
+			"actionViewItemsCannotUseDisabled": "You cannot view items, tile containers are disabled in this world.",
 			"addedFuelToFire": "You added {0} to {1}! The fire grows stronger.",
 			"addedFuelToTorch": "You added {0} to {1}.",
 			"allEquipmentUnEquipped": "All equipment has been unequipped.",
