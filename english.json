@@ -4,7 +4,7 @@
 	"dictionaries": {
 		"action": {
 			"disassemble": ["Disassemble", "disassembled{ TARGET??}", "Break the item down back into the parts that were used to craft it."],
-			"pickUp": ["Pick Up {0??Doodad}", "picked up {TARGET??a doodad}", "Pick up a doodad, detaching it from the tile and placing it into your inventory."],
+			"pickUp": ["Pick Up{ 0??}", "picked up {TARGET??a doodad}", "Pick up a doodad, detaching it from the tile and placing it into your inventory."],
 			"throw": ["Throw", "threw {TOOL??an item}", "Toss an item in your facing direction. The damage, range, and stamina usage when throwing are based on multiple factors.\n- The item's weight.\n- Your throwing skill\n- Whether the item has the magical property of \"{$MAGIC:HURLING__THROW_DAMAGE}\"."],
 			"attack": ["Attack", "attacked {TARGET??a creature}{TOOL? with {TOOL}}", "Attempt to melee attack a creature with your currently-equipped weapon, or your hands if nothing is equipped."],
 			"startFire": ["Start Fire", "lit {TARGET??a fire}{TOOL? with {TOOL}}", "Light a fire.\n- Use on campfires, furnaces, etc. to light them.\n- Using this action may require kindling, tinder, and a fuel item in your inventory depending on the circumstance.", "- Increases chance of success.\n- Increases skill gained.\n- Lengthens the time the fire lasts.\n- Decreases stamina used."],
@@ -3751,6 +3751,7 @@
 			"youFailedToHealOther": "You have failed to heal {0} due to lack of skill in {1}.",
 			"youFire": "You fire {0} at a range of {2?{#--COLOR-MAGICAL:{1}}:{1}}.",
 			"youGathered": "You gathered {0}!",
+			"youHarmTheCreatureByStoking": "{0} is harmed by {1} as you unstoke it.",
 			"youHarvested": "You harvested {0}!",
 			"youHave": "You have",
 			"youHaveAlreadyLearned": "You have already learned all you can from {0}.",
@@ -3812,7 +3813,6 @@
 			"youSeeTrampling": "You see {0} trampling {1}.",
 			"youSetTheTrapOff": "You set the trap off.",
 			"youStokeTheCreature": "{0} draws energy from {1} as you stoke it.",
-			"youHarmTheCreatureByStoking": "{0} is harmed by {1} as you unstoke it.",
 			"youSwapMainHandAndOffHand": "You swapped {0?{0} to {1}}{2?, and {2} to {3}}.",
 			"youThrew": "You threw {0} at a range of {2?{#--COLOR-MAGICAL:{1}}:{1}}, costing {2?{#--COLOR-MAGICAL:{3}}:{3}} stamina!",
 			"youTilled": "You tilled the {0}.",
@@ -4814,6 +4814,8 @@
 			"gameTooltipItemUseActionOnConsumeTooltipCurse": "{1} penalty: {0}",
 			"gameTooltipItemUseActionOnConsumeTooltipCurseStat": "{1} penalty: {0} (from {2})",
 			"gameTooltipItemUseActionSharedLabelRequirements": "Requires",
+			"gameTooltipItemUseActionSharedRequirementActionItem": "A Tool to {0}",
+			"gameTooltipDoodadUseRequirementTamedCreature": "Tamed Creature",
 			"gameTooltipItemUseActionDismantleProduces": "Produces",
 			"gameTooltipSharedUseLabelLightSource": "Light Source",
 			"gameTooltipItemUseLabelTelescopy": "Telescopy",
