@@ -437,7 +437,6 @@
 			"menuSelect": "Select",
 			"developerInterfaceScaleUp": "Increase Interface Scale",
 			"developerInterfaceScaleDown": "Decrease Interface Scale",
-			"developerToggleDeveloperMode": "Toggle Developer Mode",
 			"developerToggleDeveloperTools": "Toggle Developer Tools",
 			"developerReloadGame": "Reload Game",
 			"developerReloadWithoutSavingGame": "Reload Without Saving Game",
@@ -765,7 +764,7 @@
 		},
 		"curseSubPropertyAffix": {
 			"5(10": ["{%sickly:ailing:enfeebled:wan}",
-			"{%sickness:ailment:frailty:waning}"],
+			"{%sickness:ailment:feebling:waning}"],
 			"5(9": ["{%weary:tiring:exhausted:spent}",
 			"{%weariness:fatigue:exhaustion}"],
 			"5(8": ["{%hungry:starving:wasting:deficient}",
@@ -1134,7 +1133,7 @@
 			"lockedChest": "locked chest",
 			"openFireSource": "open fire source",
 			"scarecrow": "scarecrow",
-			"unused": "unused",
+			"resetsDecayWhenLit": "resets decay when lit",
 			"waterStill": "water still",
 			"well": "well",
 			"wheelbarrow": "wheelbarrow"
@@ -3362,6 +3361,7 @@
 			"fireOverflowed": "The fire has overflowed and spread unexpectedly.",
 			"fireOverflowedFireElemental": "A fire elemental has risen from the flames.",
 			"fireSource": "A Fire Source",
+			"fireSourceDescription": "This is {0} and can be used for any craft that requires fire.",
 			"fishingWithNoBait": "You attempt to catch the fish without any bait, but it appears uninterested.",
 			"floating": "Floating",
 			"freshWater": "fresh water",
