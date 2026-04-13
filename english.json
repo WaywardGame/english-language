@@ -4845,7 +4845,6 @@
 			"gameTooltipItemLabelDismantleRequirement": "{0? with {0}}:",
 			"gameTooltipItemQuantityMultiplier": "{1} x{0}",
 			"gameTooltipItemUseAttack": "{1?{1} }{0} attack",
-			"gameTooltipItemUseThrowDamage": "{1? }{0} attack",
 			"gameTooltipItemUseCrafting": " crafting effectiveness",
 			"gameTooltipSharedLabelDoodadCraftingBonus": "Crafting Effectiveness",
 			"gameTooltipItemUseOffering": " taming length",
