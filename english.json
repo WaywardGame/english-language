@@ -5559,6 +5559,7 @@
 			"menuMultiplayerOptionsConnectedPlayersHeading": "Connected Players",
 			"menuMultiplayerOptionsAbsentPlayersHeading": "Absent Players",
 			"menuMultiplayerOptionsDeletePlayerTooltip": "Delete",
+			"menuMultiplayerOptionsCopyPlayerInfoTooltip": "Copy Player Name & Identifier",
 			"menuJoinServerTitle": "Join a Server",
 			"menuJoinServerDescription": "Join a multiplayer server.",
 			"menuJoinServerInputPlaceholder": "Game Code, IP Address, or Hostname",
